@@ -79,5 +79,7 @@ groups:
     - {name: Corn,    ticker: "ZC=F", proxy: CORN}
     - {name: Wheat,   ticker: "ZW=F", proxy: WEAT}
     - {name: Sugar,   ticker: "SB=F", proxy: CANE}
-    - {name: Coffee,  ticker: "KC=F", proxy: JO}
+    # Coffee 原本用 JO (iPath 咖啡 ETN) 當金額基準，該檔已下市，
+    # 沒有替代的咖啡 ETF，所以這一列只有 % 變化、沒有金額。
+    - {name: Coffee,  ticker: "KC=F"}
     - {name: Cocoa,   ticker: "CC=F"}

@@ -313,7 +313,7 @@ def build_themes(as_of: date) -> tuple[list[dict], list[dict], dict]:
             "name": f["name"], "stocks": rows,
             "avg": round(st.mean(chgs), 6) if chgs else None,
         })
-    return themes, frontier
+    return themes, frontier, _price_window(px, as_of)
 
 
 # ── Step 3：背離雷達 ─────────────────────────────────────────────────
