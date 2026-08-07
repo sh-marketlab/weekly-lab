@@ -1,0 +1,64 @@
+name: weekly-lab
+
+on:
+  schedule:
+    # 台灣週五 07:00 = 週四 23:00 UTC → 抓美股週四收盤（Step 1 + 2）
+    # Fed H.4.1 於週四 16:30 ET 發布，這裡留了約 2.5 小時給 FRED 收錄。
+    - cron: "0 23 * * 4"
+    # 台灣週六 07:00 = 週五 23:00 UTC → 抓美股週五收盤（Step 3 完整週）
+    - cron: "0 23 * * 5"
+    # 台灣週二 07:00 = 週一 23:00 UTC → 抓美股週一收盤，自動批改上週的預測（Step 5）
+    - cron: "0 23 * * 1"
+  workflow_dispatch:
+    inputs:
+      stage:
+        description: "thu / fri / mon"
+        required: true
+        default: fri
+      as_of:
+        description: "YYYY-MM-DD（補跑用，留空則自動推算）"
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: 決定 stage
+        id: s
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "stage=${{ inputs.stage }}" >> $GITHUB_OUTPUT
+            echo "asof=${{ inputs.as_of }}" >> $GITHUB_OUTPUT
+          else
+            case "$(date -u +%u)" in
+              1) echo "stage=mon" >> $GITHUB_OUTPUT ;;
+              4) echo "stage=thu" >> $GITHUB_OUTPUT ;;
+              *) echo "stage=fri" >> $GITHUB_OUTPUT ;;
+            esac
+          fi
+
+      - name: 建置週快照
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: |
+          ARGS="--stage ${{ steps.s.outputs.stage }}"
+          [ -n "${{ steps.s.outputs.asof }}" ] && ARGS="$ARGS --as-of ${{ steps.s.outputs.asof }}"
+          python src/build.py $ARGS
+
+      - name: 提交
+        run: |
+          git config user.name  "weekly-lab-bot"
+          git config user.email "actions@github.com"
+          git add data/weekly data/predictions.json docs/latest.json docs/index_weeks.json
+          git diff --staged --quiet || git commit -m "週快照 ${{ steps.s.outputs.stage }} $(date -u +%F)"
+          git push

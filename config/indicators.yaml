@@ -1,0 +1,209 @@
+# 17 項總體指標定義
+#
+# source 型別：
+#   fred    -> series: FRED series id
+#   yahoo   -> ticker: Yahoo Finance 代號
+#   cnn_fg  -> CNN Fear & Greed（非官方 JSON endpoint）
+#   derived -> 由其他指標計算
+#   manual  -> 由 data/manual_input.json 讀取（無穩定免費來源）
+#
+# up_bias：這個指標「上升」在你的框架裡代表什麼
+#   loosen(放水) / tighten(抽水) / risk_on(風險偏好升) / risk_off(避險升)
+#   expand(擴張) / contract(緊縮)
+#
+# freq：weekly 每週都會動；monthly 月更（Delta 用「最新 vs 前一筆」而非強制週比較）
+
+indicators:
+  - id: 1
+    name: Fed 總資產負債表
+    axis: liquidity
+    source: {type: fred, series: WALCL}
+    unit: 百萬美元
+    freq: weekly
+    up_bias: loosen
+    up_label: 增加（擴表/放水）
+    down_label: 減少（縮表/抽水）
+    note: 是否在秘密縮表/擴表
+    release: 每週四 16:30 ET（H.4.1），資料日為當週三
+
+  - id: 2
+    name: TGA 財政部一般帳戶
+    axis: liquidity
+    source: {type: fred, series: WDTGAL}
+    unit: 百萬美元
+    freq: weekly
+    up_bias: tighten
+    up_label: 增加（抽水）
+    down_label: 減少（放水）
+    note: 政府在回收/放出市場資金
+    alt_source: FiscalData daily operating cash balance（若要日頻可換）
+
+  - id: 3
+    name: ON RRP 隔夜逆回購
+    axis: liquidity
+    source: {type: fred, series: RRPONTSYD}
+    unit: 十億美元
+    freq: daily
+    up_bias: tighten
+    up_label: 增加（抽水）
+    down_label: 減少（放水）
+    note: 貨幣市場資金是否在釋放
+
+  - id: 4
+    name: 淨流動性 (資產-TGA-RRP)
+    axis: liquidity
+    source: {type: derived, formula: net_liquidity}
+    unit: 百萬美元
+    freq: weekly
+    up_bias: loosen
+    up_label: 上升
+    down_label: 下降
+    note: 真正的市場總血量（三者一律對齊到同一個週三）
+
+  - id: 5
+    name: HY OAS 高收益債利差
+    axis: credit
+    source: {type: fred, series: BAMLH0A0HYM2}
+    unit: "%"
+    freq: daily
+    up_bias: risk_off
+    up_label: 擴大（風險升）
+    down_label: 收窄（安全）
+    note: Smart Money 看到的真實企業違約率
+
+  - id: 6
+    name: SOFR
+    axis: funding
+    source: {type: fred, series: SOFR}
+    unit: "%"
+    freq: daily
+    up_bias: tighten
+    up_label: 上升（緊縮）
+    down_label: 下降（寬鬆）
+    note: 隔夜融資市場的實際資金成本
+
+  - id: 7
+    name: 2 年期美債殖利率
+    axis: rates
+    source: {type: fred, series: DGS2}
+    unit: "%"
+    freq: daily
+    up_bias: tighten
+    up_label: 上升（緊縮）
+    down_label: 下降（寬鬆）
+    note: 市場對 Fed 近期利率路徑的真實定價
+
+  - id: 8
+    name: DXY 美元指數
+    axis: fx
+    source: {type: yahoo, ticker: "DX-Y.NYB"}
+    unit: index
+    freq: daily
+    up_bias: tighten
+    up_label: 上升（全球抽水/資金回流）
+    down_label: 下降（全球放水）
+    note: 全球美元流動性總閥門
+    fallback: {type: fred, series: DTWEXBGS}   # 廣義美元指數，定義不同，僅作備援
+
+  - id: 9
+    name: 10Y / 2Y 利差
+    axis: rates
+    source: {type: fred, series: T10Y2Y}
+    unit: "%"
+    freq: daily
+    up_bias: expand
+    up_label: 擴大/陡峭化
+    down_label: 縮小/平坦化
+    note: 衰退預警與長短期資金成本結構
+
+  - id: 10
+    name: 美國主權 CDS (5Y)
+    axis: credit
+    source: {type: manual, key: sovereign_cds}
+    unit: bp
+    freq: weekly
+    up_bias: risk_off
+    up_label: 上升（信用風險）
+    down_label: 下降（風險偏好）
+    note: 對美國主權違約風險的即時定價
+    manual_url: https://www.worldgovernmentbonds.com/sovereign-cds/
+
+  - id: 11
+    name: CNN Fear & Greed
+    axis: sentiment
+    source: {type: cnn_fg}
+    unit: index
+    freq: daily
+    up_bias: risk_on
+    up_label: 上升（貪婪/過熱）
+    down_label: 下降（恐慌/超賣）
+    note: 市場情緒擺盪
+
+  - id: 12
+    name: VIX
+    axis: sentiment
+    source: {type: fred, series: VIXCLS}
+    unit: index
+    freq: daily
+    up_bias: risk_off
+    up_label: 上升（股市恐慌）
+    down_label: 下降（情緒穩定）
+    note: 股市選擇權隱含波動度
+
+  - id: 13
+    name: MOVE 指數
+    axis: sentiment
+    source: {type: yahoo, ticker: "^MOVE"}
+    unit: index
+    freq: daily
+    up_bias: risk_off
+    up_label: 上升（債市動盪）
+    down_label: 下降（債市穩定）
+    note: 美債波動度，金融體系底層資產穩定度
+    manual_fallback: move_index          # Yahoo 抓不到時退回手動
+    manual_url: https://www.investing.com/indices/ice-bofaml-move
+
+  - id: 14
+    name: Manufacturing PMI
+    axis: macro
+    source: {type: manual, key: manufacturing_pmi}
+    unit: index
+    freq: monthly
+    up_bias: expand
+    up_label: 上升（>50 擴張）
+    down_label: 下降（<50 緊縮）
+    note: 製造業基本面與資本支出意願
+    manual_url: https://hk.investing.com/economic-calendar/manufacturing-pmi-829
+
+  - id: 15
+    name: Initial Jobless Claims
+    axis: macro
+    source: {type: fred, series: ICSA}
+    unit: 人
+    freq: weekly
+    up_bias: contract
+    up_label: 上升（勞動市場降溫）
+    down_label: 下降（勞動市場強勁）
+    note: 就業彈性與消費端衰退指標
+
+  - id: 16
+    name: Michigan Consumer Sentiment
+    axis: macro
+    source: {type: fred, series: UMCSENT}
+    unit: index
+    freq: monthly
+    up_bias: expand
+    up_label: 上升（消費意願強）
+    down_label: 下降（消費信心受挫）
+    note: 終端消費信心前瞻指標
+
+  - id: 17
+    name: Inflation Rate (CPI YoY)
+    axis: macro
+    source: {type: fred, series: CPIAUCSL, transform: yoy_pct}
+    unit: "%"
+    freq: monthly
+    up_bias: tighten
+    up_label: 上升（通膨加溫）
+    down_label: 下降（通膨降溫）
+    note: Fed 政策轉向的核心約束

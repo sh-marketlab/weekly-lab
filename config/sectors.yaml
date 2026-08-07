@@ -1,0 +1,73 @@
+# 第 2 項：跨資產板塊週變化（對應 Finviz futures map 的欄位）
+#
+# 重要：期貨/指數「沒有市值」，所以這一層不做「金額」計算，只做 % 變化 +
+# 板塊間的相對強弱排序。真正的金額計算放在 themes.yaml（個股層，有真市值）。
+# 若要看資金「進出」而非「漲跌」，用 flow_proxy 的 ETF 份額變化（見 README）。
+
+groups:
+  原物料:
+    - {name: Gold,       ticker: "GC=F"}
+    - {name: Silver,     ticker: "SI=F"}
+    - {name: Copper,     ticker: "HG=F", note: 銅博士，工業活力領先指標}
+    - {name: Palladium,  ticker: "PA=F"}
+    - {name: Platinum,   ticker: "PL=F"}
+
+  股票:
+    - {name: S&P 500,       ticker: "^GSPC",     flow_proxy: SPY}
+    - {name: Nasdaq 100,    ticker: "^NDX",      flow_proxy: QQQ}
+    - {name: Russell 2000,  ticker: "^RUT",      flow_proxy: IWM}
+    - {name: DJIA,          ticker: "^DJI",      flow_proxy: DIA}
+    - {name: Euro Stoxx 50, ticker: "^STOXX50E", flow_proxy: FEZ}
+    - {name: DAX,           ticker: "^GDAXI",    flow_proxy: EWG}
+    - {name: Nikkei 225,    ticker: "^N225",     flow_proxy: EWJ}
+
+  # 注意：這裡是「債券期貨價格」的週變化，不是殖利率。
+  # 期貨價漲 = 殖利率跌。與 Step 1 的 #7 / #9（殖利率）方向相反，別看反了。
+  債券:
+    - {name: 30Y T-Bond, ticker: "ZB=F"}
+    - {name: 10Y T-Note, ticker: "ZN=F"}
+    - {name: 5Y T-Note,  ticker: "ZF=F"}
+    - {name: 2Y T-Note,  ticker: "ZT=F"}
+
+  # Finviz 的 REIT 產業分類沒有對應的單一報價，改用「等權個股籃子」還原，
+  # 好處是完全透明、可回溯、而且這些成分股本來就有市值可以算金額。
+  不動產REITs:
+    - {name: IT & Telecom, basket: [AMT, CCI, EQIX, DLR, SBAC]}
+    - {name: Warehousing,  basket: [PLD, PSA, EXR, FR]}
+    - {name: Healthcare,   basket: [WELL, VTR, OHI, DOC]}
+    - {name: Housing,      basket: [AVB, EQR, MAA, INVH]}
+    - {name: Retail,       basket: [SPG, O, KIM, REG]}
+    - {name: Tourism,      basket: [HST, PK, RHP, APLE]}
+    - {name: Office,       basket: [BXP, VNO, SLG, KRC]}
+
+  加密幣:
+    - {name: BTC, ticker: "BTC-USD"}
+    - {name: ETH, ticker: "ETH-USD"}
+
+  # 一律用「該貨幣兌美元」的期貨，方向與 Finviz 一致：
+  # 數字為正 = 該貨幣升值 = 美元走弱
+  貨幣:
+    - {name: USD, ticker: "DX-Y.NYB", note: 方向相反，正值代表美元升}
+    - {name: EUR, ticker: "6E=F"}
+    - {name: JPY, ticker: "6J=F"}
+    - {name: GBP, ticker: "6B=F"}
+    - {name: CAD, ticker: "6C=F"}
+    - {name: CHF, ticker: "6S=F"}
+    - {name: NZD, ticker: "6N=F"}
+    - {name: AUD, ticker: "6A=F"}
+
+  能源:
+    - {name: Crude Oil WTI,   ticker: "CL=F", note: 北美供需與美國本土經濟熱度}
+    - {name: Crude Oil Brent, ticker: "BZ=F", note: 全球需求、地緣風險與 OPEC+ 政策}
+    - {name: Natural Gas,     ticker: "NG=F"}
+    - {name: Heating Oil,     ticker: "HO=F", note: 柴油/物流/冬季供暖}
+    - {name: Gasoline RBOB,   ticker: "RB=F", note: 終端出行與零售通膨}
+    # Ethanol 無穩定的公開報價來源，若要看可用玉米(ZC=F)當代理
+
+  穀物:
+    - {name: Soybean, ticker: "ZS=F"}
+    - {name: Corn,    ticker: "ZC=F"}
+    - {name: Wheat,   ticker: "ZW=F"}
+    - {name: Sugar,   ticker: "SB=F"}
+    - {name: Coffee,  ticker: "KC=F"}
+    - {name: Cocoa,   ticker: "CC=F"}

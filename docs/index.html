@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>每週練習台 · 資金流向與板塊輪動</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#0A1018; --panel:#101A26; --panel-2:#0D151F; --hair:#1E2C3E;
+  --ink:#DCE6F2; --muted:#6F8299; --dim:#4A5B71;
+  --loosen:#2FBFA0; --tighten:#E0A03C;
+  --riskon:#4C9BE8; --riskoff:#E4586B;
+  --accent:#7DD3C0;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --sans:'IBM Plex Sans','Noto Sans TC',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+  font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 80px}
+a{color:var(--accent)}
+
+.eyebrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+.eyebrow b{color:var(--accent);font-weight:600}
+h1{font-size:26px;font-weight:600;letter-spacing:-.01em;margin:0 0 4px}
+.sub{color:var(--muted);font-size:13px;margin-bottom:26px}
+.badge{font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:2px 7px;
+  border:1px solid var(--hair);border-radius:3px;color:var(--muted)}
+.badge.warn{border-color:var(--tighten);color:var(--tighten)}
+.badge.act{border-color:var(--accent);color:var(--accent)}
+
+.meter{background:var(--panel);border:1px solid var(--hair);border-radius:6px;
+  padding:22px 24px 18px;margin-bottom:20px}
+.meter-head{display:flex;justify-content:space-between;align-items:baseline;
+  flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.meter-title{font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted)}
+.meter-net{font-family:var(--mono);font-size:30px;font-weight:600;letter-spacing:-.02em}
+.meter-net small{font-size:12px;letter-spacing:.1em;font-weight:400;
+  margin-left:9px;color:var(--muted)}
+.flowbars{display:grid;gap:11px}
+.flowrow{display:grid;grid-template-columns:104px 1fr 118px;align-items:center;gap:14px}
+.flowrow .lbl{font-size:12px;color:var(--muted)}
+.track{position:relative;height:9px;background:var(--panel-2);border-radius:5px;
+  border:1px solid var(--hair)}
+.track .mid{position:absolute;left:50%;top:-4px;bottom:-4px;width:1px;background:var(--hair)}
+.track .fill{position:absolute;top:0;bottom:0;border-radius:5px;
+  transition:width .5s cubic-bezier(.2,.7,.3,1)}
+.flowrow .val{font-family:var(--mono);font-size:13px;text-align:right}
+.meter-note{margin-top:16px;padding-top:14px;border-top:1px solid var(--hair);
+  font-family:var(--mono);font-size:11.5px;color:var(--dim);letter-spacing:.02em}
+
+.radar{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:10px;margin-bottom:24px}
+.dv{background:var(--panel-2);border:1px solid var(--hair);border-radius:5px;
+  padding:12px 13px}
+.dv .code{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--dim)}
+.dv .t{font-size:12.5px;font-weight:500;margin:4px 0 6px;line-height:1.4}
+.dv .ev{font-family:var(--mono);font-size:10.5px;color:var(--dim);line-height:1.7}
+.dv.on{border-color:var(--riskoff);background:linear-gradient(180deg,rgba(228,88,107,.11),transparent)}
+.dv.on .code{color:var(--riskoff)}
+.dv.na{opacity:.42}
+
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--hair);margin-bottom:20px;
+  overflow-x:auto}
+.tab{background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);
+  font-family:var(--mono);font-size:12px;letter-spacing:.1em;padding:9px 16px;
+  cursor:pointer;font-weight:500;white-space:nowrap}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+.panel[hidden]{display:none}
+
+.ind{display:grid;grid-template-columns:26px minmax(150px,1.3fr) 104px 92px 130px 1fr;
+  gap:12px;align-items:center;padding:11px 12px;border-bottom:1px solid var(--hair)}
+.ind:hover{background:var(--panel-2)}
+.ind.hdr{font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dim)}
+.ind.hdr:hover{background:none}
+.ind .n{font-family:var(--mono);font-size:11px;color:var(--dim)}
+.ind .nm{font-size:13px}
+.ind .nm i{display:block;font-style:normal;font-size:10.5px;color:var(--dim);
+  font-family:var(--mono);margin-top:2px}
+.num{font-family:var(--mono);font-size:13px;text-align:right}
+.dl{font-family:var(--mono);font-size:12px;text-align:right}
+.rail{position:relative;height:5px;background:var(--panel-2);border-radius:3px;
+  border:1px solid var(--hair)}
+.rail span{position:absolute;top:-1px;bottom:-1px;border-radius:3px}
+.vd{font-size:11.5px;color:var(--muted)}
+.stale{font-family:var(--mono);font-size:9.5px;color:var(--tighten);
+  border:1px solid var(--tighten);border-radius:2px;padding:0 4px;margin-left:6px}
+
+.grp{margin-bottom:26px}
+.grp>h3{font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 10px;
+  padding-bottom:7px;border-bottom:1px solid var(--hair);
+  display:flex;justify-content:space-between}
+.grp>h3 em{font-style:normal;color:var(--dim)}
+.bar{display:grid;grid-template-columns:minmax(120px,1fr) 1fr 74px;gap:12px;
+  align-items:center;padding:6px 0}
+.bar .nm2{font-size:12.5px}
+.bar .nm2 u{text-decoration:none;color:var(--dim);font-family:var(--mono);font-size:10px}
+.bar .num{font-size:12px}
+.bt{position:relative;height:14px}
+.bt .mid{position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--hair)}
+.bt span{position:absolute;top:3px;height:8px;border-radius:2px;
+  transition:width .5s cubic-bezier(.2,.7,.3,1)}
+
+.tcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px}
+.tc{background:var(--panel);border:1px solid var(--hair);border-radius:6px;padding:15px 16px}
+.tc h4{margin:0;font-size:14px;font-weight:600}
+.tc .zh{font-size:11.5px;color:var(--muted);margin:2px 0 12px}
+.tc .kpi{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:11px}
+.tc .kpi div{background:var(--panel-2);border:1px solid var(--hair);
+  border-radius:4px;padding:8px 10px}
+.tc .kpi u{display:block;text-decoration:none;font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--dim);margin-bottom:3px}
+.tc .kpi b{font-family:var(--mono);font-size:15px;font-weight:600}
+.gapbar{height:5px;background:var(--panel-2);border:1px solid var(--hair);
+  border-radius:3px;position:relative;margin:2px 0 11px}
+.gapbar .mid{position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--hair)}
+.gapbar span{position:absolute;top:0;bottom:0;border-radius:3px}
+.tc details summary{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--dim);cursor:pointer;padding:5px 0}
+.tc details summary:hover{color:var(--ink)}
+.stk{display:grid;grid-template-columns:58px 1fr 56px 74px;gap:8px;
+  padding:4px 0;font-family:var(--mono);font-size:11.5px;align-items:center}
+.stk .tk{font-weight:500}
+.stk .tier{font-size:9px;letter-spacing:.1em;color:var(--dim)}
+
+.sec{background:var(--panel);border:1px solid var(--hair);border-radius:6px;
+  padding:18px 20px;margin-bottom:18px}
+.sec>h3{font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 4px}
+.sec>p.hint{color:var(--muted);font-size:12.5px;margin:0 0 16px}
+.sec code{font-family:var(--mono);font-size:11.5px;color:var(--ink);
+  background:var(--panel-2);padding:1px 5px;border-radius:3px}
+.mrow{display:grid;grid-template-columns:minmax(150px,1.4fr) 110px 128px 110px auto;
+  gap:10px;align-items:center;padding:10px 0;border-top:1px solid var(--hair)}
+.mrow .who{font-size:13px}
+.mrow .who i{display:block;font-style:normal;font-family:var(--mono);font-size:10px;
+  color:var(--dim);margin-top:2px}
+.mrow .last{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right}
+input,select{background:var(--panel-2);border:1px solid var(--hair);
+  color:var(--ink);font-family:var(--mono);font-size:12px;border-radius:4px;
+  padding:6px 8px;width:100%}
+input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
+button.btn{background:var(--panel-2);border:1px solid var(--hair);color:var(--ink);
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;border-radius:4px;
+  padding:7px 12px;cursor:pointer;white-space:nowrap}
+button.btn:hover{border-color:var(--accent);color:var(--accent)}
+button.btn.solid{background:var(--accent);color:#06120F;border-color:var(--accent);font-weight:600}
+button.btn.ghost{border-color:transparent;color:var(--dim);padding:4px 6px}
+button.btn.ghost:hover{color:var(--riskoff)}
+a.btn{text-decoration:none;display:inline-block}
+.actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px;
+  padding-top:14px;border-top:1px solid var(--hair)}
+pre.out{background:var(--panel-2);border:1px solid var(--hair);border-radius:4px;
+  padding:12px;font-family:var(--mono);font-size:11px;line-height:1.65;
+  max-height:300px;overflow:auto;margin:12px 0 0;white-space:pre-wrap;color:var(--muted)}
+.uni{border-top:1px solid var(--hair);padding:13px 0}
+.uni h5{margin:0 0 8px;font-size:13px;font-weight:600}
+.uni h5 em{font-style:normal;font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;color:var(--dim);margin-left:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:7px}
+.chip{display:inline-flex;align-items:center;gap:5px;background:var(--panel-2);
+  border:1px solid var(--hair);border-radius:3px;padding:3px 5px 3px 8px;
+  font-family:var(--mono);font-size:11.5px}
+.chip.lead{border-color:var(--accent);color:var(--accent)}
+.chip b{font-weight:500}
+.chip button{background:none;border:0;color:var(--dim);cursor:pointer;
+  font-size:13px;line-height:1;padding:0 2px}
+.chip button:hover{color:var(--riskoff)}
+.addbox{display:flex;gap:6px;align-items:center}
+.addbox input{width:112px}
+.addbox select{width:98px}
+.tag{font-family:var(--mono);font-size:10px;color:var(--dim)}
+
+textarea{background:var(--panel-2);border:1px solid var(--hair);color:var(--ink);
+  font-family:var(--sans);font-size:12.5px;border-radius:4px;padding:8px 10px;
+  width:100%;resize:vertical;min-height:52px;line-height:1.5}
+textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+.prow{display:grid;grid-template-columns:1fr 150px 104px;gap:10px;align-items:center;
+  padding:14px 0 6px;border-top:1px solid var(--hair)}
+.prow .pq{font-size:13px;font-weight:500}
+.prow .pq i{display:block;font-style:normal;font-family:var(--mono);font-size:10px;
+  color:var(--dim);margin-top:2px;font-weight:400}
+.grow{display:grid;grid-template-columns:1fr 128px 128px 74px;gap:10px;align-items:center;
+  padding:11px 0;border-top:1px solid var(--hair)}
+.grow .gq{font-size:13px}
+.grow .gv{font-family:var(--mono);font-size:12px;text-align:center;
+  background:var(--panel-2);border:1px solid var(--hair);border-radius:3px;padding:5px 6px}
+.vb{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-align:center;
+  border-radius:3px;padding:4px 6px;border:1px solid}
+.vb.ok{color:var(--loosen);border-color:var(--loosen)}
+.vb.no{color:var(--riskoff);border-color:var(--riskoff)}
+.vb.man{color:var(--dim);border-color:var(--hair)}
+.gfix{display:grid;grid-template-columns:200px 1fr;gap:10px;padding:0 0 12px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:10px;margin-bottom:18px}
+.kpis div{background:var(--panel-2);border:1px solid var(--hair);border-radius:5px;
+  padding:12px 14px}
+.kpis u{display:block;text-decoration:none;font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--dim);margin-bottom:4px}
+.kpis b{font-family:var(--mono);font-size:22px;font-weight:600}
+.kpis em{font-style:normal;font-size:11px;color:var(--dim);display:block;margin-top:3px}
+.sbar{display:grid;grid-template-columns:minmax(96px,1fr) 1fr 78px;gap:12px;
+  align-items:center;padding:6px 0}
+.sbar .sl{font-size:12.5px}
+.sbar .st{height:9px;background:var(--panel-2);border:1px solid var(--hair);
+  border-radius:5px;position:relative;overflow:hidden}
+.sbar .st span{position:absolute;left:0;top:0;bottom:0;border-radius:5px;
+  transition:width .5s cubic-bezier(.2,.7,.3,1)}
+.sbar .sn{font-family:var(--mono);font-size:11.5px;text-align:right}
+.cal{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:11.5px}
+.cal th{text-align:right;font-weight:500;font-size:9.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--dim);padding:6px 8px;border-bottom:1px solid var(--hair)}
+.cal th:first-child,.cal td:first-child{text-align:left}
+.cal td{padding:7px 8px;border-bottom:1px solid var(--hair)}
+.subh{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin:22px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--hair)}
+
+.up{color:var(--loosen)} .down{color:var(--riskoff)} .flat{color:var(--muted)}
+.foot{margin-top:44px;padding-top:18px;border-top:1px solid var(--hair);
+  font-family:var(--mono);font-size:10.5px;color:var(--dim);line-height:1.9}
+@media (max-width:760px){
+  .ind{grid-template-columns:22px 1fr 90px;row-gap:6px}
+  .ind .rail,.ind .vd,.ind.hdr .rail,.ind.hdr .vd{display:none}
+  .flowrow{grid-template-columns:82px 1fr 96px}
+  .mrow{grid-template-columns:1fr 1fr;row-gap:8px}
+  .prow{grid-template-columns:1fr 1fr;row-gap:8px}
+  .grow{grid-template-columns:1fr 1fr;row-gap:8px}
+  .gfix{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">
+    <span>每週練習台</span><b id="wk">—</b><span id="asof">—</span>
+    <span class="badge" id="stagebadge">—</span><span id="samp"></span>
+  </div>
+  <h1>看方向 → 看板塊 → 看個股</h1>
+  <p class="sub">資料層自動產出，判斷層留給你。週五看水管與板塊，週六看主題輪動與背離，週末推演，週一批改。</p>
+
+  <section class="meter">
+    <div class="meter-head">
+      <span class="meter-title">本週淨血量 · Fed 資產 − TGA − ON RRP</span>
+      <span class="meter-net" id="netv">—</span>
+    </div>
+    <div class="flowbars" id="flows"></div>
+    <div class="meter-note" id="bloodnote"></div>
+  </section>
+
+  <div class="radar" id="radar"></div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true"  data-p="p1">01 · 水管</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="p2">02 · 板塊</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="p3">03 · 主題</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="p5">04 · 預測與批改</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="p4">05 · 設定與手填</button>
+  </div>
+
+  <section class="panel" id="p1">
+    <div class="ind hdr">
+      <span>#</span><span>指標</span><span class="num">本期</span>
+      <span class="dl">Δ</span><span>位移</span><span>解讀</span>
+    </div>
+    <div id="macro"></div>
+  </section>
+
+  <section class="panel" id="p2" hidden><div id="sectors"></div></section>
+
+  <section class="panel" id="p3" hidden>
+    <div class="tcards" id="themes"></div>
+    <h3 style="font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+      text-transform:uppercase;color:var(--muted);margin:30px 0 12px;
+      padding-bottom:7px;border-bottom:1px solid var(--hair)">Frontier Tech Watchlist</h3>
+    <div class="tcards" id="frontier"></div>
+  </section>
+
+  <section class="panel" id="p5" hidden>
+
+    <div class="sec">
+      <h3>Step 4 · 本週預測 <span id="predWk" class="tag"></span></h3>
+      <p class="hint">週末填。理由欄位比選項重要——週一批改時，判斷「理由對不對」才是這套練習的重點；
+        結果對但理由錯要標成 <b>對但理由錯（運氣）</b>，那比單純看錯更危險，因為會被誤記成能力。
+        填完按「產生 JSON」貼回 <code>data/predictions.json</code>。</p>
+      <div id="predForm"></div>
+      <div style="margin-top:16px">
+        <div class="subh" style="margin-top:6px">大魔王意圖推論</div>
+        <textarea id="hypo" placeholder="如果我是頂層資本，我這個週末會用什麼新聞收割？散戶現在最貪婪／最恐懼什麼？"></textarea>
+      </div>
+      <div class="actions">
+        <button class="btn solid" onclick="genPred()">產生 JSON</button>
+        <button class="btn" onclick="copyOut(event,'outPred')">複製</button>
+        <a class="btn" id="lnkPred" href="#" target="_blank" rel="noopener">在 GitHub 編輯此檔 ↗</a>
+        <button class="btn ghost" onclick="clearDraft('wl.pred')">清除本機草稿</button>
+        <span class="tag" id="pdraft"></span>
+      </div>
+      <pre class="out" id="outPred">按「產生 JSON」後顯示。</pre>
+    </div>
+
+    <div class="sec">
+      <h3>Step 5 · 批改 <span id="gradeWk" class="tag"></span></h3>
+      <p class="hint">可觀測的欄位由週二早上的排程自動判定（拿掉事後合理化的空間）。
+        敘事型欄位「背離是否兌現」「大魔王意圖」機器判不了，你自己標。
+        判錯的要選誤差類型，累積後才看得出系統性偏誤在哪。</p>
+      <div id="gradeBody"><p class="tag">還沒有已批改的紀錄。</p></div>
+    </div>
+
+    <div class="sec">
+      <h3>累積統計</h3>
+      <p class="hint">命中率只是入場券。真正要看的是<b>校準</b>（你說 5 分把握時真的對 100% 嗎）
+        和<b>誤差類型分布</b>（你總是在同一個地方摔倒嗎）。</p>
+      <div class="kpis" id="statKpi"></div>
+      <div class="subh">各欄位命中率</div><div id="statSlots"></div>
+      <div class="subh">信心校準</div><div id="statCal"></div>
+      <div class="subh">誤差類型分布</div><div id="statErr"></div>
+    </div>
+
+  </section>
+
+  <section class="panel" id="p4" hidden>
+
+    <div class="sec">
+      <h3>手動指標輸入</h3>
+      <p class="hint">這幾項沒有可靠的免費 API（主權 CDS、PMI），或只有不穩定的非官方端點（MOVE、Fear&amp;Greed）當備援。
+        填完按「產生 JSON」，貼回 <code>data/manual_input.json</code>，下次排程就會納入計算。
+        填的值先存在這台裝置的瀏覽器，讓你立刻看到——但沒貼回 repo 就不會進到週快照。</p>
+      <div id="mslots"></div>
+      <div class="actions">
+        <button class="btn solid" onclick="genManual()">產生 JSON</button>
+        <button class="btn" onclick="copyOut(event,'outManual')">複製</button>
+        <a class="btn" id="lnkManual" href="#" target="_blank" rel="noopener">在 GitHub 編輯此檔 ↗</a>
+        <button class="btn ghost" onclick="clearDraft('wl.manual')">清除本機草稿</button>
+        <span class="tag" id="mdraft"></span>
+      </div>
+      <pre class="out" id="outManual">按「產生 JSON」後顯示。</pre>
+    </div>
+
+    <div class="sec">
+      <h3>觀察名單編輯 · 主題分類</h3>
+      <p class="hint"><b>刪除</b>會立刻反映在「03 · 主題」分頁；<b>新增</b>要等下次排程抓到資料才會有數字。
+        改完按「產生 YAML」貼回 <code>config/themes.yaml</code>，才會成為長期設定。</p>
+      <div id="uniThemes"></div>
+      <h3 style="margin-top:24px">觀察名單編輯 · Frontier Watchlist</h3>
+      <div id="uniFrontier"></div>
+      <div class="actions">
+        <button class="btn solid" onclick="genYaml()">產生 YAML</button>
+        <button class="btn" onclick="copyOut(event,'outYaml')">複製</button>
+        <a class="btn" id="lnkYaml" href="#" target="_blank" rel="noopener">在 GitHub 編輯此檔 ↗</a>
+        <button class="btn ghost" onclick="clearDraft('wl.universe')">還原成 repo 版本</button>
+        <span class="tag" id="udraft"></span>
+      </div>
+      <pre class="out" id="outYaml">按「產生 YAML」後顯示。</pre>
+    </div>
+
+  </section>
+
+  <div class="foot" id="foot"></div>
+</div>
+
+<script>
+/* ⚙ 改成你的 GitHub 帳號與 repo 名稱，「在 GitHub 編輯」的連結才會指對地方 */
+const REPO   = "sh-marketlab/weekly-lab";
+const BRANCH = "main";
+
+const $ = s => document.querySelector(s);
+const num = (v,d=0) => v==null ? "—" :
+  v.toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d});
+const pct = v => v==null ? "—" : (v>=0?"+":"") + (v*100).toFixed(2) + "%";
+const cls = v => v==null ? "flat" : v>0 ? "up" : v<0 ? "down" : "flat";
+const esc = s => String(s).replace(/[<>&"]/g, c => ({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]));
+const money = v => {
+  if (v==null) return "—";
+  const a = Math.abs(v), s = v<0?"−":"+";
+  if (a>=1e12) return s+(a/1e12).toFixed(2)+"T";
+  if (a>=1e9)  return s+(a/1e9).toFixed(1)+"B";
+  if (a>=1e6)  return s+(a/1e6).toFixed(0)+"M";
+  return s+num(a);
+};
+const LS = {
+  get:(k,f)=>{try{return JSON.parse(localStorage.getItem(k)) ?? f}catch{return f}},
+  set:(k,v)=>localStorage.setItem(k,JSON.stringify(v)),
+  del:k=>localStorage.removeItem(k),
+};
+const clone = o => JSON.parse(JSON.stringify(o));
+let D = null, UNI = null, MDRAFT = {}, PDRAFT = null, PEDITS = {};
+
+function axisColor(row){
+  const d = row.delta;
+  if (d==null || d===0) return "var(--dim)";
+  const rising = d>0, b = row.up_bias;
+  if (b==="loosen")  return rising ? "var(--loosen)"  : "var(--tighten)";
+  if (b==="tighten") return rising ? "var(--tighten)" : "var(--loosen)";
+  if (b==="risk_off")return rising ? "var(--riskoff)" : "var(--riskon)";
+  if (b==="risk_on") return rising ? "var(--riskon)"  : "var(--riskoff)";
+  if (b==="expand")  return rising ? "var(--loosen)"  : "var(--tighten)";
+  if (b==="contract")return rising ? "var(--tighten)" : "var(--loosen)";
+  return "var(--dim)";
+}
+
+function render(d){
+  D = d;
+  UNI = LS.get("wl.universe", null) || clone(d.universe);
+  MDRAFT = LS.get("wl.manual", {});
+
+  $("#wk").textContent = d.iso_week;
+  $("#asof").textContent = d.as_of_label;
+  $("#stagebadge").textContent = d.stage === "thu" ? "週四收盤" : "週五收盤 · 完整週";
+  let badges = "";
+  if (d.is_sample) badges += '<span class="badge warn">樣板資料</span> ';
+  if (d.pending_manual?.length) badges += `<span class="badge warn">待手填 ${d.pending_manual.length}</span> `;
+  if (LS.get("wl.universe",null)) badges += '<span class="badge act">名單已本機修改</span> ';
+  $("#samp").innerHTML = badges;
+
+  PDRAFT = LS.get("wl.pred", null) || {week:d.iso_week, items:{}, hypothesis:""};
+  if (PDRAFT.week !== d.iso_week) PDRAFT = {week:d.iso_week, items:{}, hypothesis:""};
+  PEDITS = LS.get("wl.predits", {});
+
+  renderBlood(d); renderRadar(d); renderMacro(d);
+  renderSectors(d); renderThemes(d); renderSettings(d); renderPredict(d);
+
+  $("#foot").innerHTML =
+    `產出時間 ${d.generated_at} · 資料截止 ${d.as_of}<br>` +
+    `金額變化 = 市值 × r/(1+r)，不是市值 × r。這是「市值變化」不是「資金流入流出」——` +
+    `股票市場每一筆成交都有買有賣，總額不會憑空進出。<br>` +
+    `債券那一組是期貨價格變化，價漲代表殖利率跌，方向與 01 表的 #07 / #09 相反。`;
+}
+
+function renderBlood(d){
+  const b = d.blood || {}, c = b.components || {};
+  if (b.net == null){ $("#netv").textContent = "資料不足"; return; }
+  const inject = b.net > 0;
+  $("#netv").innerHTML = (inject?"+":"−") + num(Math.abs(b.net)) +
+    `<small>百萬美元 · ${b.reading||""}</small>`;
+  $("#netv").style.color = inject ? "var(--loosen)" : "var(--tighten)";
+  const parts = [
+    {k:"Fed 總資產", v:c.fed_assets, sign:+1},
+    {k:"TGA 帳戶",   v:c.tga,        sign:-1},
+    {k:"ON RRP",     v:c.on_rrp,     sign:-1},
+  ];
+  const mx = Math.max(...parts.map(p=>Math.abs(p.v||0)), 1);
+  $("#flows").innerHTML = parts.map(p=>{
+    const pos = (p.v||0)*p.sign >= 0, w = Math.abs(p.v||0)/mx*50;
+    return `<div class="flowrow">
+      <span class="lbl">${p.k}</span>
+      <span class="track"><span class="mid"></span>
+        <span class="fill" style="${pos?"left:50%":"right:50%"};width:${w}%;
+          background:${pos?"var(--loosen)":"var(--tighten)"}"></span></span>
+      <span class="val" style="color:${pos?"var(--loosen)":"var(--tighten)"}">
+        ${money(p.v)} <em style="color:var(--dim);font-style:normal">${p.sign>0?"＋":"−"}</em></span>
+    </div>`;
+  }).join("");
+  $("#bloodnote").textContent =
+    "淨血量 = ΔFed資產 −ΔTGA −ΔRRP。條長是絕對值，顏色是「對市場血量的實際貢獻」——" +
+    "所以 TGA/RRP 下降會顯示為青色（放血），這是符號翻轉後的結果，不是畫錯。";
+}
+
+function renderRadar(d){
+  $("#radar").innerHTML = d.divergence.map(x=>{
+    const st = x.hit===true ? "on" : x.hit===null ? "na" : "";
+    const ev = Object.entries(x.evidence||{})
+      .map(([k,v])=>`${k} ${v==null?"—":typeof v==="number"?(Math.abs(v)<1?pct(v):v):v}`).join("　");
+    return `<div class="dv ${st}">
+      <div class="code">背離 ${x.code} ${x.hit===true?"· 觸發":x.hit===null?"· 資料不足":""}</div>
+      <div class="t">${esc(x.title)}</div>
+      <div class="ev">${ev}</div>
+      ${x.hit===true?`<div class="ev" style="color:var(--riskoff);margin-top:6px">${esc(x.truth)}</div>`:""}
+    </div>`;
+  }).join("");
+}
+
+function renderMacro(d){
+  $("#macro").innerHTML = d.macro.map(r=>{
+    const col = axisColor(r);
+    const mag = Math.min(Math.abs(r.delta_pct||0)/0.08, 1) * 46;
+    const pos = (r.delta||0) > 0;
+    const dec = (r.unit==="%"||r.unit==="index") ? 2 : 0;
+    return `<div class="ind">
+      <span class="n">${String(r.id).padStart(2,"0")}</span>
+      <span class="nm">${esc(r.name)}${r.stale?'<span class="stale">舊值</span>':""}
+        ${r.curr==null?'<span class="stale">待手填</span>':""}
+        <i>${esc(r.source)}${r.curr_date?" · "+r.curr_date:""}</i></span>
+      <span class="num">${num(r.curr,dec)}</span>
+      <span class="dl" style="color:${col}">${r.delta==null?"—":(r.delta>0?"+":"")+num(r.delta,dec)}</span>
+      <span class="rail"><span style="${pos?"left:50%":"right:50%"};
+        width:${mag}%;background:${col}"></span></span>
+      <span class="vd" style="color:${col}">${r.verdict||"—"}</span>
+    </div>`;
+  }).join("");
+}
+
+function renderSectors(d){
+  const groups = {};
+  d.sectors.forEach(s => (groups[s.group] ||= []).push(s));
+  $("#sectors").innerHTML = Object.entries(groups).map(([g,items])=>{
+    const ok = items.filter(i=>i.chg_w!=null);
+    const avg = ok.length ? ok.reduce((a,b)=>a+b.chg_w,0)/ok.length : null;
+    const sorted = [...items].sort((a,b)=>(b.chg_w??-9)-(a.chg_w??-9));
+    const mx = Math.max(...ok.map(i=>Math.abs(i.chg_w)), .01);
+    return `<div class="grp"><h3><span>${esc(g)}</span>
+      <em>組平均 <span class="${cls(avg)}">${pct(avg)}</span></em></h3>
+      ${sorted.map(i=>{
+        const w = i.chg_w==null?0:Math.abs(i.chg_w)/mx*48, pos=(i.chg_w||0)>0;
+        return `<div class="bar">
+          <span class="nm2">${esc(i.name)} ${i.is_basket?`<u>籃子 ${i.tickers.length}檔</u>`:""}</span>
+          <span class="bt"><span class="mid"></span>
+            <span style="${pos?"left:50%":"right:50%"};width:${w}%;
+              background:${pos?"var(--loosen)":"var(--riskoff)"}"></span></span>
+          <span class="num ${cls(i.chg_w)}">${pct(i.chg_w)}</span>
+        </div>`;}).join("")}
+    </div>`;
+  }).join("");
+}
+
+function renderThemes(d){
+  const keep = {}, fkeep = {};
+  UNI.themes.forEach(t => keep[t.id] = new Set([...t.leader, ...t.rank]));
+  UNI.frontier.forEach(f => fkeep[f.name] = new Set(f.tickers));
+  const avg = a => a.length ? a.reduce((x,y)=>x+y,0)/a.length : null;
+
+  $("#themes").innerHTML = d.themes.map(t=>{
+    const stocks = t.stocks.filter(s => keep[t.id] && keep[t.id].has(s.ticker));
+    const la = avg(stocks.filter(s=>s.tier==="leader"&&s.chg_w!=null).map(s=>s.chg_w));
+    const ra = avg(stocks.filter(s=>s.tier==="rank"  &&s.chg_w!=null).map(s=>s.chg_w));
+    const gap = (la!=null&&ra!=null) ? la-ra : null;
+    const vds = stocks.filter(s=>s.value_delta!=null);
+    const vd = vds.length ? vds.reduce((a,s)=>a+s.value_delta,0) : null;
+    const up = stocks.filter(s=>(s.chg_w||0)>0).length;
+    const pending = (keep[t.id] ? keep[t.id].size : 0) - stocks.length;
+    const gw = Math.min(Math.abs(gap||0)/0.06,1)*48;
+    const alert = gap!=null && gap >= ((d.th && d.th.breadth_gap) ?? .02);
+    return `<div class="tc">
+      <h4>${String(t.id).padStart(2,"0")} · ${esc(t.name)}</h4>
+      <div class="zh">${esc(t.zh)} · 上漲家數 ${up}/${stocks.length}
+        ${pending>0?`<span class="badge act" style="margin-left:6px">新增 ${pending} 檔待抓取</span>`:""}</div>
+      <div class="kpi">
+        <div><u>市值變化合計</u><b class="${cls(vd)}">${money(vd)}</b></div>
+        <div><u>龍頭 / 其餘</u><b><span class="${cls(la)}">${pct(la)}</span>
+          <span style="color:var(--dim)"> / </span>
+          <span class="${cls(ra)}">${pct(ra)}</span></b></div>
+      </div>
+      <div class="gapbar"><span class="mid"></span>
+        <span style="${(gap||0)>0?"left:50%":"right:50%"};width:${gw}%;
+          background:${alert?"var(--riskoff)":"var(--dim)"}"></span></div>
+      <div style="font-family:var(--mono);font-size:10.5px;
+        color:${alert?"var(--riskoff)":"var(--dim)"};margin-bottom:8px">
+        廣度差 ${gap==null?"—":pct(gap)}${alert?" · 龍頭跑贏其餘，留意護盤掩護出貨":""}</div>
+      <details><summary>展開成分股 (${stocks.length})</summary>${stocks.map(s=>`
+        <div class="stk"><span class="tk">${esc(s.ticker)}</span>
+          <span class="tier">${s.tier==="leader"?"龍頭":"3-10"}</span>
+          <span class="${cls(s.chg_w)}" style="text-align:right">${pct(s.chg_w)}</span>
+          <span class="${cls(s.value_delta)}" style="text-align:right">${money(s.value_delta)}</span>
+        </div>`).join("")}</details>
+    </div>`;
+  }).join("");
+
+  $("#frontier").innerHTML = d.frontier.map(f=>{
+    const stocks = f.stocks.filter(s => fkeep[f.name] && fkeep[f.name].has(s.ticker));
+    const a = avg(stocks.filter(s=>s.chg_w!=null).map(s=>s.chg_w));
+    return `<div class="tc"><h4>${esc(f.name)}</h4>
+      <div class="zh">分組平均 <span class="${cls(a)}">${pct(a)}</span></div>
+      ${stocks.map(s=>`<div class="stk" style="grid-template-columns:70px 1fr 66px">
+        <span class="tk">${esc(s.ticker)}</span><span></span>
+        <span class="${cls(s.chg_w)}" style="text-align:right">${pct(s.chg_w)}</span>
+      </div>`).join("")}
+    </div>`;}).join("");
+}
+
+/* ── 04 設定分頁 ─────────────────────────────────── */
+const editUrl = path => `https://github.com/${REPO}/edit/${BRANCH}/${path}`;
+
+function renderSettings(d){
+  $("#lnkManual").href = editUrl("data/manual_input.json");
+  $("#lnkYaml").href   = editUrl("config/themes.yaml");
+  const today = new Date().toISOString().slice(0,10);
+
+  $("#mslots").innerHTML = (d.manual_slots||[]).map(s=>{
+    const all = [...((d.manual_current||{})[s.key] || []), ...(MDRAFT[s.key] || [])]
+      .sort((a,b)=>a.date<b.date?-1:1);
+    const last = all[all.length-1];
+    return `<div class="mrow">
+      <span class="who">${String(s.id).padStart(2,"0")} · ${esc(s.name)}
+        <i>${s.mode==="required"?"必填":"備援（自動抓不到才要）"} ·
+        ${s.freq==="monthly"?"每月":"每週"}${s.unit?" · "+esc(s.unit):""}
+        ${s.url?` · <a href="${esc(s.url)}" target="_blank" rel="noopener">來源 ↗</a>`:""}</i></span>
+      <span class="last">${last?`${last.value}<br><span class="tag">${last.date}</span>`:"尚無資料"}</span>
+      <input type="date" id="d_${s.key}" value="${today}" aria-label="${esc(s.name)} 日期">
+      <input type="number" step="any" id="v_${s.key}" placeholder="數值" aria-label="${esc(s.name)} 數值">
+      <button class="btn" onclick="addManual('${s.key}')">加入</button>
+    </div>`;
+  }).join("");
+  $("#mdraft").textContent = draftCount() ? `本機草稿 ${draftCount()} 筆，尚未貼回 repo` : "";
+
+  $("#uniThemes").innerHTML = UNI.themes.map(t=>`
+    <div class="uni"><h5>${String(t.id).padStart(2,"0")} · ${esc(t.name)}
+      <em>${t.leader.length + t.rank.length} 檔</em></h5>
+      <div class="chips">
+        ${t.leader.map(s=>chip(s,`rmT(${t.id},'leader','${s}')`,true)).join("")}
+        ${t.rank.map(s=>chip(s,`rmT(${t.id},'rank','${s}')`,false)).join("")}
+      </div>
+      <div class="addbox">
+        <input id="at_${t.id}" placeholder="代號" aria-label="新增代號"
+          onkeydown="if(event.key==='Enter')addT(${t.id})">
+        <select id="tier_${t.id}" aria-label="層級">
+          <option value="rank">3-10 名</option><option value="leader">龍頭</option>
+        </select>
+        <button class="btn" onclick="addT(${t.id})">新增</button>
+      </div>
+    </div>`).join("");
+
+  $("#uniFrontier").innerHTML = UNI.frontier.map((f,i)=>`
+    <div class="uni"><h5>${esc(f.name)}<em>${f.tickers.length} 檔</em></h5>
+      <div class="chips">${f.tickers.map(s=>chip(s,`rmF(${i},'${s}')`,false)).join("")}</div>
+      <div class="addbox">
+        <input id="af_${i}" placeholder="代號" aria-label="新增代號"
+          onkeydown="if(event.key==='Enter')addF(${i})">
+        <button class="btn" onclick="addF(${i})">新增</button>
+      </div>
+    </div>`).join("");
+
+  $("#udraft").textContent = LS.get("wl.universe",null) ? "名單已本機修改，尚未貼回 repo" : "";
+}
+
+const chip = (s,fn,lead) =>
+  `<span class="chip ${lead?"lead":""}"><b>${esc(s)}</b>` +
+  `<button onclick="${fn}" title="移除 ${esc(s)}" aria-label="移除 ${esc(s)}">×</button></span>`;
+
+const saveUni = () => { LS.set("wl.universe", UNI); renderThemes(D); renderSettings(D); };
+const T = id => UNI.themes.find(t=>t.id===id);
+
+function rmT(id,tier,sym){ const t=T(id); t[tier]=t[tier].filter(x=>x!==sym); saveUni(); }
+function addT(id){
+  const el=$(`#at_${id}`), sym=(el.value||"").trim().toUpperCase();
+  if(!sym) return;
+  const t=T(id);
+  if(!t.leader.includes(sym) && !t.rank.includes(sym)) t[$(`#tier_${id}`).value].push(sym);
+  el.value=""; saveUni();
+}
+function rmF(i,sym){ UNI.frontier[i].tickers = UNI.frontier[i].tickers.filter(x=>x!==sym); saveUni(); }
+function addF(i){
+  const el=$(`#af_${i}`), sym=(el.value||"").trim().toUpperCase();
+  if(sym && !UNI.frontier[i].tickers.includes(sym)) UNI.frontier[i].tickers.push(sym);
+  el.value=""; saveUni();
+}
+
+const draftCount = () => Object.values(MDRAFT).reduce((a,b)=>a+b.length,0);
+
+function addManual(key){
+  const dt=$(`#d_${key}`).value, v=parseFloat($(`#v_${key}`).value);
+  if(!dt || Number.isNaN(v)){ alert("日期和數值都要填。"); return; }
+  MDRAFT[key] = (MDRAFT[key]||[]).filter(e=>e.date!==dt);
+  MDRAFT[key].push({date:dt, value:v, src:"手動輸入"});
+  LS.set("wl.manual", MDRAFT);
+  renderSettings(D); genManual();
+}
+function genManual(){
+  const merged = clone(D.manual_current || {});
+  for(const k of Object.keys(MDRAFT)){
+    const by = new Map((merged[k]||[]).map(e=>[e.date,e]));
+    MDRAFT[k].forEach(e=>by.set(e.date,e));
+    merged[k] = [...by.values()].sort((a,b)=>a.date<b.date?-1:1);
+  }
+  $("#outManual").textContent = JSON.stringify(merged, null, 2);
+}
+function genYaml(){
+  const q = s => /[:#{}\[\],&*?|<>=!%@`"']/.test(s) ? JSON.stringify(s) : s;
+  let y = "# 由儀表板「04 · 設定」產生。手改也可以，格式維持一致即可。\n\nthemes:\n";
+  UNI.themes.forEach(t=>{
+    y += `  - id: ${t.id}\n    name: ${q(t.name)}\n    zh: ${q(t.zh)}\n`;
+    if(t.positioning) y += `    positioning: ${q(t.positioning)}\n`;
+    y += `    leader: [${t.leader.join(", ")}]\n    rank:   [${t.rank.join(", ")}]\n`;
+  });
+  y += "\nfrontier:\n";
+  UNI.frontier.forEach(f=>{ y += `  - {name: ${q(f.name)}, tickers: [${f.tickers.join(", ")}]}\n`; });
+  $("#outYaml").textContent = y;
+}
+/* ── 04 預測與批改 ─────────────────────────────────── */
+function renderPredict(d){
+  const P = d.predictions;
+  if(!P){ return; }
+  $("#lnkPred").href = editUrl("data/predictions.json");
+  $("#predWk").textContent = d.iso_week;
+
+  /* Step 4 表單 */
+  $("#predForm").innerHTML = P.slots.map((sl,i)=>{
+    const v = PDRAFT.items[sl.id] || {};
+    const auto = (sl.resolver||{}).type !== "manual";
+    return `<div class="prow">
+      <span class="pq">${String(i+1).padStart(2,"0")} · ${esc(sl.label)}
+        <i>${esc(sl.hint||"")}${auto?"":" · 週一由你自己標"}</i></span>
+      <select id="c_${sl.id}" onchange="pd('${sl.id}','call',this.value)" aria-label="${esc(sl.label)} 判斷">
+        <option value="">— 選擇 —</option>
+        ${sl.options.map(o=>`<option ${v.call===o?"selected":""}>${esc(o)}</option>`).join("")}
+      </select>
+      <select id="k_${sl.id}" onchange="pd('${sl.id}','confidence',+this.value)" aria-label="${esc(sl.label)} 信心">
+        <option value="">信心</option>
+        ${[1,2,3,4,5].map(n=>`<option value="${n}" ${v.confidence===n?"selected":""}>${n} 分</option>`).join("")}
+      </select>
+    </div>
+    <textarea id="r_${sl.id}" placeholder="理由 —— 依據哪條水管、哪個板塊訊號？"
+      oninput="pd('${sl.id}','rationale',this.value)">${esc(v.rationale||"")}</textarea>`;
+  }).join("");
+  $("#hypo").value = PDRAFT.hypothesis || "";
+  $("#hypo").oninput = e => { PDRAFT.hypothesis = e.target.value; LS.set("wl.pred", PDRAFT); };
+  const filled = Object.values(PDRAFT.items).filter(x=>x.call).length;
+  $("#pdraft").textContent = filled ? `本機草稿 ${filled}/${P.slots.length} 欄，尚未貼回 repo` : "";
+
+  /* Step 5 批改 */
+  const R = P.last_scored;
+  const labels = Object.fromEntries(P.slots.map(s=>[s.id, s]));
+  if(R){
+    $("#gradeWk").textContent = R.week;
+    const ed = PEDITS[R.week] || {};
+    $("#gradeBody").innerHTML = R.items.map(it=>{
+      const sl = labels[it.id] || {label:it.id, options:[]};
+      const v = it.verdict, e = ed[it.id] || {};
+      const badge = v==="correct" ? '<span class="vb ok">正確</span>'
+                  : v==="wrong"   ? '<span class="vb no">錯誤</span>'
+                  : '<span class="vb man">待標記</span>';
+      const et = e.error_type ?? it.error_type ?? "";
+      const showFix = v==="wrong" || v===null || et;
+      return `<div class="grow">
+        <span class="gq">${esc(sl.label)}
+          ${it.confidence?`<span class="tag">信心 ${it.confidence}</span>`:""}</span>
+        <span class="gv">你：${esc(it.call||"—")}</span>
+        <span class="gv">實際：${esc(it.actual|| (it.auto===false?"手動":"—"))}</span>
+        ${badge}
+      </div>
+      ${showFix?`<div class="gfix">
+        <select onchange="pe('${R.week}','${it.id}','error_type',this.value)" aria-label="誤差類型">
+          <option value="">— 誤差類型 —</option>
+          ${P.error_types.map(x=>`<option value="${x.id}" ${et===x.id?"selected":""}>${esc(x.label)}</option>`).join("")}
+        </select>
+        <input value="${esc(e.note ?? it.note ?? "")}" placeholder="應該要怎麼判斷才對？"
+          oninput="pe('${R.week}','${it.id}','note',this.value)" aria-label="檢討">
+      </div>`:""}`;
+    }).join("") +
+    `<div class="actions">
+      <button class="btn solid" onclick="genPred()">產生 JSON</button>
+      <button class="btn" onclick="copyOut(event,'outPred2')">複製</button>
+      <a class="btn" href="${editUrl("data/predictions.json")}" target="_blank" rel="noopener">在 GitHub 編輯此檔 ↗</a>
+      <span class="tag">批改於 ${R.scored_at||"—"}</span>
+     </div>
+     <pre class="out" id="outPred2">按「產生 JSON」後顯示（與 Step 4 共用同一份檔案）。</pre>`;
+  }
+
+  renderStats(P.stats, P);
+}
+
+function renderStats(s, P){
+  const rate = v => v==null ? "—" : (v*100).toFixed(0)+"%";
+  $("#statKpi").innerHTML = `
+    <div><u>已批改週數</u><b>${s.weeks_scored}</b></div>
+    <div><u>整體命中率</u><b class="${s.rate==null?"flat":s.rate>=.5?"up":"down"}">${rate(s.rate)}</b>
+      <em>${s.hit} / ${s.n} 項</em></div>
+    <div><u>對但理由錯</u><b class="${s.lucky_calls?"down":"flat"}">${s.lucky_calls}</b>
+      <em>運氣，不是能力</em></div>
+    <div><u>理由對但結果錯</u><b class="flat">${s.unlucky_calls}</b>
+      <em>方法沒問題，被打斷</em></div>`;
+
+  const rows = Object.values(s.per_slot);
+  $("#statSlots").innerHTML = rows.length ? rows.map(r=>`
+    <div class="sbar"><span class="sl">${esc(r.label)}</span>
+      <span class="st"><span style="width:${(r.rate||0)*100}%;
+        background:${r.rate>=.6?"var(--loosen)":r.rate>=.4?"var(--tighten)":"var(--riskoff)"}"></span></span>
+      <span class="sn">${rate(r.rate)} <span class="tag">${r.hit}/${r.n}</span></span>
+    </div>`).join("") : '<p class="tag">尚無資料。</p>';
+
+  const cal = Object.entries(s.per_confidence);
+  $("#statCal").innerHTML = cal.length ? `<table class="cal">
+    <tr><th>信心</th><th>宣稱</th><th>實際</th><th>落差</th><th>樣本</th></tr>
+    ${cal.map(([k,c])=>`<tr><td>${k} 分</td><td style="text-align:right">${rate(c.stated)}</td>
+      <td style="text-align:right">${rate(c.rate)}</td>
+      <td style="text-align:right;color:${c.gap==null?"var(--dim)":Math.abs(c.gap)<=.1?"var(--loosen)":"var(--riskoff)"}">
+        ${c.gap==null?"—":(c.gap>0?"+":"")+(c.gap*100).toFixed(0)+"pp"}</td>
+      <td style="text-align:right;color:var(--dim)">${c.n}</td></tr>`).join("")}
+    </table>
+    <p class="tag" style="margin-top:8px">落差為負＝過度自信；為正＝低估自己。樣本少於 10 的那一列先別當真。</p>`
+    : '<p class="tag">尚無資料。</p>';
+
+  const errs = Object.values(s.per_error);
+  const mx = Math.max(...errs.map(e=>e.n), 1);
+  $("#statErr").innerHTML = errs.length ? errs.map(e=>`
+    <div class="sbar"><span class="sl">${esc(e.label)}</span>
+      <span class="st"><span style="width:${e.n/mx*100}%;background:var(--riskoff)"></span></span>
+      <span class="sn">${e.n} 次</span></div>`).join("")
+    : '<p class="tag">尚無資料。判錯時記得標誤差類型，這一區才會長出東西。</p>';
+}
+
+function pd(id, field, val){
+  (PDRAFT.items[id] ||= {})[field] = val;
+  LS.set("wl.pred", PDRAFT);
+  const n = Object.values(PDRAFT.items).filter(x=>x.call).length;
+  $("#pdraft").textContent = n ? `本機草稿 ${n}/${D.predictions.slots.length} 欄，尚未貼回 repo` : "";
+}
+function pe(week, id, field, val){
+  ((PEDITS[week] ||= {})[id] ||= {})[field] = val;
+  LS.set("wl.predits", PEDITS);
+}
+function genPred(){
+  const P = D.predictions;
+  const recs = clone(P.records || []);
+
+  /* 本週預測：有填才寫入 */
+  const items = P.slots.map(sl=>{
+    const v = PDRAFT.items[sl.id] || {};
+    return {id: sl.id, call: v.call || null, confidence: v.confidence || null,
+            rationale: v.rationale || "", actual: null, verdict: null,
+            auto: null, error_type: null, note: ""};
+  });
+  if(items.some(i=>i.call) || PDRAFT.hypothesis){
+    const rec = {week: PDRAFT.week, created_at: new Date().toISOString().replace(/\.\d+Z$/,"Z"),
+                 items, hypothesis: PDRAFT.hypothesis || "", scored_at: null};
+    const i = recs.findIndex(r=>r.week===rec.week);
+    if(i>=0){ rec.scored_at = recs[i].scored_at || null; recs[i] = rec; } else recs.push(rec);
+  }
+
+  /* 批改的手動標記 */
+  for(const [wk, byId] of Object.entries(PEDITS)){
+    const r = recs.find(x=>x.week===wk);
+    if(!r) continue;
+    for(const [id, patch] of Object.entries(byId)){
+      const it = r.items.find(x=>x.id===id);
+      if(!it) continue;
+      if(patch.error_type !== undefined) it.error_type = patch.error_type || null;
+      if(patch.note !== undefined) it.note = patch.note;
+    }
+  }
+
+  recs.sort((a,b)=>a.week<b.week?-1:1);
+  const out = JSON.stringify({records: recs}, null, 2);
+  const el = $("#outPred2"); if(el) el.textContent = out;
+  $("#outPred").textContent = out;
+}
+
+function copyOut(ev,id){
+  const btn = ev.currentTarget, txt = $("#"+id).textContent;
+  navigator.clipboard.writeText(txt).then(()=>{
+    const o = btn.textContent; btn.textContent = "已複製";
+    setTimeout(()=>btn.textContent = o, 1400);
+  }, ()=>alert("瀏覽器擋了剪貼簿，請手動選取複製。"));
+}
+function clearDraft(k){
+  const msg = k==="wl.manual" ? "清除所有尚未貼回 repo 的手填草稿？"
+            : k==="wl.pred"    ? "清除本週尚未貼回 repo 的預測草稿？"
+                               : "捨棄本機的名單修改，還原成 repo 版本？";
+  if(!confirm(msg)) return;
+  LS.del(k);
+  if(k==="wl.manual") MDRAFT={};
+  else if(k==="wl.pred"){ LS.del("wl.predits"); PDRAFT=null; PEDITS={}; }
+  else UNI = clone(D.universe);
+  render(D);
+}
+
+fetch("latest.json", {cache:"no-store"})
+  .then(r => r.ok ? r.json() : Promise.reject(r.status))
+  .then(render)
+  .catch(e => { $("#macro").innerHTML =
+    `<p style="color:var(--tighten);font-family:var(--mono);font-size:12px">
+     讀不到 latest.json（${e}）。先在本機跑 <b>python src/make_sample.py</b> 產生樣板資料，
+     或等第一次 GitHub Actions 排程跑完。</p>`; });
+
+document.querySelectorAll(".tab").forEach(t => t.onclick = () => {
+  document.querySelectorAll(".tab").forEach(x => x.setAttribute("aria-selected", x===t));
+  document.querySelectorAll(".panel").forEach(p => p.hidden = p.id !== t.dataset.p);
+});
+</script>
+</body>
+</html>

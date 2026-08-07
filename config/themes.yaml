@@ -1,0 +1,92 @@
+# 第 3 項：主題分類個股 + 市值加權金額變化
+#
+# tier: leader = 龍頭前 1-2；rank = 排名 3-10；watch = 觀察名單（不計入主題合計）
+# 金額變化 ΔMV = MarketCap_now × r/(1+r)   ← 注意不是 MarketCap × r，見 README
+#
+# breadth 判斷（護盤掩護出貨偵測）：
+#   leader 平均漲幅 − rank 平均漲幅 = 背離 B 的量化值
+
+themes:
+  - id: 1
+    name: Big Tech & Hyperscalers
+    zh: 科技巨頭與超大規模業者
+    positioning: 美股最重要的核心資金池與 AI 基礎設施巨頭
+    leader: [MSFT, AAPL]
+    rank:   [NVDA, GOOGL, AMZN, META, TSLA]
+
+  - id: 2
+    name: Semiconductor & Hardware Engine
+    zh: 半導體與 AI 算力硬體
+    positioning: AI 供應鏈心臟
+    leader: [AVGO, AMD]
+    rank:   [QCOM, TXN, AMAT, LRCX, MU, ADI]
+
+  - id: 3
+    name: Software & Cloud Ecosystem
+    zh: 軟體、數據與雲端生態
+    positioning: 企業級 SaaS、資料庫與資安
+    leader: [ORCL, CRM]
+    rank:   [ADBE, PANW, INTU, NOW, CRWD, PLTR]
+
+  - id: 4
+    name: Financials & Fintech Network
+    zh: 金融、支付與清算網絡
+    positioning: 商銀、投銀與全球數位支付通道
+    leader: [BRK-B, JPM]
+    rank:   [V, MA, BAC, WFC, MS, SPGI]
+
+  - id: 5
+    name: Healthcare & Bio-Pharma
+    zh: 醫療保健與生技醫療
+    positioning: 大型製藥、醫材與醫療保險
+    leader: [LLY, UNH]
+    rank:   [JNJ, ABBV, MRK, TMO, ABT, ISRG]
+
+  - id: 6
+    name: Industrial, Aerospace & Logistics
+    zh: 工業自動化、航太與物流
+    positioning: 實體經濟支柱
+    leader: [GE, CAT]
+    rank:   [UNP, RTX, HON, ETN, BA, UPS]
+
+  - id: 7
+    name: Consumer Staples & Retail Giants
+    zh: 必需消費與大型通路
+    positioning: 景氣防禦屬性極強
+    leader: [WMT, PG]
+    rank:   [COST, KO, PEP, PM, MDLZ, CL]
+
+  - id: 8
+    name: Consumer Discretionary & Brands
+    zh: 非必需消費與品牌
+    positioning: 受可支配所得與景氣週期高度影響
+    leader: [HD, MCD]
+    rank:   [NKE, LOW, SBUX, BKNG, TJX, MAR]
+
+  - id: 9
+    name: Energy & Natural Resources
+    zh: 能源與自然資源
+    positioning: 油氣探勘煉化與金屬礦產上游
+    leader: [XOM, CVX]
+    rank:   [COP, LIN, FCX, EOG, SLB, NUE]
+
+  - id: 10
+    name: Infrastructure, Utilities & Real Estate
+    zh: 基礎設施、公用事業與不動產
+    positioning: 電力、資料中心地產與通訊鐵塔等實體資產
+    leader: [NEE, PLD]
+    rank:   [AMT, EQIX, SO, DUK, PSA, CCI]
+
+# ── Frontier Tech Watchlist ─────────────────────────────────────────
+# 不計入主題合計，單獨一區。這一區的用途是 Step 3 的「背離 2」：
+# Frontier 集體重挫 vs Infrastructure 默漲 = 資金從博弈型退回實體過路費
+frontier:
+  - {name: 太空經濟,              tickers: [RKLB, ASTS, PL, LUNR]}
+  - {name: 量子電腦,              tickers: [IONQ, RGTI, QBTS, IBM]}
+  - {name: 長壽科學與基因編輯,     tickers: [CRSP, NTLA, EDIT, LLY, NVO]}
+  - {name: 新世代能源與 SMR,      tickers: [CEG, VST, OKLO, SMR, GEV]}
+  - {name: 純 AI 應用,            tickers: [PLTR, APP, AI, PATH]}
+  - {name: 代幣化與 RWA,          tickers: [BLK, ICE, CBOE]}
+  - {name: 下一代支付網絡,         tickers: [XYZ, PYPL, ADYEY]}
+  - {name: 加密基礎設施與託管,     tickers: [COIN, CRCL, HOOD]}
+  - {name: 資本市場科技與清算,     tickers: [UPST, BR, NDAQ]}

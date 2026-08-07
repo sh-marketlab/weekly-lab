@@ -1,0 +1,19 @@
+{
+  "_說明": "無穩定免費來源的指標放這裡。每筆都是 append，不要覆蓋舊值 —— 保留歷史才能算 Delta。",
+  "_更新頻率": {
+    "sovereign_cds": "每週一次，30 秒",
+    "manufacturing_pmi": "每月一次（月初）",
+    "move_index": "只有 Yahoo ^MOVE 抓不到時才需要填",
+    "fear_greed": "只有 CNN endpoint 掛掉時才需要填"
+  },
+  "sovereign_cds": [
+    { "date": "2026-07-30", "value": 35.95, "src": "worldgovernmentbonds.com US 5Y CDS" },
+    { "date": "2026-08-06", "value": 35.97, "src": "worldgovernmentbonds.com US 5Y CDS" }
+  ],
+  "manufacturing_pmi": [
+    { "date": "2026-06-01", "value": 53.8, "src": "S&P Global US Mfg PMI" },
+    { "date": "2026-07-01", "value": 53.9, "src": "S&P Global US Mfg PMI" }
+  ],
+  "move_index": [],
+  "fear_greed": []
+}

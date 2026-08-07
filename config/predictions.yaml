@@ -1,0 +1,100 @@
+# Step 4（週末預測）與 Step 5（週一批改）的欄位定義
+#
+# resolver 決定週一能不能自動判對錯：
+#   band3  : 依 metric 落在哪一段 → 對應三個選項
+#   sign2  : 依 metric 正負 → 對應兩個選項
+#   manual : 機器判不了，週一你自己標（例如「大魔王意圖」這種敘事型判斷）
+#
+# 自動判定的目的不是取代你的判斷，是拿掉「事後合理化」的空間。
+# 週一看到紅字時，你唯一能做的就是誠實面對，這正是這套練習的重點。
+
+metrics_note: |
+  週一收盤後抓一組探針，全部相對「上週五收盤」計算：
+    spx_d        S&P500 週一全日漲跌
+    spx_gap      週一開盤 vs 上週五收盤（跳空幅度）
+    spx_intraday 週一收盤 vs 週一開盤（盤中走勢）
+    breadth      Russell2000 − S&P500（中小型相對強弱）
+    mega_rel     七大權值股平均 − S&P500（龍頭相對強弱）
+    risk_app     (NDX + BTC)/2 − (XLP + XLU)/2（風險偏好合成）
+    vix_chg      VIX 變動
+
+mega_caps: [MSFT, AAPL, NVDA, GOOGL, AMZN, META, TSLA]
+
+probes:
+  spx:    "^GSPC"
+  ndx:    "^NDX"
+  rut:    "^RUT"
+  vix:    "^VIX"
+  btc:    "BTC-USD"
+  gold:   "GC=F"
+  dxy:    "DX-Y.NYB"
+  staples: XLP
+  utils:   XLU
+  hyg:     HYG
+  tlt:     TLT
+
+slots:
+  - id: direction
+    label: 整體方向
+    hint: 週一大盤收在哪一邊
+    options: [多, 震盪, 空]
+    resolver: {type: band3, metric: spx_d, hi: 0.003, lo: -0.003,
+               above: 多, mid: 震盪, below: 空}
+
+  - id: open_style
+    label: 早盤手法
+    hint: 霸權開盤的操作方式
+    options: [開高走低, 開高走高, 開低走高, 開低走低]
+    resolver: {type: quadrant, gap: spx_gap, intraday: spx_intraday}
+
+  - id: flow
+    label: 資金流向
+    hint: 風險偏好往哪邊移動
+    options: [Risk-on, 中性, Risk-off]
+    resolver: {type: band3, metric: risk_app, hi: 0.005, lo: -0.005,
+               above: Risk-on, mid: 中性, below: Risk-off}
+
+  - id: leader
+    label: 龍頭股表現
+    hint: 七大權值股相對大盤
+    options: [領先大盤, 同步, 落後大盤]
+    resolver: {type: band3, metric: mega_rel, hi: 0.003, lo: -0.003,
+               above: 領先大盤, mid: 同步, below: 落後大盤}
+
+  - id: breadth
+    label: 市場廣度
+    hint: 中小型股相對大盤 —— 檢驗「護盤掩護出貨」是否成立
+    options: [廣度轉強, 持平, 廣度惡化]
+    resolver: {type: band3, metric: breadth, hi: 0.004, lo: -0.004,
+               above: 廣度轉強, mid: 持平, below: 廣度惡化}
+
+  - id: vol
+    label: 波動度
+    hint: VIX 方向
+    options: [上升, 下降]
+    resolver: {type: sign2, metric: vix_chg, pos: 上升, neg: 下降}
+
+  - id: divergence
+    label: 背離是否兌現
+    hint: 本週雷達標記的背離，週一有沒有開始收斂
+    options: [開始兌現, 尚未兌現, 反向發展]
+    resolver: {type: manual}
+
+  - id: intent
+    label: 大魔王意圖判讀
+    hint: 你的角色扮演推論，週一自己評
+    options: [判讀正確, 部分正確, 判讀錯誤]
+    resolver: {type: manual}
+
+# 誤差類型分類。週一批改時挑一個，累積後才能看出你的系統性偏誤在哪。
+error_types:
+  - {id: misread_liquidity,       label: 漏看某條水管,        note: 流動性訊號本身就在，但沒被納入判斷}
+  - {id: fooled_by_news,          label: 被新聞敘事帶偏,      note: 讓標題決定了方向而不是數據}
+  - {id: wrong_timing,            label: 方向對但時間錯,      note: 邏輯成立，只是還沒輪到它發生}
+  - {id: single_signal,           label: 過度倚賴單一訊號,    note: 一個指標壓過了其他所有證據}
+  - {id: ignored_positioning,     label: 忽略部位與微結構,    note: 用宏觀解釋了其實是籌碼/槓桿的事}
+  - {id: anchoring,               label: 錨定上週結論,        note: 延續了上週的看法而沒重新推導}
+  - {id: overfit_narrative,       label: 敘事過度自洽,        note: 故事太完整，反而忽略了反證}
+  - {id: wrong_reason_right_call, label: 對但理由錯（運氣）,  note: 結果對，過程錯。這比錯更危險，因為會被誤記成能力}
+  - {id: right_reason_wrong_call, label: 理由對但結果錯,      note: 推論健全，被外生事件打斷。這一類通常不需要修正方法}
+  - {id: other,                   label: 其他,                note: ""}
