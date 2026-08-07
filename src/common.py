@@ -113,5 +113,32 @@ def load_snapshot(wk: str, stage: str) -> dict | None:
     return None
 
 
+def prev_snapshot(wk: str, stage: str) -> dict | None:
+    """
+    找上一份同 stage 的快照。用來算「扣掉價格效應後的淨資金流」——
+    那需要兩個時點的資產規模，單次抓取算不出來。
+    """
+    files = sorted(WEEKLY.glob(f"*-{stage}.json"))
+    older = [f for f in files if f.name < f"{wk}-{stage}.json"]
+    if not older:
+        return None
+    try:
+        return json.loads(older[-1].read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def latest_weekly() -> dict | None:
+    """最近一份『週視圖』快照（fri 優先，其次 thu）。週二批改時要沿用它。"""
+    for stage in ("fri", "thu"):
+        files = sorted(WEEKLY.glob(f"*-{stage}.json"))
+        if files:
+            try:
+                return json.loads(files[-1].read_text(encoding="utf-8"))
+            except Exception:  # noqa: BLE001
+                continue
+    return None
+
+
 def utc_stamp() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()

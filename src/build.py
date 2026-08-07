@@ -179,27 +179,77 @@ def _blood_math(rows):
 
 
 # ── 第 2 項：跨資產板塊 ──────────────────────────────────────────────
-def build_sectors(as_of: date) -> list[dict]:
+def build_sectors(as_of: date, wk: str, stage: str) -> tuple[list[dict], dict]:
     cfg = yaml.safe_load((C.CONFIG / "sectors.yaml").read_text(encoding="utf-8"))
-    tickers = set()
+
+    px_syms, base_syms = set(), set()
     for items in cfg["groups"].values():
         for it in items:
-            tickers.update(it.get("basket") or ([it["ticker"]] if it.get("ticker") else []))
+            syms = it.get("basket") or ([it["ticker"]] if it.get("ticker") else [])
+            px_syms.update(syms)
+            if it.get("basket"):
+                base_syms.update(it["basket"])
+            elif it.get("proxy"):
+                base_syms.add(it["proxy"])
+                px_syms.add(it["proxy"])
+            elif it.get("mcap"):
+                base_syms.add(it["ticker"])
 
-    px = S.yahoo_history(sorted(tickers), period="3mo")
+    px = S.yahoo_history(sorted(px_syms), period="3mo")
+    caps = S.yahoo_marketcaps(sorted(base_syms))
+
+    # 上一份同 stage 的快照，用來還原「扣掉價格效應後的淨資金流」
+    prev = C.prev_snapshot(wk, stage) or {}
+    prev_base = {r["name"]: r.get("base") for r in prev.get("sectors", [])}
+
     out = []
     for group, items in cfg["groups"].items():
         for it in items:
             syms = it.get("basket") or [it["ticker"]]
-            chgs = [c for c in (_wk_return(px, s, as_of) for s in syms) if c is not None]
+            chgs = [c for c in (_wk_return(px, x, as_of) for x in syms) if c is not None]
+            r = round(st.mean(chgs), 6) if chgs else None
+
+            if it.get("basket"):
+                vals = [caps.get(x) for x in it["basket"]]
+                vals = [v for v in vals if v]
+                base = sum(vals) if vals else None
+                kind, kind_of = "成分股市值和", f'{len(vals)}/{len(it["basket"])} 檔'
+            elif it.get("mcap"):
+                base, kind, kind_of = caps.get(it["ticker"]), "流通市值", it["ticker"]
+            elif it.get("proxy"):
+                base, kind, kind_of = caps.get(it["proxy"]), "ETF 資產", it["proxy"]
+            else:
+                base = kind = kind_of = None
+
+            # 資金流：把上週的規模用本週報酬推到現在，差額就是淨申購/贖回。
+            # 這個數字才是真的「錢進來了還是出去了」，價格漲跌不會混進來。
+            pb = prev_base.get(it["name"])
+            flow = None
+            if base is not None and pb and r is not None:
+                flow = base - pb * (1.0 + r)
+
             out.append({
                 "group": group, "name": it["name"],
                 "tickers": syms, "is_basket": bool(it.get("basket")),
-                "chg_w": round(st.mean(chgs), 6) if chgs else None,
-                "members_ok": len(chgs), "members_total": len(syms),
-                "note": it.get("note"), "flow_proxy": it.get("flow_proxy"),
+                "chg_w": r, "members_ok": len(chgs), "members_total": len(syms),
+                "base": base, "base_kind": kind, "base_of": kind_of,
+                "value_delta": C.value_delta(base, r),
+                "net_flow": flow,
+                "note": it.get("note"),
             })
-    return out
+
+    window = _price_window(px, as_of)
+    return out, window
+
+
+def _price_window(px, as_of):
+    """回報這批價格實際用到的兩個交易日，讓儀表板標得出「本期 vs 上期」。"""
+    if px is None or px.empty:
+        return {"curr": None, "prev": None}
+    idx = [d.date() for d in px.index if d.date() <= as_of]
+    if len(idx) < 6:
+        return {"curr": idx[-1] if idx else None, "prev": None}
+    return {"curr": idx[-1], "prev": idx[-6]}
 
 
 def _wk_return(px, sym, as_of):
@@ -217,7 +267,7 @@ def _wk_return(px, sym, as_of):
 
 
 # ── 第 3 項：主題個股 + 金額 ─────────────────────────────────────────
-def build_themes(as_of: date) -> tuple[list[dict], list[dict]]:
+def build_themes(as_of: date) -> tuple[list[dict], list[dict], dict]:
     cfg = yaml.safe_load((C.CONFIG / "themes.yaml").read_text(encoding="utf-8"))
     syms = set()
     for t in cfg["themes"]:
@@ -331,16 +381,29 @@ def main():
     wk = C.week_key(as_of)
     print(f"▶ 建置 {wk} / stage={args.stage} / 資料截止 {as_of}")
 
+    # 週二那一趟只做批改。它不該把你週六看到的「本週視圖」蓋掉——
+    # 週末推演用的是上週五收盤那份，週一的數字是拿來對答案的，不是換一份新的。
     if args.stage == "mon":
         print("  · Step 5 批改")
         P.score_week(as_of)
+        base = C.latest_weekly()
+        if not base:
+            print("  ! 找不到既有的週視圖快照，先跑一次 --stage fri")
+            return
+        base["predictions"] = P.bundle(P.load(), base["iso_week"])
+        base["graded_at"] = C.utc_stamp()
+        base["monday_as_of"] = as_of
+        p = C.save_snapshot(base, wk, "mon")
+        print(f"✔ 已更新批改結果，週視圖沿用 {base['iso_week']} {base['stage']}")
+        print(f"  {p}")
+        return
 
     print("  · 第 1 項 總體指標")
     macro, blood, pending = build_macro(as_of)
     print("  · 第 2 項 跨資產板塊")
-    sectors = build_sectors(as_of)
+    sectors, sec_window = build_sectors(as_of, wk, args.stage)
     print("  · 第 3 項 主題個股")
-    themes, frontier = build_themes(as_of)
+    themes, frontier, thm_window = build_themes(as_of)
     universe = yaml.safe_load((C.CONFIG / "themes.yaml").read_text(encoding="utf-8"))
     print("  · 背離雷達")
     div = scan_divergence(macro, sectors, themes, frontier)
@@ -351,6 +414,7 @@ def main():
         "as_of_label": f'{wk} {"週四" if args.stage == "thu" else "週五"}收盤',
         "macro": macro, "blood": blood,
         "sectors": sectors, "themes": themes, "frontier": frontier,
+        "windows": {"sectors": sec_window, "themes": thm_window},
         "divergence": div,
         "pending_manual": pending,
         "manual_slots": manual_slots(),

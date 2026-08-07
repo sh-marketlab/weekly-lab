@@ -156,13 +156,21 @@ def yahoo_marketcaps(tickers: list[str]) -> dict[str, float | None]:
     for t in tickers:
         mc = None
         try:
-            fi = _yf().Ticker(t).fast_info
+            tk = _yf().Ticker(t)
+            fi = tk.fast_info
             mc = fi.get("market_cap") or fi.get("marketCap")
             if not mc:
                 shares = fi.get("shares") or fi.get("sharesOutstanding")
                 price = fi.get("last_price") or fi.get("lastPrice")
                 if shares and price:
                     mc = shares * price
+            if not mc:
+                # ETF 沒有 market_cap，改抓資產規模（AUM）
+                try:
+                    info = tk.get_info()
+                    mc = info.get("totalAssets") or info.get("netAssets")
+                except Exception:  # noqa: BLE001
+                    pass
         except Exception:  # noqa: BLE001
             mc = None
         out[t] = float(mc) if mc else None

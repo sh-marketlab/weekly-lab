@@ -75,7 +75,13 @@ h1{font-size:26px;font-weight:600;letter-spacing:-.01em;margin:0 0 4px}
 .tab[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
 .panel[hidden]{display:none}
 
-.ind{display:grid;grid-template-columns:26px minmax(150px,1.3fr) 104px 92px 130px 1fr;
+.wmeta{display:flex;flex-wrap:wrap;gap:18px;align-items:baseline;
+  background:var(--panel-2);border:1px solid var(--hair);border-radius:5px;
+  padding:10px 14px;margin-bottom:16px;font-family:var(--mono);font-size:11px}
+.wmeta span{color:var(--dim);letter-spacing:.06em}
+.wmeta b{color:var(--ink);font-weight:500;margin-left:5px}
+.wmeta .now b{color:var(--accent)}
+.ind{display:grid;grid-template-columns:24px minmax(140px,1.2fr) 96px 96px 84px 108px 1fr;
   gap:12px;align-items:center;padding:11px 12px;border-bottom:1px solid var(--hair)}
 .ind:hover{background:var(--panel-2)}
 .ind.hdr{font-family:var(--mono);font-size:10px;letter-spacing:.14em;
@@ -100,7 +106,7 @@ h1{font-size:26px;font-weight:600;letter-spacing:-.01em;margin:0 0 4px}
   padding-bottom:7px;border-bottom:1px solid var(--hair);
   display:flex;justify-content:space-between}
 .grp>h3 em{font-style:normal;color:var(--dim)}
-.bar{display:grid;grid-template-columns:minmax(120px,1fr) 1fr 74px;gap:12px;
+.bar{display:grid;grid-template-columns:minmax(112px,1fr) 1fr 68px 84px 84px;gap:10px;
   align-items:center;padding:6px 0}
 .bar .nm2{font-size:12.5px}
 .bar .nm2 u{text-decoration:none;color:var(--dim);font-family:var(--mono);font-size:10px}
@@ -229,7 +235,9 @@ textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
   font-family:var(--mono);font-size:10.5px;color:var(--dim);line-height:1.9}
 @media (max-width:760px){
   .ind{grid-template-columns:22px 1fr 90px;row-gap:6px}
-  .ind .rail,.ind .vd,.ind.hdr .rail,.ind.hdr .vd{display:none}
+  .ind .rail,.ind .vd,.ind .pv,.ind.hdr .rail,.ind.hdr .vd,.ind.hdr .pv{display:none}
+  .bar{grid-template-columns:1fr 68px 84px}
+  .bar .bt,.bar .fl{display:none}
   .flowrow{grid-template-columns:82px 1fr 96px}
   .mrow{grid-template-columns:1fr 1fr;row-gap:8px}
   .prow{grid-template-columns:1fr 1fr;row-gap:8px}
@@ -269,16 +277,22 @@ textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
   </div>
 
   <section class="panel" id="p1">
+    <div class="wmeta" id="meta1"></div>
     <div class="ind hdr">
       <span>#</span><span>指標</span><span class="num">本期</span>
-      <span class="dl">Δ</span><span>位移</span><span>解讀</span>
+      <span class="num pv">上期</span><span class="dl">Δ</span>
+      <span>位移</span><span>解讀</span>
     </div>
     <div id="macro"></div>
   </section>
 
-  <section class="panel" id="p2" hidden><div id="sectors"></div></section>
+  <section class="panel" id="p2" hidden>
+    <div class="wmeta" id="meta2"></div>
+    <div id="sectors"></div>
+  </section>
 
   <section class="panel" id="p3" hidden>
+    <div class="wmeta" id="meta3"></div>
     <div class="tcards" id="themes"></div>
     <h3 style="font-family:var(--mono);font-size:11px;letter-spacing:.18em;
       text-transform:uppercase;color:var(--muted);margin:30px 0 12px;
@@ -426,6 +440,7 @@ function render(d){
   if (PDRAFT.week !== d.iso_week) PDRAFT = {week:d.iso_week, items:{}, hypothesis:""};
   PEDITS = LS.get("wl.predits", {});
 
+  renderMeta(d);
   renderBlood(d); renderRadar(d); renderMacro(d);
   renderSectors(d); renderThemes(d); renderSettings(d); renderPredict(d);
 
@@ -434,6 +449,44 @@ function render(d){
     `金額變化 = 市值 × r/(1+r)，不是市值 × r。這是「市值變化」不是「資金流入流出」——` +
     `股票市場每一筆成交都有買有賣，總額不會憑空進出。<br>` +
     `債券那一組是期貨價格變化，價漲代表殖利率跌，方向與 01 表的 #07 / #09 相反。`;
+}
+
+/* 台北時間顯示：資料是美股收盤，你在台灣看，兩邊都標出來才不會誤讀 */
+const twTime = iso => {
+  if(!iso) return "—";
+  const t = new Date(iso);
+  return isNaN(t) ? iso : t.toLocaleString("zh-TW",
+    {timeZone:"Asia/Taipei", year:"numeric", month:"2-digit", day:"2-digit",
+     hour:"2-digit", minute:"2-digit", hour12:false});
+};
+const closeLabel = ds => {
+  if(!ds) return "—";
+  const wd = ["日","一","二","三","四","五","六"][new Date(ds+"T00:00:00Z").getUTCDay()];
+  return `${ds}（${wd}）收盤`;
+};
+
+function renderMeta(d){
+  const w = d.windows || {};
+  const bar = (prev, curr, extra) => `
+    <span>抓取時間<b>${twTime(d.generated_at)}</b></span>
+    <span>上期<b>${closeLabel(prev)}</b></span>
+    <span class="now">本期<b>${closeLabel(curr)}</b></span>
+    ${extra||""}`;
+
+  /* 水管各指標的日期不一，取最常見的那一組當代表，個別差異在每列自己標 */
+  const mode = arr => {
+    const c = {}; arr.filter(Boolean).forEach(x => c[x]=(c[x]||0)+1);
+    return Object.entries(c).sort((a,b)=>b[1]-a[1])[0]?.[0] || null;
+  };
+  const weekly = d.macro.filter(r => r.freq !== "monthly");
+  $("#meta1").innerHTML = bar(mode(weekly.map(r=>r.prev_date)), mode(weekly.map(r=>r.curr_date)),
+    `<span>月更指標（PMI／消費信心／CPI）另比對前一筆觀測值</span>`);
+  $("#meta2").innerHTML = bar(w.sectors?.prev, w.sectors?.curr,
+    `<span>週變化＝五個交易日</span>`);
+  $("#meta3").innerHTML = bar(w.themes?.prev, w.themes?.curr,
+    `<span>市值為抓取當下</span>`);
+  if(d.graded_at) $("#meta3").innerHTML +=
+    `<span>批改於<b>${twTime(d.graded_at)}</b>（週一 ${d.monday_as_of||""} 收盤）</span>`;
 }
 
 function renderBlood(d){
@@ -491,7 +544,11 @@ function renderMacro(d){
         ${r.curr==null?'<span class="stale">待手填</span>':""}
         <i>${esc(r.source)}${r.curr_date?" · "+r.curr_date:""}</i></span>
       <span class="num">${num(r.curr,dec)}</span>
-      <span class="dl" style="color:${col}">${r.delta==null?"—":(r.delta>0?"+":"")+num(r.delta,dec)}</span>
+      <span class="num pv" style="color:var(--dim)">${num(r.prev,dec)}
+        <i style="display:block;font-style:normal;font-size:9.5px">${r.prev_date||""}</i></span>
+      <span class="dl" style="color:${col}">${r.delta==null?"—":(r.delta>0?"+":"")+num(r.delta,dec)}
+        <i style="display:block;font-style:normal;font-size:9.5px;color:var(--dim)">${
+          r.delta_pct==null?"":pct(r.delta_pct)}</i></span>
       <span class="rail"><span style="${pos?"left:50%":"right:50%"};
         width:${mag}%;background:${col}"></span></span>
       <span class="vd" style="color:${col}">${r.verdict||"—"}</span>
@@ -507,19 +564,36 @@ function renderSectors(d){
     const avg = ok.length ? ok.reduce((a,b)=>a+b.chg_w,0)/ok.length : null;
     const sorted = [...items].sort((a,b)=>(b.chg_w??-9)-(a.chg_w??-9));
     const mx = Math.max(...ok.map(i=>Math.abs(i.chg_w)), .01);
+    const vd = items.filter(i=>i.value_delta!=null);
+    const gv = vd.length ? vd.reduce((a,i)=>a+i.value_delta,0) : null;
+    const nf = items.filter(i=>i.net_flow!=null);
+    const gf = nf.length ? nf.reduce((a,i)=>a+i.net_flow,0) : null;
     return `<div class="grp"><h3><span>${esc(g)}</span>
-      <em>組平均 <span class="${cls(avg)}">${pct(avg)}</span></em></h3>
+      <em>組平均 <span class="${cls(avg)}">${pct(avg)}</span>
+        ・市值變化 <span class="${cls(gv)}">${money(gv)}</span>
+        ${gf!=null?`・淨資金流 <span class="${cls(gf)}">${money(gf)}</span>`:""}</em></h3>
+      <div class="bar" style="padding-bottom:4px;border-bottom:1px solid var(--hair)">
+        <span class="tag">項目</span><span></span>
+        <span class="tag" style="text-align:right">週變化</span>
+        <span class="tag" style="text-align:right">市值變化</span>
+        <span class="tag fl" style="text-align:right">淨資金流</span></div>
       ${sorted.map(i=>{
         const w = i.chg_w==null?0:Math.abs(i.chg_w)/mx*48, pos=(i.chg_w||0)>0;
         return `<div class="bar">
-          <span class="nm2">${esc(i.name)} ${i.is_basket?`<u>籃子 ${i.tickers.length}檔</u>`:""}</span>
+          <span class="nm2">${esc(i.name)}
+            ${i.base_kind?`<u title="金額基準">${esc(i.base_kind)} ${esc(i.base_of||"")}</u>`:'<u>無金額基準</u>'}</span>
           <span class="bt"><span class="mid"></span>
             <span style="${pos?"left:50%":"right:50%"};width:${w}%;
               background:${pos?"var(--loosen)":"var(--riskoff)"}"></span></span>
           <span class="num ${cls(i.chg_w)}">${pct(i.chg_w)}</span>
+          <span class="num ${cls(i.value_delta)}">${money(i.value_delta)}</span>
+          <span class="num fl ${cls(i.net_flow)}">${i.net_flow==null?"—":money(i.net_flow)}</span>
         </div>`;}).join("")}
     </div>`;
   }).join("");
+  if(!d.sectors.some(x=>x.net_flow!=null))
+    $("#sectors").insertAdjacentHTML("afterbegin",
+      `<p class="tag" style="margin:0 0 14px">淨資金流要兩份以上的週快照才算得出來（本週 vs 上週的規模差，扣掉價格效應），下週起會出現。</p>`);
 }
 
 function renderThemes(d){
