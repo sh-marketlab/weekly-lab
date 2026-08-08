@@ -513,9 +513,24 @@ function renderBlood(d){
         ${money(p.v)} <em style="color:var(--dim);font-style:normal">${p.sign>0?"＋":"−"}</em></span>
     </div>`;
   }).join("");
-  $("#bloodnote").textContent =
-    "淨血量 = ΔFed資產 −ΔTGA −ΔRRP。條長是絕對值，顏色是「對市場血量的實際貢獻」——" +
-    "所以 TGA/RRP 下降會顯示為青色（放血），這是符號翻轉後的結果，不是畫錯。";
+  // 近似公式 vs 直接觀測的交叉檢核
+  const m18 = (d.macro || []).find(r => r.id === 18);
+  const gap = (m18 && m18.delta != null && b.net != null) ? b.net - m18.delta : null;
+  const lim = (d.th && d.th.reserve_gap) || 25000;
+  const alert = gap != null && Math.abs(gap) >= lim;
+  const dt = b.dates || {};
+  $("#bloodnote").innerHTML =
+    "淨血量 = ΔFed資產 −ΔTGA −ΔRRP（三條皆為 H.4.1 週三值）" +
+    (dt.curr ? `，比較 ${dt.prev} → ${dt.curr}` : "") +
+    "。條長是絕對值，顏色是「對市場血量的實際貢獻」——" +
+    "所以 TGA/RRP 下降會顯示為青色（放血），這是符號翻轉後的結果，不是畫錯。" +
+    (gap == null ? "" :
+      `<br><span style="color:${alert ? "var(--tighten)" : "var(--dim)"}">` +
+      `交叉檢核：實際準備金 Δ ${(m18.delta>=0?"+":"")}${num(m18.delta)}，` +
+      `與淨血量的缺口 ${(gap>=0?"+":"")}${num(gap)} 百萬` +
+      (alert
+        ? "　⚠ 缺口過大：有第四條水管在動（通貨／其他負債／資本），不在此公式的視野內"
+        : "　（＝Δ通貨＋Δ其他負債與資本，此區間內屬正常）") + "</span>");
 }
 
 function renderRadar(d){
@@ -537,7 +552,9 @@ function renderMacro(d){
     const col = axisColor(r);
     const mag = Math.min(Math.abs(r.delta_pct||0)/0.08, 1) * 46;
     const pos = (r.delta||0) > 0;
-    const dec = (r.unit==="%"||r.unit==="index") ? 2 : 0;
+    // 十億美元的 RRP 只有個位數，四捨五入成 0 位會變成「1」看起來像壞掉
+    const dec = (r.unit==="%"||r.unit==="index") ? 2
+              : (r.curr!=null && Math.abs(r.curr) < 1000) ? 2 : 0;
     return `<div class="ind">
       <span class="n">${String(r.id).padStart(2,"0")}</span>
       <span class="nm">${esc(r.name)}${r.stale?'<span class="stale">舊值</span>':""}
