@@ -15,11 +15,12 @@ random.seed(7)
 AS_OF = date(2026, 8, 6)
 
 RAW = [
-    (1, 6748567, 6738190), (2, 907324, 910776), (3, 319.368, 337.051),
+    (1, 6748567, 6738190), (2, 929325, 970442), (3, 1.45, 2.15),
     (4, None, None), (5, 2.75, 2.87), (6, 3.64, 3.65), (7, 4.18, 4.22),
     (8, 99.676, 101.11), (9, 0.45, 0.45), (10, 35.97, 35.95),
     (11, 60, 35), (12, 15.81, 20.66), (13, 73.58, 74.18),
     (14, 53.9, 53.8), (15, 199000, 197000), (16, 55.2, 54.4), (17, 3.5, 4.2),
+    (18, 3021400, 2989900),
 ]
 
 SECTOR_CHG = {
@@ -100,8 +101,8 @@ def main():
     for i, curr, prev in RAW:
         cfg = ind_cfg[i]
         if i == 4:
-            curr = 6748567 - 907324 - 319.368 * 1000
-            prev = 6738190 - 910776 - 337.051 * 1000
+            curr = 6748567 - 929325 - 201900
+            prev = 6738190 - 970442 - 198500
         d = None if (curr is None or prev is None) else curr - prev
         verdict = None if not d else (cfg["up_label"] if d > 0 else cfg["down_label"])
         macro.append({
@@ -117,13 +118,24 @@ def main():
     sectors = []
     for g, items in sec_cfg["groups"].items():
         for it in items:
+            r = SECTOR_CHG.get(it["name"])
+            if it.get("basket"):
+                base, kind, of = random.uniform(2e10, 4e11), "成分股市值和", f'{len(it["basket"])}/{len(it["basket"])} 檔'
+            elif it.get("mcap"):
+                base, kind, of = random.uniform(2e11, 2e12), "流通市值", it["ticker"]
+            elif it.get("proxy"):
+                base, kind, of = random.uniform(5e8, 6e11), "ETF 資產", it["proxy"]
+            else:
+                base = kind = of = None
             sectors.append({
                 "group": g, "name": it["name"],
                 "tickers": it.get("basket") or [it.get("ticker")],
                 "is_basket": bool(it.get("basket")),
-                "chg_w": SECTOR_CHG.get(it["name"]),
-                "members_ok": 1, "members_total": 1,
-                "note": it.get("note"), "flow_proxy": it.get("flow_proxy"),
+                "chg_w": r, "members_ok": 1, "members_total": 1,
+                "base": base, "base_kind": kind, "base_of": of,
+                "value_delta": C.value_delta(base, r),
+                "net_flow": None if base is None else base * random.gauss(0, .012),
+                "note": it.get("note"),
             })
 
     th_cfg = yaml.safe_load((C.CONFIG / "themes.yaml").read_text(encoding="utf-8"))
@@ -160,7 +172,7 @@ def main():
                          "avg": round(sum(x["chg_w"] for x in rows) / len(rows), 6)})
 
     g = {r["id"]: r for r in macro}
-    d1, d2, d3 = g[1]["delta"], g[2]["delta"], g[3]["delta"] * 1000
+    d1, d2, d3 = 10377, -41117, 3400   # ΔWALCL, ΔWDTGAL, ΔWLRRAL（百萬）
     payload = {
         "generated_at": C.utc_stamp(), "iso_week": C.week_key(AS_OF), "stage": "thu",
         "as_of": AS_OF, "as_of_label": f"{C.week_key(AS_OF)} 週四收盤（樣板）",
@@ -176,6 +188,8 @@ def main():
             open(C.DATA / "manual_input.json", encoding="utf-8")),
         "universe": th_cfg,
         "predictions": _demo_predictions(),
+        "windows": {"sectors": {"curr": AS_OF, "prev": date(2026, 7, 30)},
+                    "themes":  {"curr": AS_OF, "prev": date(2026, 7, 30)}},
     }
     print("✔", C.save_snapshot(payload, C.week_key(AS_OF), "thu"))
 

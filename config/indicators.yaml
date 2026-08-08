@@ -47,7 +47,7 @@ indicators:
     up_bias: tighten
     up_label: 增加（抽水）
     down_label: 減少（放水）
-    note: 貨幣市場資金是否在釋放
+    note: 貨幣市場資金是否在釋放（注意：單位是十億，且不參與 #4 的計算）
 
   - id: 4
     name: 淨流動性 (資產-TGA-RRP)
@@ -58,7 +58,12 @@ indicators:
     up_bias: loosen
     up_label: 上升
     down_label: 下降
-    note: 真正的市場總血量（三者一律對齊到同一個週三）
+    note: 真正的市場總血量 = WALCL − WDTGAL − WLRRAL（三條都是週三、都是百萬）
+    rrp_series_note: |
+      這裡的 RRP 用 WLRRAL（資產負債表逆回購負債總額）而非上面第 3 項的
+      RRPONTSYD（隔夜逆回購工具餘額）。RRPONTSYD 已排乾到約 15 億，
+      拿它當扣除項等於沒扣；WLRRAL 另含外國官方機構逆回購約 2000 億，
+      那才是真正從準備金裡被抽走的部位。
 
   - id: 5
     name: HY OAS 高收益債利差
@@ -207,3 +212,31 @@ indicators:
     up_label: 上升（通膨加溫）
     down_label: 下降（通膨降溫）
     note: Fed 政策轉向的核心約束
+
+  - id: 18
+    name: 銀行準備金餘額
+    axis: liquidity
+    source: {type: fred, series: WRBWFRBL}
+    unit: 百萬美元
+    freq: weekly
+    up_bias: loosen
+    up_label: 增加（血量真的變多）
+    down_label: 減少（血量真的變少）
+    note: 直接觀測值，用來交叉檢核第 4 項的近似公式
+    why: |
+      第 4 項的「淨流動性」是省略版的恆等式，完整版是：
+
+        準備金 = 總資產 − TGA − 逆回購 − 通貨發行 − 其他負債與資本
+
+      第 4 項只扣了前三項，把通貨與資本當成不會動。這在多數週成立，
+      但不是永遠。所以直接把準備金抓進來對照：
+
+        缺口 = Δ淨流動性 − Δ準備金 = Δ(通貨 + 其他負債 + 資本)
+
+      缺口平常應該只有幾十億。一旦放大到數百億，代表有第四條水管在動，
+      而那條水管不在第 4 項的視野裡 —— 這本身就是訊號，不是誤差。
+
+      常見成因：年底與長假前的現金需求（通貨發行跳升）、
+      財政部現金管理帳戶（TT&L）異動、外國央行 FIMA 部位重配、
+      Fed 資本重估。用的是 Wednesday Level 版本（WRBWFRBL），
+      不是常見的 WRESBAL（Week Average），因為要跟另外三條同時點才可比。

@@ -29,6 +29,7 @@ TH = {
     "oas_widen": 0.15,           # 背離 D：HY OAS 週擴大 ≥ 15bp
     "equity_up": 0.005,          # 背離 D：大盤仍收紅
     "stale_days": 10,            # 資料超過這天數沒更新就掛 stale 旗標
+    "reserve_gap": 25000,        # 背離 F：Δ淨流動性 與 Δ準備金 相差 ≥ 250 億（百萬美元）
 }
 
 
@@ -99,16 +100,19 @@ def build_macro(as_of: date) -> tuple[list[dict], dict, list[str]]:
             cache[src["series"]] = series
 
     # #4 淨流動性：三個序列一律對齊到同一個週三，不然是拿蘋果比橘子
-    nl = _net_liquidity(cache, as_of)
+    cache["WLRRAL"] = S.fred("WLRRAL")
+    nl, comps = _net_liquidity(cache, as_of)
+    nl_cd = nl_pd = None
     for i, r in enumerate(rows):
         if r.get("_defer"):
             ind = next(x for x in cfg["indicators"] if x["id"] == r["id"])
-            curr, prev, cd, pd_ = S.pick(nl, as_of, "weekly")
+            curr, prev, nl_cd, nl_pd = S.pick(nl, as_of, "weekly")
             delta = None if (curr is None or prev is None) else curr - prev
-            rows[i] = _row(ind, curr, prev, cd, pd_, delta, "計算：WALCL−TGA−RRP", as_of)
+            rows[i] = _row(ind, curr, prev, nl_cd, nl_pd, delta,
+                           "計算：WALCL−WDTGAL−WLRRAL", as_of)
 
     rows.sort(key=lambda r: r["id"])
-    breakdown = _blood_math(rows)
+    breakdown = _blood_math(comps, nl_cd, nl_pd)
     return rows, breakdown, pending
 
 
@@ -144,37 +148,70 @@ def _row(ind, curr, prev, cd, pd_, delta, origin, as_of):
 
 def _net_liquidity(cache, as_of):
     """
-    WALCL / WDTGAL 是週三為基準日的週頻，RRPONTSYD 是日頻且單位是「十億」。
-    先把 RRP 換成百萬並對齊到 WALCL 的日期，才是可比的淨流動性。
+    淨流動性 = WALCL − WDTGAL − WLRRAL
+
+    三條全部是 H.4.1 的「Wednesday Level」、單位都是百萬美元，
+    所以是同一個時點的資產負債表快照，不需要任何單位換算或日期插補。
+
+    RRP 這一項刻意用 WLRRAL（資產負債表上的逆回購負債總額）而不是
+    RRPONTSYD（隔夜逆回購工具餘額），兩者差很多：
+
+      RRPONTSYD  只含「暫時性公開市場操作」的隔夜逆回購，也就是貨幣基金
+                 停車的那個工具。2022–23 年曾破 2.5 兆，現在已排乾到 ~15 億，
+                 拿它當扣除項等於沒扣。日頻、單位十億。
+      WLRRAL     資產負債表上的逆回購負債全額，額外包含「外國官方機構」
+                 （FIMA）的逆回購，這一塊約 2000 億且會動。週三、單位百萬。
+
+    真正從準備金裡被抽走的是 WLRRAL，所以恆等式該用它。
+    RRPONTSYD 仍保留為第 3 項指標，因為它是另一個訊號
+    （貨幣市場資金是否在釋放），不是同一件事。
+
+    回傳 (序列, 各期組成)，組成拿來算血量計，確保兩者永遠對得起來。
     """
-    walcl, tga = cache.get("WALCL", []), dict(cache.get("WDTGAL", []))
-    rrp = cache.get("RRPONTSYD", [])
+    walcl = cache.get("WALCL", [])
+    tga = dict(cache.get("WDTGAL", []))
+    rrp = dict(cache.get("WLRRAL", []))
     if not walcl or not tga or not rrp:
-        return []
-    out = []
+        return [], {}
+
+    def near(book, d):
+        """H.4.1 偶爾有假日順延，容許 ±3 天對齊。"""
+        if d in book:
+            return book[d]
+        cand = [(abs((x - d).days), v) for x, v in book.items() if abs((x - d).days) <= 3]
+        return min(cand)[1] if cand else None
+
+    out, comps = [], {}
     for d, a in walcl:
-        t = tga.get(d)
-        if t is None:
-            near = [(x, v) for x, v in cache.get("WDTGAL", []) if abs((x - d).days) <= 3]
-            t = near[-1][1] if near else None
-        prior_rrp = [v for x, v in rrp if x <= d]
-        if t is None or not prior_rrp:
+        t, r = near(tga, d), near(rrp, d)
+        if t is None or r is None:
             continue
-        out.append((d, a - t - prior_rrp[-1] * 1000.0))
-    return out
+        out.append((d, a - t - r))
+        comps[d] = {"walcl": a, "tga": t, "rrp": r}
+    return out, comps
 
 
-def _blood_math(rows):
-    """本週淨血量 = ΔFed資產 − ΔTGA − ΔRRP（單位：百萬美元）。"""
-    g = {r["id"]: r for r in rows}
-    d1, d2, d3 = (g.get(i, {}).get("delta") for i in (1, 2, 3))
-    if d1 is None or d2 is None or d3 is None:
+def _blood_math(comps, curr_d, prev_d):
+    """
+    本週淨血量 = ΔWALCL − ΔTGA − ΔRRP（單位：百萬美元）。
+
+    直接吃 _net_liquidity 算好的組成，而且用的是第 4 項指標選定的
+    同一組日期，所以血量計的加總必定等於第 4 項的 Delta。
+    先前是拿第 3 項（RRPONTSYD，日頻、對齊到 as_of）去湊，
+    日期跟 WALCL 的週三對不上，兩邊差了幾百萬。
+    """
+    a, b = comps.get(curr_d), comps.get(prev_d)
+    if not a or not b:
         return {"net": None, "components": {}}
-    d3m = d3 * 1000.0
+    d1 = a["walcl"] - b["walcl"]
+    d2 = a["tga"] - b["tga"]
+    d3 = a["rrp"] - b["rrp"]
+    net = d1 - d2 - d3
     return {
-        "net": d1 - d2 - d3m,
-        "components": {"fed_assets": d1, "tga": d2, "on_rrp": d3m},
-        "reading": "放血（注入）" if (d1 - d2 - d3m) > 0 else "抽血（回收）",
+        "net": net,
+        "components": {"fed_assets": d1, "tga": d2, "on_rrp": d3},
+        "dates": {"curr": curr_d, "prev": prev_d},
+        "reading": "放血（注入）" if net > 0 else "抽血（回收）",
     }
 
 
@@ -329,6 +366,11 @@ def scan_divergence(macro, sectors, themes, frontier):
     spx, ndx = chg("S&P 500"), chg("Nasdaq 100")
     oas = m.get(5, {}).get("delta")
 
+    # 背離 F：第 4 項（近似公式）與第 18 項（直接觀測）的缺口
+    nl_d = m.get(4, {}).get("delta")
+    res_d = m.get(18, {}).get("delta")
+    gap_res = None if (nl_d is None or res_d is None) else nl_d - res_d
+
     gaps = [t["breadth_gap"] for t in themes if t["breadth_gap"] is not None]
     gap = st.mean(gaps) if gaps else None
     infra = next((t for t in themes if t["id"] == 10), {})
@@ -366,6 +408,12 @@ def scan_divergence(macro, sectors, themes, frontier):
                      else (fr_avg <= -0.05 and infra["leader_avg"] >= 0)),
          "evidence": {"Frontier 平均 %": None if fr_avg is None else round(fr_avg, 4),
                       "Infra 龍頭 %": infra.get("leader_avg")}},
+        {"code": "F", "title": "淨流動性與實際準備金背離",
+         "truth": "有第四條水管在動 —— 通貨、其他負債或資本項，不在 WALCL−TGA−RRP 的視野內",
+         "hit": flag(None if gap_res is None else abs(gap_res) >= TH["reserve_gap"]),
+         "evidence": {"Δ淨流動性": None if nl_d is None else round(nl_d),
+                      "Δ準備金": None if res_d is None else round(res_d),
+                      "缺口": None if gap_res is None else round(gap_res)}},
     ]
     return out
 
