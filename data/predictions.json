@@ -1,3 +1,100 @@
 {
-  "records": []
+  "records": [
+    {
+      "week": "2026-W32",
+      "created_at": "2026-08-08T12:39:30Z",
+      "items": [
+        {
+          "id": "direction",
+          "call": "多",
+          "confidence": 4,
+          "rationale": "根據這周水管的水變多(691億)，市場預期升息機率下降, 加上新聞對於勞動市場放緩的敘事選擇軟著陸說法，以及Hormoz海峽達成協議油價下跌，整個市場是Risk On模式，資金會湧向風險資產，整體還會上揚",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "open_style",
+          "call": "開高走低",
+          "confidence": 3,
+          "rationale": "龍頭股、前言科技會續漲，可能早盤開高誘多後遭遇強烈賣壓拉回修正，大魔王喜歡散戶被狂熱情緒沖昏頭時把高位籌碼出貨給韭菜們。",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "flow",
+          "call": "Risk-on",
+          "confidence": 4,
+          "rationale": "避險(金融股, 民生必需)流入風險資產, 市場情緒升溫",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "leader",
+          "call": "領先大盤",
+          "confidence": 4,
+          "rationale": "因為水變多，市場情緒升溫",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "breadth",
+          "call": "廣度惡化",
+          "confidence": 4,
+          "rationale": "私募信貸危機的隱憂",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "vol",
+          "call": "下降",
+          "confidence": 4,
+          "rationale": "CNN G&F指數大升(從frea變成greedy)",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "divergence",
+          "call": "尚未兌現",
+          "confidence": 2,
+          "rationale": "這周沒出現背離",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "intent",
+          "call": null,
+          "confidence": null,
+          "rationale": "對於經濟指數負面隱藏不提，刻意製造市場正面情緒",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        }
+      ],
+      "hypothesis": "基本面維持、戰爭減緩緊張、市場穩定, 把風險價格抬升後偷偷出貨",
+      "scored_at": null
+    }
+  ]
 }
