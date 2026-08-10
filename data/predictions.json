@@ -9,9 +9,9 @@
           "call": "多",
           "confidence": 4,
           "rationale": "根據這周水管的水變多(691億)，市場預期升息機率下降, 加上新聞對於勞動市場放緩的敘事選擇軟著陸說法，以及Hormoz海峽達成協議油價下跌，整個市場是Risk On模式，資金會湧向風險資產，整體還會上揚",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "震盪",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -20,9 +20,9 @@
           "call": "開高走低",
           "confidence": 3,
           "rationale": "龍頭股、前言科技會續漲，可能早盤開高誘多後遭遇強烈賣壓拉回修正，大魔王喜歡散戶被狂熱情緒沖昏頭時把高位籌碼出貨給韭菜們。",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "開低走高",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -31,9 +31,9 @@
           "call": "Risk-on",
           "confidence": 4,
           "rationale": "避險(金融股, 民生必需)流入風險資產, 市場情緒升溫",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "中性",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -42,9 +42,9 @@
           "call": "領先大盤",
           "confidence": 4,
           "rationale": "因為水變多，市場情緒升溫",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "同步",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -53,9 +53,9 @@
           "call": "廣度惡化",
           "confidence": 4,
           "rationale": "私募信貸危機的隱憂",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "廣度惡化",
+          "verdict": "correct",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -64,9 +64,9 @@
           "call": "下降",
           "confidence": 4,
           "rationale": "CNN G&F指數大升(從frea變成greedy)",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "上升",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -77,7 +77,7 @@
           "rationale": "這周沒出現背離",
           "actual": null,
           "verdict": null,
-          "auto": null,
+          "auto": false,
           "error_type": null,
           "note": ""
         },
@@ -88,13 +88,27 @@
           "rationale": "對於經濟指數負面隱藏不提，刻意製造市場正面情緒",
           "actual": null,
           "verdict": null,
-          "auto": null,
+          "auto": false,
           "error_type": null,
           "note": ""
         }
       ],
       "hypothesis": "基本面維持、戰爭減緩緊張、市場穩定, 把風險價格抬升後偷偷出貨",
-      "scored_at": null
+      "scored_at": "2026-08-10T23:37:39+00:00",
+      "metrics": {
+        "spx_d": -0.0005839757139619595,
+        "spx_gap": -0.0007605279749732796,
+        "spx_intraday": 0.0001766866361410102,
+        "breadth": -0.005048937109324303,
+        "mega_rel": 0.0007755671789177544,
+        "risk_app": -0.0025464931150460113,
+        "vix_chg": 0.03758392174186764,
+        "gold": 0.026193863182265797,
+        "dxy": 0.0020783206384853425,
+        "hyg": -0.0016329261703468267,
+        "tlt": -0.008458247457321821,
+        "as_of": "2026-08-10"
+      }
     }
   ]
 }
