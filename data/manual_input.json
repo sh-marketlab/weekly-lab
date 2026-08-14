@@ -16,6 +16,11 @@
       "date": "2026-08-06",
       "value": 35.97,
       "src": "worldgovernmentbonds.com US 5Y CDS"
+    },
+    {
+      "date": "2026-08-14",
+      "value": 34.18,
+      "src": "手動輸入"
     }
   ],
   "manufacturing_pmi": [
@@ -28,6 +33,11 @@
       "date": "2026-07-01",
       "value": 53.9,
       "src": "S&P Global US Mfg PMI"
+    },
+    {
+      "date": "2026-08-03",
+      "value": 53.9,
+      "src": "手動輸入"
     }
   ],
   "move_index": [
@@ -40,6 +50,11 @@
       "date": "2026-08-07",
       "value": 76.12,
       "src": "手動輸入"
+    },
+    {
+      "date": "2026-08-14",
+      "value": 69.23,
+      "src": "手動輸入"
     }
   ],
   "fear_greed": [
@@ -51,6 +66,11 @@
     {
       "date": "2026-08-07",
       "value": 64,
+      "src": "手動輸入"
+    },
+    {
+      "date": "2026-08-14",
+      "value": 66,
       "src": "手動輸入"
     }
   ]
