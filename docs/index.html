@@ -170,8 +170,8 @@ pre.out{background:var(--panel-2);border:1px solid var(--hair);border-radius:4px
   max-height:300px;overflow:auto;margin:12px 0 0;white-space:pre-wrap;color:var(--muted)}
 .uni{border-top:1px solid var(--hair);padding:13px 0}
 .unihead{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-bottom:8px}
-.unihead input.nm{width:190px;font-family:var(--sans);font-size:13px;font-weight:600}
-.unihead input.zh2{width:150px;font-family:var(--sans);font-size:11.5px;color:var(--muted)}
+.unihead input.nm{flex:1 1 240px;min-width:180px;max-width:340px;font-family:var(--sans);font-size:13px;font-weight:600}
+.unihead input.zh2{flex:0 1 180px;min-width:120px;font-family:var(--sans);font-size:11.5px;color:var(--muted)}
 .unihead em{font-style:normal;font-family:var(--mono);font-size:10px;
   letter-spacing:.12em;color:var(--dim)}
 .unihead .btn.ghost{margin-left:auto;font-size:10px}
@@ -815,6 +815,130 @@ function genYaml(){
   UNI.frontier.forEach(f => y += blk(f));
   $("#outYaml").textContent = y;
 }
+/* ── 04 預測與批改 ─────────────────────────────────── */
+function renderPredict(d){
+  const P = d.predictions;
+  if(!P) return;
+  $("#lnkPred").href = editUrl("data/predictions.json");
+  $("#predWk").textContent = d.iso_week;
+
+  /* Step 4 表單 */
+  $("#predForm").innerHTML = P.slots.map((sl,i)=>{
+    const v = PDRAFT.items[sl.id] || {};
+    const auto = (sl.resolver||{}).type !== "manual";
+    return `<div class="prow">
+      <span class="pq">${String(i+1).padStart(2,"0")} · ${esc(sl.label)}
+        <i>${esc(sl.hint||"")}${auto?"":" · 週一由你自己標"}</i></span>
+      <select id="c_${sl.id}" onchange="pd('${sl.id}','call',this.value)" aria-label="${esc(sl.label)} 判斷">
+        <option value="">— 選擇 —</option>
+        ${sl.options.map(o=>`<option ${v.call===o?"selected":""}>${esc(o)}</option>`).join("")}
+      </select>
+      <select id="k_${sl.id}" onchange="pd('${sl.id}','confidence',+this.value)" aria-label="${esc(sl.label)} 信心">
+        <option value="">信心</option>
+        ${[1,2,3,4,5].map(n=>`<option value="${n}" ${v.confidence===n?"selected":""}>${n} 分</option>`).join("")}
+      </select>
+    </div>
+    <textarea id="r_${sl.id}" placeholder="理由 —— 依據哪條水管、哪個板塊訊號？"
+      oninput="pd('${sl.id}','rationale',this.value)">${esc(v.rationale||"")}</textarea>`;
+  }).join("");
+  $("#hypo").value = PDRAFT.hypothesis || "";
+  $("#hypo").oninput = e => { PDRAFT.hypothesis = e.target.value; LS.set("wl.pred", PDRAFT); };
+  const filled = Object.values(PDRAFT.items).filter(x=>x.call).length;
+  $("#pdraft").textContent = filled ? `本機草稿 ${filled}/${P.slots.length} 欄，尚未貼回 repo` : "";
+
+  /* Step 5 批改 */
+  const R = P.last_scored;
+  const labels = Object.fromEntries(P.slots.map(s=>[s.id, s]));
+  if(R){
+    $("#gradeWk").textContent = R.week;
+    const ed = PEDITS[R.week] || {};
+    $("#gradeBody").innerHTML = R.items.map(it=>{
+      const sl = labels[it.id] || {label:it.id, options:[]};
+      const v = it.verdict, e = ed[it.id] || {};
+      const badge = v==="correct" ? '<span class="vb ok">正確</span>'
+                  : v==="wrong"   ? '<span class="vb no">錯誤</span>'
+                  : '<span class="vb man">待標記</span>';
+      const et = e.error_type ?? it.error_type ?? "";
+      const showFix = v==="wrong" || v===null || et;
+      return `<div class="grow">
+        <span class="gq">${esc(sl.label)}
+          ${it.confidence?`<span class="tag">信心 ${it.confidence}</span>`:""}</span>
+        <span class="gv">你：${esc(it.call||"—")}</span>
+        <span class="gv">實際：${esc(it.actual|| (it.auto===false?"手動":"—"))}</span>
+        ${badge}
+      </div>
+      ${showFix?`<div class="gfix">
+        <select onchange="pe('${R.week}','${it.id}','error_type',this.value)" aria-label="誤差類型">
+          <option value="">— 誤差類型 —</option>
+          ${P.error_types.map(x=>`<option value="${x.id}" ${et===x.id?"selected":""}>${esc(x.label)}</option>`).join("")}
+        </select>
+        <input value="${esc(e.note ?? it.note ?? "")}" placeholder="應該要怎麼判斷才對？"
+          oninput="pe('${R.week}','${it.id}','note',this.value)" aria-label="檢討">
+      </div>`:""}`;
+    }).join("") +
+    `<div class="actions">
+      <button class="btn solid" onclick="genPred()">產生 JSON</button>
+      <button class="btn" onclick="copyOut(event,'outPred2')">複製</button>
+      <a class="btn" href="${editUrl("data/predictions.json")}" target="_blank" rel="noopener">在 GitHub 編輯此檔 ↗</a>
+      <span class="tag">批改於 ${R.scored_at||"—"}</span>
+     </div>
+     <pre class="out" id="outPred2">按「產生 JSON」後顯示（與 Step 4 共用同一份檔案）。</pre>`;
+  }
+
+  renderStats(P.stats, P);
+}
+
+function renderStats(s, P){
+  const rate = v => v==null ? "—" : (v*100).toFixed(0)+"%";
+  $("#statKpi").innerHTML = `
+    <div><u>已批改週數</u><b>${s.weeks_scored}</b></div>
+    <div><u>整體命中率</u><b class="${s.rate==null?"flat":s.rate>=.5?"up":"down"}">${rate(s.rate)}</b>
+      <em>${s.hit} / ${s.n} 項</em></div>
+    <div><u>對但理由錯</u><b class="${s.lucky_calls?"down":"flat"}">${s.lucky_calls}</b>
+      <em>運氣，不是能力</em></div>
+    <div><u>理由對但結果錯</u><b class="flat">${s.unlucky_calls}</b>
+      <em>方法沒問題，被打斷</em></div>`;
+
+  const rows = Object.values(s.per_slot);
+  $("#statSlots").innerHTML = rows.length ? rows.map(r=>`
+    <div class="sbar"><span class="sl">${esc(r.label)}</span>
+      <span class="st"><span style="width:${(r.rate||0)*100}%;
+        background:${r.rate>=.6?"var(--loosen)":r.rate>=.4?"var(--tighten)":"var(--riskoff)"}"></span></span>
+      <span class="sn">${rate(r.rate)} <span class="tag">${r.hit}/${r.n}</span></span>
+    </div>`).join("") : '<p class="tag">尚無資料。</p>';
+
+  const cal = Object.entries(s.per_confidence);
+  $("#statCal").innerHTML = cal.length ? `<table class="cal">
+    <tr><th>信心</th><th>宣稱</th><th>實際</th><th>落差</th><th>樣本</th></tr>
+    ${cal.map(([k,c])=>`<tr><td>${k} 分</td><td style="text-align:right">${rate(c.stated)}</td>
+      <td style="text-align:right">${rate(c.rate)}</td>
+      <td style="text-align:right;color:${c.gap==null?"var(--dim)":Math.abs(c.gap)<=.1?"var(--loosen)":"var(--riskoff)"}">
+        ${c.gap==null?"—":(c.gap>0?"+":"")+(c.gap*100).toFixed(0)+"pp"}</td>
+      <td style="text-align:right;color:var(--dim)">${c.n}</td></tr>`).join("")}
+    </table>
+    <p class="tag" style="margin-top:8px">落差為負＝過度自信；為正＝低估自己。樣本少於 10 的那一列先別當真。</p>`
+    : '<p class="tag">尚無資料。</p>';
+
+  const errs = Object.values(s.per_error);
+  const mx = Math.max(...errs.map(e=>e.n), 1);
+  $("#statErr").innerHTML = errs.length ? errs.map(e=>`
+    <div class="sbar"><span class="sl">${esc(e.label)}</span>
+      <span class="st"><span style="width:${e.n/mx*100}%;background:var(--riskoff)"></span></span>
+      <span class="sn">${e.n} 次</span></div>`).join("")
+    : '<p class="tag">尚無資料。判錯時記得標誤差類型，這一區才會長出東西。</p>';
+}
+
+function pd(id, field, val){
+  (PDRAFT.items[id] ||= {})[field] = val;
+  LS.set("wl.pred", PDRAFT);
+  const n = Object.values(PDRAFT.items).filter(x=>x.call).length;
+  $("#pdraft").textContent = n ? `本機草稿 ${n}/${D.predictions.slots.length} 欄，尚未貼回 repo` : "";
+}
+function pe(week, id, field, val){
+  ((PEDITS[week] ||= {})[id] ||= {})[field] = val;
+  LS.set("wl.predits", PEDITS);
+}
+
 function genPred(){
   const P = D.predictions;
   const recs = clone(P.records || []);
