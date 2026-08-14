@@ -169,9 +169,15 @@ pre.out{background:var(--panel-2);border:1px solid var(--hair);border-radius:4px
   padding:12px;font-family:var(--mono);font-size:11px;line-height:1.65;
   max-height:300px;overflow:auto;margin:12px 0 0;white-space:pre-wrap;color:var(--muted)}
 .uni{border-top:1px solid var(--hair);padding:13px 0}
-.uni h5{margin:0 0 8px;font-size:13px;font-weight:600}
-.uni h5 em{font-style:normal;font-family:var(--mono);font-size:10px;
-  letter-spacing:.12em;color:var(--dim);margin-left:8px}
+.unihead{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-bottom:8px}
+.unihead input.nm{width:190px;font-family:var(--sans);font-size:13px;font-weight:600}
+.unihead input.zh2{width:150px;font-family:var(--sans);font-size:11.5px;color:var(--muted)}
+.unihead em{font-style:normal;font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;color:var(--dim)}
+.unihead .btn.ghost{margin-left:auto;font-size:10px}
+.addgrp{display:flex;gap:7px;align-items:center;margin-top:14px;padding-top:13px;
+  border-top:1px dashed var(--hair)}
+.addgrp input{width:270px}
 .chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:7px}
 .chip{display:inline-flex;align-items:center;gap:5px;background:var(--panel-2);
   border:1px solid var(--hair);border-radius:3px;padding:3px 5px 3px 8px;
@@ -604,35 +610,48 @@ function renderSectors(d){
               background:${pos?"var(--loosen)":"var(--riskoff)"}"></span></span>
           <span class="num ${cls(i.chg_w)}">${pct(i.chg_w)}</span>
           <span class="num ${cls(i.value_delta)}">${money(i.value_delta)}</span>
-          <span class="num fl ${cls(i.net_flow)}">${i.net_flow==null?"—":money(i.net_flow)}</span>
+          <span class="num fl ${cls(i.net_flow)}" ${i.flow_note?`title="${esc(i.flow_note)}"`:""}>${
+            i.net_flow==null
+              ? `<span style="color:var(--dim);font-size:10px">${esc(i.flow_note||"—")}</span>`
+              : money(i.net_flow)}</span>
         </div>`;}).join("")}
     </div>`;
   }).join("");
-  if(!d.sectors.some(x=>x.net_flow!=null))
+  const noFlow = !d.sectors.some(x=>x.net_flow!=null);
+  const anyStale = d.sectors.some(x=>x.flow_note && x.flow_note.indexOf("未更新")>=0);
+  if(noFlow || anyStale)
     $("#sectors").insertAdjacentHTML("afterbegin",
-      `<p class="tag" style="margin:0 0 14px">淨資金流要兩份以上的週快照才算得出來（本週 vs 上週的規模差，扣掉價格效應），下週起會出現。</p>`);
+      `<p class="tag" style="margin:0 0 14px">淨資金流 = 本週規模 − 上週規模×(1+該標的自己的報酬)，扣掉價格效應後剩下的份額變化。` +
+      (noFlow ? "需要兩份以上的週快照，下週起會出現。" : "") +
+      (anyStale ? "標「來源規模未更新」的項目代表 Yahoo 回傳的規模與上週一模一樣——那是資料沒刷新，不是零流入，所以不出數字。" : "") +
+      `</p>`);
 }
 
 function renderThemes(d){
-  const keep = {}, fkeep = {};
-  UNI.themes.forEach(t => keep[t.id] = new Set([...t.leader, ...t.rank]));
-  UNI.frontier.forEach(f => fkeep[f.name] = new Set(f.tickers));
+  const keepOf = list => {
+    const m = {};
+    list.forEach(t => m[t.id] = new Set([...(t.leader||[]), ...(t.rank||[])]));
+    return m;
+  };
+  const kT = keepOf(UNI.themes), kF = keepOf(UNI.frontier);
   const avg = a => a.length ? a.reduce((x,y)=>x+y,0)/a.length : null;
 
-  $("#themes").innerHTML = d.themes.map(t=>{
-    const stocks = t.stocks.filter(s => keep[t.id] && keep[t.id].has(s.ticker));
+  /* themes 與 frontier 用同一張卡，差別只在有沒有 zh 副標 */
+  function card(t, keep){
+    const stocks = (t.stocks||[]).filter(s => keep[t.id] && keep[t.id].has(s.ticker));
     const la = avg(stocks.filter(s=>s.tier==="leader"&&s.chg_w!=null).map(s=>s.chg_w));
     const ra = avg(stocks.filter(s=>s.tier==="rank"  &&s.chg_w!=null).map(s=>s.chg_w));
+    const all = avg(stocks.filter(s=>s.chg_w!=null).map(s=>s.chg_w));
     const gap = (la!=null&&ra!=null) ? la-ra : null;
     const vds = stocks.filter(s=>s.value_delta!=null);
-    const vd = vds.length ? vds.reduce((a,s)=>a+s.value_delta,0) : null;
-    const up = stocks.filter(s=>(s.chg_w||0)>0).length;
+    const vd  = vds.length ? vds.reduce((a,s)=>a+s.value_delta,0) : null;
+    const up  = stocks.filter(s=>(s.chg_w||0)>0).length;
     const pending = (keep[t.id] ? keep[t.id].size : 0) - stocks.length;
     const gw = Math.min(Math.abs(gap||0)/0.06,1)*48;
     const alert = gap!=null && gap >= ((d.th && d.th.breadth_gap) ?? .02);
     return `<div class="tc">
-      <h4>${String(t.id).padStart(2,"0")} · ${esc(t.name)}</h4>
-      <div class="zh">${esc(t.zh)} · 上漲家數 ${up}/${stocks.length}
+      <h4>${esc(t.name)} <span style="color:var(--dim);font-weight:400;font-family:var(--mono);font-size:11px">${pct(all)}</span></h4>
+      <div class="zh">${t.zh?esc(t.zh)+" · ":""}上漲家數 ${up}/${stocks.length}
         ${pending>0?`<span class="badge act" style="margin-left:6px">新增 ${pending} 檔待抓取</span>`:""}</div>
       <div class="kpi">
         <div><u>市值變化合計</u><b class="${cls(vd)}">${money(vd)}</b></div>
@@ -653,18 +672,10 @@ function renderThemes(d){
           <span class="${cls(s.value_delta)}" style="text-align:right">${money(s.value_delta)}</span>
         </div>`).join("")}</details>
     </div>`;
-  }).join("");
+  }
 
-  $("#frontier").innerHTML = d.frontier.map(f=>{
-    const stocks = f.stocks.filter(s => fkeep[f.name] && fkeep[f.name].has(s.ticker));
-    const a = avg(stocks.filter(s=>s.chg_w!=null).map(s=>s.chg_w));
-    return `<div class="tc"><h4>${esc(f.name)}</h4>
-      <div class="zh">分組平均 <span class="${cls(a)}">${pct(a)}</span></div>
-      ${stocks.map(s=>`<div class="stk" style="grid-template-columns:70px 1fr 66px">
-        <span class="tk">${esc(s.ticker)}</span><span></span>
-        <span class="${cls(s.chg_w)}" style="text-align:right">${pct(s.chg_w)}</span>
-      </div>`).join("")}
-    </div>`;}).join("");
+  $("#themes").innerHTML   = d.themes.map(t => card(t, kT)).join("");
+  $("#frontier").innerHTML = (d.frontier||[]).map(f => card(f, kF)).join("");
 }
 
 /* ── 04 設定分頁 ─────────────────────────────────── */
@@ -692,32 +703,40 @@ function renderSettings(d){
   }).join("");
   $("#mdraft").textContent = draftCount() ? `本機草稿 ${draftCount()} 筆，尚未貼回 repo` : "";
 
-  $("#uniThemes").innerHTML = UNI.themes.map(t=>`
-    <div class="uni"><h5>${String(t.id).padStart(2,"0")} · ${esc(t.name)}
-      <em>${t.leader.length + t.rank.length} 檔</em></h5>
+  const uniBlock = (t, kind, i) => `
+    <div class="uni">
+      <div class="unihead">
+        <input class="nm" value="${esc(t.name)}"
+          oninput="rn('${kind}',${t.id},this.value)" aria-label="分類名稱">
+        ${kind==="themes" ? `<input class="zh2" value="${esc(t.zh||"")}" placeholder="中文副標"
+          oninput="rz(${t.id},this.value)" aria-label="中文副標">` : ""}
+        <em>${(t.leader||[]).length + (t.rank||[]).length} 檔</em>
+        <button class="btn ghost" onclick="delGrp('${kind}',${t.id})"
+          title="刪除整個分類">刪除分類</button>
+      </div>
       <div class="chips">
-        ${t.leader.map(s=>chip(s,`rmT(${t.id},'leader','${s}')`,true)).join("")}
-        ${t.rank.map(s=>chip(s,`rmT(${t.id},'rank','${s}')`,false)).join("")}
+        ${(t.leader||[]).map(x=>chip(x,`rmS('${kind}',${t.id},'leader','${x}')`,true)).join("")}
+        ${(t.rank||[]).map(x=>chip(x,`rmS('${kind}',${t.id},'rank','${x}')`,false)).join("")}
       </div>
       <div class="addbox">
-        <input id="at_${t.id}" placeholder="代號" aria-label="新增代號"
-          onkeydown="if(event.key==='Enter')addT(${t.id})">
-        <select id="tier_${t.id}" aria-label="層級">
+        <input id="a_${kind}_${t.id}" placeholder="代號" aria-label="新增代號"
+          onkeydown="if(event.key==='Enter')addS('${kind}',${t.id})">
+        <select id="t_${kind}_${t.id}" aria-label="層級">
           <option value="rank">3-10 名</option><option value="leader">龍頭</option>
         </select>
-        <button class="btn" onclick="addT(${t.id})">新增</button>
+        <button class="btn" onclick="addS('${kind}',${t.id})">新增</button>
       </div>
-    </div>`).join("");
+    </div>`;
 
-  $("#uniFrontier").innerHTML = UNI.frontier.map((f,i)=>`
-    <div class="uni"><h5>${esc(f.name)}<em>${f.tickers.length} 檔</em></h5>
-      <div class="chips">${f.tickers.map(s=>chip(s,`rmF(${i},'${s}')`,false)).join("")}</div>
-      <div class="addbox">
-        <input id="af_${i}" placeholder="代號" aria-label="新增代號"
-          onkeydown="if(event.key==='Enter')addF(${i})">
-        <button class="btn" onclick="addF(${i})">新增</button>
-      </div>
-    </div>`).join("");
+  $("#uniThemes").innerHTML = UNI.themes.map((t,i)=>uniBlock(t,"themes",i)).join("") +
+    `<div class="addgrp"><input id="newThemeName" placeholder="新分類名稱（例：機器人與自動化）"
+       onkeydown="if(event.key==='Enter')addGrp('themes')">
+     <button class="btn solid" onclick="addGrp('themes')">＋ 新增主題分類</button></div>`;
+
+  $("#uniFrontier").innerHTML = UNI.frontier.map((f,i)=>uniBlock(f,"frontier",i)).join("") +
+    `<div class="addgrp"><input id="newFrontierName" placeholder="新分類名稱（例：核融合）"
+       onkeydown="if(event.key==='Enter')addGrp('frontier')">
+     <button class="btn solid" onclick="addGrp('frontier')">＋ 新增 Frontier 分類</button></div>`;
 
   $("#udraft").textContent = LS.get("wl.universe",null) ? "名單已本機修改，尚未貼回 repo" : "";
 }
@@ -727,21 +746,38 @@ const chip = (s,fn,lead) =>
   `<button onclick="${fn}" title="移除 ${esc(s)}" aria-label="移除 ${esc(s)}">×</button></span>`;
 
 const saveUni = () => { LS.set("wl.universe", UNI); renderThemes(D); renderSettings(D); };
-const T = id => UNI.themes.find(t=>t.id===id);
+const G = (kind, id) => UNI[kind].find(x => x.id === id);
 
-function rmT(id,tier,sym){ const t=T(id); t[tier]=t[tier].filter(x=>x!==sym); saveUni(); }
-function addT(id){
-  const el=$(`#at_${id}`), sym=(el.value||"").trim().toUpperCase();
-  if(!sym) return;
-  const t=T(id);
-  if(!t.leader.includes(sym) && !t.rank.includes(sym)) t[$(`#tier_${id}`).value].push(sym);
-  el.value=""; saveUni();
+function rn(kind, id, v){ G(kind,id).name = v; LS.set("wl.universe", UNI); renderThemes(D); }
+function rz(id, v){ G("themes",id).zh = v; LS.set("wl.universe", UNI); renderThemes(D); }
+
+function rmS(kind, id, tier, sym){
+  const g = G(kind,id); g[tier] = (g[tier]||[]).filter(x => x !== sym); saveUni();
 }
-function rmF(i,sym){ UNI.frontier[i].tickers = UNI.frontier[i].tickers.filter(x=>x!==sym); saveUni(); }
-function addF(i){
-  const el=$(`#af_${i}`), sym=(el.value||"").trim().toUpperCase();
-  if(sym && !UNI.frontier[i].tickers.includes(sym)) UNI.frontier[i].tickers.push(sym);
-  el.value=""; saveUni();
+function addS(kind, id){
+  const el = $(`#a_${kind}_${id}`), sym = (el.value||"").trim().toUpperCase();
+  if(!sym) return;
+  const g = G(kind,id), tier = $(`#t_${kind}_${id}`).value;
+  if(!(g.leader||[]).includes(sym) && !(g.rank||[]).includes(sym)){
+    (g[tier] = g[tier] || []).push(sym);
+  }
+  el.value = ""; saveUni();
+}
+function addGrp(kind){
+  const el = $(kind === "themes" ? "#newThemeName" : "#newFrontierName");
+  const name = (el.value||"").trim();
+  if(!name){ alert("請先輸入分類名稱。"); return; }
+  // frontier 用 101+ 的號段，跟 themes 的 1-99 分開，避免兩邊撞號
+  const base = kind === "themes" ? 0 : 100;
+  const ids = UNI[kind].map(x => x.id);
+  const id = Math.max(base, ...ids.filter(x => x > base)) + 1;
+  UNI[kind].push({id, name, zh: "", leader: [], rank: []});
+  el.value = ""; saveUni();
+}
+function delGrp(kind, id){
+  const g = G(kind,id);
+  if(!confirm(`刪除分類「${g.name}」？裡面的 ${(g.leader||[]).length+(g.rank||[]).length} 檔個股會一起移除。`)) return;
+  UNI[kind] = UNI[kind].filter(x => x.id !== id); saveUni();
 }
 
 const draftCount = () => Object.values(MDRAFT).reduce((a,b)=>a+b.length,0);
@@ -764,139 +800,20 @@ function genManual(){
   $("#outManual").textContent = JSON.stringify(merged, null, 2);
 }
 function genYaml(){
-  const q = s => /[:#{}\[\],&*?|<>=!%@`"']/.test(s) ? JSON.stringify(s) : s;
-  let y = "# 由儀表板「04 · 設定」產生。手改也可以，格式維持一致即可。\n\nthemes:\n";
-  UNI.themes.forEach(t=>{
-    y += `  - id: ${t.id}\n    name: ${q(t.name)}\n    zh: ${q(t.zh)}\n`;
+  const q = v => /[:#{}\[\],&*?|<>=!%@`"']/.test(v) ? JSON.stringify(v) : v;
+  const blk = t => {
+    let y = `  - id: ${t.id}\n    name: ${q(t.name)}\n`;
+    if(t.zh) y += `    zh: ${q(t.zh)}\n`;
     if(t.positioning) y += `    positioning: ${q(t.positioning)}\n`;
-    y += `    leader: [${t.leader.join(", ")}]\n    rank:   [${t.rank.join(", ")}]\n`;
-  });
+    y += `    leader: [${(t.leader||[]).join(", ")}]\n`;
+    y += `    rank:   [${(t.rank||[]).join(", ")}]\n`;
+    return y;
+  };
+  let y = "# 由儀表板「05 · 設定與手填」產生。手改也可以，格式維持一致即可。\n\nthemes:\n";
+  UNI.themes.forEach(t => y += blk(t));
   y += "\nfrontier:\n";
-  UNI.frontier.forEach(f=>{ y += `  - {name: ${q(f.name)}, tickers: [${f.tickers.join(", ")}]}\n`; });
+  UNI.frontier.forEach(f => y += blk(f));
   $("#outYaml").textContent = y;
-}
-/* ── 04 預測與批改 ─────────────────────────────────── */
-function renderPredict(d){
-  const P = d.predictions;
-  if(!P){ return; }
-  $("#lnkPred").href = editUrl("data/predictions.json");
-  $("#predWk").textContent = d.iso_week;
-
-  /* Step 4 表單 */
-  $("#predForm").innerHTML = P.slots.map((sl,i)=>{
-    const v = PDRAFT.items[sl.id] || {};
-    const auto = (sl.resolver||{}).type !== "manual";
-    return `<div class="prow">
-      <span class="pq">${String(i+1).padStart(2,"0")} · ${esc(sl.label)}
-        <i>${esc(sl.hint||"")}${auto?"":" · 週一由你自己標"}</i></span>
-      <select id="c_${sl.id}" onchange="pd('${sl.id}','call',this.value)" aria-label="${esc(sl.label)} 判斷">
-        <option value="">— 選擇 —</option>
-        ${sl.options.map(o=>`<option ${v.call===o?"selected":""}>${esc(o)}</option>`).join("")}
-      </select>
-      <select id="k_${sl.id}" onchange="pd('${sl.id}','confidence',+this.value)" aria-label="${esc(sl.label)} 信心">
-        <option value="">信心</option>
-        ${[1,2,3,4,5].map(n=>`<option value="${n}" ${v.confidence===n?"selected":""}>${n} 分</option>`).join("")}
-      </select>
-    </div>
-    <textarea id="r_${sl.id}" placeholder="理由 —— 依據哪條水管、哪個板塊訊號？"
-      oninput="pd('${sl.id}','rationale',this.value)">${esc(v.rationale||"")}</textarea>`;
-  }).join("");
-  $("#hypo").value = PDRAFT.hypothesis || "";
-  $("#hypo").oninput = e => { PDRAFT.hypothesis = e.target.value; LS.set("wl.pred", PDRAFT); };
-  const filled = Object.values(PDRAFT.items).filter(x=>x.call).length;
-  $("#pdraft").textContent = filled ? `本機草稿 ${filled}/${P.slots.length} 欄，尚未貼回 repo` : "";
-
-  /* Step 5 批改 */
-  const R = P.last_scored;
-  const labels = Object.fromEntries(P.slots.map(s=>[s.id, s]));
-  if(R){
-    $("#gradeWk").textContent = R.week;
-    const ed = PEDITS[R.week] || {};
-    $("#gradeBody").innerHTML = R.items.map(it=>{
-      const sl = labels[it.id] || {label:it.id, options:[]};
-      const v = it.verdict, e = ed[it.id] || {};
-      const badge = v==="correct" ? '<span class="vb ok">正確</span>'
-                  : v==="wrong"   ? '<span class="vb no">錯誤</span>'
-                  : '<span class="vb man">待標記</span>';
-      const et = e.error_type ?? it.error_type ?? "";
-      const showFix = v==="wrong" || v===null || et;
-      return `<div class="grow">
-        <span class="gq">${esc(sl.label)}
-          ${it.confidence?`<span class="tag">信心 ${it.confidence}</span>`:""}</span>
-        <span class="gv">你：${esc(it.call||"—")}</span>
-        <span class="gv">實際：${esc(it.actual|| (it.auto===false?"手動":"—"))}</span>
-        ${badge}
-      </div>
-      ${showFix?`<div class="gfix">
-        <select onchange="pe('${R.week}','${it.id}','error_type',this.value)" aria-label="誤差類型">
-          <option value="">— 誤差類型 —</option>
-          ${P.error_types.map(x=>`<option value="${x.id}" ${et===x.id?"selected":""}>${esc(x.label)}</option>`).join("")}
-        </select>
-        <input value="${esc(e.note ?? it.note ?? "")}" placeholder="應該要怎麼判斷才對？"
-          oninput="pe('${R.week}','${it.id}','note',this.value)" aria-label="檢討">
-      </div>`:""}`;
-    }).join("") +
-    `<div class="actions">
-      <button class="btn solid" onclick="genPred()">產生 JSON</button>
-      <button class="btn" onclick="copyOut(event,'outPred2')">複製</button>
-      <a class="btn" href="${editUrl("data/predictions.json")}" target="_blank" rel="noopener">在 GitHub 編輯此檔 ↗</a>
-      <span class="tag">批改於 ${R.scored_at||"—"}</span>
-     </div>
-     <pre class="out" id="outPred2">按「產生 JSON」後顯示（與 Step 4 共用同一份檔案）。</pre>`;
-  }
-
-  renderStats(P.stats, P);
-}
-
-function renderStats(s, P){
-  const rate = v => v==null ? "—" : (v*100).toFixed(0)+"%";
-  $("#statKpi").innerHTML = `
-    <div><u>已批改週數</u><b>${s.weeks_scored}</b></div>
-    <div><u>整體命中率</u><b class="${s.rate==null?"flat":s.rate>=.5?"up":"down"}">${rate(s.rate)}</b>
-      <em>${s.hit} / ${s.n} 項</em></div>
-    <div><u>對但理由錯</u><b class="${s.lucky_calls?"down":"flat"}">${s.lucky_calls}</b>
-      <em>運氣，不是能力</em></div>
-    <div><u>理由對但結果錯</u><b class="flat">${s.unlucky_calls}</b>
-      <em>方法沒問題，被打斷</em></div>`;
-
-  const rows = Object.values(s.per_slot);
-  $("#statSlots").innerHTML = rows.length ? rows.map(r=>`
-    <div class="sbar"><span class="sl">${esc(r.label)}</span>
-      <span class="st"><span style="width:${(r.rate||0)*100}%;
-        background:${r.rate>=.6?"var(--loosen)":r.rate>=.4?"var(--tighten)":"var(--riskoff)"}"></span></span>
-      <span class="sn">${rate(r.rate)} <span class="tag">${r.hit}/${r.n}</span></span>
-    </div>`).join("") : '<p class="tag">尚無資料。</p>';
-
-  const cal = Object.entries(s.per_confidence);
-  $("#statCal").innerHTML = cal.length ? `<table class="cal">
-    <tr><th>信心</th><th>宣稱</th><th>實際</th><th>落差</th><th>樣本</th></tr>
-    ${cal.map(([k,c])=>`<tr><td>${k} 分</td><td style="text-align:right">${rate(c.stated)}</td>
-      <td style="text-align:right">${rate(c.rate)}</td>
-      <td style="text-align:right;color:${c.gap==null?"var(--dim)":Math.abs(c.gap)<=.1?"var(--loosen)":"var(--riskoff)"}">
-        ${c.gap==null?"—":(c.gap>0?"+":"")+(c.gap*100).toFixed(0)+"pp"}</td>
-      <td style="text-align:right;color:var(--dim)">${c.n}</td></tr>`).join("")}
-    </table>
-    <p class="tag" style="margin-top:8px">落差為負＝過度自信；為正＝低估自己。樣本少於 10 的那一列先別當真。</p>`
-    : '<p class="tag">尚無資料。</p>';
-
-  const errs = Object.values(s.per_error);
-  const mx = Math.max(...errs.map(e=>e.n), 1);
-  $("#statErr").innerHTML = errs.length ? errs.map(e=>`
-    <div class="sbar"><span class="sl">${esc(e.label)}</span>
-      <span class="st"><span style="width:${e.n/mx*100}%;background:var(--riskoff)"></span></span>
-      <span class="sn">${e.n} 次</span></div>`).join("")
-    : '<p class="tag">尚無資料。判錯時記得標誤差類型，這一區才會長出東西。</p>';
-}
-
-function pd(id, field, val){
-  (PDRAFT.items[id] ||= {})[field] = val;
-  LS.set("wl.pred", PDRAFT);
-  const n = Object.values(PDRAFT.items).filter(x=>x.call).length;
-  $("#pdraft").textContent = n ? `本機草稿 ${n}/${D.predictions.slots.length} 欄，尚未貼回 repo` : "";
-}
-function pe(week, id, field, val){
-  ((PEDITS[week] ||= {})[id] ||= {})[field] = val;
-  LS.set("wl.predits", PEDITS);
 }
 function genPred(){
   const P = D.predictions;
@@ -917,10 +834,10 @@ function genPred(){
   }
 
   /* 批改的手動標記 */
-  for(const [wk, byId] of Object.entries(PEDITS)){
+  for(const wk of Object.keys(PEDITS)){
     const r = recs.find(x=>x.week===wk);
     if(!r) continue;
-    for(const [id, patch] of Object.entries(byId)){
+    for(const [id, patch] of Object.entries(PEDITS[wk])){
       const it = r.items.find(x=>x.id===id);
       if(!it) continue;
       if(patch.error_type !== undefined) it.error_type = patch.error_type || null;

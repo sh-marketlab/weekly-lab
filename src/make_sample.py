@@ -164,12 +164,24 @@ def main():
     frontier = []
     for f in th_cfg["frontier"]:
         rows = []
-        for s in f["tickers"]:
-            r = round(random.gauss(-0.02, 0.06), 4)
-            rows.append({"ticker": s, "tier": "watch", "chg_w": r,
-                         "mcap": None, "value_delta": None})
-        frontier.append({"name": f["name"], "stocks": rows,
-                         "avg": round(sum(x["chg_w"] for x in rows) / len(rows), 6)})
+        for tier, syms in (("leader", f.get("leader", [])), ("rank", f.get("rank", []))):
+            for sym in syms:
+                r = round(random.gauss(-0.02, 0.06), 4)
+                mc = MCAP.get(sym, 30) * 1e9
+                rows.append({"ticker": sym, "tier": tier, "chg_w": r,
+                             "mcap": mc, "value_delta": C.value_delta(mc, r)})
+        lead = [x["chg_w"] for x in rows if x["tier"] == "leader"] or [0]
+        rest = [x["chg_w"] for x in rows if x["tier"] == "rank"] or [0]
+        frontier.append({
+            "id": f["id"], "name": f["name"], "zh": None, "stocks": rows,
+            "leader_avg": round(sum(lead)/len(lead), 6),
+            "rank_avg": round(sum(rest)/len(rest), 6),
+            "breadth_gap": round(sum(lead)/len(lead) - sum(rest)/len(rest), 6),
+            "avg": round(sum(x["chg_w"] for x in rows)/len(rows), 6),
+            "value_delta_total": sum(x["value_delta"] for x in rows),
+            "mcap_coverage": f'{len(rows)}/{len(rows)}',
+            "advance_decline": f'{sum(1 for x in rows if x["chg_w"] > 0)}/{len(rows)}',
+        })
 
     g = {r["id"]: r for r in macro}
     d1, d2, d3 = 10377, -41117, 3400   # ΔWALCL, ΔWDTGAL, ΔWLRRAL（百萬）

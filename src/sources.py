@@ -149,8 +149,14 @@ def yahoo_ohlc(tickers: list[str], period: str = "1mo") -> dict:
 
 def yahoo_marketcaps(tickers: list[str]) -> dict[str, float | None]:
     """
-    逐檔抓市值。fast_info 比 .info 快很多也穩很多。
-    抓不到就回 None，讓上層把該檔標成缺市值而不是當成 0。
+    逐檔抓規模。優先自己用「股數 × 現價」算，而不是直接拿 market_cap。
+
+    原因：Yahoo 對 ETF 回傳的 totalAssets / market_cap 是快取值，
+    往往連續數週一模一樣。拿它去算「扣掉價格效應後的份額變化」，
+    公式會退化成 −(價格效應)，產生跟市值變化等量反號的假資金流。
+    股數 × 現價至少跟著價格動，份額真的變了也抓得到。
+
+    抓不到回 None，讓上層標成缺資料而不是當成 0。
     """
     out: dict[str, float | None] = {}
     for t in tickers:
@@ -158,14 +164,14 @@ def yahoo_marketcaps(tickers: list[str]) -> dict[str, float | None]:
         try:
             tk = _yf().Ticker(t)
             fi = tk.fast_info
-            mc = fi.get("market_cap") or fi.get("marketCap")
+            shares = fi.get("shares") or fi.get("sharesOutstanding")
+            price = fi.get("last_price") or fi.get("lastPrice")
+            if shares and price:
+                mc = shares * price
             if not mc:
-                shares = fi.get("shares") or fi.get("sharesOutstanding")
-                price = fi.get("last_price") or fi.get("lastPrice")
-                if shares and price:
-                    mc = shares * price
+                mc = fi.get("market_cap") or fi.get("marketCap")
             if not mc:
-                # ETF 沒有 market_cap，改抓資產規模（AUM）
+                # ETF 常常兩者皆無，退回資產規模（AUM，快取值）
                 try:
                     info = tk.get_info()
                     mc = info.get("totalAssets") or info.get("netAssets")

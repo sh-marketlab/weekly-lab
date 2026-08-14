@@ -237,7 +237,7 @@ def build_sectors(as_of: date, wk: str, stage: str) -> tuple[list[dict], dict]:
 
     # 上一份同 stage 的快照，用來還原「扣掉價格效應後的淨資金流」
     prev = C.prev_snapshot(wk, stage) or {}
-    prev_base = {r["name"]: r.get("base") for r in prev.get("sectors", [])}
+    prev_parts = {r["name"]: r.get("base_parts") for r in prev.get("sectors", [])}
 
     out = []
     for group, items in cfg["groups"].items():
@@ -247,36 +247,80 @@ def build_sectors(as_of: date, wk: str, stage: str) -> tuple[list[dict], dict]:
             r = round(st.mean(chgs), 6) if chgs else None
 
             if it.get("basket"):
-                vals = [caps.get(x) for x in it["basket"]]
-                vals = [v for v in vals if v]
+                parts = {x: caps.get(x) for x in it["basket"]}
+                vals = [v for v in parts.values() if v]
                 base = sum(vals) if vals else None
                 kind, kind_of = "成分股市值和", f'{len(vals)}/{len(it["basket"])} 檔'
             elif it.get("mcap"):
-                base, kind, kind_of = caps.get(it["ticker"]), "流通市值", it["ticker"]
+                base = caps.get(it["ticker"])
+                parts = {it["ticker"]: base}
+                kind, kind_of = "流通市值", it["ticker"]
             elif it.get("proxy"):
-                base, kind, kind_of = caps.get(it["proxy"]), "ETF 資產", it["proxy"]
+                base = caps.get(it["proxy"])
+                parts = {it["proxy"]: base}
+                kind, kind_of = "ETF 資產", it["proxy"]
             else:
                 base = kind = kind_of = None
+                parts = {}
 
-            # 資金流：把上週的規模用本週報酬推到現在，差額就是淨申購/贖回。
-            # 這個數字才是真的「錢進來了還是出去了」，價格漲跌不會混進來。
-            pb = prev_base.get(it["name"])
-            flow = None
-            if base is not None and pb and r is not None:
-                flow = base - pb * (1.0 + r)
+            flow, flow_note = _net_flow(parts, prev_parts.get(it["name"]), px, as_of)
 
             out.append({
                 "group": group, "name": it["name"],
                 "tickers": syms, "is_basket": bool(it.get("basket")),
                 "chg_w": r, "members_ok": len(chgs), "members_total": len(syms),
                 "base": base, "base_kind": kind, "base_of": kind_of,
+                "base_parts": parts,
                 "value_delta": C.value_delta(base, r),
-                "net_flow": flow,
+                "net_flow": flow, "flow_note": flow_note,
                 "note": it.get("note"),
             })
 
     window = _price_window(px, as_of)
     return out, window
+
+
+def _net_flow(now_parts, prev_parts, px, as_of):
+    """
+    淨資金流 = Σ 各標的（本週規模 − 上週規模 × (1 + 該標的自己的報酬)）
+
+    扣掉價格效應後剩下的才是份額變化（ETF 申購贖回、股票增減資）。
+    回傳 (金額, 說明)；算不出來時金額為 None，說明會告訴你為什麼。
+
+    兩個曾經算錯的地方：
+
+    1. 每個標的必須用「自己的」報酬去除價格效應。
+       先前是拿整組的等權平均報酬去除市值加總（＝市值加權），
+       兩種加權定義不同，即使股數完全沒變也會生出幾十億的假資金流。
+       proxy 的情況更明顯：拿期貨報酬去除 ETF 規模，兩者本來就不等。
+
+    2. 規模若與上週「完全相同」，代表來源沒更新，不是「零流入」。
+       規模 = 份額 × 價格，價格動了規模必動；一模一樣只可能是資料沒刷新。
+       這時若照算，flow 會退化成 −(價格效應)，看起來像每項都在流出，
+       而且與市值變化等量反號 —— 那是假象，所以直接不出數字。
+    """
+    if not now_parts or not prev_parts:
+        return None, "需要兩週快照"
+
+    total, used, frozen = 0.0, 0, 0
+    for sym, now in now_parts.items():
+        prev = prev_parts.get(sym)
+        if not now or not prev:
+            continue
+        ri = _wk_return(px, sym, as_of)
+        if ri is None:
+            continue
+        if now == prev and abs(ri) > 1e-6:
+            frozen += 1          # 價格有動、規模沒動 → 來源沒刷新
+            continue
+        total += now - prev * (1.0 + ri)
+        used += 1
+
+    if not used:
+        return None, ("來源規模未更新" if frozen else "資料不足")
+    if frozen:
+        return total, f"部分來源未更新（{frozen} 檔已排除）"
+    return total, None
 
 
 def _price_window(px, as_of):
@@ -307,10 +351,8 @@ def _wk_return(px, sym, as_of):
 def build_themes(as_of: date) -> tuple[list[dict], list[dict], dict]:
     cfg = yaml.safe_load((C.CONFIG / "themes.yaml").read_text(encoding="utf-8"))
     syms = set()
-    for t in cfg["themes"]:
-        syms.update(t["leader"] + t["rank"])
-    for f in cfg["frontier"]:
-        syms.update(f["tickers"])
+    for t in cfg["themes"] + cfg["frontier"]:
+        syms.update(t.get("leader", []) + t.get("rank", []))
 
     syms = sorted(syms)
     px = S.yahoo_history(syms, period="3mo")
@@ -322,34 +364,30 @@ def build_themes(as_of: date) -> tuple[list[dict], list[dict], dict]:
         return {"ticker": sym, "tier": tier, "chg_w": r,
                 "mcap": mc, "value_delta": C.value_delta(mc, r)}
 
-    themes = []
-    for t in cfg["themes"]:
-        rows = [stock(s, "leader") for s in t["leader"]] + \
-               [stock(s, "rank") for s in t["rank"]]
+    def group(t):
+        """themes 與 frontier 共用，避免兩邊的計算邏輯日後漂移。"""
+        rows = [stock(x, "leader") for x in t.get("leader", [])] + \
+               [stock(x, "rank") for x in t.get("rank", [])]
         lead = [x["chg_w"] for x in rows if x["tier"] == "leader" and x["chg_w"] is not None]
         rest = [x["chg_w"] for x in rows if x["tier"] == "rank" and x["chg_w"] is not None]
         vds = [x["value_delta"] for x in rows if x["value_delta"] is not None]
+        chgs = [x["chg_w"] for x in rows if x["chg_w"] is not None]
         up = sum(1 for x in rows if (x["chg_w"] or 0) > 0)
-        themes.append({
-            "id": t["id"], "name": t["name"], "zh": t["zh"],
+        return {
+            "id": t["id"], "name": t["name"], "zh": t.get("zh"),
             "positioning": t.get("positioning"), "stocks": rows,
             "leader_avg": round(st.mean(lead), 6) if lead else None,
             "rank_avg": round(st.mean(rest), 6) if rest else None,
             # 正值 = 龍頭跑贏其餘成分股 → 護盤掩護出貨的量化訊號
             "breadth_gap": round(st.mean(lead) - st.mean(rest), 6) if lead and rest else None,
+            "avg": round(st.mean(chgs), 6) if chgs else None,
             "value_delta_total": sum(vds) if vds else None,
             "mcap_coverage": f"{len(vds)}/{len(rows)}",
             "advance_decline": f"{up}/{len(rows)}",
-        })
+        }
 
-    frontier = []
-    for f in cfg["frontier"]:
-        rows = [stock(s, "watch") for s in f["tickers"]]
-        chgs = [x["chg_w"] for x in rows if x["chg_w"] is not None]
-        frontier.append({
-            "name": f["name"], "stocks": rows,
-            "avg": round(st.mean(chgs), 6) if chgs else None,
-        })
+    themes = [group(t) for t in cfg["themes"]]
+    frontier = [group(f) for f in cfg["frontier"]]
     return themes, frontier, _price_window(px, as_of)
 
 
