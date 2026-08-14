@@ -74,15 +74,14 @@ def build_macro(as_of: date) -> tuple[list[dict], dict, list[str]]:
                 col = df.columns[0]
                 series = [(i.date(), float(v)) for i, v in df[col].dropna().items()]
             origin = f"Yahoo:{src['ticker']}"
-            if not series and ind.get("manual_fallback"):
-                series = _manual_series(man, ind["manual_fallback"])
-                origin = "手動"
+            if ind.get("manual_fallback"):
+                series, origin = _prefer_fresh(
+                    series, origin, _manual_series(man, ind["manual_fallback"]), as_of)
         elif src["type"] == "cnn_fg":
             series = S.cnn_fear_greed()
             origin = "CNN Fear & Greed"
-            if not series:
-                series = _manual_series(man, "fear_greed")
-                origin = "手動"
+            series, origin = _prefer_fresh(
+                series, origin, _manual_series(man, "fear_greed"), as_of)
         elif src["type"] == "manual":
             series = _manual_series(man, src["key"])
             origin = "手動"
@@ -114,6 +113,31 @@ def build_macro(as_of: date) -> tuple[list[dict], dict, list[str]]:
     rows.sort(key=lambda r: r["id"])
     breakdown = _blood_math(comps, nl_cd, nl_pd)
     return rows, breakdown, pending
+
+
+def _prefer_fresh(auto, auto_origin, manual, as_of):
+    """
+    自動來源不是「有沒有」的問題，是「新不新」的問題。
+
+    ^MOVE 這種常態卡住的來源，Yahoo 會回傳資料但停在幾週前。
+    先前的判斷是 `if not series` —— 只有完全抓不到才換手填，
+    結果你填的新值被舊的自動值蓋掉，畫面上永遠是「舊值」。
+
+    改成比日期：兩邊都取 ≤ as_of 的最新一筆，誰比較新就用誰。
+    這樣自動來源恢復正常時會自己切回去，不必手動改設定。
+    """
+    def newest(ser):
+        d = [x for x, _ in ser if x <= as_of]
+        return max(d) if d else None
+
+    a, m = newest(auto), newest(manual)
+    if m is None:
+        return auto, auto_origin
+    if a is None:
+        return manual, "手動"
+    if m > a:
+        return manual, f"手動（{auto_origin} 停在 {a}）"
+    return auto, auto_origin
 
 
 def _manual_series(man: dict, key: str):
