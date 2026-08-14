@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T02:48:33+00:00",
+  "generated_at": "2026-08-14T03:36:38+00:00",
   "iso_week": "2026-W33",
   "stage": "thu",
   "as_of": "2026-08-13",
@@ -144,12 +144,12 @@
       "axis": "fx",
       "unit": "index",
       "freq": "daily",
-      "curr": 99.89600372314453,
+      "curr": 99.88500213623047,
       "prev": 99.97000122070312,
       "curr_date": "2026-08-13",
       "prev_date": "2026-08-06",
-      "delta": -0.07399749755859375,
-      "delta_pct": -0.0007401970256580266,
+      "delta": -0.08499908447265625,
+      "delta_pct": -0.0008502459081200202,
       "up_bias": "tighten",
       "verdict": "下降（全球放水）",
       "note": "全球美元流動性總閥門",
@@ -240,13 +240,13 @@
       "unit": "index",
       "freq": "daily",
       "curr": 69.22830200195312,
-      "prev": null,
+      "prev": 70.87999725341797,
       "curr_date": "2026-08-13",
-      "prev_date": null,
-      "delta": null,
-      "delta_pct": null,
+      "prev_date": "2026-07-17",
+      "delta": -1.6516952514648438,
+      "delta_pct": -0.023302699145987846,
       "up_bias": "risk_off",
-      "verdict": null,
+      "verdict": "下降（債市穩定）",
       "note": "美債波動度，金融體系底層資產穩定度",
       "source": "Yahoo:^MOVE",
       "stale": false,
@@ -369,14 +369,14 @@
         "GC=F"
       ],
       "is_basket": false,
-      "chg_w": 0.031919,
+      "chg_w": 0.032602,
       "members_ok": 1,
       "members_total": 1,
       "base": 130322653184.0,
       "base_kind": "ETF 資產",
       "base_of": "GLD",
-      "value_delta": 4031100083.4174933,
-      "net_flow": -4159768766.9801025,
+      "value_delta": 4114633846.443032,
+      "net_flow": -4248779139.104767,
       "note": null
     },
     {
@@ -403,14 +403,14 @@
         "HG=F"
       ],
       "is_basket": false,
-      "chg_w": -0.016824,
+      "chg_w": -0.016674,
       "members_ok": 1,
       "members_total": 1,
       "base": 732117376.0,
       "base_kind": "ETF 資產",
       "base_of": "CPER",
-      "value_delta": -12527912.330878703,
-      "net_flow": 12317142.733824015,
+      "value_delta": -12414321.524523914,
+      "net_flow": 12207325.127424002,
       "note": "銅博士，工業活力領先指標"
     },
     {
@@ -420,14 +420,14 @@
         "PA=F"
       ],
       "is_basket": false,
-      "chg_w": -0.045087,
+      "chg_w": -0.045815,
       "members_ok": 1,
       "members_total": 1,
       "base": 614965440.0,
       "base_kind": "ETF 資產",
       "base_of": "PALL",
-      "value_delta": -29036097.312823262,
-      "net_flow": 27726946.793280005,
+      "value_delta": -29527441.3594848,
+      "net_flow": 28174641.633599997,
       "note": null
     },
     {
@@ -437,14 +437,14 @@
         "PL=F"
       ],
       "is_basket": false,
-      "chg_w": -0.006709,
+      "chg_w": -0.005899,
       "members_ok": 1,
       "members_total": 1,
       "base": 1872068736.0,
       "base_kind": "ETF 資產",
       "base_of": "PPLT",
-      "value_delta": -12644541.377928521,
-      "net_flow": 12559709.149823904,
+      "value_delta": -11108864.666330684,
+      "net_flow": 11043333.473664045,
       "note": null
     },
     {
@@ -522,14 +522,14 @@
         "^STOXX50E"
       ],
       "is_basket": false,
-      "chg_w": 0.006599,
+      "chg_w": 0.008802,
       "members_ok": 1,
       "members_total": 1,
       "base": 4401265152.0,
       "base_kind": "ETF 資產",
       "base_of": "FEZ",
-      "value_delta": 28853544.199873034,
-      "net_flow": -29043948.738048553,
+      "value_delta": 38401922.149147205,
+      "net_flow": -38739935.86790371,
       "note": null
     },
     {
@@ -539,14 +539,14 @@
         "^GDAXI"
       ],
       "is_basket": false,
-      "chg_w": 0.007838,
+      "chg_w": 0.006106,
       "members_ok": 1,
       "members_total": 1,
       "base": 1645812992.0,
       "base_kind": "ETF 資產",
       "base_of": "EWG",
-      "value_delta": 12799559.285615345,
-      "net_flow": -12899882.231296062,
+      "value_delta": 9988345.2927942,
+      "net_flow": -10049334.129151821,
       "note": null
     },
     {
@@ -556,14 +556,14 @@
         "^N225"
       ],
       "is_basket": false,
-      "chg_w": 0.055764,
+      "chg_w": 0.030289,
       "members_ok": 1,
       "members_total": 1,
       "base": 21752143872.0,
       "base_kind": "ETF 資產",
       "base_of": "EWJ",
-      "value_delta": 1148918272.33947,
-      "net_flow": -1212986550.8782082,
+      "value_delta": 639481432.6261932,
+      "net_flow": -658850685.7390099,
       "note": null
     },
     {
@@ -573,14 +573,14 @@
         "ZB=F"
       ],
       "is_basket": false,
-      "chg_w": 0.002572,
+      "chg_w": 0.002286,
       "members_ok": 1,
       "members_total": 1,
       "base": 41543831552.0,
       "base_kind": "ETF 資產",
       "base_of": "TLT",
-      "value_delta": 106576619.68591183,
-      "net_flow": -106850734.75174713,
+      "value_delta": 94752594.49685219,
+      "net_flow": -94969198.9278717,
       "note": null
     },
     {
@@ -590,14 +590,14 @@
         "ZN=F"
       ],
       "is_basket": false,
-      "chg_w": 0.003456,
+      "chg_w": 0.003312,
       "members_ok": 1,
       "members_total": 1,
       "base": 47187439616.0,
       "base_kind": "ETF 資產",
       "base_of": "IEF",
-      "value_delta": 162518128.6602462,
-      "net_flow": -163079791.3128891,
+      "value_delta": 155768893.43314144,
+      "net_flow": -156284800.00819397,
       "note": null
     },
     {
@@ -607,14 +607,14 @@
         "ZF=F"
       ],
       "is_basket": false,
-      "chg_w": 0.003161,
+      "chg_w": 0.003088,
       "members_ok": 1,
       "members_total": 1,
       "base": 17717653504.0,
       "base_kind": "ETF 資產",
       "base_of": "IEI",
-      "value_delta": 55829027.17125566,
-      "net_flow": -56005502.72614288,
+      "value_delta": 54543683.12685627,
+      "net_flow": -54712114.02035141,
       "note": null
     },
     {
@@ -816,14 +816,14 @@
         "DX-Y.NYB"
       ],
       "is_basket": false,
-      "chg_w": -0.00073,
+      "chg_w": -0.00087,
       "members_ok": 1,
       "members_total": 1,
       "base": 436029856.0,
       "base_kind": "ETF 資產",
       "base_of": "UUP",
-      "value_delta": -318534.3249372042,
-      "net_flow": 318301.79488003254,
+      "value_delta": -379676.29309499264,
+      "net_flow": 379345.9747200012,
       "note": "方向相反，正值代表美元升"
     },
     {
@@ -833,14 +833,14 @@
         "6E=F"
       ],
       "is_basket": false,
-      "chg_w": 0.001865,
+      "chg_w": 0.001952,
       "members_ok": 1,
       "members_total": 1,
       "base": 345198624.0,
       "base_kind": "ETF 資產",
       "base_of": "FXE",
-      "value_delta": 642596.9903729544,
-      "net_flow": -643795.4337599874,
+      "value_delta": 672514.9648366389,
+      "net_flow": -673827.7140479684,
       "note": null
     },
     {
@@ -850,14 +850,14 @@
         "6J=F"
       ],
       "is_basket": false,
-      "chg_w": -0.005221,
+      "chg_w": -0.004904,
       "members_ok": 1,
       "members_total": 1,
       "base": 440513248.0,
       "base_kind": "ETF 資產",
       "base_of": "FXY",
-      "value_delta": -2311990.5705769826,
-      "net_flow": 2299919.6678079963,
+      "value_delta": -2170923.1754443794,
+      "net_flow": 2160276.9681919813,
       "note": null
     },
     {
@@ -867,14 +867,14 @@
         "6B=F"
       ],
       "is_basket": false,
-      "chg_w": 0.002675,
+      "chg_w": 0.002898,
       "members_ok": 1,
       "members_total": 1,
       "base": 64603192.0,
       "base_kind": "ETF 資產",
       "base_of": "FXB",
-      "value_delta": 172352.49567407186,
-      "net_flow": -172813.53859999776,
+      "value_delta": 186679.05451601258,
+      "net_flow": -187220.05041600764,
       "note": null
     },
     {
@@ -884,14 +884,14 @@
         "6C=F"
       ],
       "is_basket": false,
-      "chg_w": 0.007143,
+      "chg_w": 0.007354,
       "members_ok": 1,
       "members_total": 1,
       "base": 69733584.0,
       "base_kind": "ETF 資產",
       "base_of": "FXC",
-      "value_delta": 494574.2466680502,
-      "net_flow": -498106.99051199853,
+      "value_delta": 509077.0242993029,
+      "net_flow": -512820.77673600614,
       "note": null
     },
     {
@@ -901,14 +901,14 @@
         "6S=F"
       ],
       "is_basket": false,
-      "chg_w": -0.002872,
+      "chg_w": -0.002791,
       "members_ok": 1,
       "members_total": 1,
       "base": 398386368.0,
       "base_kind": "ETF 資產",
       "base_of": "FXF",
-      "value_delta": -1147461.15733988,
-      "net_flow": 1144165.648895979,
+      "value_delta": -1115008.3413687602,
+      "net_flow": 1111896.3530880213,
       "note": null
     },
     {
@@ -918,7 +918,7 @@
         "6N=F"
       ],
       "is_basket": false,
-      "chg_w": -0.002126,
+      "chg_w": -0.001531,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
@@ -935,14 +935,14 @@
         "6A=F"
       ],
       "is_basket": false,
-      "chg_w": 0.003128,
+      "chg_w": 0.003413,
       "members_ok": 1,
       "members_total": 1,
       "base": 97187024.0,
       "base_kind": "ETF 資產",
       "base_of": "FXA",
-      "value_delta": 303053.06109688897,
-      "net_flow": -304001.0110719949,
+      "value_delta": 330571.0738369943,
+      "net_flow": -331699.3129120171,
       "note": null
     },
     {
@@ -952,14 +952,14 @@
         "CL=F"
       ],
       "is_basket": false,
-      "chg_w": 0.050071,
+      "chg_w": 0.050977,
       "members_ok": 1,
       "members_total": 1,
       "base": 1989134080.0,
       "base_kind": "ETF 資產",
       "base_of": "USO",
-      "value_delta": 94848760.24543102,
-      "net_flow": -99597932.51968002,
+      "value_delta": 96481738.41688257,
+      "net_flow": -101400087.99616003,
       "note": "北美供需與美國本土經濟熱度"
     },
     {
@@ -969,14 +969,14 @@
         "BZ=F"
       ],
       "is_basket": false,
-      "chg_w": 0.053097,
+      "chg_w": 0.055764,
       "members_ok": 1,
       "members_total": 1,
       "base": 615261696.0,
       "base_kind": "ETF 資產",
       "base_of": "BNO",
-      "value_delta": 31021406.643938784,
-      "net_flow": -32668550.27251196,
+      "value_delta": 32497275.163525186,
+      "net_flow": -34309453.2157439,
       "note": "全球需求、地緣風險與 OPEC+ 政策"
     },
     {
@@ -986,14 +986,14 @@
         "NG=F"
       ],
       "is_basket": false,
-      "chg_w": 0.040151,
+      "chg_w": 0.038636,
       "members_ok": 1,
       "members_total": 1,
       "base": 467977632.0,
       "base_kind": "ETF 資產",
       "base_of": "UNG",
-      "value_delta": 18064463.623485435,
-      "net_flow": -18789769.902432024,
+      "value_delta": 17408200.55337192,
+      "net_flow": -18080783.78995192,
       "note": null
     },
     {
@@ -1003,7 +1003,7 @@
         "HO=F"
       ],
       "is_basket": false,
-      "chg_w": 0.058089,
+      "chg_w": 0.060536,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
@@ -1020,14 +1020,14 @@
         "RB=F"
       ],
       "is_basket": false,
-      "chg_w": -0.029709,
+      "chg_w": -0.02862,
       "members_ok": 1,
       "members_total": 1,
       "base": 135150832.0,
       "base_kind": "ETF 資產",
       "base_of": "UGA",
-      "value_delta": -4138135.9487906205,
-      "net_flow": 4015196.0678879917,
+      "value_delta": -3981981.1112437975,
+      "net_flow": 3868016.811839998,
       "note": "終端出行與零售通膨"
     },
     {
@@ -1037,14 +1037,14 @@
         "ZS=F"
       ],
       "is_basket": false,
-      "chg_w": 0.026356,
+      "chg_w": 0.025707,
       "members_ok": 1,
       "members_total": 1,
       "base": 60364220.0,
       "base_kind": "ETF 資產",
       "base_of": "SOYB",
-      "value_delta": 1550104.8196921926,
-      "net_flow": -1590959.3823200017,
+      "value_delta": 1512891.111730738,
+      "net_flow": -1551783.0035399944,
       "note": null
     },
     {
@@ -1054,14 +1054,14 @@
         "ZC=F"
       ],
       "is_basket": false,
-      "chg_w": 0.080866,
+      "chg_w": 0.079727,
       "members_ok": 1,
       "members_total": 1,
       "base": 164965552.0,
       "base_kind": "ETF 資產",
       "base_of": "CORN",
-      "value_delta": 12342051.954665981,
-      "net_flow": -13340104.328031987,
+      "value_delta": 12181049.991621956,
+      "net_flow": -13152208.564304024,
       "note": null
     },
     {
@@ -1071,14 +1071,14 @@
         "ZW=F"
       ],
       "is_basket": false,
-      "chg_w": 0.069307,
+      "chg_w": 0.064554,
       "members_ok": 1,
       "members_total": 1,
       "base": 294835616.0,
       "base_kind": "ETF 資產",
       "base_of": "WEAT",
-      "value_delta": 19109733.72297385,
-      "net_flow": -20434172.038111985,
+      "value_delta": 17878678.165000554,
+      "net_flow": -19032818.355264008,
       "note": null
     },
     {
@@ -2102,12 +2102,12 @@
         {
           "ticker": "ADYEY",
           "tier": "watch",
-          "chg_w": 0.1478017716932145,
-          "mcap": 38695522527.63519,
-          "value_delta": 4982800102.967454
+          "chg_w": 0.14733403412191537,
+          "mcap": 38679753820.726395,
+          "value_delta": 4967031396.058658
         }
       ],
-      "avg": 0.070952
+      "avg": 0.070797
     },
     {
       "name": "加密基礎設施與託管",
@@ -2182,7 +2182,7 @@
       "hit": false,
       "evidence": {
         "2Y Δbp": -5.0,
-        "Gold %": 0.031919
+        "Gold %": 0.032602
       }
     },
     {
@@ -2200,7 +2200,7 @@
       "truth": "全球法幣信任危機，資金進行逃命式搶購",
       "hit": false,
       "evidence": {
-        "DXY %": -0.00073,
+        "DXY %": -0.00087,
         "BTC %": -0.022777,
         "NDX %": 0.024211
       }
