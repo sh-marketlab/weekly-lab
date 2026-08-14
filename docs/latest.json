@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T03:36:38+00:00",
+  "generated_at": "2026-08-14T04:03:50+00:00",
   "iso_week": "2026-W33",
   "stage": "thu",
   "as_of": "2026-08-13",
@@ -144,12 +144,12 @@
       "axis": "fx",
       "unit": "index",
       "freq": "daily",
-      "curr": 99.88500213623047,
+      "curr": 99.95999908447266,
       "prev": 99.97000122070312,
       "curr_date": "2026-08-13",
       "prev_date": "2026-08-06",
-      "delta": -0.08499908447265625,
-      "delta_pct": -0.0008502459081200202,
+      "delta": -0.01000213623046875,
+      "delta_pct": -0.00010005137649630612,
       "up_bias": "tighten",
       "verdict": "下降（全球放水）",
       "note": "全球美元流動性總閥門",
@@ -239,17 +239,17 @@
       "axis": "sentiment",
       "unit": "index",
       "freq": "daily",
-      "curr": 69.22830200195312,
+      "curr": 70.87999725341797,
       "prev": 70.87999725341797,
-      "curr_date": "2026-08-13",
+      "curr_date": "2026-07-17",
       "prev_date": "2026-07-17",
-      "delta": -1.6516952514648438,
-      "delta_pct": -0.023302699145987846,
+      "delta": 0.0,
+      "delta_pct": 0.0,
       "up_bias": "risk_off",
-      "verdict": "下降（債市穩定）",
+      "verdict": null,
       "note": "美債波動度，金融體系底層資產穩定度",
       "source": "Yahoo:^MOVE",
-      "stale": false,
+      "stale": true,
       "manual_url": "https://www.investing.com/indices/ice-bofaml-move"
     },
     {
@@ -369,14 +369,18 @@
         "GC=F"
       ],
       "is_basket": false,
-      "chg_w": 0.032602,
+      "chg_w": 0.038414,
       "members_ok": 1,
       "members_total": 1,
       "base": 130322653184.0,
       "base_kind": "ETF 資產",
       "base_of": "GLD",
-      "value_delta": 4114633846.443032,
-      "net_flow": -4248779139.104767,
+      "base_parts": {
+        "GLD": 130322653184.0
+      },
+      "value_delta": 4821019746.8545065,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -386,14 +390,18 @@
         "SI=F"
       ],
       "is_basket": false,
-      "chg_w": 0.045997,
+      "chg_w": 0.055653,
       "members_ok": 1,
       "members_total": 1,
       "base": 28081266688.0,
       "base_kind": "ETF 資產",
       "base_of": "SLV",
-      "value_delta": 1234854424.8673143,
-      "net_flow": -1291654023.8479385,
+      "base_parts": {
+        "SLV": 28081266688.0
+      },
+      "value_delta": 1480417083.0635295,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -403,14 +411,18 @@
         "HG=F"
       ],
       "is_basket": false,
-      "chg_w": -0.016674,
+      "chg_w": -0.015814,
       "members_ok": 1,
       "members_total": 1,
       "base": 732117376.0,
       "base_kind": "ETF 資產",
       "base_of": "CPER",
-      "value_delta": -12414321.524523914,
-      "net_flow": 12207325.127424002,
+      "base_parts": {
+        "CPER": 732117376.0
+      },
+      "value_delta": -11763735.90364423,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": "銅博士，工業活力領先指標"
     },
     {
@@ -420,14 +432,18 @@
         "PA=F"
       ],
       "is_basket": false,
-      "chg_w": -0.045815,
+      "chg_w": 0.00403,
       "members_ok": 1,
       "members_total": 1,
       "base": 614965440.0,
       "base_kind": "ETF 資產",
       "base_of": "PALL",
-      "value_delta": -29527441.3594848,
-      "net_flow": 28174641.633599997,
+      "base_parts": {
+        "PALL": 614965440.0
+      },
+      "value_delta": 2468363.219425714,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -437,14 +453,18 @@
         "PL=F"
       ],
       "is_basket": false,
-      "chg_w": -0.005899,
+      "chg_w": 0.013641,
       "members_ok": 1,
       "members_total": 1,
       "base": 1872068736.0,
       "base_kind": "ETF 資產",
       "base_of": "PPLT",
-      "value_delta": -11108864.666330684,
-      "net_flow": 11043333.473664045,
+      "base_parts": {
+        "PPLT": 1872068736.0
+      },
+      "value_delta": 25193228.793799777,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -460,8 +480,12 @@
       "base": 795306885120.0,
       "base_kind": "ETF 資產",
       "base_of": "SPY",
+      "base_parts": {
+        "SPY": 795306885120.0
+      },
       "value_delta": 9078578259.320269,
-      "net_flow": -9183408602.48059,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -477,8 +501,12 @@
       "base": 452800643072.0,
       "base_kind": "ETF 資產",
       "base_of": "QQQ",
+      "base_parts": {
+        "QQQ": 452800643072.0
+      },
       "value_delta": 10703611237.739285,
-      "net_flow": -10962756369.416199,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -488,14 +516,18 @@
         "^RUT"
       ],
       "is_basket": false,
-      "chg_w": 0.01709,
+      "chg_w": 0.017091,
       "members_ok": 1,
       "members_total": 1,
       "base": 80105422848.0,
       "base_kind": "ETF 資產",
       "base_of": "IWM",
-      "value_delta": 1345998561.0637407,
-      "net_flow": -1369001676.4723206,
+      "base_parts": {
+        "IWM": 80105422848.0
+      },
+      "value_delta": 1346075997.0299294,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -511,8 +543,12 @@
       "base": 45207846912.0,
       "base_kind": "ETF 資產",
       "base_of": "DIA",
+      "base_parts": {
+        "DIA": 45207846912.0
+      },
       "value_delta": -37870665.61246163,
-      "net_flow": 37838967.86534119,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -522,14 +558,18 @@
         "^STOXX50E"
       ],
       "is_basket": false,
-      "chg_w": 0.008802,
+      "chg_w": 0.006599,
       "members_ok": 1,
       "members_total": 1,
       "base": 4401265152.0,
       "base_kind": "ETF 資產",
       "base_of": "FEZ",
-      "value_delta": 38401922.149147205,
-      "net_flow": -38739935.86790371,
+      "base_parts": {
+        "FEZ": 4401265152.0
+      },
+      "value_delta": 28853544.199873034,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -545,8 +585,12 @@
       "base": 1645812992.0,
       "base_kind": "ETF 資產",
       "base_of": "EWG",
+      "base_parts": {
+        "EWG": 1645812992.0
+      },
       "value_delta": 9988345.2927942,
-      "net_flow": -10049334.129151821,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -562,8 +606,12 @@
       "base": 21752143872.0,
       "base_kind": "ETF 資產",
       "base_of": "EWJ",
+      "base_parts": {
+        "EWJ": 21752143872.0
+      },
       "value_delta": 639481432.6261932,
-      "net_flow": -658850685.7390099,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -573,14 +621,18 @@
         "ZB=F"
       ],
       "is_basket": false,
-      "chg_w": 0.002286,
+      "chg_w": -0.008525,
       "members_ok": 1,
       "members_total": 1,
       "base": 41543831552.0,
       "base_kind": "ETF 資產",
       "base_of": "TLT",
-      "value_delta": 94752594.49685219,
-      "net_flow": -94969198.9278717,
+      "base_parts": {
+        "TLT": 41543831552.0
+      },
+      "value_delta": -357206348.0983383,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -590,14 +642,18 @@
         "ZN=F"
       ],
       "is_basket": false,
-      "chg_w": 0.003312,
+      "chg_w": -0.003157,
       "members_ok": 1,
       "members_total": 1,
       "base": 47187439616.0,
       "base_kind": "ETF 資產",
       "base_of": "IEF",
-      "value_delta": 155768893.43314144,
-      "net_flow": -156284800.00819397,
+      "base_parts": {
+        "IEF": 47187439616.0
+      },
+      "value_delta": -149442536.95688486,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -607,14 +663,18 @@
         "ZF=F"
       ],
       "is_basket": false,
-      "chg_w": 0.003088,
+      "chg_w": -0.001686,
       "members_ok": 1,
       "members_total": 1,
       "base": 17717653504.0,
       "base_kind": "ETF 資產",
       "base_of": "IEI",
-      "value_delta": 54543683.12685627,
-      "net_flow": -54712114.02035141,
+      "base_parts": {
+        "IEI": 17717653504.0
+      },
+      "value_delta": -29922412.99605535,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -624,14 +684,18 @@
         "ZT=F"
       ],
       "is_basket": false,
-      "chg_w": 0.001822,
+      "chg_w": -0.000303,
       "members_ok": 1,
       "members_total": 1,
       "base": 25080700928.0,
       "base_kind": "ETF 資產",
       "base_of": "SHY",
-      "value_delta": 45613928.5130652,
-      "net_flow": -45697037.0908165,
+      "base_parts": {
+        "SHY": 25080700928.0
+      },
+      "value_delta": -7601755.713165089,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -651,8 +715,16 @@
       "base": 312201303397.80615,
       "base_kind": "成分股市值和",
       "base_of": "5/5 檔",
+      "base_parts": {
+        "AMT": 81165581898.71777,
+        "CCI": 32219741823.695656,
+        "EQIX": 105951685883.85205,
+        "DLR": 73111748331.63647,
+        "SBAC": 19752545459.904175
+      },
       "value_delta": 5753556448.964502,
-      "net_flow": -2415510336.2730103,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -671,8 +743,15 @@
       "base": 235543159939.69443,
       "base_kind": "成分股市值和",
       "base_of": "4/4 檔",
+      "base_parts": {
+        "PLD": 134196581840.53204,
+        "PSA": 61387062510.52112,
+        "EXR": 31563670675.71295,
+        "FR": 8395844912.928314
+      },
       "value_delta": 1070134886.3434938,
-      "net_flow": 2485832046.610443,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -691,8 +770,15 @@
       "base": 243535520775.53088,
       "base_kind": "成分股市值和",
       "base_of": "4/4 檔",
+      "base_parts": {
+        "WELL": 168930904018.049,
+        "VTR": 46313927223.72642,
+        "OHI": 13941627621.40274,
+        "DOC": 14349061912.352715
+      },
       "value_delta": -6024120172.85304,
-      "net_flow": 1699096643.7815857,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -711,8 +797,15 @@
       "base": 84566674106.60861,
       "base_kind": "成分股市值和",
       "base_of": "4/4 檔",
+      "base_parts": {
+        "AVB": 26261973898.27176,
+        "EQR": 24735083119.42581,
+        "MAA": 15570146275.329086,
+        "INVH": 17999470813.581955
+      },
       "value_delta": -491979251.020527,
-      "net_flow": -629795036.6869049,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -731,8 +824,15 @@
       "base": 161657340556.15552,
       "base_kind": "成分股市值和",
       "base_of": "4/4 檔",
+      "base_parts": {
+        "SPG": 71658726182.02011,
+        "O": 59563416621.89484,
+        "KIM": 16360552398.052658,
+        "REG": 14074645354.187912
+      },
       "value_delta": 197787951.9401638,
-      "net_flow": -659272675.8503418,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -751,8 +851,15 @@
       "base": 30229053539.435127,
       "base_kind": "成分股市值和",
       "base_of": "4/4 檔",
+      "base_parts": {
+        "HST": 15586580077.25,
+        "PK": 3026115046.1368656,
+        "RHP": 7869726025.805786,
+        "APLE": 3746632390.2424793
+      },
       "value_delta": 125831468.25752236,
-      "net_flow": -439434547.4207802,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -771,8 +878,15 @@
       "base": 26839102387.7652,
       "base_kind": "成分股市值和",
       "base_of": "4/4 檔",
+      "base_parts": {
+        "BXP": 11045386492.80484,
+        "VNO": 7407203122.874496,
+        "SLG": 4083080216.085865,
+        "KRC": 4303432556.0
+      },
       "value_delta": 485279298.3681572,
-      "net_flow": -549031092.3179207,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -788,8 +902,12 @@
       "base": null,
       "base_kind": "流通市值",
       "base_of": "BTC-USD",
+      "base_parts": {
+        "BTC-USD": null
+      },
       "value_delta": null,
       "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -805,8 +923,12 @@
       "base": null,
       "base_kind": "流通市值",
       "base_of": "ETH-USD",
+      "base_parts": {
+        "ETH-USD": null
+      },
       "value_delta": null,
       "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -816,14 +938,18 @@
         "DX-Y.NYB"
       ],
       "is_basket": false,
-      "chg_w": -0.00087,
+      "chg_w": -0.0001,
       "members_ok": 1,
       "members_total": 1,
       "base": 436029856.0,
       "base_kind": "ETF 資產",
       "base_of": "UUP",
-      "value_delta": -379676.29309499264,
-      "net_flow": 379345.9747200012,
+      "base_parts": {
+        "UUP": 436029856.0
+      },
+      "value_delta": -43607.34633463346,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": "方向相反，正值代表美元升"
     },
     {
@@ -833,14 +959,18 @@
         "6E=F"
       ],
       "is_basket": false,
-      "chg_w": 0.001952,
+      "chg_w": 0.000174,
       "members_ok": 1,
       "members_total": 1,
       "base": 345198624.0,
       "base_kind": "ETF 資產",
       "base_of": "FXE",
-      "value_delta": 672514.9648366389,
-      "net_flow": -673827.7140479684,
+      "base_parts": {
+        "FXE": 345198624.0
+      },
+      "value_delta": 60054.11116065805,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -850,14 +980,18 @@
         "6J=F"
       ],
       "is_basket": false,
-      "chg_w": -0.004904,
+      "chg_w": -0.008068,
       "members_ok": 1,
       "members_total": 1,
       "base": 440513248.0,
       "base_kind": "ETF 資產",
       "base_of": "FXY",
-      "value_delta": -2170923.1754443794,
-      "net_flow": 2160276.9681919813,
+      "base_parts": {
+        "FXY": 440513248.0
+      },
+      "value_delta": -3582968.2728896737,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -867,14 +1001,18 @@
         "6B=F"
       ],
       "is_basket": false,
-      "chg_w": 0.002898,
+      "chg_w": 0.001932,
       "members_ok": 1,
       "members_total": 1,
       "base": 64603192.0,
       "base_kind": "ETF 資產",
       "base_of": "FXB",
-      "value_delta": 186679.05451601258,
-      "net_flow": -187220.05041600764,
+      "base_parts": {
+        "FXB": 64603192.0
+      },
+      "value_delta": 124572.69250208596,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -884,14 +1022,18 @@
         "6C=F"
       ],
       "is_basket": false,
-      "chg_w": 0.007354,
+      "chg_w": 0.005323,
       "members_ok": 1,
       "members_total": 1,
       "base": 69733584.0,
       "base_kind": "ETF 資產",
       "base_of": "FXC",
-      "value_delta": 509077.0242993029,
-      "net_flow": -512820.77673600614,
+      "base_parts": {
+        "FXC": 69733584.0
+      },
+      "value_delta": 369226.47510501597,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -901,14 +1043,18 @@
         "6S=F"
       ],
       "is_basket": false,
-      "chg_w": -0.002791,
+      "chg_w": -0.002872,
       "members_ok": 1,
       "members_total": 1,
       "base": 398386368.0,
       "base_kind": "ETF 資產",
       "base_of": "FXF",
-      "value_delta": -1115008.3413687602,
-      "net_flow": 1111896.3530880213,
+      "base_parts": {
+        "FXF": 398386368.0
+      },
+      "value_delta": -1147461.15733988,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -918,14 +1064,16 @@
         "6N=F"
       ],
       "is_basket": false,
-      "chg_w": -0.001531,
+      "chg_w": -0.004168,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
       "base_kind": null,
       "base_of": null,
+      "base_parts": {},
       "value_delta": null,
       "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -935,14 +1083,18 @@
         "6A=F"
       ],
       "is_basket": false,
-      "chg_w": 0.003413,
+      "chg_w": 0.003555,
       "members_ok": 1,
       "members_total": 1,
       "base": 97187024.0,
       "base_kind": "ETF 資產",
       "base_of": "FXA",
-      "value_delta": 330571.0738369943,
-      "net_flow": -331699.3129120171,
+      "base_parts": {
+        "FXA": 97187024.0
+      },
+      "value_delta": 344275.96924931864,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -952,14 +1104,18 @@
         "CL=F"
       ],
       "is_basket": false,
-      "chg_w": 0.050977,
+      "chg_w": 0.107019,
       "members_ok": 1,
       "members_total": 1,
       "base": 1989134080.0,
       "base_kind": "ETF 資產",
       "base_of": "USO",
-      "value_delta": 96481738.41688257,
-      "net_flow": -101400087.99616003,
+      "base_parts": {
+        "USO": 1989134080.0
+      },
+      "value_delta": 192295832.4179802,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": "北美供需與美國本土經濟熱度"
     },
     {
@@ -969,14 +1125,18 @@
         "BZ=F"
       ],
       "is_basket": false,
-      "chg_w": 0.055764,
+      "chg_w": 0.11995,
       "members_ok": 1,
       "members_total": 1,
       "base": 615261696.0,
       "base_kind": "ETF 資產",
       "base_of": "BNO",
-      "value_delta": 32497275.163525186,
-      "net_flow": -34309453.2157439,
+      "base_parts": {
+        "BNO": 615261696.0
+      },
+      "value_delta": 65896370.76226618,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": "全球需求、地緣風險與 OPEC+ 政策"
     },
     {
@@ -986,14 +1146,18 @@
         "NG=F"
       ],
       "is_basket": false,
-      "chg_w": 0.038636,
+      "chg_w": 0.043155,
       "members_ok": 1,
       "members_total": 1,
       "base": 467977632.0,
       "base_kind": "ETF 資產",
       "base_of": "UNG",
-      "value_delta": 17408200.55337192,
-      "net_flow": -18080783.78995192,
+      "base_parts": {
+        "UNG": 467977632.0
+      },
+      "value_delta": 19360090.023975343,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -1003,14 +1167,16 @@
         "HO=F"
       ],
       "is_basket": false,
-      "chg_w": 0.060536,
+      "chg_w": 0.133765,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
       "base_kind": null,
       "base_of": null,
+      "base_parts": {},
       "value_delta": null,
       "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": "柴油/物流/冬季供暖"
     },
     {
@@ -1020,14 +1186,18 @@
         "RB=F"
       ],
       "is_basket": false,
-      "chg_w": -0.02862,
+      "chg_w": 0.110927,
       "members_ok": 1,
       "members_total": 1,
       "base": 135150832.0,
       "base_kind": "ETF 資產",
       "base_of": "UGA",
-      "value_delta": -3981981.1112437975,
-      "net_flow": 3868016.811839998,
+      "base_parts": {
+        "UGA": 135150832.0
+      },
+      "value_delta": 13494924.81617964,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": "終端出行與零售通膨"
     },
     {
@@ -1037,14 +1207,18 @@
         "ZS=F"
       ],
       "is_basket": false,
-      "chg_w": 0.025707,
+      "chg_w": 0.011507,
       "members_ok": 1,
       "members_total": 1,
       "base": 60364220.0,
       "base_kind": "ETF 資產",
       "base_of": "SOYB",
-      "value_delta": 1512891.111730738,
-      "net_flow": -1551783.0035399944,
+      "base_parts": {
+        "SOYB": 60364220.0
+      },
+      "value_delta": 686709.1177223687,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -1054,14 +1228,18 @@
         "ZC=F"
       ],
       "is_basket": false,
-      "chg_w": 0.079727,
+      "chg_w": 0.046365,
       "members_ok": 1,
       "members_total": 1,
       "base": 164965552.0,
       "base_kind": "ETF 資產",
       "base_of": "CORN",
-      "value_delta": 12181049.991621956,
-      "net_flow": -13152208.564304024,
+      "base_parts": {
+        "CORN": 164965552.0
+      },
+      "value_delta": 7309712.976332352,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -1071,14 +1249,18 @@
         "ZW=F"
       ],
       "is_basket": false,
-      "chg_w": 0.064554,
+      "chg_w": 0.016349,
       "members_ok": 1,
       "members_total": 1,
       "base": 294835616.0,
       "base_kind": "ETF 資產",
       "base_of": "WEAT",
-      "value_delta": 17878678.165000554,
-      "net_flow": -19032818.355264008,
+      "base_parts": {
+        "WEAT": 294835616.0
+      },
+      "value_delta": 4742728.615843574,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -1088,14 +1270,18 @@
         "SB=F"
       ],
       "is_basket": false,
-      "chg_w": 0.075787,
+      "chg_w": 0.083828,
       "members_ok": 1,
       "members_total": 1,
       "base": 55223920.0,
       "base_kind": "ETF 資產",
       "base_of": "CANE",
-      "value_delta": 3890412.5305845854,
-      "net_flow": -4185255.2250400037,
+      "base_parts": {
+        "CANE": 55223920.0
+      },
+      "value_delta": 4271259.614772824,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -1105,14 +1291,16 @@
         "KC=F"
       ],
       "is_basket": false,
-      "chg_w": -0.025649,
+      "chg_w": 0.040379,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
       "base_kind": null,
       "base_of": null,
+      "base_parts": {},
       "value_delta": null,
       "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     },
     {
@@ -1122,14 +1310,16 @@
         "CC=F"
       ],
       "is_basket": false,
-      "chg_w": -0.011427,
+      "chg_w": -0.044713,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
       "base_kind": null,
       "base_of": null,
+      "base_parts": {},
       "value_delta": null,
       "net_flow": null,
+      "flow_note": "需要兩週快照",
       "note": null
     }
   ],
@@ -1193,6 +1383,7 @@
       "leader_avg": -0.014424,
       "rank_avg": 0.008664,
       "breadth_gap": -0.023088,
+      "avg": 0.002067,
       "value_delta_total": -96242488837.04886,
       "mcap_coverage": "7/7",
       "advance_decline": "3/7"
@@ -1263,6 +1454,7 @@
       "leader_avg": -0.009677,
       "rank_avg": 0.035486,
       "breadth_gap": -0.045163,
+      "avg": 0.024195,
       "value_delta_total": 100544382894.1832,
       "mcap_coverage": "8/8",
       "advance_decline": "5/8"
@@ -1333,6 +1525,7 @@
       "leader_avg": 0.08352,
       "rank_avg": 0.095647,
       "breadth_gap": -0.012127,
+      "avg": 0.092615,
       "value_delta_total": 176657777704.63434,
       "mcap_coverage": "8/8",
       "advance_decline": "8/8"
@@ -1403,6 +1596,7 @@
       "leader_avg": -0.007294,
       "rank_avg": 0.009815,
       "breadth_gap": -0.017109,
+      "avg": 0.005538,
       "value_delta_total": -15312026018.524422,
       "mcap_coverage": "8/8",
       "advance_decline": "5/8"
@@ -1473,6 +1667,7 @@
       "leader_avg": 0.001079,
       "rank_avg": 0.039341,
       "breadth_gap": -0.038261,
+      "avg": 0.029775,
       "value_delta_total": 74561783260.2327,
       "mcap_coverage": "8/8",
       "advance_decline": "7/8"
@@ -1543,6 +1738,7 @@
       "leader_avg": -0.019946,
       "rank_avg": -0.001026,
       "breadth_gap": -0.01892,
+      "avg": -0.005756,
       "value_delta_total": -17441124117.3314,
       "mcap_coverage": "8/8",
       "advance_decline": "3/8"
@@ -1613,6 +1809,7 @@
       "leader_avg": 0.007065,
       "rank_avg": 0.008657,
       "breadth_gap": -0.001592,
+      "avg": 0.008259,
       "value_delta_total": 36087961752.55037,
       "mcap_coverage": "8/8",
       "advance_decline": "6/8"
@@ -1683,6 +1880,7 @@
       "leader_avg": -0.018444,
       "rank_avg": -0.004832,
       "breadth_gap": -0.013613,
+      "avg": -0.008235,
       "value_delta_total": -14518672427.137846,
       "mcap_coverage": "8/8",
       "advance_decline": "2/8"
@@ -1753,6 +1951,7 @@
       "leader_avg": 0.034554,
       "rank_avg": 0.011961,
       "breadth_gap": 0.022593,
+      "avg": 0.01761,
       "value_delta_total": 37760754932.029434,
       "mcap_coverage": "8/8",
       "advance_decline": "6/8"
@@ -1823,6 +2022,7 @@
       "leader_avg": 0.015772,
       "rank_avg": 0.009497,
       "breadth_gap": 0.006275,
+      "avg": 0.011066,
       "value_delta_total": 9365177902.151337,
       "mcap_coverage": "8/8",
       "advance_decline": "7/8"
@@ -1830,338 +2030,419 @@
   ],
   "frontier": [
     {
+      "id": 101,
       "name": "太空經濟",
+      "zh": null,
+      "positioning": null,
       "stocks": [
         {
           "ticker": "RKLB",
-          "tier": "watch",
+          "tier": "leader",
           "chg_w": 0.05854368193963877,
           "mcap": 51208067757.70297,
           "value_delta": 2832106867.8594065
         },
         {
           "ticker": "ASTS",
-          "tier": "watch",
+          "tier": "leader",
           "chg_w": 0.061757660258624725,
           "mcap": 21440930087.22721,
           "value_delta": 1247122319.4503407
         },
         {
           "ticker": "PL",
-          "tier": "watch",
+          "tier": "rank",
           "chg_w": 0.08934862447166991,
           "mcap": 8820962518.5,
           "value_delta": 723497372.5021937
         },
         {
           "ticker": "LUNR",
-          "tier": "watch",
+          "tier": "rank",
           "chg_w": 0.17615533201662825,
           "mcap": 2817542460.349222,
           "value_delta": 421989438.0130633
         },
         {
           "ticker": "SPCX",
-          "tier": "watch",
+          "tier": "rank",
           "chg_w": 0.22946393610640903,
           "mcap": 1862453599928.33,
           "value_delta": 347603472785.49023
         },
         {
           "ticker": "BKSY",
-          "tier": "watch",
+          "tier": "rank",
           "chg_w": 0.11514928931876556,
           "mcap": 1268260968.173046,
           "value_delta": 130959460.36523047
         },
         {
           "ticker": "IRDM",
-          "tier": "watch",
+          "tier": "rank",
           "chg_w": 0.030428428156049847,
           "mcap": 5274707736.393829,
           "value_delta": 155761488.14938694
         }
       ],
-      "avg": 0.108692
+      "leader_avg": 0.060151,
+      "rank_avg": 0.128109,
+      "breadth_gap": -0.067958,
+      "avg": 0.108692,
+      "value_delta_total": 353114909731.8299,
+      "mcap_coverage": "7/7",
+      "advance_decline": "7/7"
     },
     {
+      "id": 102,
       "name": "量子電腦",
+      "zh": null,
+      "positioning": null,
       "stocks": [
         {
+          "ticker": "IBM",
+          "tier": "leader",
+          "chg_w": 0.01589344484545374,
+          "mcap": 223417748669.5668,
+          "value_delta": 3495324912.2651787
+        },
+        {
           "ticker": "IONQ",
-          "tier": "watch",
+          "tier": "leader",
           "chg_w": 0.13242694259514654,
           "mcap": 18223001621.423615,
           "value_delta": 2131012870.5532534
         },
         {
           "ticker": "RGTI",
-          "tier": "watch",
+          "tier": "rank",
           "chg_w": 0.12643678558806037,
           "mcap": 6214774349.24988,
           "value_delta": 697576732.1590686
         },
         {
           "ticker": "QBTS",
-          "tier": "watch",
-          "chg_w": -0.16464836326296273,
-          "mcap": 6037250972.951057,
-          "value_delta": -1189946182.6481493
-        },
-        {
-          "ticker": "IBM",
-          "tier": "watch",
-          "chg_w": 0.01589344484545374,
-          "mcap": 223417748669.5668,
-          "value_delta": 3495324912.2651787
+          "tier": "rank",
+          "chg_w": 0.07704194171524148,
+          "mcap": 7783994457.625441,
+          "value_delta": 556797302.0262332
         },
         {
           "ticker": "QNT",
-          "tier": "watch",
+          "tier": "rank",
           "chg_w": 0.1633831310695102,
           "mcap": 17761061613.5,
           "value_delta": 2494326916.0731325
         },
         {
           "ticker": "QUBT",
-          "tier": "watch",
+          "tier": "rank",
           "chg_w": 0.016524269409365244,
           "mcap": 2019014017.388895,
           "value_delta": 32820398.458370123
         }
       ],
-      "avg": 0.048336
+      "leader_avg": 0.07416,
+      "rank_avg": 0.095847,
+      "breadth_gap": -0.021686,
+      "avg": 0.088618,
+      "value_delta_total": 9407859131.535236,
+      "mcap_coverage": "6/6",
+      "advance_decline": "6/6"
     },
     {
+      "id": 103,
       "name": "長壽科學與基因編輯",
+      "zh": null,
+      "positioning": null,
       "stocks": [
         {
-          "ticker": "CRSP",
-          "tier": "watch",
-          "chg_w": 0.04550740349717031,
-          "mcap": 5220436497.765408,
-          "value_delta": 227227955.86191943
-        },
-        {
-          "ticker": "NTLA",
-          "tier": "watch",
-          "chg_w": 0.05249111784716676,
-          "mcap": 1657698767.4991817,
-          "value_delta": 82674770.25163655
-        },
-        {
-          "ticker": "EDIT",
-          "tier": "watch",
-          "chg_w": -0.031034534354554055,
-          "mcap": 431559889.5620799,
-          "value_delta": -13822226.584453577
-        },
-        {
           "ticker": "LLY",
-          "tier": "watch",
+          "tier": "leader",
           "chg_w": 0.01431285084181555,
           "mcap": 1078115359854.0,
           "value_delta": 15213160636.833027
         },
         {
           "ticker": "NVO",
-          "tier": "watch",
+          "tier": "leader",
           "chg_w": 0.016314987602441766,
           "mcap": 204687344934.6438,
           "value_delta": 3285862686.0000186
+        },
+        {
+          "ticker": "CRSP",
+          "tier": "rank",
+          "chg_w": 0.04550740349717031,
+          "mcap": 5220436497.765408,
+          "value_delta": 227227955.86191943
+        },
+        {
+          "ticker": "NTLA",
+          "tier": "rank",
+          "chg_w": 0.05249111784716676,
+          "mcap": 1657698767.4991817,
+          "value_delta": 82674770.25163655
+        },
+        {
+          "ticker": "EDIT",
+          "tier": "rank",
+          "chg_w": -0.031034534354554055,
+          "mcap": 431559889.5620799,
+          "value_delta": -13822226.584453577
         }
       ],
-      "avg": 0.019518
+      "leader_avg": 0.015314,
+      "rank_avg": 0.022321,
+      "breadth_gap": -0.007007,
+      "avg": 0.019518,
+      "value_delta_total": 18795103822.36215,
+      "mcap_coverage": "5/5",
+      "advance_decline": "4/5"
     },
     {
+      "id": 104,
       "name": "新世代能源與 SMR",
+      "zh": null,
+      "positioning": null,
       "stocks": [
         {
           "ticker": "CEG",
-          "tier": "watch",
+          "tier": "leader",
           "chg_w": 0.06717735785102952,
           "mcap": 98724213274.6095,
           "value_delta": 6214554455.1888685
         },
         {
+          "ticker": "GEV",
+          "tier": "leader",
+          "chg_w": 0.04910532515422772,
+          "mcap": 279495798277.13245,
+          "value_delta": 13082320453.974792
+        },
+        {
           "ticker": "VST",
-          "tier": "watch",
+          "tier": "rank",
           "chg_w": 0.03550706493349498,
           "mcap": 49136990499.44534,
           "value_delta": 1684884991.501613
         },
         {
           "ticker": "OKLO",
-          "tier": "watch",
+          "tier": "rank",
           "chg_w": 0.10097184818426652,
           "mcap": 8640519984.420204,
           "value_delta": 792435586.3765723
         },
         {
           "ticker": "SMR",
-          "tier": "watch",
+          "tier": "rank",
           "chg_w": 0.040126726898197074,
           "mcap": 4042336948.2511787,
           "value_delta": 155948065.32535377
         },
         {
-          "ticker": "GEV",
-          "tier": "watch",
-          "chg_w": 0.04910532515422772,
-          "mcap": 279495798277.13245,
-          "value_delta": 13082320453.974792
-        },
-        {
           "ticker": "CCJ",
-          "tier": "watch",
+          "tier": "rank",
           "chg_w": 0.044114474815786675,
           "mcap": 42573348697.25,
           "value_delta": 1798750007.0429473
         }
       ],
-      "avg": 0.056167
+      "leader_avg": 0.058141,
+      "rank_avg": 0.05518,
+      "breadth_gap": 0.002961,
+      "avg": 0.056167,
+      "value_delta_total": 23728893559.41015,
+      "mcap_coverage": "6/6",
+      "advance_decline": "6/6"
     },
     {
+      "id": 105,
       "name": "純 AI 應用",
+      "zh": null,
+      "positioning": null,
       "stocks": [
         {
           "ticker": "PLTR",
-          "tier": "watch",
+          "tier": "leader",
           "chg_w": 0.1480887417204284,
           "mcap": 430171485304.4055,
           "value_delta": 55486611502.93699
         },
         {
           "ticker": "APP",
-          "tier": "watch",
+          "tier": "leader",
           "chg_w": -0.06851967432280515,
           "mcap": 105038214541.97665,
           "value_delta": -7726608982.999996
         },
         {
           "ticker": "PATH",
-          "tier": "watch",
+          "tier": "rank",
           "chg_w": 0.19142859322684158,
           "mcap": 8642246194.997757,
           "value_delta": 1388562470.9977574
         }
       ],
-      "avg": 0.090333
+      "leader_avg": 0.039785,
+      "rank_avg": 0.191429,
+      "breadth_gap": -0.151644,
+      "avg": 0.090333,
+      "value_delta_total": 49148564990.93475,
+      "mcap_coverage": "3/3",
+      "advance_decline": "2/3"
     },
     {
+      "id": 106,
       "name": "代幣化與 RWA",
+      "zh": null,
+      "positioning": null,
       "stocks": [
         {
           "ticker": "BLK",
-          "tier": "watch",
+          "tier": "leader",
           "chg_w": 0.04740982438435726,
           "mcap": 183185549022.17712,
           "value_delta": 8291687271.501584
         },
         {
           "ticker": "ICE",
-          "tier": "watch",
+          "tier": "leader",
           "chg_w": 0.03666113851862485,
           "mcap": 87150883245.71202,
           "value_delta": 3082058817.462025
         },
         {
           "ticker": "CBOE",
-          "tier": "watch",
+          "tier": "rank",
           "chg_w": 0.013521364467164565,
           "mcap": 30606641646.248016,
           "value_delta": 408322479.7460345
         },
         {
           "ticker": "SECZ",
-          "tier": "watch",
+          "tier": "rank",
           "chg_w": -0.2072322998744638,
           "mcap": 843957618.2592726,
           "value_delta": -220613526.7629456
         }
       ],
-      "avg": -0.02741
+      "leader_avg": 0.042035,
+      "rank_avg": -0.096855,
+      "breadth_gap": 0.138891,
+      "avg": -0.02741,
+      "value_delta_total": 11561455041.9467,
+      "mcap_coverage": "4/4",
+      "advance_decline": "3/4"
     },
     {
+      "id": 107,
       "name": "下一代支付網絡",
+      "zh": null,
+      "positioning": null,
       "stocks": [
         {
-          "ticker": "XYZ",
-          "tier": "watch",
-          "chg_w": 0.051505946187373475,
-          "mcap": 49920054349.823,
-          "value_delta": 2445235466.651912
-        },
-        {
           "ticker": "PYPL",
-          "tier": "watch",
+          "tier": "leader",
           "chg_w": 0.013549705417048807,
           "mcap": 51832374486.19297,
           "value_delta": 692924482.7367277
         },
         {
+          "ticker": "XYZ",
+          "tier": "leader",
+          "chg_w": 0.051505946187373475,
+          "mcap": 49920054349.823,
+          "value_delta": 2445235466.651912
+        },
+        {
           "ticker": "ADYEY",
-          "tier": "watch",
+          "tier": "rank",
           "chg_w": 0.14733403412191537,
           "mcap": 38679753820.726395,
           "value_delta": 4967031396.058658
         }
       ],
-      "avg": 0.070797
+      "leader_avg": 0.032528,
+      "rank_avg": 0.147334,
+      "breadth_gap": -0.114806,
+      "avg": 0.070797,
+      "value_delta_total": 8105191345.447298,
+      "mcap_coverage": "3/3",
+      "advance_decline": "3/3"
     },
     {
+      "id": 108,
       "name": "加密基礎設施與託管",
+      "zh": null,
+      "positioning": null,
       "stocks": [
         {
           "ticker": "COIN",
-          "tier": "watch",
+          "tier": "leader",
           "chg_w": 0.058386562276026455,
           "mcap": 40604500839.36722,
           "value_delta": 2239972899.737545
         },
         {
-          "ticker": "CRCL",
-          "tier": "watch",
-          "chg_w": 0.19121363317851103,
-          "mcap": 19137163212.489067,
-          "value_delta": 3071897772.7161493
-        },
-        {
           "ticker": "HOOD",
-          "tier": "watch",
+          "tier": "leader",
           "chg_w": 0.0954691186144192,
           "mcap": 89341807937.41321,
           "value_delta": 7786055776.717623
+        },
+        {
+          "ticker": "CRCL",
+          "tier": "rank",
+          "chg_w": 0.19121363317851103,
+          "mcap": 19137163212.489067,
+          "value_delta": 3071897772.7161493
         }
       ],
-      "avg": 0.115023
+      "leader_avg": 0.076928,
+      "rank_avg": 0.191214,
+      "breadth_gap": -0.114286,
+      "avg": 0.115023,
+      "value_delta_total": 13097926449.171318,
+      "mcap_coverage": "3/3",
+      "advance_decline": "3/3"
     },
     {
+      "id": 109,
       "name": "資本市場科技與清算",
+      "zh": null,
+      "positioning": null,
       "stocks": [
         {
-          "ticker": "UPST",
-          "tier": "watch",
-          "chg_w": 0.04240997198617724,
-          "mcap": 3013784967.800434,
-          "value_delta": 122614460.23318872
+          "ticker": "NDAQ",
+          "tier": "leader",
+          "chg_w": 0.030517417980783668,
+          "mcap": 54550599686.443726,
+          "value_delta": 1615444263.9072914
         },
         {
           "ticker": "BR",
-          "tier": "watch",
+          "tier": "leader",
           "chg_w": 0.045462855800692425,
           "mcap": 19639115113.860443,
           "value_delta": 854023893.3604448
         },
         {
-          "ticker": "NDAQ",
-          "tier": "watch",
-          "chg_w": 0.030517417980783668,
-          "mcap": 54550599686.443726,
-          "value_delta": 1615444263.9072914
+          "ticker": "UPST",
+          "tier": "rank",
+          "chg_w": 0.04240997198617724,
+          "mcap": 3013784967.800434,
+          "value_delta": 122614460.23318872
         }
       ],
-      "avg": 0.039463
+      "leader_avg": 0.03799,
+      "rank_avg": 0.04241,
+      "breadth_gap": -0.00442,
+      "avg": 0.039463,
+      "value_delta_total": 2592082617.500925,
+      "mcap_coverage": "3/3",
+      "advance_decline": "3/3"
     }
   ],
   "windows": {
@@ -2182,7 +2463,7 @@
       "hit": false,
       "evidence": {
         "2Y Δbp": -5.0,
-        "Gold %": 0.032602
+        "Gold %": 0.038414
       }
     },
     {
@@ -2200,7 +2481,7 @@
       "truth": "全球法幣信任危機，資金進行逃命式搶購",
       "hit": false,
       "evidence": {
-        "DXY %": -0.00087,
+        "DXY %": -0.0001,
         "BTC %": -0.022777,
         "NDX %": 0.024211
       }
@@ -2221,7 +2502,7 @@
       "truth": "資金從博弈型市場撤退，轉向實體過路費資產",
       "hit": false,
       "evidence": {
-        "Frontier 平均 %": 0.0579,
+        "Frontier 平均 %": 0.0624,
         "Infra 龍頭 %": 0.015772
       }
     },
@@ -2537,10 +2818,13 @@
     ],
     "frontier": [
       {
+        "id": 101,
         "name": "太空經濟",
-        "tickers": [
+        "leader": [
           "RKLB",
-          "ASTS",
+          "ASTS"
+        ],
+        "rank": [
           "PL",
           "LUNR",
           "SPCX",
@@ -2549,76 +2833,100 @@
         ]
       },
       {
+        "id": 102,
         "name": "量子電腦",
-        "tickers": [
-          "IONQ",
+        "leader": [
+          "IBM",
+          "IONQ"
+        ],
+        "rank": [
           "RGTI",
           "QBTS",
-          "IBM",
           "QNT",
           "QUBT"
         ]
       },
       {
+        "id": 103,
         "name": "長壽科學與基因編輯",
-        "tickers": [
-          "CRSP",
-          "NTLA",
-          "EDIT",
+        "leader": [
           "LLY",
           "NVO"
+        ],
+        "rank": [
+          "CRSP",
+          "NTLA",
+          "EDIT"
         ]
       },
       {
+        "id": 104,
         "name": "新世代能源與 SMR",
-        "tickers": [
+        "leader": [
           "CEG",
+          "GEV"
+        ],
+        "rank": [
           "VST",
           "OKLO",
           "SMR",
-          "GEV",
           "CCJ"
         ]
       },
       {
+        "id": 105,
         "name": "純 AI 應用",
-        "tickers": [
+        "leader": [
           "PLTR",
-          "APP",
+          "APP"
+        ],
+        "rank": [
           "PATH"
         ]
       },
       {
+        "id": 106,
         "name": "代幣化與 RWA",
-        "tickers": [
+        "leader": [
           "BLK",
-          "ICE",
+          "ICE"
+        ],
+        "rank": [
           "CBOE",
           "SECZ"
         ]
       },
       {
+        "id": 107,
         "name": "下一代支付網絡",
-        "tickers": [
-          "XYZ",
+        "leader": [
           "PYPL",
+          "XYZ"
+        ],
+        "rank": [
           "ADYEY"
         ]
       },
       {
+        "id": 108,
         "name": "加密基礎設施與託管",
-        "tickers": [
+        "leader": [
           "COIN",
-          "CRCL",
           "HOOD"
+        ],
+        "rank": [
+          "CRCL"
         ]
       },
       {
+        "id": 109,
         "name": "資本市場科技與清算",
-        "tickers": [
-          "UPST",
-          "BR",
-          "NDAQ"
+        "leader": [
+          "NDAQ",
+          "BR"
+        ],
+        "rank": [
+          "UPST"
         ]
       }
     ]
