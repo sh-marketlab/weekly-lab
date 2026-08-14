@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-13T23:44:56+00:00",
-  "iso_week": "2026-W33",
-  "stage": "thu",
-  "as_of": "2026-08-13",
-  "as_of_label": "2026-W33 週四收盤",
+  "generated_at": "2026-08-14T02:31:03+00:00",
+  "iso_week": "2026-W32",
+  "stage": "fri",
+  "as_of": "2026-08-07",
+  "as_of_label": "2026-W32 週五收盤",
   "macro": [
     {
       "id": 1,
@@ -11,12 +11,12 @@
       "axis": "liquidity",
       "unit": "百萬美元",
       "freq": "weekly",
-      "curr": 6759955.0,
-      "prev": 6748567.0,
-      "curr_date": "2026-08-12",
-      "prev_date": "2026-08-05",
-      "delta": 11388.0,
-      "delta_pct": 0.0016874693546052072,
+      "curr": 6748567.0,
+      "prev": 6738190.0,
+      "curr_date": "2026-08-05",
+      "prev_date": "2026-07-29",
+      "delta": 10377.0,
+      "delta_pct": 0.0015400278116230025,
       "up_bias": "loosen",
       "verdict": "增加（擴表/放水）",
       "note": "是否在秘密縮表/擴表",
@@ -30,14 +30,14 @@
       "axis": "liquidity",
       "unit": "百萬美元",
       "freq": "weekly",
-      "curr": 959405.0,
-      "prev": 929325.0,
-      "curr_date": "2026-08-12",
-      "prev_date": "2026-08-05",
-      "delta": 30080.0,
-      "delta_pct": 0.03236757861889005,
+      "curr": 929325.0,
+      "prev": 970442.0,
+      "curr_date": "2026-08-05",
+      "prev_date": "2026-07-29",
+      "delta": -41117.0,
+      "delta_pct": -0.04236935334620719,
       "up_bias": "tighten",
-      "verdict": "增加（抽水）",
+      "verdict": "減少（放水）",
       "note": "政府在回收/放出市場資金",
       "source": "FRED:WDTGAL",
       "stale": false,
@@ -49,12 +49,12 @@
       "axis": "liquidity",
       "unit": "十億美元",
       "freq": "daily",
-      "curr": 0.45,
-      "prev": 1.429,
-      "curr_date": "2026-08-13",
-      "prev_date": "2026-08-06",
-      "delta": -0.9790000000000001,
-      "delta_pct": -0.6850944716585025,
+      "curr": 1.45,
+      "prev": 2.151,
+      "curr_date": "2026-08-07",
+      "prev_date": "2026-07-31",
+      "delta": -0.7009999999999998,
+      "delta_pct": -0.3258949325894932,
       "up_bias": "tighten",
       "verdict": "減少（放水）",
       "note": "貨幣市場資金是否在釋放（注意：單位是十億，且不參與",
@@ -68,14 +68,14 @@
       "axis": "liquidity",
       "unit": "百萬美元",
       "freq": "weekly",
-      "curr": 5442433.0,
-      "prev": 5499874.0,
-      "curr_date": "2026-08-12",
-      "prev_date": "2026-08-05",
-      "delta": -57441.0,
-      "delta_pct": -0.010444057445679665,
+      "curr": 5499874.0,
+      "prev": 5430697.0,
+      "curr_date": "2026-08-05",
+      "prev_date": "2026-07-29",
+      "delta": 69177.0,
+      "delta_pct": 0.012738143925172037,
       "up_bias": "loosen",
-      "verdict": "下降",
+      "verdict": "上升",
       "note": "真正的市場總血量 = WALCL − WDTGAL − WLRRAL（三條都是週三、都是百萬）",
       "source": "計算：WALCL−WDTGAL−WLRRAL",
       "stale": false,
@@ -87,14 +87,14 @@
       "axis": "credit",
       "unit": "%",
       "freq": "daily",
-      "curr": 2.71,
-      "prev": 2.71,
-      "curr_date": "2026-08-12",
-      "prev_date": "2026-08-06",
-      "delta": 0.0,
-      "delta_pct": 0.0,
+      "curr": 2.7,
+      "prev": 2.85,
+      "curr_date": "2026-08-07",
+      "prev_date": "2026-07-31",
+      "delta": -0.1499999999999999,
+      "delta_pct": -0.05263157894736839,
       "up_bias": "risk_off",
-      "verdict": null,
+      "verdict": "收窄（安全）",
       "note": "Smart Money 看到的真實企業違約率",
       "source": "FRED:BAMLH0A0HYM2",
       "stale": false,
@@ -107,11 +107,11 @@
       "unit": "%",
       "freq": "daily",
       "curr": 3.62,
-      "prev": 3.65,
-      "curr_date": "2026-08-12",
-      "prev_date": "2026-08-06",
-      "delta": -0.029999999999999805,
-      "delta_pct": -0.008219178082191728,
+      "prev": 3.66,
+      "curr_date": "2026-08-07",
+      "prev_date": "2026-07-31",
+      "delta": -0.040000000000000036,
+      "delta_pct": -0.010928961748633888,
       "up_bias": "tighten",
       "verdict": "下降（寬鬆）",
       "note": "隔夜融資市場的實際資金成本",
@@ -125,12 +125,12 @@
       "axis": "rates",
       "unit": "%",
       "freq": "daily",
-      "curr": 4.2,
-      "prev": 4.25,
-      "curr_date": "2026-08-12",
-      "prev_date": "2026-08-06",
-      "delta": -0.04999999999999982,
-      "delta_pct": -0.0117647058823529,
+      "curr": 4.19,
+      "prev": 4.28,
+      "curr_date": "2026-08-07",
+      "prev_date": "2026-07-31",
+      "delta": -0.08999999999999986,
+      "delta_pct": -0.021028037383177534,
       "up_bias": "tighten",
       "verdict": "下降（寬鬆）",
       "note": "市場對 Fed 近期利率路徑的真實定價",
@@ -144,12 +144,12 @@
       "axis": "fx",
       "unit": "index",
       "freq": "daily",
-      "curr": 99.9489974975586,
-      "prev": 99.97000122070312,
-      "curr_date": "2026-08-13",
-      "prev_date": "2026-08-06",
-      "delta": -0.02100372314453125,
-      "delta_pct": -0.00021010025895829956,
+      "curr": 99.5999984741211,
+      "prev": 99.80000305175781,
+      "curr_date": "2026-08-07",
+      "prev_date": "2026-07-31",
+      "delta": -0.20000457763671875,
+      "delta_pct": -0.0020040538228540262,
       "up_bias": "tighten",
       "verdict": "下降（全球放水）",
       "note": "全球美元流動性總閥門",
@@ -163,14 +163,14 @@
       "axis": "rates",
       "unit": "%",
       "freq": "daily",
-      "curr": 0.48,
-      "prev": 0.44,
-      "curr_date": "2026-08-13",
-      "prev_date": "2026-08-06",
-      "delta": 0.03999999999999998,
-      "delta_pct": 0.09090909090909087,
+      "curr": 0.46,
+      "prev": 0.47,
+      "curr_date": "2026-08-07",
+      "prev_date": "2026-07-31",
+      "delta": -0.009999999999999953,
+      "delta_pct": -0.021276595744680753,
       "up_bias": "expand",
-      "verdict": "擴大/陡峭化",
+      "verdict": "縮小/平坦化",
       "note": "衰退預警與長短期資金成本結構",
       "source": "FRED:T10Y2Y",
       "stale": false,
@@ -183,13 +183,13 @@
       "unit": "bp",
       "freq": "weekly",
       "curr": 35.97,
-      "prev": 35.97,
+      "prev": 35.96,
       "curr_date": "2026-08-06",
-      "prev_date": "2026-08-06",
-      "delta": 0.0,
-      "delta_pct": 0.0,
+      "prev_date": "2026-07-30",
+      "delta": 0.00999999999999801,
+      "delta_pct": 0.0002780867630700225,
       "up_bias": "risk_off",
-      "verdict": null,
+      "verdict": "上升（信用風險）",
       "note": "對美國主權違約風險的即時定價",
       "source": "手動",
       "stale": false,
@@ -201,12 +201,12 @@
       "axis": "sentiment",
       "unit": "index",
       "freq": "daily",
-      "curr": 66.1428571428571,
-      "prev": 58.8571428571429,
-      "curr_date": "2026-08-13",
-      "prev_date": "2026-08-06",
-      "delta": 7.285714285714199,
-      "delta_pct": 0.12378640776698874,
+      "curr": 64.4285714285714,
+      "prev": 45.2285714285714,
+      "curr_date": "2026-08-07",
+      "prev_date": "2026-07-31",
+      "delta": 19.200000000000003,
+      "delta_pct": 0.4245104232469997,
       "up_bias": "risk_on",
       "verdict": "上升（貪婪/過熱）",
       "note": "市場情緒擺盪",
@@ -220,12 +220,12 @@
       "axis": "sentiment",
       "unit": "index",
       "freq": "daily",
-      "curr": 14.55,
-      "prev": 15.15,
-      "curr_date": "2026-08-12",
-      "prev_date": "2026-08-06",
-      "delta": -0.5999999999999996,
-      "delta_pct": -0.03960396039603958,
+      "curr": 14.9,
+      "prev": 15.99,
+      "curr_date": "2026-08-07",
+      "prev_date": "2026-07-31",
+      "delta": -1.0899999999999999,
+      "delta_pct": -0.0681676047529706,
       "up_bias": "risk_off",
       "verdict": "下降（情緒穩定）",
       "note": "股市選擇權隱含波動度",
@@ -239,17 +239,17 @@
       "axis": "sentiment",
       "unit": "index",
       "freq": "daily",
-      "curr": 69.22830200195312,
-      "prev": null,
-      "curr_date": "2026-08-13",
-      "prev_date": null,
-      "delta": null,
-      "delta_pct": null,
+      "curr": 70.87999725341797,
+      "prev": 70.87999725341797,
+      "curr_date": "2026-07-17",
+      "prev_date": "2026-07-17",
+      "delta": 0.0,
+      "delta_pct": 0.0,
       "up_bias": "risk_off",
       "verdict": null,
       "note": "美債波動度，金融體系底層資產穩定度",
       "source": "Yahoo:^MOVE",
-      "stale": false,
+      "stale": true,
       "manual_url": "https://www.investing.com/indices/ice-bofaml-move"
     },
     {
@@ -259,16 +259,16 @@
       "unit": "index",
       "freq": "monthly",
       "curr": 53.9,
-      "prev": 53.3,
-      "curr_date": "2026-07-01",
-      "prev_date": "2026-06-01",
-      "delta": 0.6000000000000014,
-      "delta_pct": 0.011257035647279577,
+      "prev": 53.9,
+      "curr_date": "2026-08-03",
+      "prev_date": "2026-07-01",
+      "delta": 0.0,
+      "delta_pct": 0.0,
       "up_bias": "expand",
-      "verdict": "上升（>50 擴張）",
+      "verdict": null,
       "note": "製造業基本面與資本支出意願",
       "source": "手動",
-      "stale": true,
+      "stale": false,
       "manual_url": "https://hk.investing.com/economic-calendar/manufacturing-pmi-829"
     },
     {
@@ -277,12 +277,12 @@
       "axis": "macro",
       "unit": "人",
       "freq": "weekly",
-      "curr": 209000.0,
-      "prev": 200000.0,
-      "curr_date": "2026-08-08",
-      "prev_date": "2026-08-01",
-      "delta": 9000.0,
-      "delta_pct": 0.045,
+      "curr": 200000.0,
+      "prev": 198000.0,
+      "curr_date": "2026-08-01",
+      "prev_date": "2026-07-25",
+      "delta": 2000.0,
+      "delta_pct": 0.010101010101010102,
       "up_bias": "contract",
       "verdict": "上升（勞動市場降溫）",
       "note": "就業彈性與消費端衰退指標",
@@ -334,14 +334,14 @@
       "axis": "liquidity",
       "unit": "百萬美元",
       "freq": "weekly",
-      "curr": 2947630.0,
-      "prev": 3002731.0,
-      "curr_date": "2026-08-12",
-      "prev_date": "2026-08-05",
-      "delta": -55101.0,
-      "delta_pct": -0.0183502951146806,
+      "curr": 3002731.0,
+      "prev": 2944541.0,
+      "curr_date": "2026-08-05",
+      "prev_date": "2026-07-29",
+      "delta": 58190.0,
+      "delta_pct": 0.019761993465195426,
       "up_bias": "loosen",
-      "verdict": "減少（血量真的變少）",
+      "verdict": "增加（血量真的變多）",
       "note": "直接觀測值，用來交叉檢核第 4 項的近似公式",
       "source": "FRED:WRBWFRBL",
       "stale": false,
@@ -349,17 +349,17 @@
     }
   ],
   "blood": {
-    "net": -57441.0,
+    "net": 69177.0,
     "components": {
-      "fed_assets": 11388.0,
-      "tga": 30080.0,
-      "on_rrp": 38749.0
+      "fed_assets": 10377.0,
+      "tga": -41117.0,
+      "on_rrp": -17683.0
     },
     "dates": {
-      "curr": "2026-08-12",
-      "prev": "2026-08-05"
+      "curr": "2026-08-05",
+      "prev": "2026-07-29"
     },
-    "reading": "抽血（回收）"
+    "reading": "放血（注入）"
   },
   "sectors": [
     {
@@ -369,14 +369,14 @@
         "GC=F"
       ],
       "is_basket": false,
-      "chg_w": 0.041207,
+      "chg_w": 0.072016,
       "members_ok": 1,
       "members_total": 1,
       "base": 130322653184.0,
       "base_kind": "ETF 資產",
       "base_of": "GLD",
-      "value_delta": 5157673325.047842,
-      "net_flow": -5370205569.753082,
+      "value_delta": 8754828464.965956,
+      "net_flow": null,
       "note": null
     },
     {
@@ -386,14 +386,14 @@
         "SI=F"
       ],
       "is_basket": false,
-      "chg_w": 0.054949,
+      "chg_w": 0.099686,
       "members_ok": 1,
       "members_total": 1,
       "base": 28081266688.0,
       "base_kind": "ETF 資產",
       "base_of": "SLV",
-      "value_delta": 1462665515.8106334,
-      "net_flow": -1543037523.2389107,
+      "value_delta": 2545553140.67831,
+      "net_flow": null,
       "note": null
     },
     {
@@ -403,14 +403,14 @@
         "HG=F"
       ],
       "is_basket": false,
-      "chg_w": -0.01473,
+      "chg_w": 0.020898,
       "members_ok": 1,
       "members_total": 1,
       "base": 732117376.0,
       "base_kind": "ETF 資產",
       "base_of": "CPER",
-      "value_delta": -10945313.41508419,
-      "net_flow": 10784088.94848001,
+      "value_delta": 14986598.978201542,
+      "net_flow": null,
       "note": "銅博士，工業活力領先指標"
     },
     {
@@ -420,14 +420,14 @@
         "PA=F"
       ],
       "is_basket": false,
-      "chg_w": -0.040353,
+      "chg_w": 0.077219,
       "members_ok": 1,
       "members_total": 1,
       "base": 614965440.0,
       "base_kind": "ETF 資產",
       "base_of": "PALL",
-      "value_delta": -25859196.559068073,
-      "net_flow": 24815700.400319934,
+      "value_delta": 44082973.203554705,
+      "net_flow": null,
       "note": null
     },
     {
@@ -437,14 +437,14 @@
         "PL=F"
       ],
       "is_basket": false,
-      "chg_w": -0.000925,
+      "chg_w": 0.060474,
       "members_ok": 1,
       "members_total": 1,
       "base": 1872068736.0,
       "base_kind": "ETF 資產",
       "base_of": "PPLT",
-      "value_delta": -1733266.8526386907,
-      "net_flow": 1731663.580799818,
+      "value_delta": 106755549.63239457,
+      "net_flow": null,
       "note": null
     },
     {
@@ -454,14 +454,14 @@
         "^GSPC"
       ],
       "is_basket": false,
-      "chg_w": 0.011547,
+      "chg_w": 0.035772,
       "members_ok": 1,
       "members_total": 1,
       "base": 795306885120.0,
       "base_kind": "ETF 資產",
       "base_of": "SPY",
-      "value_delta": 9078578259.320269,
-      "net_flow": -9183408602.48059,
+      "value_delta": 27467162555.574623,
+      "net_flow": null,
       "note": null
     },
     {
@@ -471,14 +471,14 @@
         "^NDX"
       ],
       "is_basket": false,
-      "chg_w": 0.024211,
+      "chg_w": 0.051216,
       "members_ok": 1,
       "members_total": 1,
       "base": 452800643072.0,
       "base_kind": "ETF 資產",
       "base_of": "QQQ",
-      "value_delta": 10703611237.739285,
-      "net_flow": -10962756369.416199,
+      "value_delta": 22060773176.564617,
+      "net_flow": null,
       "note": null
     },
     {
@@ -488,14 +488,14 @@
         "^RUT"
       ],
       "is_basket": false,
-      "chg_w": 0.01709,
+      "chg_w": 0.035189,
       "members_ok": 1,
       "members_total": 1,
       "base": 80105422848.0,
       "base_kind": "ETF 資產",
       "base_of": "IWM",
-      "value_delta": 1345998561.0637407,
-      "net_flow": -1369001676.4723206,
+      "value_delta": 2723009735.032223,
+      "net_flow": null,
       "note": null
     },
     {
@@ -505,14 +505,14 @@
         "^DJI"
       ],
       "is_basket": false,
-      "chg_w": -0.000837,
+      "chg_w": 0.029568,
       "members_ok": 1,
       "members_total": 1,
       "base": 45207846912.0,
       "base_kind": "ETF 資產",
       "base_of": "DIA",
-      "value_delta": -37870665.61246163,
-      "net_flow": 37838967.86534119,
+      "value_delta": 1298316980.9998133,
+      "net_flow": null,
       "note": null
     },
     {
@@ -522,14 +522,14 @@
         "^STOXX50E"
       ],
       "is_basket": false,
-      "chg_w": 0.008802,
+      "chg_w": 0.026085,
       "members_ok": 1,
       "members_total": 1,
       "base": 4401265152.0,
       "base_kind": "ETF 資產",
       "base_of": "FEZ",
-      "value_delta": 38401922.149147205,
-      "net_flow": -38739935.86790371,
+      "value_delta": 111888392.76465401,
+      "net_flow": null,
       "note": null
     },
     {
@@ -539,14 +539,14 @@
         "^GDAXI"
       ],
       "is_basket": false,
-      "chg_w": 0.007838,
+      "chg_w": 0.026931,
       "members_ok": 1,
       "members_total": 1,
       "base": 1645812992.0,
       "base_kind": "ETF 資產",
       "base_of": "EWG",
-      "value_delta": 12799559.285615345,
-      "net_flow": -12899882.231296062,
+      "value_delta": 43161020.2511678,
+      "net_flow": null,
       "note": null
     },
     {
@@ -556,14 +556,14 @@
         "^N225"
       ],
       "is_basket": false,
-      "chg_w": 0.055764,
+      "chg_w": 0.019339,
       "members_ok": 1,
       "members_total": 1,
       "base": 21752143872.0,
       "base_kind": "ETF 資產",
       "base_of": "EWJ",
-      "value_delta": 1148918272.33947,
-      "net_flow": -1212986550.8782082,
+      "value_delta": 412683817.9846037,
+      "net_flow": null,
       "note": null
     },
     {
@@ -573,14 +573,14 @@
         "ZB=F"
       ],
       "is_basket": false,
-      "chg_w": 0.002286,
+      "chg_w": 0.00981,
       "members_ok": 1,
       "members_total": 1,
       "base": 41543831552.0,
       "base_kind": "ETF 資產",
       "base_of": "TLT",
-      "value_delta": 94752594.49685219,
-      "net_flow": -94969198.9278717,
+      "value_delta": 403585810.7219377,
+      "net_flow": null,
       "note": null
     },
     {
@@ -590,14 +590,14 @@
         "ZN=F"
       ],
       "is_basket": false,
-      "chg_w": 0.003744,
+      "chg_w": 0.005932,
       "members_ok": 1,
       "members_total": 1,
       "base": 47187439616.0,
       "base_kind": "ETF 資產",
       "base_of": "IEF",
-      "value_delta": 176010789.52631748,
-      "net_flow": -176669773.92230225,
+      "value_delta": 278265222.50222874,
+      "net_flow": null,
       "note": null
     },
     {
@@ -607,14 +607,14 @@
         "ZF=F"
       ],
       "is_basket": false,
-      "chg_w": 0.003308,
+      "chg_w": 0.003981,
       "members_ok": 1,
       "members_total": 1,
       "base": 17717653504.0,
       "base_kind": "ETF 資產",
       "base_of": "IEI",
-      "value_delta": 58416755.165145695,
-      "net_flow": -58609997.79123306,
+      "value_delta": 70254296.2460684,
+      "net_flow": null,
       "note": null
     },
     {
@@ -624,14 +624,14 @@
         "ZT=F"
       ],
       "is_basket": false,
-      "chg_w": 0.001898,
+      "chg_w": 0.001672,
       "members_ok": 1,
       "members_total": 1,
       "base": 25080700928.0,
       "base_kind": "ETF 資產",
       "base_of": "SHY",
-      "value_delta": 47512990.70498594,
-      "net_flow": -47603170.361343384,
+      "value_delta": 41864933.78233195,
+      "net_flow": null,
       "note": null
     },
     {
@@ -645,14 +645,14 @@
         "SBAC"
       ],
       "is_basket": true,
-      "chg_w": 0.018775,
+      "chg_w": 0.010745,
       "members_ok": 5,
       "members_total": 5,
       "base": 312201303397.80615,
       "base_kind": "成分股市值和",
       "base_of": "5/5 檔",
-      "value_delta": 5753556448.964502,
-      "net_flow": -2415510336.2730103,
+      "value_delta": 3318940984.1348977,
+      "net_flow": null,
       "note": null
     },
     {
@@ -665,14 +665,14 @@
         "FR"
       ],
       "is_basket": true,
-      "chg_w": 0.004564,
+      "chg_w": -0.010289,
       "members_ok": 4,
       "members_total": 4,
       "base": 235543159939.69443,
       "base_kind": "成分股市值和",
       "base_of": "4/4 檔",
-      "value_delta": 1070134886.3434938,
-      "net_flow": 2485832046.610443,
+      "value_delta": -2448698228.6945543,
+      "net_flow": null,
       "note": null
     },
     {
@@ -685,14 +685,14 @@
         "DOC"
       ],
       "is_basket": true,
-      "chg_w": -0.024139,
+      "chg_w": -0.013281,
       "members_ok": 4,
       "members_total": 4,
       "base": 243535520775.53088,
       "base_kind": "成分股市值和",
       "base_of": "4/4 檔",
-      "value_delta": -6024120172.85304,
-      "net_flow": 1699096643.7815857,
+      "value_delta": -3277929432.208993,
+      "net_flow": null,
       "note": null
     },
     {
@@ -705,14 +705,14 @@
         "INVH"
       ],
       "is_basket": true,
-      "chg_w": -0.005784,
+      "chg_w": 0.015363,
       "members_ok": 4,
       "members_total": 4,
       "base": 84566674106.60861,
       "base_kind": "成分股市值和",
       "base_of": "4/4 檔",
-      "value_delta": -491979251.020527,
-      "net_flow": -629795036.6869049,
+      "value_delta": 1279540237.6291318,
+      "net_flow": null,
       "note": null
     },
     {
@@ -725,14 +725,14 @@
         "REG"
       ],
       "is_basket": true,
-      "chg_w": 0.001225,
+      "chg_w": -0.032243,
       "members_ok": 4,
       "members_total": 4,
       "base": 161657340556.15552,
       "base_kind": "成分股市值和",
       "base_of": "4/4 檔",
-      "value_delta": 197787951.9401638,
-      "net_flow": -659272675.8503418,
+      "value_delta": -5385977710.88416,
+      "net_flow": null,
       "note": null
     },
     {
@@ -745,14 +745,14 @@
         "APLE"
       ],
       "is_basket": true,
-      "chg_w": 0.00418,
+      "chg_w": -0.052244,
       "members_ok": 4,
       "members_total": 4,
       "base": 30229053539.435127,
       "base_kind": "成分股市值和",
       "base_of": "4/4 檔",
-      "value_delta": 125831468.25752236,
-      "net_flow": -439434547.4207802,
+      "value_delta": -1666343102.142586,
+      "net_flow": null,
       "note": null
     },
     {
@@ -765,14 +765,14 @@
         "KRC"
       ],
       "is_basket": true,
-      "chg_w": 0.018414,
+      "chg_w": 0.006586,
       "members_ok": 4,
       "members_total": 4,
       "base": 26839102387.7652,
       "base_kind": "成分股市值和",
       "base_of": "4/4 檔",
-      "value_delta": 485279298.3681572,
-      "net_flow": -549031092.3179207,
+      "value_delta": 175605788.60208827,
+      "net_flow": null,
       "note": null
     },
     {
@@ -782,7 +782,7 @@
         "BTC-USD"
       ],
       "is_basket": false,
-      "chg_w": -0.023369,
+      "chg_w": 0.022025,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
@@ -799,7 +799,7 @@
         "ETH-USD"
       ],
       "is_basket": false,
-      "chg_w": -0.016185,
+      "chg_w": 0.016338,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
@@ -816,14 +816,14 @@
         "DX-Y.NYB"
       ],
       "is_basket": false,
-      "chg_w": -0.00021,
+      "chg_w": -0.002004,
       "members_ok": 1,
       "members_total": 1,
       "base": 436029856.0,
       "base_kind": "ETF 資產",
       "base_of": "UUP",
-      "value_delta": -91585.50271557028,
-      "net_flow": 91566.26976001263,
+      "value_delta": -875558.4505589202,
+      "net_flow": null,
       "note": "方向相反，正值代表美元升"
     },
     {
@@ -833,14 +833,14 @@
         "6E=F"
       ],
       "is_basket": false,
-      "chg_w": 0.001518,
+      "chg_w": 0.002687,
       "members_ok": 1,
       "members_total": 1,
       "base": 345198624.0,
       "base_kind": "ETF 資產",
       "base_of": "FXE",
-      "value_delta": 523217.2674200564,
-      "net_flow": -524011.51123195887,
+      "value_delta": 925063.0582504809,
+      "net_flow": null,
       "note": null
     },
     {
@@ -850,14 +850,14 @@
         "6J=F"
       ],
       "is_basket": false,
-      "chg_w": -0.005774,
+      "chg_w": 0.007935,
       "members_ok": 1,
       "members_total": 1,
       "base": 440513248.0,
       "base_kind": "ETF 資產",
       "base_of": "FXY",
-      "value_delta": -2558295.089800508,
-      "net_flow": 2543523.4939519763,
+      "value_delta": 3467954.404678873,
+      "net_flow": null,
       "note": null
     },
     {
@@ -867,14 +867,14 @@
         "6B=F"
       ],
       "is_basket": false,
-      "chg_w": 0.002229,
+      "chg_w": 0.001335,
       "members_ok": 1,
       "members_total": 1,
       "base": 64603192.0,
       "base_kind": "ETF 資產",
       "base_of": "FXB",
-      "value_delta": 143680.2516869897,
-      "net_flow": -144000.51496800035,
+      "value_delta": 86130.27739967144,
+      "net_flow": null,
       "note": null
     },
     {
@@ -884,14 +884,14 @@
         "6C=F"
       ],
       "is_basket": false,
-      "chg_w": 0.006723,
+      "chg_w": 0.005604,
       "members_ok": 1,
       "members_total": 1,
       "base": 69733584.0,
       "base_kind": "ETF 資產",
       "base_of": "FXC",
-      "value_delta": 465688.06437520543,
-      "net_flow": -468818.88523200154,
+      "value_delta": 388609.2385630924,
+      "net_flow": null,
       "note": null
     },
     {
@@ -901,14 +901,14 @@
         "6S=F"
       ],
       "is_basket": false,
-      "chg_w": -0.003276,
+      "chg_w": 0.0,
       "members_ok": 1,
       "members_total": 1,
       "base": 398386368.0,
       "base_kind": "ETF 資產",
       "base_of": "FXF",
-      "value_delta": -1309403.346932551,
-      "net_flow": 1305113.7415679693,
+      "value_delta": 0.0,
+      "net_flow": null,
       "note": null
     },
     {
@@ -918,7 +918,7 @@
         "6N=F"
       ],
       "is_basket": false,
-      "chg_w": -0.003572,
+      "chg_w": 0.000763,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
@@ -935,14 +935,14 @@
         "6A=F"
       ],
       "is_basket": false,
-      "chg_w": 0.003768,
+      "chg_w": 0.004477,
       "members_ok": 1,
       "members_total": 1,
       "base": 97187024.0,
       "base_kind": "ETF 資產",
       "base_of": "FXA",
-      "value_delta": 364826.04190609785,
-      "net_flow": -366200.7064319998,
+      "value_delta": 433167.0177097136,
+      "net_flow": null,
       "note": null
     },
     {
@@ -952,14 +952,14 @@
         "CL=F"
       ],
       "is_basket": false,
-      "chg_w": 0.050589,
+      "chg_w": -0.076651,
       "members_ok": 1,
       "members_total": 1,
       "base": 1989134080.0,
       "base_kind": "ETF 資產",
       "base_of": "USO",
-      "value_delta": 95782750.41250195,
-      "net_flow": -100628303.97311997,
+      "value_delta": -165126205.11429587,
+      "net_flow": null,
       "note": "北美供需與美國本土經濟熱度"
     },
     {
@@ -969,14 +969,14 @@
         "BZ=F"
       ],
       "is_basket": false,
-      "chg_w": 0.054431,
+      "chg_w": -0.072903,
       "members_ok": 1,
       "members_total": 1,
       "base": 615261696.0,
       "base_kind": "ETF 資產",
       "base_of": "BNO",
-      "value_delta": 31760550.832606405,
-      "net_flow": -33489309.37497592,
+      "value_delta": -48381586.20240168,
+      "net_flow": null,
       "note": "全球需求、地緣風險與 OPEC+ 政策"
     },
     {
@@ -986,14 +986,14 @@
         "NG=F"
       ],
       "is_basket": false,
-      "chg_w": 0.035606,
+      "chg_w": -0.030943,
       "members_ok": 1,
       "members_total": 1,
       "base": 467977632.0,
       "base_kind": "ETF 資產",
       "base_of": "UNG",
-      "value_delta": 16089914.084113069,
-      "net_flow": -16662811.56499201,
+      "value_delta": -14943013.53478278,
+      "net_flow": null,
       "note": null
     },
     {
@@ -1003,7 +1003,7 @@
         "HO=F"
       ],
       "is_basket": false,
-      "chg_w": 0.061051,
+      "chg_w": -0.05316,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
@@ -1020,14 +1020,14 @@
         "RB=F"
       ],
       "is_basket": false,
-      "chg_w": -0.028654,
+      "chg_w": -0.073349,
       "members_ok": 1,
       "members_total": 1,
       "base": 135150832.0,
       "base_kind": "ETF 資產",
       "base_of": "UGA",
-      "value_delta": -3986851.173657996,
-      "net_flow": 3872611.9401279986,
+      "value_delta": -10697855.369894382,
+      "net_flow": null,
       "note": "終端出行與零售通膨"
     },
     {
@@ -1037,14 +1037,14 @@
         "ZS=F"
       ],
       "is_basket": false,
-      "chg_w": 0.022251,
+      "chg_w": -0.013225,
       "members_ok": 1,
       "members_total": 1,
       "base": 60364220.0,
       "base_kind": "ETF 資產",
       "base_of": "SOYB",
-      "value_delta": 1313928.0462626105,
-      "net_flow": -1343164.259220004,
+      "value_delta": -809016.0467178436,
+      "net_flow": null,
       "note": null
     },
     {
@@ -1054,14 +1054,14 @@
         "ZC=F"
       ],
       "is_basket": false,
-      "chg_w": 0.07574,
+      "chg_w": -0.003971,
       "members_ok": 1,
       "members_total": 1,
       "base": 164965552.0,
       "base_kind": "ETF 資產",
       "base_of": "CORN",
-      "value_delta": 11614786.945246993,
-      "net_flow": -12494490.908479989,
+      "value_delta": -657689.8935593241,
+      "net_flow": null,
       "note": null
     },
     {
@@ -1071,14 +1071,14 @@
         "ZW=F"
       ],
       "is_basket": false,
-      "chg_w": 0.05901,
+      "chg_w": 0.000782,
       "members_ok": 1,
       "members_total": 1,
       "base": 294835616.0,
       "base_kind": "ETF 資產",
       "base_of": "WEAT",
-      "value_delta": 16428786.980444,
-      "net_flow": -17398249.700160027,
+      "value_delta": 230381.29354045136,
+      "net_flow": null,
       "note": null
     },
     {
@@ -1088,14 +1088,14 @@
         "SB=F"
       ],
       "is_basket": false,
-      "chg_w": 0.075787,
+      "chg_w": 0.122101,
       "members_ok": 1,
       "members_total": 1,
       "base": 55223920.0,
       "base_kind": "ETF 資產",
       "base_of": "CANE",
-      "value_delta": 3890412.5305845854,
-      "net_flow": -4185255.2250400037,
+      "value_delta": 6009170.169102425,
+      "net_flow": null,
       "note": null
     },
     {
@@ -1105,7 +1105,7 @@
         "KC=F"
       ],
       "is_basket": false,
-      "chg_w": -0.025649,
+      "chg_w": 0.010388,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
@@ -1122,7 +1122,7 @@
         "CC=F"
       ],
       "is_basket": false,
-      "chg_w": -0.011427,
+      "chg_w": 0.071336,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
@@ -1143,59 +1143,59 @@
         {
           "ticker": "MSFT",
           "tier": "leader",
-          "chg_w": -0.0059616303686603755,
+          "chg_w": 0.07589513883849719,
           "mcap": 3689605079825.6265,
-          "value_delta": -22127980532.99467
+          "value_delta": 260269871741.30615
         },
         {
           "ticker": "AAPL",
           "tier": "leader",
-          "chg_w": -0.022886571533149547,
+          "chg_w": 0.014308319114815449,
           "mcap": 4455019529321.289,
-          "value_delta": -104348297924.19438
+          "value_delta": 62844639925.55344
         },
         {
           "ticker": "NVDA",
           "tier": "rank",
-          "chg_w": 0.028814089229248996,
+          "chg_w": 0.11561647180008561,
           "mcap": 5456991373916.626,
-          "value_delta": 152834450866.69937
+          "value_delta": 565533142655.8572
         },
         {
           "ticker": "GOOGL",
           "tier": "rank",
-          "chg_w": -0.03183791655747725,
+          "chg_w": -0.005138620910209224,
           "mcap": 4235960048915.724,
-          "value_delta": -139299136874.52585
+          "value_delta": -21879422942.404377
         },
         {
           "ticker": "AMZN",
           "tier": "rank",
-          "chg_w": -0.02618821944857186,
+          "chg_w": 0.010678343609427987,
           "mcap": 2859775370011.9067,
-          "value_delta": -76906468435.90678
+          "value_delta": 30215017705.541477
         },
         {
           "ticker": "META",
           "tier": "rank",
-          "chg_w": 0.008594585657287324,
+          "chg_w": 0.0635698159122049,
           "mcap": 1515689704054.2786,
-          "value_delta": 12915719731.802479
+          "value_delta": 90593127056.84047
         },
         {
           "ticker": "TSLA",
           "tier": "rank",
-          "chg_w": 0.06393763575823908,
+          "chg_w": 0.05581438769357372,
           "mcap": 1342688098315.666,
-          "value_delta": 80689224332.07095
+          "value_delta": 70979629511.0612
         }
       ],
-      "leader_avg": -0.014424,
-      "rank_avg": 0.008664,
-      "breadth_gap": -0.023088,
-      "value_delta_total": -96242488837.04886,
+      "leader_avg": 0.045102,
+      "rank_avg": 0.048108,
+      "breadth_gap": -0.003006,
+      "value_delta_total": 1058556005653.7555,
       "mcap_coverage": "7/7",
-      "advance_decline": "3/7"
+      "advance_decline": "6/7"
     },
     {
       "id": 2,
@@ -1206,66 +1206,66 @@
         {
           "ticker": "AVGO",
           "tier": "leader",
-          "chg_w": -0.006538744922625961,
+          "chg_w": 0.09884918595097014,
           "mcap": 1987812193173.918,
-          "value_delta": -13083345544.499992
+          "value_delta": 178817639063.54825
         },
         {
           "ticker": "AMD",
           "tier": "leader",
-          "chg_w": -0.012814725779338731,
+          "chg_w": 0.0151422693426424,
           "mcap": 788501785978.5591,
-          "value_delta": -10235600578.433538
+          "value_delta": 11761608969.522564
         },
         {
           "ticker": "QCOM",
           "tier": "rank",
-          "chg_w": 0.02743309379155945,
+          "chg_w": 0.13718582695121206,
           "mcap": 173029492950.43945,
-          "value_delta": 4619993591.308607
+          "value_delta": 20873628139.557648
         },
         {
           "ticker": "TXN",
           "tier": "rank",
-          "chg_w": -0.01785201627034194,
+          "chg_w": 0.03749908139585334,
           "mcap": 249709308094.15417,
-          "value_delta": -4538842114.224315
+          "value_delta": 9025424540.06488
         },
         {
           "ticker": "AMAT",
           "tier": "rank",
-          "chg_w": 0.013384389588245282,
+          "chg_w": 0.06198908816422111,
           "mcap": 424403056266.80237,
-          "value_delta": 5605351637.422496
+          "value_delta": 24772720139.304764
         },
         {
           "ticker": "LRCX",
           "tier": "rank",
-          "chg_w": 0.10216836797072415,
+          "chg_w": 0.06255551763394718,
           "mcap": 421707702429.93164,
-          "value_delta": 39091294007.35471
+          "value_delta": 24827073200.343548
         },
         {
           "ticker": "MU",
           "tier": "rank",
-          "chg_w": 0.07755232584065208,
+          "chg_w": 0.06626730020281024,
           "mcap": 1072731515915.4824,
-          "value_delta": 77205368191.2025
+          "value_delta": 66669043858.57638
         },
         {
           "ticker": "ADI",
           "tier": "rank",
-          "chg_w": 0.010230356720248857,
+          "chg_w": 0.06129389180808076,
           "mcap": 185662973577.2754,
-          "value_delta": 1880163704.0527413
+          "value_delta": 10722766147.107893
         }
       ],
-      "leader_avg": -0.009677,
-      "rank_avg": 0.035486,
-      "breadth_gap": -0.045163,
-      "value_delta_total": 100544382894.1832,
+      "leader_avg": 0.056996,
+      "rank_avg": 0.071132,
+      "breadth_gap": -0.014136,
+      "value_delta_total": 347469904058.02594,
       "mcap_coverage": "8/8",
-      "advance_decline": "5/8"
+      "advance_decline": "8/8"
     },
     {
       "id": 3,
@@ -1276,64 +1276,64 @@
         {
           "ticker": "ORCL",
           "tier": "leader",
-          "chg_w": 0.08886875229328517,
+          "chg_w": 0.13205520751577926,
           "mcap": 449987183136.19995,
-          "value_delta": 36726005249.99997
+          "value_delta": 52491389513.49559
         },
         {
           "ticker": "CRM",
           "tier": "leader",
-          "chg_w": 0.07817096166806325,
+          "chg_w": 0.04738615921230083,
           "mcap": 164922026000.97656,
-          "value_delta": 11957392501.831049
+          "value_delta": 7461451836.994744
         },
         {
           "ticker": "ADBE",
           "tier": "rank",
-          "chg_w": 0.03938672142881927,
+          "chg_w": 0.059103021351092355,
           "mcap": 107519771118.16406,
-          "value_delta": 4074374999.9999905
+          "value_delta": 6000118213.197711
         },
         {
           "ticker": "PANW",
           "tier": "rank",
-          "chg_w": 0.101560574028283,
+          "chg_w": 0.09652532946211423,
           "mcap": 322740000000.0,
-          "value_delta": 29755657958.98436
+          "value_delta": 28410273792.6576
         },
         {
           "ticker": "INTU",
           "tier": "rank",
-          "chg_w": 0.11301296781381964,
+          "chg_w": 0.029044175224018032,
           "mcap": 98005574067.3523,
-          "value_delta": 9951277395.62989
+          "value_delta": 2766150506.146143
         },
         {
           "ticker": "NOW",
           "tier": "rank",
-          "chg_w": 0.08436303071671647,
+          "chg_w": 0.12271863242404102,
           "mcap": 131558939500.0,
-          "value_delta": 10235235377.54822
+          "value_delta": 14380034919.113577
         },
         {
           "ticker": "CRWD",
           "tier": "rank",
-          "chg_w": 0.08746805266905211,
+          "chg_w": 0.12344125266295292,
           "mcap": 229648014175.4077,
-          "value_delta": 18471222717.703876
+          "value_delta": 25233218447.49516
         },
         {
           "ticker": "PLTR",
           "tier": "rank",
-          "chg_w": 0.1480887417204284,
+          "chg_w": 0.3977734269410753,
           "mcap": 430171485304.4055,
-          "value_delta": 55486611502.93699
+          "value_delta": 122416682549.42378
         }
       ],
-      "leader_avg": 0.08352,
-      "rank_avg": 0.095647,
-      "breadth_gap": -0.012127,
-      "value_delta_total": 176657777704.63434,
+      "leader_avg": 0.089721,
+      "rank_avg": 0.138101,
+      "breadth_gap": -0.04838,
+      "value_delta_total": 259159319778.5243,
       "mcap_coverage": "8/8",
       "advance_decline": "8/8"
     },
@@ -1346,64 +1346,64 @@
         {
           "ticker": "BRK-B",
           "tier": "leader",
-          "chg_w": -0.03370121265216319,
+          "chg_w": 0.02005704163244526,
           "mcap": 1085190000193.3932,
-          "value_delta": -37847733478.893135
+          "value_delta": 21337729288.314594
         },
         {
           "ticker": "JPM",
           "tier": "leader",
-          "chg_w": 0.019113100735077104,
+          "chg_w": 0.016288070523805986,
           "mcap": 965213950328.1757,
-          "value_delta": 18102241498.237617
+          "value_delta": 15469504513.030123
         },
         {
           "ticker": "V",
           "tier": "rank",
-          "chg_w": -0.013550325254760076,
+          "chg_w": -0.009914524443235262,
           "mcap": 682312443592.6543,
-          "value_delta": -9372556728.186216
+          "value_delta": -6832544832.676019
         },
         {
           "ticker": "MA",
           "tier": "rank",
-          "chg_w": -0.015470151907010843,
+          "chg_w": -0.01771063306804177,
           "mcap": 496732657129.3347,
-          "value_delta": -7805278507.146016
+          "value_delta": -8956067447.628635
         },
         {
           "ticker": "BAC",
           "tier": "rank",
-          "chg_w": 0.01730152917286709,
+          "chg_w": 0.019693258934319502,
           "mcap": 448165217104.6406,
-          "value_delta": 7622070109.640667
+          "value_delta": 8655381006.461761
         },
         {
           "ticker": "WFC",
           "tier": "rank",
-          "chg_w": 0.005936799796804948,
+          "chg_w": 0.009253939618260265,
           "mcap": 266444583340.66272,
-          "value_delta": 1572492574.6390312
+          "value_delta": 2443054209.7062497
         },
         {
           "ticker": "MS",
           "tier": "rank",
-          "chg_w": 0.02166084155701764,
+          "chg_w": 0.028086701423522875,
           "mcap": 343293367675.78125,
-          "value_delta": 7278367675.781281
+          "value_delta": 9378565353.71455
         },
         {
           "ticker": "SPGI",
           "tier": "rank",
-          "chg_w": 0.04301160698202211,
+          "chg_w": -0.00907918894198767,
           "mcap": 124603119958.4961,
-          "value_delta": 5138370837.402355
+          "value_delta": -1141660621.353234
         }
       ],
-      "leader_avg": -0.007294,
-      "rank_avg": 0.009815,
-      "breadth_gap": -0.017109,
-      "value_delta_total": -15312026018.524422,
+      "leader_avg": 0.018173,
+      "rank_avg": 0.003388,
+      "breadth_gap": 0.014784,
+      "value_delta_total": 40353961469.56939,
       "mcap_coverage": "8/8",
       "advance_decline": "5/8"
     },
@@ -1416,66 +1416,66 @@
         {
           "ticker": "LLY",
           "tier": "leader",
-          "chg_w": 0.01431285084181555,
+          "chg_w": 0.03209323858337476,
           "mcap": 1078115359854.0,
-          "value_delta": 15213160636.833027
+          "value_delta": 33524309791.707134
         },
         {
           "ticker": "UNH",
           "tier": "leader",
-          "chg_w": -0.012154376927179023,
+          "chg_w": -0.01766411059853268,
           "mcap": 358194197452.42633,
-          "value_delta": -4407193985.860523
+          "value_delta": -6440955672.918999
         },
         {
           "ticker": "JNJ",
           "tier": "rank",
-          "chg_w": 0.01984580655266921,
+          "chg_w": 0.011273587134975172,
           "mcap": 631586191942.2817,
-          "value_delta": 12290424009.284977
+          "value_delta": 7040866150.060068
         },
         {
           "ticker": "ABBV",
           "tier": "rank",
-          "chg_w": 0.028498840965209826,
+          "chg_w": -0.019526616352917192,
           "mcap": 443228370366.45355,
-          "value_delta": 12281486702.005875
+          "value_delta": -8827114013.723875
         },
         {
           "ticker": "MRK",
           "tier": "rank",
-          "chg_w": 0.05593213529388841,
+          "chg_w": -0.012442359102600387,
           "mcap": 334425123060.11035,
-          "value_delta": 17714311936.786865
+          "value_delta": -4213462892.4181666
         },
         {
           "ticker": "TMO",
           "tier": "rank",
-          "chg_w": 0.027361116138737707,
+          "chg_w": 0.03430265127244425,
           "mcap": 220328715670.76,
-          "value_delta": 5867887623.41331
+          "value_delta": 7307202673.861074
         },
         {
           "ticker": "ABT",
           "tier": "rank",
-          "chg_w": 0.03065948116583317,
+          "chg_w": 0.019962163398971056,
           "mcap": 192539743537.13818,
-          "value_delta": 5727564485.191416
+          "value_delta": 3768286667.1014895
         },
         {
           "ticker": "ISRG",
           "tier": "rank",
-          "chg_w": 0.07374701824611662,
+          "chg_w": 0.07211392170111419,
           "mcap": 143766224372.0999,
-          "value_delta": 9874141852.577755
+          "value_delta": 9670190861.046118
         }
       ],
-      "leader_avg": 0.001079,
-      "rank_avg": 0.039341,
-      "breadth_gap": -0.038261,
-      "value_delta_total": 74561783260.2327,
+      "leader_avg": 0.007215,
+      "rank_avg": 0.017614,
+      "breadth_gap": -0.010399,
+      "value_delta_total": 41829323564.71484,
       "mcap_coverage": "8/8",
-      "advance_decline": "7/8"
+      "advance_decline": "5/8"
     },
     {
       "id": 6,
@@ -1486,66 +1486,66 @@
         {
           "ticker": "GE",
           "tier": "leader",
-          "chg_w": -0.03713782832164969,
+          "chg_w": 0.027800091772246738,
           "mcap": 374186559886.9896,
-          "value_delta": -14432466691.602367
+          "value_delta": 10121054461.926157
         },
         {
           "ticker": "CAT",
           "tier": "leader",
-          "chg_w": -0.0027539748952186693,
+          "chg_w": 0.03360293192873298,
           "mcap": 392838148916.8685,
-          "value_delta": -1084854060.8497853
+          "value_delta": 12771358487.18082
         },
         {
           "ticker": "UNP",
           "tier": "rank",
-          "chg_w": 0.008158993913841561,
+          "chg_w": 0.003423133479223184,
           "mcap": 176909747625.74872,
-          "value_delta": 1431724125.7494404
+          "value_delta": 603519751.232807
         },
         {
           "ticker": "RTX",
           "tier": "rank",
-          "chg_w": -0.012407633919197969,
+          "chg_w": 0.036288437479306435,
           "mcap": 297153709830.876,
-          "value_delta": -3733295817.124036
+          "value_delta": 10405639425.227148
         },
         {
           "ticker": "HON",
           "tier": "rank",
-          "chg_w": -0.02803854717113763,
+          "chg_w": 0.013001454936976353,
           "mcap": 74160794680.90347,
-          "value_delta": -2139345067.500004
+          "value_delta": 951823144.4140517
         },
         {
           "ticker": "ETN",
           "tier": "rank",
-          "chg_w": 0.011468315006717189,
+          "chg_w": 0.08063578873898458,
           "mcap": 176073366784.66797,
-          "value_delta": 1996369836.4257882
+          "value_delta": 13138390338.874435
         },
         {
           "ticker": "BA",
           "tier": "rank",
-          "chg_w": -0.008010683452320255,
+          "chg_w": 0.08457480721253474,
           "mcap": 182045928153.81073,
-          "value_delta": -1470088719.603585
+          "value_delta": 14195885037.202763
         },
         {
           "ticker": "UPS",
           "tier": "rank",
-          "chg_w": 0.022674457717849927,
+          "chg_w": 0.002686612704061675,
           "mcap": 89791488943.1938,
-          "value_delta": 1990832277.1731439
+          "value_delta": 240588586.5582981
         }
       ],
-      "leader_avg": -0.019946,
-      "rank_avg": -0.001026,
-      "breadth_gap": -0.01892,
-      "value_delta_total": -17441124117.3314,
+      "leader_avg": 0.030702,
+      "rank_avg": 0.036768,
+      "breadth_gap": -0.006067,
+      "value_delta_total": 62428259232.61648,
       "mcap_coverage": "8/8",
-      "advance_decline": "3/8"
+      "advance_decline": "8/8"
     },
     {
       "id": 7,
@@ -1556,66 +1556,66 @@
         {
           "ticker": "WMT",
           "tier": "leader",
-          "chg_w": 0.03256894383704978,
+          "chg_w": 0.005845337623358482,
           "mcap": 920908929531.0521,
-          "value_delta": 29047001058.815193
+          "value_delta": 5351740881.151583
         },
         {
           "ticker": "PG",
           "tier": "leader",
-          "chg_w": -0.018439182767628903,
+          "chg_w": 0.008997077607767467,
           "mcap": 335322700467.10785,
-          "value_delta": -6299229198.534852
+          "value_delta": 2990022891.742723
         },
         {
           "ticker": "COST",
           "tier": "rank",
-          "chg_w": 0.013380341194970669,
+          "chg_w": -0.004275711754074818,
           "mcap": 426560076800.28076,
-          "value_delta": 5632159156.561479
+          "value_delta": -1831679668.4822469
         },
         {
           "ticker": "KO",
           "tier": "rank",
-          "chg_w": 0.006563036325142324,
+          "chg_w": -0.006165010945424765,
           "mcap": 376128846944.85706,
-          "value_delta": 2452451755.4761453
+          "value_delta": -2333222802.4200745
         },
         {
           "ticker": "PEP",
           "tier": "rank",
-          "chg_w": 0.015746840778220195,
+          "chg_w": -0.0038692554856637473,
           "mcap": 191931044221.45044,
-          "value_delta": 2975453599.675645
+          "value_delta": -745514833.080559
         },
         {
           "ticker": "PM",
           "tier": "rank",
-          "chg_w": 0.004573254966206308,
+          "chg_w": -0.006550675778332571,
           "mcap": 294437670469.30286,
-          "value_delta": 1340408508.8421483
+          "value_delta": -1941483746.7256315
         },
         {
           "ticker": "MDLZ",
           "tier": "rank",
-          "chg_w": 0.012430259431025936,
+          "chg_w": 0.004814624144578117,
           "mcap": 81083849303.21677,
-          "value_delta": 995518726.4667695
+          "value_delta": 388517691.9304369
         },
         {
           "ticker": "CL",
           "tier": "rank",
-          "chg_w": -0.0007526848905829997,
+          "chg_w": 0.021577147047758594,
           "mcap": 74081271242.24783,
-          "value_delta": -55801854.75215929
+          "value_delta": 1564700705.8627396
         }
       ],
-      "leader_avg": 0.007065,
-      "rank_avg": 0.008657,
-      "breadth_gap": -0.001592,
-      "value_delta_total": 36087961752.55037,
+      "leader_avg": 0.007421,
+      "rank_avg": 0.000922,
+      "breadth_gap": 0.006499,
+      "value_delta_total": 3443081119.9789715,
       "mcap_coverage": "8/8",
-      "advance_decline": "6/8"
+      "advance_decline": "4/8"
     },
     {
       "id": 8,
@@ -1626,66 +1626,66 @@
         {
           "ticker": "HD",
           "tier": "leader",
-          "chg_w": -0.02237347520154198,
+          "chg_w": 0.0712736602938222,
           "mcap": 340714782411.2345,
-          "value_delta": -7797429326.754443
+          "value_delta": 22668334487.008125
         },
         {
           "ticker": "MCD",
           "tier": "leader",
-          "chg_w": -0.014515346499216597,
+          "chg_w": 0.014188575709614737,
           "mcap": 192655406814.75,
-          "value_delta": -2837649449.871832
+          "value_delta": 2695263869.9810915
         },
         {
           "ticker": "NKE",
           "tier": "rank",
-          "chg_w": -0.01833334423246835,
+          "chg_w": -0.00023971042322379343,
           "mcap": 61164650845.59819,
-          "value_delta": -1142294680.4018118
+          "value_delta": -14665319.770542806
         },
         {
           "ticker": "LOW",
           "tier": "rank",
-          "chg_w": -0.0008241423114075941,
+          "chg_w": 0.07477988897305221,
           "mcap": 122357491171.47684,
-          "value_delta": -100923160.63897878
+          "value_delta": 8513259039.082808
         },
         {
           "ticker": "SBUX",
           "tier": "rank",
-          "chg_w": 0.03223658493338277,
+          "chg_w": 0.0031354093211846124,
           "mcap": 123747003479.0039,
-          "value_delta": 3864599304.199213
+          "value_delta": 386784779.5735662
         },
         {
           "ticker": "BKNG",
           "tier": "rank",
-          "chg_w": 0.02868989327235205,
+          "chg_w": 0.11156041966496466,
           "mcap": 160299513118.36243,
-          "value_delta": 4470711681.968677
+          "value_delta": 16088267123.58484
         },
         {
           "ticker": "TJX",
           "tier": "rank",
-          "chg_w": -0.05090707222192303,
+          "chg_w": 0.02554979258946921,
           "mcap": 169914588142.22766,
-          "value_delta": -9113811679.500004
+          "value_delta": 4233126968.89875
         },
         {
           "ticker": "MAR",
           "tier": "rank",
-          "chg_w": -0.019851570555998177,
+          "chg_w": -0.05074694523394774,
           "mcap": 91927939190.32178,
-          "value_delta": -1861875116.1386666
+          "value_delta": -4914455710.348662
         }
       ],
-      "leader_avg": -0.018444,
-      "rank_avg": -0.004832,
-      "breadth_gap": -0.013613,
-      "value_delta_total": -14518672427.137846,
+      "leader_avg": 0.042731,
+      "rank_avg": 0.02734,
+      "breadth_gap": 0.015391,
+      "value_delta_total": 49655915238.00998,
       "mcap_coverage": "8/8",
-      "advance_decline": "2/8"
+      "advance_decline": "6/8"
     },
     {
       "id": 9,
@@ -1696,66 +1696,66 @@
         {
           "ticker": "XOM",
           "tier": "leader",
-          "chg_w": 0.02434774193764544,
+          "chg_w": -0.015440099830017262,
           "mcap": 652190358485.3119,
-          "value_delta": 15501925657.183182
+          "value_delta": -10227802535.375868
         },
         {
           "ticker": "CVX",
           "tier": "leader",
-          "chg_w": 0.04476035201574802,
+          "chg_w": -0.0521770267587357,
           "mcap": 387808961283.4619,
-          "value_delta": 16614782125.315277
+          "value_delta": -21348626401.16028
         },
         {
           "ticker": "COP",
           "tier": "rank",
-          "chg_w": 0.06646106855823719,
+          "chg_w": -0.0238214032753582,
           "mcap": 151701965661.90793,
-          "value_delta": 9453954802.031141
+          "value_delta": -3701939085.554659
         },
         {
           "ticker": "LIN",
           "tier": "rank",
-          "chg_w": -0.024300613128679815,
+          "chg_w": 0.024248517883512344,
           "mcap": 220440719573.79926,
-          "value_delta": -5490261361.491639
+          "value_delta": 5218812268.222904
         },
         {
           "ticker": "FCX",
           "tier": "rank",
-          "chg_w": -0.019800505545298552,
+          "chg_w": 0.11160788055654991,
           "mcap": 93562002563.47656,
-          "value_delta": -1889997863.769526
+          "value_delta": 9393831214.57179
         },
         {
           "ticker": "EOG",
           "tier": "rank",
-          "chg_w": 0.0382526199016513,
+          "chg_w": -0.0938193336417451,
           "mcap": 74173672699.04321,
-          "value_delta": 2732800528.5792174
+          "value_delta": -7679400813.473053
         },
         {
           "ticker": "SLB",
           "tier": "rank",
-          "chg_w": 0.010089259769628933,
+          "chg_w": 0.018955406812192432,
           "mcap": 77264498644.02057,
-          "value_delta": 771755159.5068499
+          "value_delta": 1437334739.2300975
         },
         {
           "ticker": "NUE",
           "tier": "rank",
-          "chg_w": 0.0010662078857421875,
+          "chg_w": 0.05962142262983483,
           "mcap": 61775979756.67493,
-          "value_delta": 65795884.67492676
+          "value_delta": 3475931798.6453223
         }
       ],
-      "leader_avg": 0.034554,
-      "rank_avg": 0.011961,
-      "breadth_gap": 0.022593,
-      "value_delta_total": 37760754932.029434,
+      "leader_avg": -0.033809,
+      "rank_avg": 0.016132,
+      "breadth_gap": -0.049941,
+      "value_delta_total": -23431858814.893745,
       "mcap_coverage": "8/8",
-      "advance_decline": "6/8"
+      "advance_decline": "4/8"
     },
     {
       "id": 10,
@@ -1766,66 +1766,66 @@
         {
           "ticker": "NEE",
           "tier": "leader",
-          "chg_w": 0.016666710254618966,
+          "chg_w": -0.026115930636057327,
           "mcap": 179414990212.2202,
-          "value_delta": 2941236913.7703714
+          "value_delta": -4811239434.804053
         },
         {
           "ticker": "PLD",
           "tier": "leader",
-          "chg_w": 0.01487715490368724,
+          "chg_w": -0.030772401144182338,
           "mcap": 134196581840.53204,
-          "value_delta": 1967197040.4894998
+          "value_delta": -4260661843.9775352
         },
         {
           "ticker": "AMT",
           "tier": "rank",
-          "chg_w": 0.017464985668592004,
+          "chg_w": -0.00473008376402706,
           "mcap": 81165581898.71777,
-          "value_delta": 1393223103.1149821
+          "value_delta": -385744605.4321492
         },
         {
           "ticker": "EQIX",
           "tier": "rank",
-          "chg_w": 0.01986973029308081,
+          "chg_w": -0.004687249092976575,
           "mcap": 105951685883.85205,
-          "value_delta": 2064216007.278082
+          "value_delta": -498960696.6311398
         },
         {
           "ticker": "SO",
           "tier": "rank",
-          "chg_w": -0.0011840754418170896,
+          "chg_w": -0.019568420311039447,
           "mcap": 106742180668.32875,
-          "value_delta": -126540628.38583474
+          "value_delta": -2130465704.6006467
         },
         {
           "ticker": "DUK",
           "tier": "rank",
-          "chg_w": 0.0047618751462839,
+          "chg_w": -0.004624107706637348,
           "mcap": 97065124340.94641,
-          "value_delta": 460021438.51528543
+          "value_delta": -450924713.95559806
         },
         {
           "ticker": "PSA",
           "tier": "rank",
-          "chg_w": 0.005259942570957632,
+          "chg_w": 0.034493562036191916,
           "mcap": 61387062510.52112,
-          "value_delta": 321202914.521122
+          "value_delta": 2046855124.703204
         },
         {
           "ticker": "CCI",
           "tier": "rank",
-          "chg_w": 0.010811601812398708,
+          "chg_w": -0.009305461146384975,
           "mcap": 32219741823.695656,
-          "value_delta": 344621112.84782994
+          "value_delta": -302635720.6267554
         }
       ],
-      "leader_avg": 0.015772,
-      "rank_avg": 0.009497,
-      "breadth_gap": 0.006275,
-      "value_delta_total": 9365177902.151337,
+      "leader_avg": -0.028444,
+      "rank_avg": -0.001404,
+      "breadth_gap": -0.027041,
+      "value_delta_total": -10793777595.324677,
       "mcap_coverage": "8/8",
-      "advance_decline": "7/8"
+      "advance_decline": "1/8"
     }
   ],
   "frontier": [
@@ -1835,54 +1835,54 @@
         {
           "ticker": "RKLB",
           "tier": "watch",
-          "chg_w": 0.05854368193963877,
+          "chg_w": 0.27528877171558364,
           "mcap": 51208067757.70297,
-          "value_delta": 2832106867.8594065
+          "value_delta": 11053971765.141804
         },
         {
           "ticker": "ASTS",
           "tier": "watch",
-          "chg_w": 0.061757660258624725,
+          "chg_w": 0.21973555442110682,
           "mcap": 21440930087.22721,
-          "value_delta": 1247122319.4503407
+          "value_delta": 3862586970.547961
         },
         {
           "ticker": "PL",
           "tier": "watch",
-          "chg_w": 0.08934862447166991,
+          "chg_w": 0.16845707226821194,
           "mcap": 8820962518.5,
-          "value_delta": 723497372.5021937
+          "value_delta": 1271722817.8264234
         },
         {
           "ticker": "LUNR",
           "tier": "watch",
-          "chg_w": 0.17615533201662825,
+          "chg_w": 0.32901129787189975,
           "mcap": 2817542460.349222,
-          "value_delta": 421989438.0130633
+          "value_delta": 697513484.7785432
         },
         {
           "ticker": "SPCX",
           "tier": "watch",
-          "chg_w": 0.22946393610640903,
+          "chg_w": 0.22829193722198937,
           "mcap": 1862453599928.33,
-          "value_delta": 347603472785.49023
+          "value_delta": 346158048774.08636
         },
         {
           "ticker": "BKSY",
           "tier": "watch",
-          "chg_w": 0.11514928931876556,
+          "chg_w": 0.29830814942336237,
           "mcap": 1268260968.173046,
-          "value_delta": 130959460.36523047
+          "value_delta": 291404303.8007718
         },
         {
           "ticker": "IRDM",
           "tier": "watch",
-          "chg_w": 0.030428428156049847,
+          "chg_w": 0.048068869539593884,
           "mcap": 5274707736.393829,
-          "value_delta": 155761488.14938694
+          "value_delta": 241920397.99024197
         }
       ],
-      "avg": 0.108692
+      "avg": 0.22388
     },
     {
       "name": "量子電腦",
@@ -1890,47 +1890,47 @@
         {
           "ticker": "IONQ",
           "tier": "watch",
-          "chg_w": 0.13242694259514654,
+          "chg_w": 0.21926459878103466,
           "mcap": 18223001621.423615,
-          "value_delta": 2131012870.5532534
+          "value_delta": 3277105841.588669
         },
         {
           "ticker": "RGTI",
           "tier": "watch",
-          "chg_w": 0.12643678558806037,
+          "chg_w": 0.20000005103274,
           "mcap": 6214774349.24988,
-          "value_delta": 697576732.1590686
+          "value_delta": 1035795945.1228619
         },
         {
           "ticker": "QBTS",
           "tier": "watch",
-          "chg_w": 0.07704194171524148,
-          "mcap": 7783994457.625441,
-          "value_delta": 556797302.0262332
+          "chg_w": 0.14823010600026776,
+          "mcap": 6037250972.951057,
+          "value_delta": 779375446.6062974
         },
         {
           "ticker": "IBM",
           "tier": "watch",
-          "chg_w": 0.01589344484545374,
+          "chg_w": 0.06094346190378652,
           "mcap": 223417748669.5668,
-          "value_delta": 3495324912.2651787
+          "value_delta": 12833719744.349838
         },
         {
           "ticker": "QNT",
           "tier": "watch",
-          "chg_w": 0.1633831310695102,
+          "chg_w": 0.1419957062580699,
           "mcap": 17761061613.5,
-          "value_delta": 2494326916.0731325
+          "value_delta": 2208409781.124083
         },
         {
           "ticker": "QUBT",
           "tier": "watch",
-          "chg_w": 0.016524269409365244,
+          "chg_w": 0.13333331763499134,
           "mcap": 2019014017.388895,
-          "value_delta": 32820398.458370123
+          "value_delta": 237531036.19310907
         }
       ],
-      "avg": 0.088618
+      "avg": 0.150628
     },
     {
       "name": "長壽科學與基因編輯",
@@ -1938,40 +1938,40 @@
         {
           "ticker": "CRSP",
           "tier": "watch",
-          "chg_w": 0.04550740349717031,
+          "chg_w": 0.1152323106039439,
           "mcap": 5220436497.765408,
-          "value_delta": 227227955.86191943
+          "value_delta": 539405964.3706858
         },
         {
           "ticker": "NTLA",
           "tier": "watch",
-          "chg_w": 0.05249111784716676,
+          "chg_w": 0.11797745685427508,
           "mcap": 1657698767.4991817,
-          "value_delta": 82674770.25163655
+          "value_delta": 174932941.28694743
         },
         {
           "ticker": "EDIT",
           "tier": "watch",
-          "chg_w": -0.031034534354554055,
+          "chg_w": 0.11627914713420862,
           "mcap": 431559889.5620799,
-          "value_delta": -13822226.584453577
+          "value_delta": 44954181.957480095
         },
         {
           "ticker": "LLY",
           "tier": "watch",
-          "chg_w": 0.01431285084181555,
+          "chg_w": 0.03209323858337476,
           "mcap": 1078115359854.0,
-          "value_delta": 15213160636.833027
+          "value_delta": 33524309791.707134
         },
         {
           "ticker": "NVO",
           "tier": "watch",
-          "chg_w": 0.016314987602441766,
+          "chg_w": 0.0038232048317337064,
           "mcap": 204687344934.6438,
-          "value_delta": 3285862686.0000186
+          "value_delta": 779581147.738113
         }
       ],
-      "avg": 0.019518
+      "avg": 0.077081
     },
     {
       "name": "新世代能源與 SMR",
@@ -1979,47 +1979,47 @@
         {
           "ticker": "CEG",
           "tier": "watch",
-          "chg_w": 0.06717735785102952,
+          "chg_w": 0.02717417563629887,
           "mcap": 98724213274.6095,
-          "value_delta": 6214554455.1888685
+          "value_delta": 2611776244.6839128
         },
         {
           "ticker": "VST",
           "tier": "watch",
-          "chg_w": 0.03550706493349498,
+          "chg_w": -0.051285552185078354,
           "mcap": 49136990499.44534,
-          "value_delta": 1684884991.501613
+          "value_delta": -2656244664.8526397
         },
         {
           "ticker": "OKLO",
           "tier": "watch",
-          "chg_w": 0.10097184818426652,
+          "chg_w": 0.24697388322606084,
           "mcap": 8640519984.420204,
-          "value_delta": 792435586.3765723
+          "value_delta": 1711329164.4278774
         },
         {
           "ticker": "SMR",
           "tier": "watch",
-          "chg_w": 0.040126726898197074,
+          "chg_w": 0.1662707370362022,
           "mcap": 4042336948.2511787,
-          "value_delta": 155948065.32535377
+          "value_delta": 576300444.1339529
         },
         {
           "ticker": "GEV",
           "tier": "watch",
-          "chg_w": 0.04910532515422772,
+          "chg_w": 3.0323741067039833e-05,
           "mcap": 279495798277.13245,
-          "value_delta": 13082320453.974792
+          "value_delta": 8475101.219506465
         },
         {
           "ticker": "CCJ",
           "tier": "watch",
-          "chg_w": 0.044114474815786675,
+          "chg_w": 0.1274600889825197,
           "mcap": 42573348697.25,
-          "value_delta": 1798750007.0429473
+          "value_delta": 4812944481.371753
         }
       ],
-      "avg": 0.056167
+      "avg": 0.086104
     },
     {
       "name": "純 AI 應用",
@@ -2027,26 +2027,26 @@
         {
           "ticker": "PLTR",
           "tier": "watch",
-          "chg_w": 0.1480887417204284,
+          "chg_w": 0.3977734269410753,
           "mcap": 430171485304.4055,
-          "value_delta": 55486611502.93699
+          "value_delta": 122416682549.42378
         },
         {
           "ticker": "APP",
           "tier": "watch",
-          "chg_w": -0.06851967432280515,
+          "chg_w": -0.12402123480798477,
           "mcap": 105038214541.97665,
-          "value_delta": -7726608982.999996
+          "value_delta": -14871329748.120602
         },
         {
           "ticker": "PATH",
           "tier": "watch",
-          "chg_w": 0.19142859322684158,
+          "chg_w": 0.1794670784307424,
           "mcap": 8642246194.997757,
-          "value_delta": 1388562470.9977574
+          "value_delta": 1314999548.5749552
         }
       ],
-      "avg": 0.090333
+      "avg": 0.151073
     },
     {
       "name": "代幣化與 RWA",
@@ -2054,33 +2054,33 @@
         {
           "ticker": "BLK",
           "tier": "watch",
-          "chg_w": 0.04740982438435726,
+          "chg_w": 0.04218673995729061,
           "mcap": 183185549022.17712,
-          "value_delta": 8291687271.501584
+          "value_delta": 7415178896.6810255
         },
         {
           "ticker": "ICE",
           "tier": "watch",
-          "chg_w": 0.03666113851862485,
+          "chg_w": -0.014296909344597597,
           "mcap": 87150883245.71202,
-          "value_delta": 3082058817.462025
+          "value_delta": -1264060434.503747
         },
         {
           "ticker": "CBOE",
           "tier": "watch",
-          "chg_w": 0.013521364467164565,
+          "chg_w": -0.03352220022154373,
           "mcap": 30606641646.248016,
-          "value_delta": 408322479.7460345
+          "value_delta": -1061588760.3520257
         },
         {
           "ticker": "SECZ",
           "tier": "watch",
-          "chg_w": -0.2072322998744638,
+          "chg_w": 0.15592203147782913,
           "mcap": 843957618.2592726,
-          "value_delta": -220613526.7629456
+          "value_delta": 113841230.40888675
         }
       ],
-      "avg": -0.02741
+      "avg": 0.037572
     },
     {
       "name": "下一代支付網絡",
@@ -2088,26 +2088,26 @@
         {
           "ticker": "XYZ",
           "tier": "watch",
-          "chg_w": 0.051505946187373475,
+          "chg_w": -0.02757259875271978,
           "mcap": 49920054349.823,
-          "value_delta": 2445235466.651912
+          "value_delta": -1415453355.7324343
         },
         {
           "ticker": "PYPL",
           "tier": "watch",
-          "chg_w": 0.013549705417048807,
+          "chg_w": 0.032511809825502835,
           "mcap": 51832374486.19297,
-          "value_delta": 692924482.7367277
+          "value_delta": 1632101721.319922
         },
         {
           "ticker": "ADYEY",
           "tier": "watch",
-          "chg_w": 0.1478017716932145,
+          "chg_w": 0.03883491370127201,
           "mcap": 38695522527.63519,
-          "value_delta": 4982800102.967454
+          "value_delta": 1446560236.0554354
         }
       ],
-      "avg": 0.070952
+      "avg": 0.014591
     },
     {
       "name": "加密基礎設施與託管",
@@ -2115,26 +2115,26 @@
         {
           "ticker": "COIN",
           "tier": "watch",
-          "chg_w": 0.058386562276026455,
+          "chg_w": 0.05018468393513187,
           "mcap": 40604500839.36722,
-          "value_delta": 2239972899.737545
+          "value_delta": 1940348276.0117147
         },
         {
           "ticker": "CRCL",
           "tier": "watch",
-          "chg_w": 0.19121363317851103,
+          "chg_w": 0.06484583164055246,
           "mcap": 19137163212.489067,
-          "value_delta": 3071897772.7161493
+          "value_delta": 1165394301.1101894
         },
         {
           "ticker": "HOOD",
           "tier": "watch",
-          "chg_w": 0.0954691186144192,
+          "chg_w": 0.07774957886728173,
           "mcap": 89341807937.41321,
-          "value_delta": 7786055776.717623
+          "value_delta": 6445178062.306474
         }
       ],
-      "avg": 0.115023
+      "avg": 0.06426
     },
     {
       "name": "資本市場科技與清算",
@@ -2142,36 +2142,36 @@
         {
           "ticker": "UPST",
           "tier": "watch",
-          "chg_w": 0.04240997198617724,
+          "chg_w": 0.13301747622052762,
           "mcap": 3013784967.800434,
-          "value_delta": 122614460.23318872
+          "value_delta": 353821612.3774515
         },
         {
           "ticker": "BR",
           "tier": "watch",
-          "chg_w": 0.045462855800692425,
+          "chg_w": 0.08151999545655797,
           "mcap": 19639115113.860443,
-          "value_delta": 854023893.3604448
+          "value_delta": 1480306033.71034
         },
         {
           "ticker": "NDAQ",
           "tier": "watch",
-          "chg_w": 0.030517417980783668,
+          "chg_w": 0.0042466704121086885,
           "mcap": 54550599686.443726,
-          "value_delta": 1615444263.9072914
+          "value_delta": 230678800.8130924
         }
       ],
-      "avg": 0.039463
+      "avg": 0.072928
     }
   ],
   "windows": {
     "sectors": {
-      "curr": "2026-08-13",
-      "prev": "2026-08-08"
+      "curr": "2026-08-07",
+      "prev": "2026-08-02"
     },
     "themes": {
-      "curr": "2026-08-13",
-      "prev": "2026-08-06"
+      "curr": "2026-08-07",
+      "prev": "2026-07-31"
     }
   },
   "divergence": [
@@ -2181,8 +2181,8 @@
       "truth": "Smart Money 不計代價逃離信用體系，定價地緣危機或通膨爆發",
       "hit": false,
       "evidence": {
-        "2Y Δbp": -5.0,
-        "Gold %": 0.041207
+        "2Y Δbp": -9.0,
+        "Gold %": 0.072016
       }
     },
     {
@@ -2191,7 +2191,7 @@
       "truth": "用少數權值股拉指數，護盤掩護出貨，暗中抽離流動性",
       "hit": false,
       "evidence": {
-        "龍頭−其餘 平均差": -0.0141
+        "龍頭−其餘 平均差": -0.0122
       }
     },
     {
@@ -2200,9 +2200,9 @@
       "truth": "全球法幣信任危機，資金進行逃命式搶購",
       "hit": false,
       "evidence": {
-        "DXY %": -0.00021,
-        "BTC %": -0.023369,
-        "NDX %": 0.024211
+        "DXY %": -0.002004,
+        "BTC %": 0.022025,
+        "NDX %": 0.051216
       }
     },
     {
@@ -2211,8 +2211,8 @@
       "truth": "媒體造神誘多，私下準備關門",
       "hit": false,
       "evidence": {
-        "HY OAS Δ": 0.0,
-        "S&P %": 0.011547
+        "HY OAS Δ": -0.1499999999999999,
+        "S&P %": 0.035772
       }
     },
     {
@@ -2221,8 +2221,8 @@
       "truth": "資金從博弈型市場撤退，轉向實體過路費資產",
       "hit": false,
       "evidence": {
-        "Frontier 平均 %": 0.0624,
-        "Infra 龍頭 %": 0.015772
+        "Frontier 平均 %": 0.0976,
+        "Infra 龍頭 %": -0.028444
       }
     },
     {
@@ -2231,9 +2231,9 @@
       "truth": "有第四條水管在動 —— 通貨、其他負債或資本項，不在 WALCL−TGA−RRP 的視野內",
       "hit": false,
       "evidence": {
-        "Δ淨流動性": -57441,
-        "Δ準備金": -55101,
-        "缺口": -2340
+        "Δ淨流動性": 69177,
+        "Δ準備金": 58190,
+        "缺口": 10987
       }
     }
   ],
@@ -2294,6 +2294,11 @@
         "date": "2026-08-06",
         "value": 35.97,
         "src": "worldgovernmentbonds.com US 5Y CDS"
+      },
+      {
+        "date": "2026-08-14",
+        "value": 34.18,
+        "src": "手動輸入"
       }
     ],
     "manufacturing_pmi": [
@@ -2306,6 +2311,11 @@
         "date": "2026-07-01",
         "value": 53.9,
         "src": "S&P Global US Mfg PMI"
+      },
+      {
+        "date": "2026-08-03",
+        "value": 53.9,
+        "src": "手動輸入"
       }
     ],
     "move_index": [
@@ -2318,6 +2328,11 @@
         "date": "2026-08-07",
         "value": 76.12,
         "src": "手動輸入"
+      },
+      {
+        "date": "2026-08-14",
+        "value": 69.23,
+        "src": "手動輸入"
       }
     ],
     "fear_greed": [
@@ -2329,6 +2344,11 @@
       {
         "date": "2026-08-07",
         "value": 64,
+        "src": "手動輸入"
+      },
+      {
+        "date": "2026-08-14",
+        "value": 66,
         "src": "手動輸入"
       }
     ]
@@ -2889,7 +2909,102 @@
         "scored_at": "2026-08-10T23:37:39+00:00"
       }
     ],
-    "current": null,
+    "current": {
+      "week": "2026-W32",
+      "created_at": "2026-08-12T08:32:55Z",
+      "items": [
+        {
+          "id": "direction",
+          "call": "多",
+          "confidence": 4,
+          "rationale": "根據這周水管的水變多(691億)，市場預期升息機率下降, 加上新聞對於勞動市場放緩的敘事選擇軟著陸說法，以及Hormoz海峽達成協議油價下跌，整個市場是Risk On模式，資金會湧向風險資產，整體還會上揚",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": "wrong_timing",
+          "note": ""
+        },
+        {
+          "id": "open_style",
+          "call": "開高走低",
+          "confidence": 3,
+          "rationale": "龍頭股、前言科技會續漲，可能早盤開高誘多後遭遇強烈賣壓拉回修正，大魔王喜歡散戶被狂熱情緒沖昏頭時把高位籌碼出貨給韭菜們。",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": "fooled_by_news",
+          "note": ""
+        },
+        {
+          "id": "flow",
+          "call": "Risk-on",
+          "confidence": 4,
+          "rationale": "避險(金融股, 民生必需)流入風險資產, 市場情緒升溫",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": "single_signal",
+          "note": ""
+        },
+        {
+          "id": "leader",
+          "call": "領先大盤",
+          "confidence": 4,
+          "rationale": "因為水變多，市場情緒升溫",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": "ignored_positioning",
+          "note": ""
+        },
+        {
+          "id": "breadth",
+          "call": "廣度惡化",
+          "confidence": 4,
+          "rationale": "私募信貸危機的隱憂",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "vol",
+          "call": "下降",
+          "confidence": 4,
+          "rationale": "CNN G&F指數大升(從frea變成greedy)",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": "overfit_narrative",
+          "note": ""
+        },
+        {
+          "id": "divergence",
+          "call": "尚未兌現",
+          "confidence": 2,
+          "rationale": "這周沒出現背離",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "intent",
+          "call": null,
+          "confidence": null,
+          "rationale": "對於經濟指數負面隱藏不提，刻意製造市場正面情緒",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        }
+      ],
+      "hypothesis": "基本面維持、戰爭減緩緊張、市場穩定, 把風險價格抬升後偷偷出貨",
+      "scored_at": "2026-08-10T23:37:39+00:00"
+    },
     "last_scored": {
       "week": "2026-W32",
       "created_at": "2026-08-12T08:32:55Z",
