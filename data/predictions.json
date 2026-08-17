@@ -105,9 +105,9 @@
           "call": "震盪",
           "confidence": 4,
           "rationale": "流動性減少574億, VIX  future拉高, 長天期殖利率飆高, 市場下周預計是震盪-->空的狀態",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "空",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -116,9 +116,9 @@
           "call": "開高走低",
           "confidence": 3,
           "rationale": "掩護出貨, 拉高誘多再血洗",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "開高走低",
+          "verdict": "correct",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -127,9 +127,9 @@
           "call": "Risk-off",
           "confidence": 4,
           "rationale": "Tbills,防禦性布局,能源",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "Risk-on",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -138,9 +138,9 @@
           "call": "落後大盤",
           "confidence": 3,
           "rationale": "長天期殖利率創新高, TGA抽水",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "落後大盤",
+          "verdict": "correct",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -149,9 +149,9 @@
           "call": "廣度惡化",
           "confidence": 4,
           "rationale": "已出現掩護性出貨",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "持平",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -160,9 +160,9 @@
           "call": "上升",
           "confidence": null,
           "rationale": "VIX沒變, 但VIX future拉高, 大資金已為未來買保險了",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "上升",
+          "verdict": "correct",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -173,7 +173,7 @@
           "rationale": "",
           "actual": null,
           "verdict": null,
-          "auto": null,
+          "auto": false,
           "error_type": null,
           "note": ""
         },
@@ -184,13 +184,27 @@
           "rationale": "",
           "actual": null,
           "verdict": null,
-          "auto": null,
+          "auto": false,
           "error_type": null,
           "note": ""
         }
       ],
       "hypothesis": "通膨放緩至 3.4%、不升息」的新聞餘溫, 營造股市熱絡狀況",
-      "scored_at": null
+      "scored_at": "2026-08-17T23:25:29+00:00",
+      "metrics": {
+        "spx_d": -0.005227454770816764,
+        "spx_gap": 0.0006319755944659278,
+        "spx_intraday": -0.00585572968703274,
+        "breadth": 0.0016816144914079123,
+        "mega_rel": -0.0071765438052026065,
+        "risk_app": 0.02123008059153736,
+        "vix_chg": 0.06596488283391588,
+        "gold": 0.02084291274865091,
+        "dxy": -0.0008929155096017993,
+        "hyg": -0.0012545286070712036,
+        "tlt": -0.008410561112946802,
+        "as_of": "2026-08-17"
+      }
     }
   ]
 }
