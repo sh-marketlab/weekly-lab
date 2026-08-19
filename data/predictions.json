@@ -98,27 +98,27 @@
     },
     {
       "week": "2026-W33",
-      "created_at": "2026-08-16T15:28:18Z",
+      "created_at": "2026-08-19T14:19:49Z",
       "items": [
         {
           "id": "direction",
           "call": "震盪",
           "confidence": 4,
           "rationale": "流動性減少574億, VIX  future拉高, 長天期殖利率飆高, 市場下周預計是震盪-->空的狀態",
-          "actual": "空",
-          "verdict": "wrong",
-          "auto": true,
-          "error_type": null,
-          "note": ""
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": "ignored_positioning",
+          "note": "雖然盤面有板塊輪動，但從 Big Tech 單日失血超過 2,900 億美元、整體指數與期貨實質翻黑來看，流動性抽水 574 億的重力直接將盤面壓成了偏空格局"
         },
         {
           "id": "open_style",
           "call": "開高走低",
           "confidence": 3,
           "rationale": "掩護出貨, 拉高誘多再血洗",
-          "actual": "開高走低",
-          "verdict": "correct",
-          "auto": true,
+          "actual": null,
+          "verdict": null,
+          "auto": null,
           "error_type": null,
           "note": ""
         },
@@ -127,20 +127,20 @@
           "call": "Risk-off",
           "confidence": 4,
           "rationale": "Tbills,防禦性布局,能源",
-          "actual": "Risk-on",
-          "verdict": "wrong",
-          "auto": true,
-          "error_type": null,
-          "note": ""
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": "single_signal",
+          "note": "大資金還在原油期貨、中小型 AI 概念或週期股裡翻江倒海，市場本質上就依然處於 Risk-on 的投機搬家狀態"
         },
         {
           "id": "leader",
           "call": "落後大盤",
           "confidence": 3,
           "rationale": "長天期殖利率創新高, TGA抽水",
-          "actual": "落後大盤",
-          "verdict": "correct",
-          "auto": true,
+          "actual": null,
+          "verdict": null,
+          "auto": null,
           "error_type": null,
           "note": ""
         },
@@ -149,20 +149,20 @@
           "call": "廣度惡化",
           "confidence": 4,
           "rationale": "已出現掩護性出貨",
-          "actual": "持平",
-          "verdict": "wrong",
-          "auto": true,
+          "actual": null,
+          "verdict": null,
+          "auto": null,
           "error_type": null,
-          "note": ""
+          "note": "市場廣度看的是「所有板塊上漲家數與下跌家數的比例（Advance-Decline Line）」。在金融（7/8 上漲）、公用事業（6/8 上漲）、必需消費（6/8 上漲）與部分太空/量子題材（漲多跌少）支撐下，全市場體質並未全面失血，因此批改判定為持平"
         },
         {
           "id": "vol",
           "call": "上升",
           "confidence": null,
           "rationale": "VIX沒變, 但VIX future拉高, 大資金已為未來買保險了",
-          "actual": "上升",
-          "verdict": "correct",
-          "auto": true,
+          "actual": null,
+          "verdict": null,
+          "auto": null,
           "error_type": null,
           "note": ""
         },
@@ -173,7 +173,7 @@
           "rationale": "",
           "actual": null,
           "verdict": null,
-          "auto": false,
+          "auto": null,
           "error_type": null,
           "note": ""
         },
@@ -184,27 +184,13 @@
           "rationale": "",
           "actual": null,
           "verdict": null,
-          "auto": false,
-          "error_type": null,
-          "note": ""
+          "auto": null,
+          "error_type": "ignored_positioning",
+          "note": "容易在「看到巨頭下跌 + 防守板塊上漲」的表象時，過早給出「全面防禦與廣度破裂」的過度推論"
         }
       ],
       "hypothesis": "通膨放緩至 3.4%、不升息」的新聞餘溫, 營造股市熱絡狀況",
-      "scored_at": "2026-08-17T23:25:29+00:00",
-      "metrics": {
-        "spx_d": -0.005227454770816764,
-        "spx_gap": 0.0006319755944659278,
-        "spx_intraday": -0.00585572968703274,
-        "breadth": 0.0016816144914079123,
-        "mega_rel": -0.0071765438052026065,
-        "risk_app": 0.02123008059153736,
-        "vix_chg": 0.06596488283391588,
-        "gold": 0.02084291274865091,
-        "dxy": -0.0008929155096017993,
-        "hyg": -0.0012545286070712036,
-        "tlt": -0.008410561112946802,
-        "as_of": "2026-08-17"
-      }
+      "scored_at": "2026-08-17T23:25:29+00:00"
     }
   ]
 }
