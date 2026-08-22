@@ -191,6 +191,102 @@
       ],
       "hypothesis": "通膨放緩至 3.4%、不升息」的新聞餘溫, 營造股市熱絡狀況",
       "scored_at": "2026-08-17T23:25:29+00:00"
+    },
+    {
+      "week": "2026-W34",
+      "created_at": "2026-08-22T08:12:55Z",
+      "items": [
+        {
+          "id": "direction",
+          "call": "震盪",
+          "confidence": 4,
+          "rationale": "流動變差，但情緒升溫",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "open_style",
+          "call": "開低走高",
+          "confidence": 4,
+          "rationale": "市場一片利多",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "flow",
+          "call": "Risk-on",
+          "confidence": 4,
+          "rationale": "資金不會這麼快撤退",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "leader",
+          "call": "同步",
+          "confidence": 4,
+          "rationale": "大盤維持假象，吸引更多投資人",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "breadth",
+          "call": "廣度惡化",
+          "confidence": 4,
+          "rationale": "維持大盤但是偷偷撤去安全資產",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "vol",
+          "call": "上升",
+          "confidence": 4,
+          "rationale": "流動度不好，但月底有央行年會",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "divergence",
+          "call": null,
+          "confidence": null,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "intent",
+          "call": null,
+          "confidence": null,
+          "rationale": "維持利多，以及風險資產上升(BTC會持續上上下下)，幫助央行年會的topic關於金融系統革新升級。但通膨問題沒有解決，且流動性變差是真實的問題",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        }
+      ],
+      "hypothesis": "BTC的持續上揚、市場利多消息、TGA持續推出牛肉幫助市場升溫",
+      "scored_at": null
     }
   ]
 }
