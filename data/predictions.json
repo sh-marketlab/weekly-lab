@@ -201,9 +201,9 @@
           "call": "震盪",
           "confidence": 4,
           "rationale": "流動變差，但情緒升溫",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "震盪",
+          "verdict": "correct",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -212,9 +212,9 @@
           "call": "開低走高",
           "confidence": 4,
           "rationale": "市場一片利多",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "開低走低",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -223,9 +223,9 @@
           "call": "Risk-on",
           "confidence": 4,
           "rationale": "資金不會這麼快撤退",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "Risk-off",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -234,9 +234,9 @@
           "call": "同步",
           "confidence": 4,
           "rationale": "大盤維持假象，吸引更多投資人",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "同步",
+          "verdict": "correct",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -245,9 +245,9 @@
           "call": "廣度惡化",
           "confidence": 4,
           "rationale": "維持大盤但是偷偷撤去安全資產",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "廣度惡化",
+          "verdict": "correct",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -256,9 +256,9 @@
           "call": "上升",
           "confidence": 4,
           "rationale": "流動度不好，但月底有央行年會",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "上升",
+          "verdict": "correct",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -269,7 +269,7 @@
           "rationale": "",
           "actual": null,
           "verdict": null,
-          "auto": null,
+          "auto": false,
           "error_type": null,
           "note": ""
         },
@@ -280,13 +280,27 @@
           "rationale": "維持利多，以及風險資產上升(BTC會持續上上下下)，幫助央行年會的topic關於金融系統革新升級。但通膨問題沒有解決，且流動性變差是真實的問題",
           "actual": null,
           "verdict": null,
-          "auto": null,
+          "auto": false,
           "error_type": null,
           "note": ""
         }
       ],
       "hypothesis": "BTC的持續上揚、市場利多消息、TGA持續推出牛肉幫助市場升溫",
-      "scored_at": null
+      "scored_at": "2026-08-24T23:24:40+00:00",
+      "metrics": {
+        "spx_d": -0.0028028689752760405,
+        "spx_gap": -0.0014320698907114293,
+        "spx_intraday": -0.0013727649799593067,
+        "breadth": -0.004748827478691653,
+        "mega_rel": 0.0004470153471018345,
+        "risk_app": -0.01105506376880222,
+        "vix_chg": 0.04758759164460291,
+        "gold": 0.02257734481065099,
+        "dxy": 0.0018623289699066792,
+        "hyg": 0.0011304652330190734,
+        "tlt": 0.006215654940490811,
+        "as_of": "2026-08-24"
+      }
     }
   ]
 }
