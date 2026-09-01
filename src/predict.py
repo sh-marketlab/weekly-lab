@@ -41,8 +41,14 @@ def save(records: list[dict]):
 # ── 週一探針 ─────────────────────────────────────────────────────────
 def monday_metrics(as_of: date) -> dict | None:
     """
-    as_of 是週一。全部相對「上週五收盤」計算。
-    抓不到就回 None，週一的批改就整批跳過，不要用半套資料去打分。
+    as_of 是週一。全部相對「前一個交易日收盤」計算。
+
+    不要求 as_of 當天一定要有報價。美股假日不少（勞動節、陣亡將士紀念日、
+    馬丁路德金恩日都在週一），先前的寫法是 `s[-1][0] != as_of` 就整批放棄，
+    遇到假日會靜默跳過批改，而且完全不留痕跡。
+
+    改成：先用 S&P500 定出「≤ as_of 的最後一個交易日」當基準日，
+    其他標的一律對齊到那一天。基準日離 as_of 超過 4 天才判定資料真的有問題。
     """
     c = cfg()
     syms = sorted(set(c["probes"].values()) | set(c["mega_caps"]))
@@ -50,23 +56,34 @@ def monday_metrics(as_of: date) -> dict | None:
     if not ohlc:
         return None
 
-    def col(sym, field):
+    def col(sym, field, upto):
         s = (ohlc.get(field) or {}).get(sym)
         if s is None:
             return None
-        s = [(d, v) for d, v in s if d <= as_of and v == v]
-        return s
+        return [(d, v) for d, v in s if d <= upto and v == v]
+
+    # 基準日：以大盤為準，其他標的對齊到它（BTC 週末有價，不能各自為政）
+    spx_close = col(c["probes"]["spx"], "Close", as_of)
+    if not spx_close or len(spx_close) < 2:
+        print("  ! 抓不到 S&P500 報價")
+        return None
+    ref = spx_close[-1][0]
+    lag = (as_of - ref).days
+    if lag > 4:
+        print(f"  ! 最後交易日 {ref} 距 as_of {as_of} 已 {lag} 天，資料疑似有問題")
+        return None
+    if lag:
+        print(f"  · {as_of} 無報價（假日？），改用前一交易日 {ref}")
 
     def ret(sym, field="Close"):
-        """該標的：as_of 當日 vs 前一交易日。"""
-        s = col(sym, field)
-        if not s or len(s) < 2 or s[-1][0] != as_of:
+        s = col(sym, field, ref)
+        if not s or len(s) < 2 or s[-1][0] != ref:
             return None
         return s[-1][1] / s[-2][1] - 1
 
     def gap(sym):
-        o, cl = col(sym, "Open"), col(sym, "Close")
-        if not o or not cl or len(cl) < 2 or o[-1][0] != as_of:
+        o, cl = col(sym, "Open", ref), col(sym, "Close", ref)
+        if not o or not cl or len(cl) < 2 or o[-1][0] != ref:
             return None, None
         prev_close, mon_open, mon_close = cl[-2][1], o[-1][1], cl[-1][1]
         return mon_open / prev_close - 1, mon_close / mon_open - 1
@@ -92,6 +109,7 @@ def monday_metrics(as_of: date) -> dict | None:
         "gold": ret(p["gold"]), "dxy": ret(p["dxy"]),
         "hyg": ret(p["hyg"]), "tlt": ret(p["tlt"]),
         "as_of": as_of,
+        "probe_date": ref,      # 實際用來比對的交易日（遇假日會早於 as_of）
     }
     return m if spx is not None else None
 
