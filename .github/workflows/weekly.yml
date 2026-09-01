@@ -40,10 +40,13 @@ jobs:
             echo "stage=${{ inputs.stage }}" >> $GITHUB_OUTPUT
             echo "asof=${{ inputs.as_of }}" >> $GITHUB_OUTPUT
           else
-            case "$(date -u +%u)" in
-              1) echo "stage=mon" >> $GITHUB_OUTPUT ;;
-              4) echo "stage=thu" >> $GITHUB_OUTPUT ;;
-              *) echo "stage=fri" >> $GITHUB_OUTPUT ;;
+                        # 用「觸發這次執行的 cron 字串」判斷，不要用執行當下的 UTC 星期。
+            # 23:00 UTC 那幾趟一旦延過午夜，date -u +%u 就會跳到隔天，
+            # 週一那趟會被誤判成 fri，Step 5 的批改整週不會執行且靜默無錯誤。
+            case "${{ github.event.schedule }}" in
+              "0 23 * * 1") echo "stage=mon" >> $GITHUB_OUTPUT ;;
+              "0 23 * * 4") echo "stage=thu" >> $GITHUB_OUTPUT ;;
+              *)            echo "stage=fri" >> $GITHUB_OUTPUT ;;
             esac
           fi
 
