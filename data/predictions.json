@@ -311,9 +311,9 @@
           "call": "震盪",
           "confidence": 4,
           "rationale": "流動性持續抽水, 持續維持指數, 掩護資金輪轉",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "空",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -322,9 +322,9 @@
           "call": "開高走高",
           "confidence": 3,
           "rationale": "高位震盪",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "開低走低",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -333,9 +333,9 @@
           "call": "Risk-off",
           "confidence": 3,
           "rationale": "流動性比上周更差, 且預期升息",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "Risk-on",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -344,9 +344,9 @@
           "call": "同步",
           "confidence": 3,
           "rationale": "維持指數就必須讓龍頭股維持",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "領先大盤",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -355,9 +355,9 @@
           "call": "廣度惡化",
           "confidence": 4,
           "rationale": "應該是惡化, 因為流動性惡化",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "廣度惡化",
+          "verdict": "correct",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -366,9 +366,9 @@
           "call": "上升",
           "confidence": 3,
           "rationale": "CNN F&G",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "上升",
+          "verdict": "correct",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -379,7 +379,7 @@
           "rationale": "",
           "actual": null,
           "verdict": null,
-          "auto": null,
+          "auto": false,
           "error_type": null,
           "note": ""
         },
@@ -390,13 +390,28 @@
           "rationale": "",
           "actual": null,
           "verdict": null,
-          "auto": null,
+          "auto": false,
           "error_type": null,
           "note": ""
         }
       ],
       "hypothesis": "",
-      "scored_at": null
+      "scored_at": "2026-09-01T07:58:37+00:00",
+      "metrics": {
+        "spx_d": -0.005801339323496912,
+        "spx_gap": -0.004329356761431202,
+        "spx_intraday": -0.0014783830095440598,
+        "breadth": -0.013403572873142533,
+        "mega_rel": 0.0048187739283048914,
+        "risk_app": 0.014146455497836552,
+        "vix_chg": 0.028256363952084085,
+        "gold": -0.010495522425815973,
+        "dxy": 0.0027228381715920236,
+        "hyg": -0.0007512856632629905,
+        "tlt": -0.007337912071523345,
+        "as_of": "2026-08-31",
+        "probe_date": "2026-08-31"
+      }
     }
   ]
 }
