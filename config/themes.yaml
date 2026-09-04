@@ -23,8 +23,8 @@ themes:
     name: "Financials & Fintech Network"
     zh: 金融、支付與清算網絡
     positioning: 商銀、投銀與全球數位支付通道
-    leader: [BRK-B, JPM]
-    rank:   [V, MA, BAC, BNY, CME, ICE, GS, NDAQ]
+    leader: [JPM, BLK]
+    rank:   [V, MA, BAC, BNY, CME, ICE, GS, NDAQ, BRK-B]
   - id: 5
     name: "Healthcare & Bio-Pharma"
     zh: 醫療保健與生技醫療
