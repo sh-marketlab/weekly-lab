@@ -36,7 +36,7 @@ themes:
     zh: 指數型ETF
     positioning: 實體經濟支柱
     leader: [SPY, IVV, QQQ]
-    rank:   [SCHD, VYM, GRID]
+    rank:   [SCHD, VYM, GRID, BIL, EDV, IEF, TLT]
   - id: 7
     name: 民生必需品
     zh: 必需消費與大型通路
