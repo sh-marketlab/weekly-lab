@@ -84,9 +84,9 @@ frontier:
     leader: [CEG, GEV]
     rank:   [VST, OKLO, SMR, CCJ]
   - id: 105
-    name:  AI 數據整合及應用
+    name: AI 數據整合及應用
     leader: [PLTR]
-    rank:   [SNOW, PAWN]
+    rank:   [SNOW, PANW]
   - id: 106
     name: 代幣化與 RWA
     leader: [BLK, JPM]
