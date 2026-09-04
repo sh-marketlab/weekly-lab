@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T05:02:50+00:00",
+  "generated_at": "2026-09-04T05:08:59+00:00",
   "iso_week": "2026-W36",
   "stage": "thu",
   "as_of": "2026-09-03",
@@ -1775,15 +1775,43 @@
           "chg_w": -0.022948727497989485,
           "mcap": 11838994432.0,
           "value_delta": -278071238.1392694
+        },
+        {
+          "ticker": "BIL",
+          "tier": "rank",
+          "chg_w": -0.002291815898366467,
+          "mcap": 46752960512.0,
+          "value_delta": -107395308.47246842
+        },
+        {
+          "ticker": "EDV",
+          "tier": "rank",
+          "chg_w": -0.012974230964792,
+          "mcap": 4128558080.0,
+          "value_delta": -54268964.15666682
+        },
+        {
+          "ticker": "IEF",
+          "tier": "rank",
+          "chg_w": -0.010189901785153888,
+          "mcap": 41824055296.0,
+          "value_delta": -430570486.6940839
+        },
+        {
+          "ticker": "TLT",
+          "tier": "rank",
+          "chg_w": -0.012751083767781113,
+          "mcap": 47046328320.0,
+          "value_delta": -607639738.5821464
         }
       ],
       "leader_avg": 0.000329,
-      "rank_avg": -0.004284,
-      "breadth_gap": 0.004613,
-      "avg": -0.001978,
-      "value_delta_total": 3352823514.5649757,
-      "mcap_coverage": "6/6",
-      "advance_decline": "4/6"
+      "rank_avg": -0.007294,
+      "breadth_gap": 0.007623,
+      "avg": -0.005007,
+      "value_delta_total": 2152949016.65961,
+      "mcap_coverage": "10/10",
+      "advance_decline": "4/10"
     },
     {
       "id": 7,
@@ -2585,7 +2613,7 @@
       "truth": "用少數權值股拉指數，護盤掩護出貨，暗中抽離流動性",
       "hit": false,
       "evidence": {
-        "龍頭−其餘 平均差": 0.0111
+        "龍頭−其餘 平均差": 0.0114
       }
     },
     {
@@ -2894,7 +2922,11 @@
         "rank": [
           "SCHD",
           "VYM",
-          "GRID"
+          "GRID",
+          "BIL",
+          "EDV",
+          "IEF",
+          "TLT"
         ]
       },
       {
