@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T04:47:16+00:00",
+  "generated_at": "2026-09-04T04:56:19+00:00",
   "iso_week": "2026-W36",
   "stage": "thu",
   "as_of": "2026-09-03",
@@ -1849,25 +1849,11 @@
       "positioning": "受可支配所得與景氣週期高度影響",
       "stocks": [
         {
-          "ticker": "LVMU.Y",
-          "tier": "leader",
-          "chg_w": null,
-          "mcap": null,
-          "value_delta": null
-        },
-        {
           "ticker": "RACE",
           "tier": "leader",
           "chg_w": 0.0009689810020436784,
           "mcap": 73457396237.76,
           "value_delta": 71109917.25510712
-        },
-        {
-          "ticker": "RL",
-          "tier": "rank",
-          "chg_w": -0.07126299073270315,
-          "mcap": 20508206663.8,
-          "value_delta": -1573616779.393484
         },
         {
           "ticker": "EL",
@@ -1889,15 +1875,22 @@
           "chg_w": -0.02423589693795858,
           "mcap": 3186459201.66,
           "value_delta": -79144843.06821367
+        },
+        {
+          "ticker": "RL",
+          "tier": "rank",
+          "chg_w": -0.07126299073270315,
+          "mcap": 20508206663.8,
+          "value_delta": -1573616779.393484
         }
       ],
       "leader_avg": 0.000969,
       "rank_avg": -0.037561,
       "breadth_gap": 0.03853,
       "avg": -0.029855,
-      "value_delta_total": -3097676583.802701,
-      "mcap_coverage": "5/6",
-      "advance_decline": "1/6"
+      "value_delta_total": -3097676583.8027015,
+      "mcap_coverage": "5/5",
+      "advance_decline": "1/5"
     },
     {
       "id": 9,
@@ -2363,19 +2356,19 @@
           "value_delta": -3849905857.1077986
         },
         {
-          "ticker": "PAWN",
+          "ticker": "PANW",
           "tier": "rank",
-          "chg_w": null,
-          "mcap": null,
-          "value_delta": null
+          "chg_w": -0.03191767601953854,
+          "mcap": 270531100000.0,
+          "value_delta": -8919410869.424837
         }
       ],
       "leader_avg": -0.045296,
-      "rank_avg": -0.030218,
-      "breadth_gap": -0.015077,
-      "avg": -0.037757,
-      "value_delta_total": -24660623671.244724,
-      "mcap_coverage": "2/3",
+      "rank_avg": -0.031068,
+      "breadth_gap": -0.014228,
+      "avg": -0.035811,
+      "value_delta_total": -33580034540.669563,
+      "mcap_coverage": "3/3",
       "advance_decline": "0/3"
     },
     {
@@ -2615,7 +2608,7 @@
       "truth": "資金從博弈型市場撤退，轉向實體過路費資產",
       "hit": false,
       "evidence": {
-        "Frontier 平均 %": -0.0367,
+        "Frontier 平均 %": -0.0365,
         "Infra 龍頭 %": 0.012169
       }
     },
@@ -2919,14 +2912,13 @@
         "zh": "精品消費",
         "positioning": "受可支配所得與景氣週期高度影響",
         "leader": [
-          "LVMU.Y",
           "RACE"
         ],
         "rank": [
-          "RL",
           "EL",
           "M",
-          "SIG"
+          "SIG",
+          "RL"
         ]
       },
       {
@@ -3047,7 +3039,7 @@
         ],
         "rank": [
           "SNOW",
-          "PAWN"
+          "PANW"
         ]
       },
       {
