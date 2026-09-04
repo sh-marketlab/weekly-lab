@@ -47,8 +47,8 @@ themes:
     name: Luxury industry
     zh: 精品消費
     positioning: 受可支配所得與景氣週期高度影響
-    leader: [LVMU.Y, RACE]
-    rank:   [RL, EL, M, SIG]
+    leader: [RACE]
+    rank:   [EL, M, SIG, RL]
   - id: 9
     name: "Energy & Natural Resources"
     zh: 能源與自然資源
