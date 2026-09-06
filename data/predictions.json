@@ -380,7 +380,7 @@
           "actual": null,
           "verdict": null,
           "auto": false,
-          "error_type": null,
+          "error_type": "other",
           "note": ""
         },
         {
@@ -391,7 +391,7 @@
           "actual": null,
           "verdict": null,
           "auto": false,
-          "error_type": null,
+          "error_type": "wrong_timing",
           "note": ""
         }
       ],
@@ -412,6 +412,102 @@
         "as_of": "2026-08-31",
         "probe_date": "2026-08-31"
       }
+    },
+    {
+      "week": "2026-W36",
+      "created_at": "2026-09-06T06:10:36Z",
+      "items": [
+        {
+          "id": "direction",
+          "call": "震盪",
+          "confidence": 4,
+          "rationale": "持續磨耗盤面",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "open_style",
+          "call": "開高走低",
+          "confidence": 2,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "flow",
+          "call": "Risk-off",
+          "confidence": 3,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "leader",
+          "call": "同步",
+          "confidence": 3,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "breadth",
+          "call": "廣度惡化",
+          "confidence": 4,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "vol",
+          "call": "上升",
+          "confidence": 4,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "divergence",
+          "call": "尚未兌現",
+          "confidence": null,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "intent",
+          "call": null,
+          "confidence": null,
+          "rationale": "繼續營造迷霧，持續布局",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        }
+      ],
+      "hypothesis": "",
+      "scored_at": null
     }
   ]
 }
