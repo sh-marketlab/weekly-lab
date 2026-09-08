@@ -422,9 +422,9 @@
           "call": "震盪",
           "confidence": 4,
           "rationale": "持續磨耗盤面",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "空",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -433,9 +433,9 @@
           "call": "開低走高",
           "confidence": 2,
           "rationale": "",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "開高走低",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -444,9 +444,9 @@
           "call": "Risk-off",
           "confidence": 3,
           "rationale": "往防禦股流動布局",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "Risk-off",
+          "verdict": "correct",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -455,9 +455,9 @@
           "call": "同步",
           "confidence": 3,
           "rationale": "同步大盤",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "落後大盤",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -466,9 +466,9 @@
           "call": "廣度惡化",
           "confidence": 4,
           "rationale": "變差",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "廣度轉強",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -477,9 +477,9 @@
           "call": "上升",
           "confidence": 4,
           "rationale": "大",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "上升",
+          "verdict": "correct",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -490,7 +490,7 @@
           "rationale": "",
           "actual": null,
           "verdict": null,
-          "auto": null,
+          "auto": false,
           "error_type": null,
           "note": ""
         },
@@ -501,13 +501,28 @@
           "rationale": "繼續營造迷霧，持續布局\n開低走高, 週四小漲, 週五跌",
           "actual": null,
           "verdict": null,
-          "auto": null,
+          "auto": false,
           "error_type": null,
           "note": ""
         }
       ],
       "hypothesis": "",
-      "scored_at": null
+      "scored_at": "2026-09-08T00:59:56+00:00",
+      "metrics": {
+        "spx_d": -0.0037572216084515997,
+        "spx_gap": 0.0003200920634940374,
+        "spx_intraday": -0.0040760089738224314,
+        "breadth": 0.0062434788437908395,
+        "mega_rel": -0.010480932632637623,
+        "risk_app": -0.005386751816155222,
+        "vix_chg": 0.01466480744569254,
+        "gold": -0.01378106016283076,
+        "dxy": 0.0016161986071654422,
+        "hyg": -0.0006311756462711315,
+        "tlt": 0.0017058534198735043,
+        "as_of": "2026-09-07",
+        "probe_date": "2026-09-04"
+      }
     }
   ]
 }
