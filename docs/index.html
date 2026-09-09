@@ -850,7 +850,20 @@ function renderPredict(d){
   const R = P.last_scored;
   const labels = Object.fromEntries(P.slots.map(s=>[s.id, s]));
   if(R){
-    $("#gradeWk").textContent = R.week;
+    // 標出這次批改實際比對的是哪一天。週一遇美股假日會順延到下一個交易日，
+    // 幾個月後回頭看歷史時，要分得出哪幾週的比對日跟平常不同。
+    const M = R.metrics || {};
+    const mon = M.monday || M.as_of, probe = M.probe_date;
+    let note = R.week;
+    if(probe && mon && probe !== mon){
+      const md = s => String(s).slice(5).replace("-","/");
+      note += ` · ${md(mon)} 休市，實際比對 ${md(probe)}`;
+      $("#gradeWk").style.color = "var(--tighten)";
+    }else{
+      if(probe) note += ` · 比對 ${String(probe).slice(5).replace("-","/")}`;
+      $("#gradeWk").style.color = "";
+    }
+    $("#gradeWk").textContent = note;
     const ed = PEDITS[R.week] || {};
     $("#gradeBody").innerHTML = R.items.map(it=>{
       const sl = labels[it.id] || {label:it.id, options:[]};
