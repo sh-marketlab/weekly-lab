@@ -39,16 +39,17 @@ def save(records: list[dict]):
 
 
 # ── 週一探針 ─────────────────────────────────────────────────────────
-def monday_metrics(as_of: date) -> dict | None:
+def monday_metrics(monday: date) -> dict | None:
     """
-    as_of 是週一。全部相對「前一個交易日收盤」計算。
+    monday 是該週的週一。批改對象是「週一，或週一放假時的下一個交易日」。
 
-    不要求 as_of 當天一定要有報價。美股假日不少（勞動節、陣亡將士紀念日、
-    馬丁路德金恩日都在週一），先前的寫法是 `s[-1][0] != as_of` 就整批放棄，
-    遇到假日會靜默跳過批改，而且完全不留痕跡。
+    預測是週末寫的，要驗的必須是<b>預測發布之後</b>的第一個交易日。
+    所以遇到假日一律往後順延，絕不往前退——退回上週五等於拿預測發布
+    之前就已經發生的事去打分，那個分數沒有預測意義。
 
-    改成：先用 S&P500 定出「≤ as_of 的最後一個交易日」當基準日，
-    其他標的一律對齊到那一天。基準日離 as_of 超過 4 天才判定資料真的有問題。
+    交易日不用寫死行事曆，直接問報價：S&P500 序列裡「≥ monday 的第一筆」
+    就是目標日。目標日還沒收盤時回 None 並標記 not_ready，
+    score_week 會保留該筆預測不批改，等下一趟排程再補。
     """
     c = cfg()
     syms = sorted(set(c["probes"].values()) | set(c["mega_caps"]))
@@ -56,24 +57,31 @@ def monday_metrics(as_of: date) -> dict | None:
     if not ohlc:
         return None
 
-    def col(sym, field, upto):
+    def col(sym, field, upto=None):
         s = (ohlc.get(field) or {}).get(sym)
         if s is None:
             return None
-        return [(d, v) for d, v in s if d <= upto and v == v]
+        return [(d, v) for d, v in s if v == v and (upto is None or d <= upto)]
 
-    # 基準日：以大盤為準，其他標的對齊到它（BTC 週末有價，不能各自為政）
-    spx_close = col(c["probes"]["spx"], "Close", as_of)
-    if not spx_close or len(spx_close) < 2:
+    spx_all = col(c["probes"]["spx"], "Close")
+    if not spx_all or len(spx_all) < 2:
         print("  ! 抓不到 S&P500 報價")
         return None
-    ref = spx_close[-1][0]
-    lag = (as_of - ref).days
+
+    ahead = [d for d, _ in spx_all if d >= monday]
+    if not ahead:
+        last = spx_all[-1][0]
+        print(f"  · {monday} 之後尚無收盤資料（最新為 {last}）——"
+              f"可能是週一休市或排程跑太早，這次不批改，等下一趟排程補。")
+        return None
+
+    ref = ahead[0]                      # 週一，或順延後的第一個交易日
+    lag = (ref - monday).days
     if lag > 4:
-        print(f"  ! 最後交易日 {ref} 距 as_of {as_of} 已 {lag} 天，資料疑似有問題")
+        print(f"  ! 目標交易日 {ref} 距週一 {monday} 已 {lag} 天，資料疑似有問題")
         return None
     if lag:
-        print(f"  · {as_of} 無報價（假日？），改用前一交易日 {ref}")
+        print(f"  · {monday} 休市，順延至下一個交易日 {ref}")
 
     def ret(sym, field="Close"):
         s = col(sym, field, ref)
@@ -108,8 +116,8 @@ def monday_metrics(as_of: date) -> dict | None:
         "vix_chg": vix,
         "gold": ret(p["gold"]), "dxy": ret(p["dxy"]),
         "hyg": ret(p["hyg"]), "tlt": ret(p["tlt"]),
-        "as_of": as_of,
-        "probe_date": ref,      # 實際用來比對的交易日（遇假日會早於 as_of）
+        "monday": monday,       # 該週的週一
+        "probe_date": ref,      # 實際比對的交易日（週一休市時會晚於週一）
     }
     return m if spx is not None else None
 
@@ -238,8 +246,10 @@ def bundle(records: list[dict], wk: str) -> dict:
 # ── CLI：週一批改 ────────────────────────────────────────────────────
 def score_week(as_of: date) -> dict | None:
     """
-    as_of = 週一。找出「上一個週五」那份預測（同一個 ISO 週）並批改。
-    週一和上週五通常屬於不同 ISO 週，所以往回找最近一份未批改的。
+    as_of = 該週的週一。批改最近一份還沒批改的預測。
+
+    目標交易日尚未收盤時（週一休市，或排程跑太早）不批改，
+    也不把該筆標成已處理 —— 下一趟排程會自動再試。
     """
     records = load()
     pending = [r for r in records if not r.get("scored_at")]
@@ -249,7 +259,7 @@ def score_week(as_of: date) -> dict | None:
 
     m = monday_metrics(as_of)
     if not m:
-        print("  ! 抓不到週一探針資料，這次不批改（避免用半套資料打分）")
+        print("  ! 目標交易日的資料尚未齊全，這次不批改（保留待下一趟排程）")
         return None
 
     target = pending[-1]
