@@ -9,6 +9,11 @@ on:
     - cron: "0 23 * * 5"
     # 台灣週二 07:00 = 週一 23:00 UTC → 抓美股週一收盤，自動批改上週的預測（Step 5）
     - cron: "0 23 * * 1"
+    # 台灣週三 07:00 = 週二 23:00 UTC → 補跑用。
+    # 週一遇美股假日（勞動節、馬丁路德金恩日、總統日、陣亡將士紀念日）時，
+    # 前一趟會因為「目標交易日尚未收盤」而保留不批改，由這趟接手。
+    # 平常週一已批改完，這趟會印「沒有待批改的預測」然後跳過，不影響任何資料。
+    - cron: "0 23 * * 2"
   workflow_dispatch:
     inputs:
       stage:
@@ -45,6 +50,7 @@ jobs:
             # 週一那趟會被誤判成 fri，Step 5 的批改整週不會執行且靜默無錯誤。
             case "${{ github.event.schedule }}" in
               "0 23 * * 1") echo "stage=mon" >> $GITHUB_OUTPUT ;;
+              "0 23 * * 2") echo "stage=mon" >> $GITHUB_OUTPUT ;;
               "0 23 * * 4") echo "stage=thu" >> $GITHUB_OUTPUT ;;
               *)            echo "stage=fri" >> $GITHUB_OUTPUT ;;
             esac
