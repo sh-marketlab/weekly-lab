@@ -495,7 +495,12 @@ def main():
     # 週末推演用的是上週五收盤那份，週一的數字是拿來對答案的，不是換一份新的。
     if args.stage == "mon":
         print("  · Step 5 批改")
-        P.score_week(as_of)
+        scored = P.score_week(as_of)
+        if not scored:
+            # 沒批改到就不要存檔。週二那趟在多數週會走到這裡（週一已經批改完），
+            # 若照存會蓋掉 graded_at、讓時間戳說謊，還每週多一次無意義的 commit。
+            print("  · 本次沒有新的批改結果，不更新快照")
+            return
         base = C.latest_weekly()
         if not base:
             print("  ! 找不到既有的週視圖快照，先跑一次 --stage fri")
@@ -503,6 +508,7 @@ def main():
         base["predictions"] = P.bundle(P.load(), base["iso_week"])
         base["graded_at"] = C.utc_stamp()
         base["monday_as_of"] = as_of
+        base["graded_probe_date"] = (scored.get("metrics") or {}).get("probe_date")
         p = C.save_snapshot(base, wk, "mon")
         print(f"✔ 已更新批改結果，週視圖沿用 {base['iso_week']} {base['stage']}")
         print(f"  {p}")
