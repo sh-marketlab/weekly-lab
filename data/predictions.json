@@ -533,9 +533,9 @@
           "call": "震盪",
           "confidence": 4,
           "rationale": "水管注了1112億，但接下來是企業繳稅及四巫日，可能發生流動性枯竭",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "空",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -544,9 +544,9 @@
           "call": "開高走低",
           "confidence": 2,
           "rationale": "一周開始會誘多，但實際可能是資金掩護出貨轉倉",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "開低走高",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -557,7 +557,7 @@
           "rationale": "能源 金融",
           "actual": null,
           "verdict": null,
-          "auto": null,
+          "auto": false,
           "error_type": null,
           "note": ""
         },
@@ -568,7 +568,7 @@
           "rationale": "維持指數, 掩護出貨",
           "actual": null,
           "verdict": null,
-          "auto": null,
+          "auto": false,
           "error_type": null,
           "note": ""
         },
@@ -577,9 +577,9 @@
           "call": "廣度惡化",
           "confidence": 3,
           "rationale": "惡化",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "持平",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -588,9 +588,9 @@
           "call": "上升",
           "confidence": 4,
           "rationale": "大, 畢竟快要接近四巫日",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "上升",
+          "verdict": "correct",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -601,7 +601,7 @@
           "rationale": "",
           "actual": null,
           "verdict": null,
-          "auto": null,
+          "auto": false,
           "error_type": null,
           "note": ""
         },
@@ -612,13 +612,28 @@
           "rationale": "",
           "actual": null,
           "verdict": null,
-          "auto": null,
+          "auto": false,
           "error_type": null,
           "note": ""
         }
       ],
       "hypothesis": "",
-      "scored_at": null
+      "scored_at": "2026-09-15T01:15:50+00:00",
+      "metrics": {
+        "spx_d": -0.004832192338804386,
+        "spx_gap": -0.005947519672072077,
+        "spx_intraday": 0.001122000453034122,
+        "breadth": 0.0008020231973042691,
+        "mega_rel": null,
+        "risk_app": null,
+        "vix_chg": 0.07954546822879793,
+        "gold": -0.016444011342026443,
+        "dxy": 0.00425743602319506,
+        "hyg": null,
+        "tlt": null,
+        "monday": "2026-09-14",
+        "probe_date": "2026-09-14"
+      }
     }
   ]
 }
