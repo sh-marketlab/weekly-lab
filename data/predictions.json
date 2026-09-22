@@ -644,9 +644,9 @@
           "call": "空",
           "confidence": 3,
           "rationale": "物理性抽水加升息",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "多",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -655,9 +655,9 @@
           "call": "開低走低",
           "confidence": 4,
           "rationale": "空加空, 因為沒有期貨支撐了",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "開高走高",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -668,7 +668,7 @@
           "rationale": "",
           "actual": null,
           "verdict": null,
-          "auto": null,
+          "auto": false,
           "error_type": null,
           "note": ""
         },
@@ -679,7 +679,7 @@
           "rationale": "",
           "actual": null,
           "verdict": null,
-          "auto": null,
+          "auto": false,
           "error_type": null,
           "note": ""
         },
@@ -688,9 +688,9 @@
           "call": "持平",
           "confidence": 3,
           "rationale": "",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "廣度惡化",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -699,9 +699,9 @@
           "call": "上升",
           "confidence": 2,
           "rationale": "",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "上升",
+          "verdict": "correct",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -712,7 +712,7 @@
           "rationale": "",
           "actual": null,
           "verdict": null,
-          "auto": null,
+          "auto": false,
           "error_type": null,
           "note": ""
         },
@@ -723,13 +723,28 @@
           "rationale": "",
           "actual": null,
           "verdict": null,
-          "auto": null,
+          "auto": false,
           "error_type": null,
           "note": ""
         }
       ],
       "hypothesis": "",
-      "scored_at": null
+      "scored_at": "2026-09-22T01:29:39+00:00",
+      "metrics": {
+        "spx_d": 0.014927154475197657,
+        "spx_gap": 0.005532981912946822,
+        "spx_intraday": 0.00934248078504507,
+        "breadth": -0.009697044844069858,
+        "mega_rel": null,
+        "risk_app": null,
+        "vix_chg": 0.004051280502525234,
+        "gold": -0.0077289221871742475,
+        "dxy": 0.0019556889155907253,
+        "hyg": null,
+        "tlt": null,
+        "monday": "2026-09-21",
+        "probe_date": "2026-09-21"
+      }
     }
   ]
 }
