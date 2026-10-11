@@ -265,7 +265,7 @@ textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
 
   <section class="meter">
     <div class="meter-head">
-      <span class="meter-title">本週淨血量 · Fed 資產 − TGA − ON RRP</span>
+      <span class="meter-title">本週淨血量 · Fed 資產 − TGA − RRP</span>
       <span class="meter-net" id="netv">—</span>
     </div>
     <div class="flowbars" id="flows"></div>
@@ -505,7 +505,7 @@ function renderBlood(d){
   const parts = [
     {k:"Fed 總資產", v:c.fed_assets, sign:+1},
     {k:"TGA 帳戶",   v:c.tga,        sign:-1},
-    {k:"ON RRP",     v:c.on_rrp,     sign:-1},
+    {k:"RRP 總額",     v:c.on_rrp,     sign:-1},
   ];
   const mx = Math.max(...parts.map(p=>Math.abs(p.v||0)), 1);
   $("#flows").innerHTML = parts.map(p=>{
