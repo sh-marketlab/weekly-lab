@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T02:02:54+00:00",
+  "generated_at": "2026-10-11T08:02:44+00:00",
   "iso_week": "2026-W41",
   "stage": "fri",
   "as_of": "2026-10-09",
@@ -45,7 +45,7 @@
     },
     {
       "id": 3,
-      "name": "ON RRP 隔夜逆回購",
+      "name": "ON RRP 隔夜逆回購 （十億美元）",
       "axis": "liquidity",
       "unit": "十億美元",
       "freq": "daily",
@@ -144,12 +144,12 @@
       "axis": "fx",
       "unit": "index",
       "freq": "daily",
-      "curr": 102.23100280761719,
+      "curr": 102.20999908447266,
       "prev": 101.93000030517578,
       "curr_date": "2026-10-09",
       "prev_date": "2026-10-02",
-      "delta": 0.30100250244140625,
-      "delta_pct": 0.0029530315073110227,
+      "delta": 0.279998779296875,
+      "delta_pct": 0.002746971239660217,
       "up_bias": "tighten",
       "verdict": "上升（全球抽水/資金回流）",
       "note": "全球美元流動性總閥門",
@@ -239,12 +239,12 @@
       "axis": "sentiment",
       "unit": "index",
       "freq": "daily",
-      "curr": 98.47350311279297,
+      "curr": 98.47000122070312,
       "prev": 107.29000091552734,
       "curr_date": "2026-10-09",
       "prev_date": "2026-10-02",
-      "delta": -8.816497802734375,
-      "delta_pct": -0.08217445919937935,
+      "delta": -8.819999694824219,
+      "delta_pct": -0.08220709870035765,
       "up_bias": "risk_off",
       "verdict": "下降（債市穩定）",
       "note": "美債波動度，金融體系底層資產穩定度",
@@ -369,7 +369,7 @@
         "GC=F"
       ],
       "is_basket": false,
-      "chg_w": 0.013935,
+      "chg_w": 0.012974,
       "members_ok": 1,
       "members_total": 1,
       "base": 141702414336.0,
@@ -378,7 +378,7 @@
       "base_parts": {
         "GLD": 141702414336.0
       },
-      "value_delta": 1947484941.1176848,
+      "value_delta": 1814900603.1697397,
       "net_flow": -12944175211.34729,
       "flow_note": null,
       "note": null
@@ -390,7 +390,7 @@
         "SI=F"
       ],
       "is_basket": false,
-      "chg_w": 0.018891,
+      "chg_w": 0.017857,
       "members_ok": 1,
       "members_total": 1,
       "base": 29961824256.0,
@@ -399,7 +399,7 @@
       "base_parts": {
         "SLV": 29961824256.0
       },
-      "value_delta": 555514595.7910081,
+      "value_delta": 525641908.18493366,
       "net_flow": -4746668159.257545,
       "flow_note": null,
       "note": null
@@ -411,7 +411,7 @@
         "HG=F"
       ],
       "is_basket": false,
-      "chg_w": 0.033734,
+      "chg_w": 0.030807,
       "members_ok": 1,
       "members_total": 1,
       "base": 713378176.0,
@@ -420,7 +420,7 @@
       "base_parts": {
         "CPER": 713378176.0
       },
-      "value_delta": 23279779.313811872,
+      "value_delta": 21320229.168051828,
       "net_flow": -51919496.36573291,
       "flow_note": null,
       "note": "銅博士，工業活力領先指標"
@@ -432,7 +432,7 @@
         "PA=F"
       ],
       "is_basket": false,
-      "chg_w": -0.00956,
+      "chg_w": -0.009215,
       "members_ok": 1,
       "members_total": 1,
       "base": 637288704.0,
@@ -441,7 +441,7 @@
       "base_parts": {
         "PALL": 637288704.0
       },
-      "value_delta": -6151286.307338154,
+      "value_delta": -5927234.876749244,
       "net_flow": -114399698.16318929,
       "flow_note": null,
       "note": null
@@ -453,7 +453,7 @@
         "PL=F"
       ],
       "is_basket": false,
-      "chg_w": -0.005922,
+      "chg_w": -0.007153,
       "members_ok": 1,
       "members_total": 1,
       "base": 2077687936.0,
@@ -462,7 +462,7 @@
       "base_parts": {
         "PPLT": 2077687936.0
       },
-      "value_delta": -12377366.722723972,
+      "value_delta": -14968773.442643225,
       "net_flow": -193831268.3284092,
       "flow_note": null,
       "note": null
@@ -516,7 +516,7 @@
         "^RUT"
       ],
       "is_basket": false,
-      "chg_w": -0.009149,
+      "chg_w": -0.00915,
       "members_ok": 1,
       "members_total": 1,
       "base": 78041726976.0,
@@ -525,7 +525,7 @@
       "base_parts": {
         "IWM": 78041726976.0
       },
-      "value_delta": -720596497.4586734,
+      "value_delta": -720675987.1124792,
       "net_flow": -1681885790.9198303,
       "flow_note": null,
       "note": null
@@ -621,7 +621,7 @@
         "ZB=F"
       ],
       "is_basket": false,
-      "chg_w": 0.004258,
+      "chg_w": 0.00365,
       "members_ok": 1,
       "members_total": 1,
       "base": 46233321472.0,
@@ -630,7 +630,7 @@
       "base_parts": {
         "TLT": 46233321472.0
       },
-      "value_delta": 196026800.7103513,
+      "value_delta": 168137919.96492803,
       "net_flow": -1116609882.858345,
       "flow_note": null,
       "note": null
@@ -642,7 +642,7 @@
         "ZN=F"
       ],
       "is_basket": false,
-      "chg_w": 0.002396,
+      "chg_w": 0.002246,
       "members_ok": 1,
       "members_total": 1,
       "base": 41556897792.0,
@@ -651,7 +651,7 @@
       "base_parts": {
         "IEF": 41556897792.0
       },
-      "value_delta": 99332326.85448864,
+      "value_delta": 93127627.78881831,
       "net_flow": -431541052.9443817,
       "flow_note": null,
       "note": null
@@ -663,7 +663,7 @@
         "ZF=F"
       ],
       "is_basket": false,
-      "chg_w": 0.001586,
+      "chg_w": 0.001511,
       "members_ok": 1,
       "members_total": 1,
       "base": 16787430400.0,
@@ -672,7 +672,7 @@
       "base_parts": {
         "IEI": 16787430400.0
       },
-      "value_delta": 26582704.445149988,
+      "value_delta": 25327537.425350294,
       "net_flow": -938323602.9140053,
       "flow_note": null,
       "note": null
@@ -684,7 +684,7 @@
         "ZT=F"
       ],
       "is_basket": false,
-      "chg_w": 0.000768,
+      "chg_w": 0.000729,
       "members_ok": 1,
       "members_total": 1,
       "base": 26281537536.0,
@@ -693,7 +693,7 @@
       "base_parts": {
         "SHY": 26281537536.0
       },
-      "value_delta": 20168731.2420541,
+      "value_delta": 19145283.95174318,
       "net_flow": 320516462.35100174,
       "flow_note": null,
       "note": null
@@ -896,7 +896,7 @@
         "BTC-USD"
       ],
       "is_basket": false,
-      "chg_w": -0.036422,
+      "chg_w": -0.04549,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
@@ -917,7 +917,7 @@
         "ETH-USD"
       ],
       "is_basket": false,
-      "chg_w": -0.080135,
+      "chg_w": -0.088381,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
@@ -938,7 +938,7 @@
         "DX-Y.NYB"
       ],
       "is_basket": false,
-      "chg_w": 0.002953,
+      "chg_w": 0.002747,
       "members_ok": 1,
       "members_total": 1,
       "base": 431136608.0,
@@ -947,7 +947,7 @@
       "base_parts": {
         "UUP": 431136608.0
       },
-      "value_delta": 1269397.8715094326,
+      "value_delta": 1181087.8139510765,
       "net_flow": 131083723.31340414,
       "flow_note": null,
       "note": "方向相反，正值代表美元升"
@@ -959,7 +959,7 @@
         "6E=F"
       ],
       "is_basket": false,
-      "chg_w": -0.002309,
+      "chg_w": -0.002354,
       "members_ok": 1,
       "members_total": 1,
       "base": 329840448.0,
@@ -968,7 +968,7 @@
       "base_parts": {
         "FXE": 329840448.0
       },
-      "value_delta": -763364.2023752845,
+      "value_delta": -778276.4774198463,
       "net_flow": -38721153.91608065,
       "flow_note": null,
       "note": null
@@ -980,7 +980,7 @@
         "6J=F"
       ],
       "is_basket": false,
-      "chg_w": 0.00063,
+      "chg_w": 0.001182,
       "members_ok": 1,
       "members_total": 1,
       "base": 459714304.0,
@@ -989,7 +989,7 @@
       "base_parts": {
         "FXY": 459714304.0
       },
-      "value_delta": 289437.665790552,
+      "value_delta": 542740.7877169186,
       "net_flow": 13496843.47567314,
       "flow_note": null,
       "note": null
@@ -1001,7 +1001,7 @@
         "6B=F"
       ],
       "is_basket": false,
-      "chg_w": -0.000302,
+      "chg_w": 0.000227,
       "members_ok": 1,
       "members_total": 1,
       "base": 89011112.0,
@@ -1010,7 +1010,7 @@
       "base_parts": {
         "FXB": 89011112.0
       },
-      "value_delta": -26889.47644588666,
+      "value_delta": 20200.936811343825,
       "net_flow": 23708460.0,
       "flow_note": null,
       "note": null
@@ -1022,7 +1022,7 @@
         "6C=F"
       ],
       "is_basket": false,
-      "chg_w": 0.002636,
+      "chg_w": 0.001852,
       "members_ok": 1,
       "members_total": 1,
       "base": 65420564.0,
@@ -1031,7 +1031,7 @@
       "base_parts": {
         "FXC": 65420564.0
       },
-      "value_delta": 171995.22728487707,
+      "value_delta": 120934.91306899622,
       "net_flow": -1421356.1737729833,
       "flow_note": null,
       "note": null
@@ -1043,7 +1043,7 @@
         "6S=F"
       ],
       "is_basket": false,
-      "chg_w": -0.00263,
+      "chg_w": -0.002055,
       "members_ok": 1,
       "members_total": 1,
       "base": 374817440.0,
@@ -1052,7 +1052,7 @@
       "base_parts": {
         "FXF": 374817440.0
       },
-      "value_delta": -988369.2784021978,
+      "value_delta": -771835.9621021199,
       "net_flow": -12213997.776055455,
       "flow_note": null,
       "note": null
@@ -1083,7 +1083,7 @@
         "6A=F"
       ],
       "is_basket": false,
-      "chg_w": 0.004029,
+      "chg_w": 0.003885,
       "members_ok": 1,
       "members_total": 1,
       "base": 93450920.0,
@@ -1092,7 +1092,7 @@
       "base_parts": {
         "FXA": 93450920.0
       },
-      "value_delta": 375002.87011630135,
+      "value_delta": 361651.8069300767,
       "net_flow": -3083381.0479530543,
       "flow_note": null,
       "note": null
@@ -1104,7 +1104,7 @@
         "CL=F"
       ],
       "is_basket": false,
-      "chg_w": 0.006037,
+      "chg_w": 0.008122,
       "members_ok": 1,
       "members_total": 1,
       "base": 1690582144.0,
@@ -1113,7 +1113,7 @@
       "base_parts": {
         "USO": 1690582144.0
       },
-      "value_delta": 10144800.244253442,
+      "value_delta": 13620284.225091806,
       "net_flow": -217277580.13112378,
       "flow_note": null,
       "note": "北美供需與美國本土經濟熱度"
@@ -1125,7 +1125,7 @@
         "BZ=F"
       ],
       "is_basket": false,
-      "chg_w": 0.02132,
+      "chg_w": 0.024156,
       "members_ok": 1,
       "members_total": 1,
       "base": 645746688.0,
@@ -1134,7 +1134,7 @@
       "base_parts": {
         "BNO": 645746688.0
       },
-      "value_delta": 13479927.337328164,
+      "value_delta": 15230743.163471188,
       "net_flow": 16042609.89335692,
       "flow_note": null,
       "note": "全球需求、地緣風險與 OPEC+ 政策"
@@ -1146,7 +1146,7 @@
         "NG=F"
       ],
       "is_basket": false,
-      "chg_w": 0.055684,
+      "chg_w": 0.060955,
       "members_ok": 1,
       "members_total": 1,
       "base": 458426592.0,
@@ -1155,7 +1155,7 @@
       "base_parts": {
         "UNG": 458426592.0
       },
-      "value_delta": 24180556.254454926,
+      "value_delta": 26337962.4162759,
       "net_flow": -150870296.35886502,
       "flow_note": null,
       "note": null
@@ -1167,7 +1167,7 @@
         "HO=F"
       ],
       "is_basket": false,
-      "chg_w": 0.040368,
+      "chg_w": 0.05272,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
@@ -1186,7 +1186,7 @@
         "RB=F"
       ],
       "is_basket": false,
-      "chg_w": -0.053224,
+      "chg_w": -0.048001,
       "members_ok": 1,
       "members_total": 1,
       "base": 190161328.0,
@@ -1195,7 +1195,7 @@
       "base_parts": {
         "UGA": 190161328.0
       },
-      "value_delta": -10690117.326032769,
+      "value_delta": -9588175.938554557,
       "net_flow": 46108950.65154058,
       "flow_note": null,
       "note": "終端出行與零售通膨"
@@ -1207,7 +1207,7 @@
         "ZS=F"
       ],
       "is_basket": false,
-      "chg_w": 0.010952,
+      "chg_w": 0.010757,
       "members_ok": 1,
       "members_total": 1,
       "base": 45388196.0,
@@ -1216,7 +1216,7 @@
       "base_parts": {
         "SOYB": 45388196.0
       },
-      "value_delta": 491706.35459645954,
+      "value_delta": 483044.7124007056,
       "net_flow": -1530936.5521986112,
       "flow_note": null,
       "note": null
@@ -1228,7 +1228,7 @@
         "ZC=F"
       ],
       "is_basket": false,
-      "chg_w": -0.034656,
+      "chg_w": -0.036163,
       "members_ok": 1,
       "members_total": 1,
       "base": 130198560.0,
@@ -1237,7 +1237,7 @@
       "base_parts": {
         "CORN": 130198560.0
       },
-      "value_delta": -4674148.588855372,
+      "value_delta": -4885027.785071542,
       "net_flow": -31143016.74322605,
       "flow_note": null,
       "note": null
@@ -1249,7 +1249,7 @@
         "ZW=F"
       ],
       "is_basket": false,
-      "chg_w": -0.017936,
+      "chg_w": -0.01757,
       "members_ok": 1,
       "members_total": 1,
       "base": 284404096.0,
@@ -1258,7 +1258,7 @@
       "base_parts": {
         "WEAT": 284404096.0
       },
-      "value_delta": -5194235.676957917,
+      "value_delta": -5086347.085003511,
       "net_flow": -73704358.15256077,
       "flow_note": null,
       "note": null
@@ -1270,7 +1270,7 @@
         "SB=F"
       ],
       "is_basket": false,
-      "chg_w": 0.01706,
+      "chg_w": 0.016056,
       "members_ok": 1,
       "members_total": 1,
       "base": 53136040.0,
@@ -1279,7 +1279,7 @@
       "base_parts": {
         "CANE": 53136040.0
       },
-      "value_delta": 891295.3438341887,
+      "value_delta": 839670.5085546465,
       "net_flow": -6130931.216189101,
       "flow_note": null,
       "note": null
@@ -1440,8 +1440,8 @@
           "ticker": "MU",
           "tier": "rank",
           "chg_w": -0.04269275369856951,
-          "mcap": 1162145552379.0,
-          "value_delta": -51827868243.23499
+          "mcap": 1164234485148.0,
+          "value_delta": -51921027772.26222
         },
         {
           "ticker": "ADI",
@@ -1476,7 +1476,7 @@
       "rank_avg": -0.042915,
       "breadth_gap": 0.031568,
       "avg": -0.037176,
-      "value_delta_total": -189716431869.06152,
+      "value_delta_total": -189809591398.08875,
       "mcap_coverage": "11/11",
       "advance_decline": "3/11"
     },
@@ -2604,7 +2604,7 @@
       "hit": false,
       "evidence": {
         "2Y Δbp": -8.0,
-        "Gold %": 0.013935
+        "Gold %": 0.012974
       }
     },
     {
@@ -2622,8 +2622,8 @@
       "truth": "全球法幣信任危機，資金進行逃命式搶購",
       "hit": false,
       "evidence": {
-        "DXY %": 0.002953,
-        "BTC %": -0.036422,
+        "DXY %": 0.002747,
+        "BTC %": -0.04549,
         "NDX %": 0.002442
       }
     },
@@ -4289,9 +4289,200 @@
           "monday": "2026-10-05",
           "probe_date": "2026-10-05"
         }
+      },
+      {
+        "week": "2026-W41",
+        "created_at": "2026-10-11T06:45:51Z",
+        "items": [
+          {
+            "id": "direction",
+            "call": "震盪",
+            "confidence": 3,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "open_style",
+            "call": "開低走高",
+            "confidence": 3,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "flow",
+            "call": "Risk-off",
+            "confidence": 4,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "leader",
+            "call": "同步",
+            "confidence": 3,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "breadth",
+            "call": "持平",
+            "confidence": null,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "vol",
+            "call": "上升",
+            "confidence": 3,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "divergence",
+            "call": "開始兌現",
+            "confidence": 3,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "intent",
+            "call": "部分正確",
+            "confidence": 3,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": null,
+            "note": ""
+          }
+        ],
+        "hypothesis": "",
+        "scored_at": null
       }
     ],
-    "current": null,
+    "current": {
+      "week": "2026-W41",
+      "created_at": "2026-10-11T06:45:51Z",
+      "items": [
+        {
+          "id": "direction",
+          "call": "震盪",
+          "confidence": 3,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "open_style",
+          "call": "開低走高",
+          "confidence": 3,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "flow",
+          "call": "Risk-off",
+          "confidence": 4,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "leader",
+          "call": "同步",
+          "confidence": 3,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "breadth",
+          "call": "持平",
+          "confidence": null,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "vol",
+          "call": "上升",
+          "confidence": 3,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "divergence",
+          "call": "開始兌現",
+          "confidence": 3,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "intent",
+          "call": "部分正確",
+          "confidence": 3,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": null,
+          "error_type": null,
+          "note": ""
+        }
+      ],
+      "hypothesis": "",
+      "scored_at": null
+    },
     "last_scored": {
       "week": "2026-W40",
       "created_at": "2026-10-03T17:04:43Z",
