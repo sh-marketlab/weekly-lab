@@ -39,7 +39,7 @@ indicators:
     alt_source: FiscalData daily operating cash balance（若要日頻可換）
 
   - id: 3
-    name: ON RRP 隔夜逆回購
+    name: ON RRP 隔夜逆回購 （十億美元）
     axis: liquidity
     source: {type: fred, series: RRPONTSYD}
     unit: 十億美元
