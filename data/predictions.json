@@ -977,9 +977,9 @@
           "call": "震盪",
           "confidence": 3,
           "rationale": "",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "震盪",
+          "verdict": "correct",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -988,9 +988,9 @@
           "call": "開低走高",
           "confidence": 3,
           "rationale": "",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "開高走低",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -999,9 +999,9 @@
           "call": "Risk-off",
           "confidence": 4,
           "rationale": "",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "Risk-off",
+          "verdict": "correct",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -1010,9 +1010,9 @@
           "call": "同步",
           "confidence": 3,
           "rationale": "",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "領先大盤",
+          "verdict": "wrong",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -1021,9 +1021,9 @@
           "call": "持平",
           "confidence": null,
           "rationale": "",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "持平",
+          "verdict": "correct",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -1032,9 +1032,9 @@
           "call": "上升",
           "confidence": 3,
           "rationale": "",
-          "actual": null,
-          "verdict": null,
-          "auto": null,
+          "actual": "上升",
+          "verdict": "correct",
+          "auto": true,
           "error_type": null,
           "note": ""
         },
@@ -1045,7 +1045,7 @@
           "rationale": "",
           "actual": null,
           "verdict": null,
-          "auto": null,
+          "auto": false,
           "error_type": null,
           "note": ""
         },
@@ -1056,13 +1056,28 @@
           "rationale": "",
           "actual": null,
           "verdict": null,
-          "auto": null,
+          "auto": false,
           "error_type": null,
           "note": ""
         }
       ],
       "hypothesis": "",
-      "scored_at": null
+      "scored_at": "2026-10-13T03:24:40+00:00",
+      "metrics": {
+        "spx_d": -0.0005504426356388592,
+        "spx_gap": 0.00019202359489911558,
+        "spx_intraday": -0.0007423236868751015,
+        "breadth": -0.003902741956690381,
+        "mega_rel": 0.0041040103657360594,
+        "risk_app": -0.01560312273004305,
+        "vix_chg": 0.024932606587241724,
+        "gold": -0.003272965710872322,
+        "dxy": 0.0019665789073550766,
+        "hyg": 0.0007768685224116556,
+        "tlt": 0.0008976621160659004,
+        "monday": "2026-10-12",
+        "probe_date": "2026-10-12"
+      }
     }
   ]
 }
