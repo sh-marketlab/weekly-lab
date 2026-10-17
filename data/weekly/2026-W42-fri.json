@@ -1,0 +1,4661 @@
+{
+  "generated_at": "2026-10-17T00:57:59+00:00",
+  "iso_week": "2026-W42",
+  "stage": "fri",
+  "as_of": "2026-10-16",
+  "as_of_label": "2026-W42 週五收盤",
+  "macro": [
+    {
+      "id": 1,
+      "name": "Fed 總資產負債表",
+      "axis": "liquidity",
+      "unit": "百萬美元",
+      "freq": "weekly",
+      "curr": 6755639.0,
+      "prev": 6747560.0,
+      "curr_date": "2026-10-14",
+      "prev_date": "2026-10-07",
+      "delta": 8079.0,
+      "delta_pct": 0.0011973216985102762,
+      "up_bias": "loosen",
+      "verdict": "增加（擴表/放水）",
+      "note": "是否在秘密縮表/擴表",
+      "source": "FRED:WALCL",
+      "stale": false,
+      "manual_url": null
+    },
+    {
+      "id": 2,
+      "name": "TGA 財政部一般帳戶",
+      "axis": "liquidity",
+      "unit": "百萬美元",
+      "freq": "weekly",
+      "curr": 885823.0,
+      "prev": 885783.0,
+      "curr_date": "2026-10-14",
+      "prev_date": "2026-10-07",
+      "delta": 40.0,
+      "delta_pct": 4.515778695233483e-05,
+      "up_bias": "tighten",
+      "verdict": "增加（抽水）",
+      "note": "政府在回收/放出市場資金",
+      "source": "FRED:WDTGAL",
+      "stale": false,
+      "manual_url": null
+    },
+    {
+      "id": 3,
+      "name": "ON RRP 隔夜逆回購 （十億美元）",
+      "axis": "liquidity",
+      "unit": "十億美元",
+      "freq": "daily",
+      "curr": 0.1,
+      "prev": 0.3,
+      "curr_date": "2026-10-16",
+      "prev_date": "2026-10-09",
+      "delta": -0.19999999999999998,
+      "delta_pct": -0.6666666666666666,
+      "up_bias": "tighten",
+      "verdict": "減少（放水）",
+      "note": "貨幣市場資金是否在釋放（注意：單位是十億，且不參與",
+      "source": "FRED:RRPONTSYD",
+      "stale": false,
+      "manual_url": null
+    },
+    {
+      "id": 4,
+      "name": "淨流動性 (資產-TGA-RRP)",
+      "axis": "liquidity",
+      "unit": "百萬美元",
+      "freq": "weekly",
+      "curr": 5543017.0,
+      "prev": 5528038.0,
+      "curr_date": "2026-10-14",
+      "prev_date": "2026-10-07",
+      "delta": 14979.0,
+      "delta_pct": 0.002709641286836306,
+      "up_bias": "loosen",
+      "verdict": "上升",
+      "note": "真正的市場總血量 = WALCL − WDTGAL − WLRRAL（三條都是週三、都是百萬）",
+      "source": "計算：WALCL−WDTGAL−WLRRAL",
+      "stale": false,
+      "manual_url": null
+    },
+    {
+      "id": 5,
+      "name": "HY OAS 高收益債利差",
+      "axis": "credit",
+      "unit": "%",
+      "freq": "daily",
+      "curr": 3.23,
+      "prev": 3.11,
+      "curr_date": "2026-10-15",
+      "prev_date": "2026-10-09",
+      "delta": 0.1200000000000001,
+      "delta_pct": 0.03858520900321547,
+      "up_bias": "risk_off",
+      "verdict": "擴大（風險升）",
+      "note": "Smart Money 看到的真實企業違約率",
+      "source": "FRED:BAMLH0A0HYM2",
+      "stale": false,
+      "manual_url": null
+    },
+    {
+      "id": 6,
+      "name": "SOFR",
+      "axis": "funding",
+      "unit": "%",
+      "freq": "daily",
+      "curr": 3.89,
+      "prev": 3.87,
+      "curr_date": "2026-10-15",
+      "prev_date": "2026-10-09",
+      "delta": 0.020000000000000018,
+      "delta_pct": 0.005167958656330754,
+      "up_bias": "tighten",
+      "verdict": "上升（緊縮）",
+      "note": "隔夜融資市場的實際資金成本",
+      "source": "FRED:SOFR",
+      "stale": false,
+      "manual_url": null
+    },
+    {
+      "id": 7,
+      "name": "2 年期美債殖利率",
+      "axis": "rates",
+      "unit": "%",
+      "freq": "daily",
+      "curr": 4.77,
+      "prev": 4.8,
+      "curr_date": "2026-10-15",
+      "prev_date": "2026-10-09",
+      "delta": -0.03000000000000025,
+      "delta_pct": -0.006250000000000052,
+      "up_bias": "tighten",
+      "verdict": "下降（寬鬆）",
+      "note": "市場對 Fed 近期利率路徑的真實定價",
+      "source": "FRED:DGS2",
+      "stale": false,
+      "manual_url": null
+    },
+    {
+      "id": 8,
+      "name": "DXY 美元指數",
+      "axis": "fx",
+      "unit": "index",
+      "freq": "daily",
+      "curr": 101.77899932861328,
+      "prev": 102.20999908447266,
+      "curr_date": "2026-10-16",
+      "prev_date": "2026-10-09",
+      "delta": -0.430999755859375,
+      "delta_pct": -0.00421680618060832,
+      "up_bias": "tighten",
+      "verdict": "下降（全球放水）",
+      "note": "全球美元流動性總閥門",
+      "source": "Yahoo:DX-Y.NYB",
+      "stale": false,
+      "manual_url": null
+    },
+    {
+      "id": 9,
+      "name": "10Y / 2Y 利差",
+      "axis": "rates",
+      "unit": "%",
+      "freq": "daily",
+      "curr": 0.35,
+      "prev": 0.44,
+      "curr_date": "2026-10-16",
+      "prev_date": "2026-10-09",
+      "delta": -0.09000000000000002,
+      "delta_pct": -0.2045454545454546,
+      "up_bias": "expand",
+      "verdict": "縮小/平坦化",
+      "note": "衰退預警與長短期資金成本結構",
+      "source": "FRED:T10Y2Y",
+      "stale": false,
+      "manual_url": null
+    },
+    {
+      "id": 10,
+      "name": "美國主權 CDS (5Y)",
+      "axis": "credit",
+      "unit": "bp",
+      "freq": "weekly",
+      "curr": 32.85,
+      "prev": 32.85,
+      "curr_date": "2026-09-04",
+      "prev_date": "2026-09-04",
+      "delta": 0.0,
+      "delta_pct": 0.0,
+      "up_bias": "risk_off",
+      "verdict": null,
+      "note": "對美國主權違約風險的即時定價",
+      "source": "手動",
+      "stale": true,
+      "manual_url": "https://www.worldgovernmentbonds.com/sovereign-cds/"
+    },
+    {
+      "id": 11,
+      "name": "CNN Fear & Greed",
+      "axis": "sentiment",
+      "unit": "index",
+      "freq": "daily",
+      "curr": 17.9383219954649,
+      "prev": 46.4857142857143,
+      "curr_date": "2026-10-16",
+      "prev_date": "2026-10-09",
+      "delta": -28.5473922902494,
+      "delta_pct": -0.614111081843103,
+      "up_bias": "risk_on",
+      "verdict": "下降（恐慌/超賣）",
+      "note": "市場情緒擺盪",
+      "source": "CNN Fear & Greed",
+      "stale": false,
+      "manual_url": null
+    },
+    {
+      "id": 12,
+      "name": "VIX",
+      "axis": "sentiment",
+      "unit": "index",
+      "freq": "daily",
+      "curr": 16.46,
+      "prev": 14.84,
+      "curr_date": "2026-10-15",
+      "prev_date": "2026-10-09",
+      "delta": 1.620000000000001,
+      "delta_pct": 0.10916442048517527,
+      "up_bias": "risk_off",
+      "verdict": "上升（股市恐慌）",
+      "note": "股市選擇權隱含波動度",
+      "source": "FRED:VIXCLS",
+      "stale": false,
+      "manual_url": null
+    },
+    {
+      "id": 13,
+      "name": "MOVE 指數",
+      "axis": "sentiment",
+      "unit": "index",
+      "freq": "daily",
+      "curr": 101.10289764404297,
+      "prev": 98.47000122070312,
+      "curr_date": "2026-10-16",
+      "prev_date": "2026-10-09",
+      "delta": 2.6328964233398438,
+      "delta_pct": 0.026738056166351325,
+      "up_bias": "risk_off",
+      "verdict": "上升（債市動盪）",
+      "note": "美債波動度，金融體系底層資產穩定度",
+      "source": "Yahoo:^MOVE",
+      "stale": false,
+      "manual_url": "https://www.investing.com/indices/ice-bofaml-move"
+    },
+    {
+      "id": 14,
+      "name": "Manufacturing PMI",
+      "axis": "macro",
+      "unit": "index",
+      "freq": "monthly",
+      "curr": 53.9,
+      "prev": 53.9,
+      "curr_date": "2026-09-04",
+      "prev_date": "2026-08-03",
+      "delta": 0.0,
+      "delta_pct": 0.0,
+      "up_bias": "expand",
+      "verdict": null,
+      "note": "製造業基本面與資本支出意願",
+      "source": "手動",
+      "stale": true,
+      "manual_url": "https://hk.investing.com/economic-calendar/manufacturing-pmi-829"
+    },
+    {
+      "id": 15,
+      "name": "Initial Jobless Claims",
+      "axis": "macro",
+      "unit": "人",
+      "freq": "weekly",
+      "curr": 199000.0,
+      "prev": 198000.0,
+      "curr_date": "2026-10-10",
+      "prev_date": "2026-10-03",
+      "delta": 1000.0,
+      "delta_pct": 0.005050505050505051,
+      "up_bias": "contract",
+      "verdict": "上升（勞動市場降溫）",
+      "note": "就業彈性與消費端衰退指標",
+      "source": "FRED:ICSA",
+      "stale": false,
+      "manual_url": null
+    },
+    {
+      "id": 16,
+      "name": "Michigan Consumer Sentiment",
+      "axis": "macro",
+      "unit": "index",
+      "freq": "monthly",
+      "curr": 51.7,
+      "prev": 55.2,
+      "curr_date": "2026-08-01",
+      "prev_date": "2026-07-01",
+      "delta": -3.5,
+      "delta_pct": -0.06340579710144927,
+      "up_bias": "expand",
+      "verdict": "下降（消費信心受挫）",
+      "note": "終端消費信心前瞻指標",
+      "source": "FRED:UMCSENT",
+      "stale": true,
+      "manual_url": null
+    },
+    {
+      "id": 17,
+      "name": "Inflation Rate (CPI YoY)",
+      "axis": "macro",
+      "unit": "%",
+      "freq": "monthly",
+      "curr": 4.02,
+      "prev": 3.71,
+      "curr_date": "2026-09-01",
+      "prev_date": "2026-08-01",
+      "delta": 0.3099999999999996,
+      "delta_pct": 0.08355795148247969,
+      "up_bias": "tighten",
+      "verdict": "上升（通膨加溫）",
+      "note": "Fed 政策轉向的核心約束",
+      "source": "FRED:CPIAUCSL",
+      "stale": true,
+      "manual_url": null
+    },
+    {
+      "id": 18,
+      "name": "銀行準備金餘額",
+      "axis": "liquidity",
+      "unit": "百萬美元",
+      "freq": "weekly",
+      "curr": 3030854.0,
+      "prev": 3022066.0,
+      "curr_date": "2026-10-14",
+      "prev_date": "2026-10-07",
+      "delta": 8788.0,
+      "delta_pct": 0.002907944432715897,
+      "up_bias": "loosen",
+      "verdict": "增加（血量真的變多）",
+      "note": "直接觀測值，用來交叉檢核第 4 項的近似公式",
+      "source": "FRED:WRBWFRBL",
+      "stale": false,
+      "manual_url": null
+    }
+  ],
+  "blood": {
+    "net": 14979.0,
+    "components": {
+      "fed_assets": 8079.0,
+      "tga": 40.0,
+      "on_rrp": -6940.0
+    },
+    "dates": {
+      "curr": "2026-10-14",
+      "prev": "2026-10-07"
+    },
+    "reading": "放血（注入）"
+  },
+  "sectors": [
+    {
+      "group": "原物料",
+      "name": "Gold",
+      "tickers": [
+        "GC=F"
+      ],
+      "is_basket": false,
+      "chg_w": -0.00702,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 141702414336.0,
+      "base_kind": "ETF 資產",
+      "base_of": "GLD",
+      "base_parts": {
+        "GLD": 141702414336.0
+      },
+      "value_delta": -1001783468.5882093,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "原物料",
+      "name": "Silver",
+      "tickers": [
+        "SI=F"
+      ],
+      "is_basket": false,
+      "chg_w": -0.058266,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 29961824256.0,
+      "base_kind": "ETF 資產",
+      "base_of": "SLV",
+      "base_parts": {
+        "SLV": 29961824256.0
+      },
+      "value_delta": -1853767254.978684,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "原物料",
+      "name": "Copper",
+      "tickers": [
+        "HG=F"
+      ],
+      "is_basket": false,
+      "chg_w": -0.012119,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 713378176.0,
+      "base_kind": "ETF 資產",
+      "base_of": "CPER",
+      "base_parts": {
+        "CPER": 713378176.0
+      },
+      "value_delta": -8751489.415166402,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": "銅博士，工業活力領先指標"
+    },
+    {
+      "group": "原物料",
+      "name": "Palladium",
+      "tickers": [
+        "PA=F"
+      ],
+      "is_basket": false,
+      "chg_w": -0.022359,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 637288704.0,
+      "base_kind": "ETF 資產",
+      "base_of": "PALL",
+      "base_parts": {
+        "PALL": 637288704.0
+      },
+      "value_delta": -14575021.02789879,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "原物料",
+      "name": "Platinum",
+      "tickers": [
+        "PL=F"
+      ],
+      "is_basket": false,
+      "chg_w": -0.023581,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 2077687936.0,
+      "base_kind": "ETF 資產",
+      "base_of": "PPLT",
+      "base_parts": {
+        "PPLT": 2077687936.0
+      },
+      "value_delta": -50177187.476704165,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "股票",
+      "name": "S&P 500",
+      "tickers": [
+        "^GSPC"
+      ],
+      "is_basket": false,
+      "chg_w": -0.019471,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 809216114688.0,
+      "base_kind": "ETF 資產",
+      "base_of": "SPY",
+      "base_parts": {
+        "SPY": 809216114688.0
+      },
+      "value_delta": -16069128979.448898,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "股票",
+      "name": "Nasdaq 100",
+      "tickers": [
+        "^NDX"
+      ],
+      "is_basket": false,
+      "chg_w": -0.054904,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 498945982464.0,
+      "base_kind": "ETF 資產",
+      "base_of": "QQQ",
+      "base_parts": {
+        "QQQ": 498945982464.0
+      },
+      "value_delta": -28985553024.458313,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "股票",
+      "name": "Russell 2000",
+      "tickers": [
+        "^RUT"
+      ],
+      "is_basket": false,
+      "chg_w": -0.030499,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 78041726976.0,
+      "base_kind": "ETF 資產",
+      "base_of": "IWM",
+      "base_parts": {
+        "IWM": 78041726976.0
+      },
+      "value_delta": -2455071867.9413676,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "股票",
+      "name": "DJIA",
+      "tickers": [
+        "^DJI"
+      ],
+      "is_basket": false,
+      "chg_w": 0.006727,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 43860340736.0,
+      "base_kind": "ETF 資產",
+      "base_of": "DIA",
+      "base_parts": {
+        "DIA": 43860340736.0
+      },
+      "value_delta": 293076983.26465076,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "股票",
+      "name": "Euro Stoxx 50",
+      "tickers": [
+        "^STOXX50E"
+      ],
+      "is_basket": false,
+      "chg_w": 0.006778,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 4282942208.0,
+      "base_kind": "ETF 資產",
+      "base_of": "FEZ",
+      "base_parts": {
+        "FEZ": 4282942208.0
+      },
+      "value_delta": 28834343.108236376,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "股票",
+      "name": "DAX",
+      "tickers": [
+        "^GDAXI"
+      ],
+      "is_basket": false,
+      "chg_w": 0.023205,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 1473391232.0,
+      "base_kind": "ETF 資產",
+      "base_of": "EWG",
+      "base_parts": {
+        "EWG": 1473391232.0
+      },
+      "value_delta": 33414656.435963474,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "股票",
+      "name": "Nikkei 225",
+      "tickers": [
+        "^N225"
+      ],
+      "is_basket": false,
+      "chg_w": -0.080099,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 23533963264.0,
+      "base_kind": "ETF 資產",
+      "base_of": "EWJ",
+      "base_parts": {
+        "EWJ": 23533963264.0
+      },
+      "value_delta": -2049184557.3416445,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "債券",
+      "name": "30Y T-Bond",
+      "tickers": [
+        "ZB=F"
+      ],
+      "is_basket": false,
+      "chg_w": 0.024545,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 46233321472.0,
+      "base_kind": "ETF 資產",
+      "base_of": "TLT",
+      "base_parts": {
+        "TLT": 46233321472.0
+      },
+      "value_delta": 1107610573.9916158,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "債券",
+      "name": "10Y T-Note",
+      "tickers": [
+        "ZN=F"
+      ],
+      "is_basket": false,
+      "chg_w": 0.00986,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 41556897792.0,
+      "base_kind": "ETF 資產",
+      "base_of": "IEF",
+      "base_parts": {
+        "IEF": 41556897792.0
+      },
+      "value_delta": 405750314.1317807,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "債券",
+      "name": "5Y T-Note",
+      "tickers": [
+        "ZF=F"
+      ],
+      "is_basket": false,
+      "chg_w": 0.006033,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 16787430400.0,
+      "base_kind": "ETF 資產",
+      "base_of": "IEI",
+      "base_parts": {
+        "IEI": 16787430400.0
+      },
+      "value_delta": 100671218.14413643,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "債券",
+      "name": "2Y T-Note",
+      "tickers": [
+        "ZT=F"
+      ],
+      "is_basket": false,
+      "chg_w": 0.001764,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 26281537536.0,
+      "base_kind": "ETF 資產",
+      "base_of": "SHY",
+      "base_parts": {
+        "SHY": 26281537536.0
+      },
+      "value_delta": 46278996.064446315,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "不動產REITs",
+      "name": "IT & Telecom",
+      "tickers": [
+        "AMT",
+        "CCI",
+        "EQIX",
+        "DLR",
+        "SBAC"
+      ],
+      "is_basket": true,
+      "chg_w": 0.061168,
+      "members_ok": 5,
+      "members_total": 5,
+      "base": 303744179314.17,
+      "base_kind": "成分股市值和",
+      "base_of": "5/5 檔",
+      "base_parts": {
+        "AMT": 86328418092.96,
+        "CCI": 34997964412.14,
+        "EQIX": 97288308962.28,
+        "DLR": 65284645990.19,
+        "SBAC": 19844841856.6
+      },
+      "value_delta": 17508466105.545166,
+      "net_flow": -14360735331.0756,
+      "flow_note": null,
+      "note": null
+    },
+    {
+      "group": "不動產REITs",
+      "name": "Warehousing",
+      "tickers": [
+        "PLD",
+        "PSA",
+        "EXR",
+        "FR"
+      ],
+      "is_basket": true,
+      "chg_w": 0.010436,
+      "members_ok": 4,
+      "members_total": 4,
+      "base": 212529658949.79,
+      "base_kind": "成分股市值和",
+      "base_of": "4/4 檔",
+      "base_parts": {
+        "PLD": 119504421529.0,
+        "PSA": 55739908121.45,
+        "EXR": 29495342992.38,
+        "FR": 7789986306.96
+      },
+      "value_delta": 2195051958.560472,
+      "net_flow": -1547937676.4308424,
+      "flow_note": null,
+      "note": null
+    },
+    {
+      "group": "不動產REITs",
+      "name": "Healthcare",
+      "tickers": [
+        "WELL",
+        "VTR",
+        "OHI",
+        "DOC"
+      ],
+      "is_basket": true,
+      "chg_w": 0.036282,
+      "members_ok": 4,
+      "members_total": 4,
+      "base": 240184651881.88998,
+      "base_kind": "成分股市值和",
+      "base_of": "4/4 檔",
+      "base_parts": {
+        "WELL": 169226336783.35,
+        "VTR": 44041574383.74,
+        "OHI": 13829513320.0,
+        "DOC": 13087227394.800001
+      },
+      "value_delta": 8409274251.196812,
+      "net_flow": -1554506480.9680233,
+      "flow_note": null,
+      "note": null
+    },
+    {
+      "group": "不動產REITs",
+      "name": "Housing",
+      "tickers": [
+        "AVB",
+        "EQR",
+        "MAA",
+        "INVH"
+      ],
+      "is_basket": true,
+      "chg_w": 0.006387,
+      "members_ok": 2,
+      "members_total": 4,
+      "base": 79672165662.23804,
+      "base_kind": "成分股市值和",
+      "base_of": "4/4 檔",
+      "base_parts": {
+        "AVB": 26283393069.78,
+        "EQR": 23868961019.728024,
+        "MAA": 13531640844.91,
+        "INVH": 15988170727.82
+      },
+      "value_delta": 505636620.9864738,
+      "net_flow": -61857627.10728645,
+      "flow_note": null,
+      "note": null
+    },
+    {
+      "group": "不動產REITs",
+      "name": "Retail",
+      "tickers": [
+        "SPG",
+        "O",
+        "KIM",
+        "REG"
+      ],
+      "is_basket": true,
+      "chg_w": 0.023123,
+      "members_ok": 4,
+      "members_total": 4,
+      "base": 148315507449.94998,
+      "base_kind": "成分股市值和",
+      "base_of": "4/4 檔",
+      "base_parts": {
+        "SPG": 66472066761.6,
+        "O": 53063907290.64,
+        "KIM": 15367784535.43,
+        "REG": 13411748862.279999
+      },
+      "value_delta": 3351991382.0383215,
+      "net_flow": 1260498246.1522274,
+      "flow_note": null,
+      "note": null
+    },
+    {
+      "group": "不動產REITs",
+      "name": "Tourism",
+      "tickers": [
+        "HST",
+        "PK",
+        "RHP",
+        "APLE"
+      ],
+      "is_basket": true,
+      "chg_w": 0.044136,
+      "members_ok": 4,
+      "members_total": 4,
+      "base": 32341575277.47,
+      "base_kind": "成分股市值和",
+      "base_of": "4/4 檔",
+      "base_parts": {
+        "HST": 16422431844.029999,
+        "PK": 3203292830.3,
+        "RHP": 8690640602.24,
+        "APLE": 4025210000.9
+      },
+      "value_delta": 1367089887.185593,
+      "net_flow": 88030881.5602498,
+      "flow_note": null,
+      "note": null
+    },
+    {
+      "group": "不動產REITs",
+      "name": "Office",
+      "tickers": [
+        "BXP",
+        "VNO",
+        "SLG",
+        "KRC"
+      ],
+      "is_basket": true,
+      "chg_w": -0.008962,
+      "members_ok": 4,
+      "members_total": 4,
+      "base": 22981658882.07,
+      "base_kind": "成分股市值和",
+      "base_of": "4/4 檔",
+      "base_parts": {
+        "BXP": 9451964115.2,
+        "VNO": 6148707085.83,
+        "SLG": 3329945629.0,
+        "KRC": 4051042052.04
+      },
+      "value_delta": -207824146.90568003,
+      "net_flow": -11891684.187369347,
+      "flow_note": null,
+      "note": null
+    },
+    {
+      "group": "加密幣",
+      "name": "BTC",
+      "tickers": [
+        "BTC-USD"
+      ],
+      "is_basket": false,
+      "chg_w": -0.009296,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": null,
+      "base_kind": "流通市值",
+      "base_of": "BTC-USD",
+      "base_parts": {
+        "BTC-USD": null
+      },
+      "value_delta": null,
+      "net_flow": null,
+      "flow_note": "資料不足",
+      "note": null
+    },
+    {
+      "group": "加密幣",
+      "name": "ETH",
+      "tickers": [
+        "ETH-USD"
+      ],
+      "is_basket": false,
+      "chg_w": -0.025378,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": null,
+      "base_kind": "流通市值",
+      "base_of": "ETH-USD",
+      "base_parts": {
+        "ETH-USD": null
+      },
+      "value_delta": null,
+      "net_flow": null,
+      "flow_note": "資料不足",
+      "note": null
+    },
+    {
+      "group": "貨幣",
+      "name": "USD",
+      "tickers": [
+        "DX-Y.NYB"
+      ],
+      "is_basket": false,
+      "chg_w": -0.004217,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 431136608.0,
+      "base_kind": "ETF 資產",
+      "base_of": "UUP",
+      "base_parts": {
+        "UUP": 431136608.0
+      },
+      "value_delta": -1825802.4850153096,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": "方向相反，正值代表美元升"
+    },
+    {
+      "group": "貨幣",
+      "name": "EUR",
+      "tickers": [
+        "6E=F"
+      ],
+      "is_basket": false,
+      "chg_w": 0.00531,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 329840448.0,
+      "base_kind": "ETF 資產",
+      "base_of": "FXE",
+      "base_parts": {
+        "FXE": 329840448.0
+      },
+      "value_delta": 1742201.6879171599,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "貨幣",
+      "name": "JPY",
+      "tickers": [
+        "6J=F"
+      ],
+      "is_basket": false,
+      "chg_w": 0.005059,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 459714304.0,
+      "base_kind": "ETF 資產",
+      "base_of": "FXY",
+      "base_parts": {
+        "FXY": 459714304.0
+      },
+      "value_delta": 2313988.197644118,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "貨幣",
+      "name": "GBP",
+      "tickers": [
+        "6B=F"
+      ],
+      "is_basket": false,
+      "chg_w": 0.006571,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 89011112.0,
+      "base_kind": "ETF 資產",
+      "base_of": "FXB",
+      "base_parts": {
+        "FXB": 89011112.0
+      },
+      "value_delta": 581073.7811361542,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "貨幣",
+      "name": "CAD",
+      "tickers": [
+        "6C=F"
+      ],
+      "is_basket": false,
+      "chg_w": 0.011338,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 65420564.0,
+      "base_kind": "ETF 資產",
+      "base_of": "FXC",
+      "base_parts": {
+        "FXC": 65420564.0
+      },
+      "value_delta": 733422.8068479579,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "貨幣",
+      "name": "CHF",
+      "tickers": [
+        "6S=F"
+      ],
+      "is_basket": false,
+      "chg_w": 0.006136,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 374817440.0,
+      "base_kind": "ETF 資產",
+      "base_of": "FXF",
+      "base_parts": {
+        "FXF": 374817440.0
+      },
+      "value_delta": 2285853.8128443873,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "貨幣",
+      "name": "NZD",
+      "tickers": [
+        "6N=F"
+      ],
+      "is_basket": false,
+      "chg_w": 0.006312,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": null,
+      "base_kind": null,
+      "base_of": null,
+      "base_parts": {},
+      "value_delta": null,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
+      "note": null
+    },
+    {
+      "group": "貨幣",
+      "name": "AUD",
+      "tickers": [
+        "6A=F"
+      ],
+      "is_basket": false,
+      "chg_w": -0.00623,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 93450920.0,
+      "base_kind": "ETF 資產",
+      "base_of": "FXA",
+      "base_parts": {
+        "FXA": 93450920.0
+      },
+      "value_delta": -585849.0713142881,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "能源",
+      "name": "Crude Oil WTI",
+      "tickers": [
+        "CL=F"
+      ],
+      "is_basket": false,
+      "chg_w": 0.07828,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 1690582144.0,
+      "base_kind": "ETF 資產",
+      "base_of": "USO",
+      "base_parts": {
+        "USO": 1690582144.0
+      },
+      "value_delta": 122731359.41714585,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": "北美供需與美國本土經濟熱度"
+    },
+    {
+      "group": "能源",
+      "name": "Crude Oil Brent",
+      "tickers": [
+        "BZ=F"
+      ],
+      "is_basket": false,
+      "chg_w": 0.04746,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 645746688.0,
+      "base_kind": "ETF 資產",
+      "base_of": "BNO",
+      "base_parts": {
+        "BNO": 645746688.0
+      },
+      "value_delta": 29258528.070265215,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": "全球需求、地緣風險與 OPEC+ 政策"
+    },
+    {
+      "group": "能源",
+      "name": "Natural Gas",
+      "tickers": [
+        "NG=F"
+      ],
+      "is_basket": false,
+      "chg_w": -0.031988,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 458426592.0,
+      "base_kind": "ETF 資產",
+      "base_of": "UNG",
+      "base_parts": {
+        "UNG": 458426592.0
+      },
+      "value_delta": -15148727.314223379,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "能源",
+      "name": "Heating Oil",
+      "tickers": [
+        "HO=F"
+      ],
+      "is_basket": false,
+      "chg_w": -0.003271,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": null,
+      "base_kind": null,
+      "base_of": null,
+      "base_parts": {},
+      "value_delta": null,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
+      "note": "柴油/物流/冬季供暖"
+    },
+    {
+      "group": "能源",
+      "name": "Gasoline RBOB",
+      "tickers": [
+        "RB=F"
+      ],
+      "is_basket": false,
+      "chg_w": -0.046219,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 190161328.0,
+      "base_kind": "ETF 資產",
+      "base_of": "UGA",
+      "base_parts": {
+        "UGA": 190161328.0
+      },
+      "value_delta": -9214973.268320506,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": "終端出行與零售通膨"
+    },
+    {
+      "group": "穀物",
+      "name": "Soybean",
+      "tickers": [
+        "ZS=F"
+      ],
+      "is_basket": false,
+      "chg_w": -0.024381,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 45388196.0,
+      "base_kind": "ETF 資產",
+      "base_of": "SOYB",
+      "base_parts": {
+        "SOYB": 45388196.0
+      },
+      "value_delta": -1134264.0996905554,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "穀物",
+      "name": "Corn",
+      "tickers": [
+        "ZC=F"
+      ],
+      "is_basket": false,
+      "chg_w": -0.011464,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 130198560.0,
+      "base_kind": "ETF 資產",
+      "base_of": "CORN",
+      "base_parts": {
+        "CORN": 130198560.0
+      },
+      "value_delta": -1509905.8525334436,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "穀物",
+      "name": "Wheat",
+      "tickers": [
+        "ZW=F"
+      ],
+      "is_basket": false,
+      "chg_w": -0.016766,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 284404096.0,
+      "base_kind": "ETF 資產",
+      "base_of": "WEAT",
+      "base_parts": {
+        "WEAT": 284404096.0
+      },
+      "value_delta": -4849627.935502637,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "穀物",
+      "name": "Sugar",
+      "tickers": [
+        "SB=F"
+      ],
+      "is_basket": false,
+      "chg_w": 0.02963,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": 53136040.0,
+      "base_kind": "ETF 資產",
+      "base_of": "CANE",
+      "base_parts": {
+        "CANE": 53136040.0
+      },
+      "value_delta": 1529113.2399017124,
+      "net_flow": null,
+      "flow_note": "來源規模未更新",
+      "note": null
+    },
+    {
+      "group": "穀物",
+      "name": "Coffee",
+      "tickers": [
+        "KC=F"
+      ],
+      "is_basket": false,
+      "chg_w": 0.057084,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": null,
+      "base_kind": null,
+      "base_of": null,
+      "base_parts": {},
+      "value_delta": null,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
+      "note": null
+    },
+    {
+      "group": "穀物",
+      "name": "Cocoa",
+      "tickers": [
+        "CC=F"
+      ],
+      "is_basket": false,
+      "chg_w": 0.003707,
+      "members_ok": 1,
+      "members_total": 1,
+      "base": null,
+      "base_kind": null,
+      "base_of": null,
+      "base_parts": {},
+      "value_delta": null,
+      "net_flow": null,
+      "flow_note": "需要兩週快照",
+      "note": null
+    }
+  ],
+  "themes": [
+    {
+      "id": 1,
+      "name": "Big Tech & Hyperscalers",
+      "zh": "科技巨頭與超大規模業者",
+      "positioning": "美股最重要的核心資金池與 AI 基礎設施巨頭",
+      "stocks": [
+        {
+          "ticker": "MSFT",
+          "tier": "leader",
+          "chg_w": 0.03220378018327019,
+          "mcap": 3928484842013.55,
+          "value_delta": 122565005800.5511
+        },
+        {
+          "ticker": "AAPL",
+          "tier": "leader",
+          "chg_w": 0.004641285793853589,
+          "mcap": 5012517062800.0,
+          "value_delta": 23157045767.474163
+        },
+        {
+          "ticker": "NVDA",
+          "tier": "rank",
+          "chg_w": -0.057488720260405746,
+          "mcap": 5170597110000.0,
+          "value_delta": -315381913432.56885
+        },
+        {
+          "ticker": "GOOGL",
+          "tier": "rank",
+          "chg_w": 0.002670167541315882,
+          "mcap": 4165393504090.2896,
+          "value_delta": 11092679219.431957
+        },
+        {
+          "ticker": "AMZN",
+          "tier": "rank",
+          "chg_w": 0.0027552426787722517,
+          "mcap": 2696578393000.0,
+          "value_delta": 7409313418.497649
+        },
+        {
+          "ticker": "META",
+          "tier": "rank",
+          "chg_w": 0.021958905981528165,
+          "mcap": 1807009853048.125,
+          "value_delta": 38827353270.79386
+        },
+        {
+          "ticker": "TSLA",
+          "tier": "rank",
+          "chg_w": -0.033493326822916614,
+          "mcap": 1400983451599.6802,
+          "value_delta": -48549687157.02651
+        }
+      ],
+      "leader_avg": 0.018423,
+      "rank_avg": -0.01272,
+      "breadth_gap": 0.031142,
+      "avg": -0.003822,
+      "value_delta_total": -160880203112.84665,
+      "mcap_coverage": "7/7",
+      "advance_decline": "5/7"
+    },
+    {
+      "id": 2,
+      "name": "Semiconductor & Hardware Engine",
+      "zh": "半導體與 AI 算力硬體",
+      "positioning": "AI 供應鏈心臟",
+      "stocks": [
+        {
+          "ticker": "AVGO",
+          "tier": "leader",
+          "chg_w": -0.04389967077556034,
+          "mcap": 1569330818118.75,
+          "value_delta": -72056356584.70898
+        },
+        {
+          "ticker": "AMD",
+          "tier": "leader",
+          "chg_w": -0.09417093010369226,
+          "mcap": 863171178457.5,
+          "value_delta": -89736171442.75117
+        },
+        {
+          "ticker": "QCOM",
+          "tier": "rank",
+          "chg_w": 0.01357877088937487,
+          "mcap": 183785857549.77002,
+          "value_delta": 2462153040.346175
+        },
+        {
+          "ticker": "TXN",
+          "tier": "rank",
+          "chg_w": -0.03150595664555711,
+          "mcap": 252494720225.28003,
+          "value_delta": -8213873655.946064
+        },
+        {
+          "ticker": "AMAT",
+          "tier": "rank",
+          "chg_w": -0.15613163336745006,
+          "mcap": 324811497445.47003,
+          "value_delta": -60096279986.24927
+        },
+        {
+          "ticker": "LRCX",
+          "tier": "rank",
+          "chg_w": -0.13453322117186395,
+          "mcap": 330300946106.27997,
+          "value_delta": -51343912120.99459
+        },
+        {
+          "ticker": "MU",
+          "tier": "rank",
+          "chg_w": -0.10098082622550841,
+          "mcap": 994339975634.0801,
+          "value_delta": -111687575991.30783
+        },
+        {
+          "ticker": "ADI",
+          "tier": "rank",
+          "chg_w": -0.00487764024456161,
+          "mcap": 191616567479.6,
+          "value_delta": -939217847.836269
+        },
+        {
+          "ticker": "ARM",
+          "tier": "rank",
+          "chg_w": -0.1107923074288113,
+          "mcap": 243290074018.2,
+          "value_delta": -30313130329.6105
+        },
+        {
+          "ticker": "CDNS",
+          "tier": "rank",
+          "chg_w": -0.07011808196267122,
+          "mcap": 87990817430.0,
+          "value_delta": -6634979376.243236
+        },
+        {
+          "ticker": "SNPS",
+          "tier": "rank",
+          "chg_w": -0.05954799527561527,
+          "mcap": 87123768370.98,
+          "value_delta": -5516544939.334103
+        }
+      ],
+      "leader_avg": -0.069035,
+      "rank_avg": -0.072768,
+      "breadth_gap": 0.003732,
+      "avg": -0.072089,
+      "value_delta_total": -434075889234.63574,
+      "mcap_coverage": "11/11",
+      "advance_decline": "1/11"
+    },
+    {
+      "id": 3,
+      "name": "Software & Cloud Ecosystem",
+      "zh": "軟體、數據與雲端生態",
+      "positioning": "企業級 SaaS、資料庫與資安",
+      "stocks": [
+        {
+          "ticker": "MSFT",
+          "tier": "leader",
+          "chg_w": 0.03220378018327019,
+          "mcap": 3928484842013.55,
+          "value_delta": 122565005800.5511
+        },
+        {
+          "ticker": "AMZN",
+          "tier": "leader",
+          "chg_w": 0.0027552426787722517,
+          "mcap": 2696578393000.0,
+          "value_delta": 7409313418.497649
+        },
+        {
+          "ticker": "GOOG",
+          "tier": "rank",
+          "chg_w": 0.0001450394730369009,
+          "mcap": 4120387343912.2104,
+          "value_delta": 597532143.3217528
+        },
+        {
+          "ticker": "ORCL",
+          "tier": "rank",
+          "chg_w": -0.008991091449275679,
+          "mcap": 388729392336.26996,
+          "value_delta": -3526811399.3325143
+        },
+        {
+          "ticker": "CRM",
+          "tier": "rank",
+          "chg_w": 0.08314311759294823,
+          "mcap": 198096100000.0,
+          "value_delta": 15206049015.578089
+        },
+        {
+          "ticker": "NOW",
+          "tier": "rank",
+          "chg_w": 0.06311275366167268,
+          "mcap": 146777388140.0,
+          "value_delta": 8713586690.477783
+        },
+        {
+          "ticker": "SAP",
+          "tier": "rank",
+          "chg_w": 0.05932206433893028,
+          "mcap": 258876467195.28,
+          "value_delta": 14497089185.409313
+        },
+        {
+          "ticker": "PLTR",
+          "tier": "rank",
+          "chg_w": 0.008652788164129177,
+          "mcap": 447040969034.4,
+          "value_delta": 3834967643.1095777
+        },
+        {
+          "ticker": "SNOW",
+          "tier": "rank",
+          "chg_w": -0.024257387071406455,
+          "mcap": 108253151999.99998,
+          "value_delta": -2691220589.2928114
+        },
+        {
+          "ticker": "PANW",
+          "tier": "rank",
+          "chg_w": -0.07084068001587984,
+          "mcap": 279756000000.0,
+          "value_delta": -21329071185.40358
+        }
+      ],
+      "leader_avg": 0.01748,
+      "rank_avg": 0.013786,
+      "breadth_gap": 0.003694,
+      "avg": 0.014525,
+      "value_delta_total": 145276440722.91632,
+      "mcap_coverage": "10/10",
+      "advance_decline": "7/10"
+    },
+    {
+      "id": 4,
+      "name": "Financials & Fintech Network",
+      "zh": "金融、支付與清算網絡",
+      "positioning": "商銀、投銀與全球數位支付通道",
+      "stocks": [
+        {
+          "ticker": "JPM",
+          "tier": "leader",
+          "chg_w": 0.01240113808775356,
+          "mcap": 902160432000.0001,
+          "value_delta": 11050773921.166477
+        },
+        {
+          "ticker": "BLK",
+          "tier": "leader",
+          "chg_w": 0.05202990095386384,
+          "mcap": 175680590024.42,
+          "value_delta": 8688577853.347336
+        },
+        {
+          "ticker": "V",
+          "tier": "rank",
+          "chg_w": 0.06571579177655829,
+          "mcap": 755842000825.99,
+          "value_delta": 46607881693.72656
+        },
+        {
+          "ticker": "MA",
+          "tier": "rank",
+          "chg_w": 0.07230843630812278,
+          "mcap": 540866057154.8,
+          "value_delta": 36471949227.270195
+        },
+        {
+          "ticker": "BAC",
+          "tier": "rank",
+          "chg_w": -0.03562767815084311,
+          "mcap": 358238498738.94995,
+          "value_delta": -13234728584.74353
+        },
+        {
+          "ticker": "BNY",
+          "tier": "rank",
+          "chg_w": -0.01058425085997372,
+          "mcap": 97229643548.6,
+          "value_delta": -1040111741.9433404
+        },
+        {
+          "ticker": "CME",
+          "tier": "rank",
+          "chg_w": 0.04709878779729637,
+          "mcap": 105669558017.81,
+          "value_delta": 4753045412.443348
+        },
+        {
+          "ticker": "ICE",
+          "tier": "rank",
+          "chg_w": 0.019697440864950844,
+          "mcap": 90698893319.72,
+          "value_delta": 1752025665.7369404
+        },
+        {
+          "ticker": "GS",
+          "tier": "rank",
+          "chg_w": 0.009846023835514472,
+          "mcap": 256597715014.08,
+          "value_delta": 2501834099.986214
+        },
+        {
+          "ticker": "NDAQ",
+          "tier": "rank",
+          "chg_w": 0.01223337901719157,
+          "mcap": 52527103646.84,
+          "value_delta": 634817998.4056678
+        },
+        {
+          "ticker": "BRK-B",
+          "tier": "rank",
+          "chg_w": 0.028627346115384755,
+          "mcap": 1138900424603.88,
+          "value_delta": 31696315258.603535
+        }
+      ],
+      "leader_avg": 0.032216,
+      "rank_avg": 0.023257,
+      "breadth_gap": 0.008958,
+      "avg": 0.024886,
+      "value_delta_total": 129882380803.99939,
+      "mcap_coverage": "11/11",
+      "advance_decline": "9/11"
+    },
+    {
+      "id": 5,
+      "name": "Healthcare & Bio-Pharma",
+      "zh": "醫療保健與生技醫療",
+      "positioning": "大型製藥、醫材與醫療保險",
+      "stocks": [
+        {
+          "ticker": "LLY",
+          "tier": "leader",
+          "chg_w": 0.07011799886926307,
+          "mcap": 1120945699584.18,
+          "value_delta": 73448413519.81712
+        },
+        {
+          "ticker": "UNH",
+          "tier": "leader",
+          "chg_w": 0.09629330110593814,
+          "mcap": 360321499431.21,
+          "value_delta": 31648963470.51545
+        },
+        {
+          "ticker": "JNJ",
+          "tier": "rank",
+          "chg_w": -0.012476653423107664,
+          "mcap": 615873685449.32,
+          "value_delta": -7781124924.690458
+        },
+        {
+          "ticker": "ABBV",
+          "tier": "rank",
+          "chg_w": 0.040305337080760006,
+          "mcap": 504370615484.7,
+          "value_delta": 19541212513.42103
+        },
+        {
+          "ticker": "MRK",
+          "tier": "rank",
+          "chg_w": 0.019735900142063834,
+          "mcap": 360083700566.1,
+          "value_delta": 6969035763.24744
+        },
+        {
+          "ticker": "TMO",
+          "tier": "rank",
+          "chg_w": 0.06826898232921796,
+          "mcap": 255125627340.0,
+          "value_delta": 16304102461.750128
+        },
+        {
+          "ticker": "ABT",
+          "tier": "rank",
+          "chg_w": 0.06284904635664845,
+          "mcap": 181499903917.44,
+          "value_delta": 10732564435.31368
+        },
+        {
+          "ticker": "ISRG",
+          "tier": "rank",
+          "chg_w": 0.02997034635588558,
+          "mcap": 150743738814.6,
+          "value_delta": 4386380714.007144
+        }
+      ],
+      "leader_avg": 0.083206,
+      "rank_avg": 0.034775,
+      "breadth_gap": 0.04843,
+      "avg": 0.046883,
+      "value_delta_total": 155249547953.38153,
+      "mcap_coverage": "8/8",
+      "advance_decline": "7/8"
+    },
+    {
+      "id": 6,
+      "name": "ETF",
+      "zh": "指數型ETF",
+      "positioning": "實體經濟支柱",
+      "stocks": [
+        {
+          "ticker": "SPY",
+          "tier": "leader",
+          "chg_w": -0.002765126909009763,
+          "mcap": 809216114688.0,
+          "value_delta": -2243789616.9761767
+        },
+        {
+          "ticker": "IVV",
+          "tier": "leader",
+          "chg_w": -0.0027146890188705086,
+          "mcap": 881268883456.0,
+          "value_delta": -2398883182.4231544
+        },
+        {
+          "ticker": "QQQ",
+          "tier": "leader",
+          "chg_w": -0.02619119912549861,
+          "mcap": 498945982464.0,
+          "value_delta": -13419465471.914835
+        },
+        {
+          "ticker": "SCHD",
+          "tier": "rank",
+          "chg_w": 0.028657523514759475,
+          "mcap": 107887099904.0,
+          "value_delta": 3005642822.5732245
+        },
+        {
+          "ticker": "VYM",
+          "tier": "rank",
+          "chg_w": 0.010868886070793948,
+          "mcap": 95754289152.0,
+          "value_delta": 1029552372.1461765
+        },
+        {
+          "ticker": "GRID",
+          "tier": "rank",
+          "chg_w": -0.03450013511724037,
+          "mcap": 11866589184.0,
+          "value_delta": -424027951.8614913
+        },
+        {
+          "ticker": "BIL",
+          "tier": "rank",
+          "chg_w": 0.0007652748867392756,
+          "mcap": 49792606208.0,
+          "value_delta": 38075892.551920384
+        },
+        {
+          "ticker": "EDV",
+          "tier": "rank",
+          "chg_w": 0.047073793730265656,
+          "mcap": 4044910336.0,
+          "value_delta": 181848954.63378817
+        },
+        {
+          "ticker": "IEF",
+          "tier": "rank",
+          "chg_w": 0.010061504265893584,
+          "mcap": 41556897792.0,
+          "value_delta": 413959845.6585099
+        },
+        {
+          "ticker": "TLT",
+          "tier": "rank",
+          "chg_w": 0.026968003082718184,
+          "mcap": 46233321472.0,
+          "value_delta": 1214079067.9344764
+        }
+      ],
+      "leader_avg": -0.010557,
+      "rank_avg": 0.012842,
+      "breadth_gap": -0.023399,
+      "avg": 0.005822,
+      "value_delta_total": -12603007267.67756,
+      "mcap_coverage": "10/10",
+      "advance_decline": "6/10"
+    },
+    {
+      "id": 7,
+      "name": "民生必需品",
+      "zh": "必需消費與大型通路",
+      "positioning": "景氣防禦屬性極強",
+      "stocks": [
+        {
+          "ticker": "WMT",
+          "tier": "leader",
+          "chg_w": 0.06611799339190627,
+          "mcap": 942608390893.21,
+          "value_delta": 58458234216.597176
+        },
+        {
+          "ticker": "PG",
+          "tier": "leader",
+          "chg_w": 0.04309718873092949,
+          "mcap": 370117832917.2,
+          "value_delta": 15291996057.742058
+        },
+        {
+          "ticker": "KO",
+          "tier": "leader",
+          "chg_w": 0.04819418387510854,
+          "mcap": 404009373917.7,
+          "value_delta": 18575663129.39689
+        },
+        {
+          "ticker": "COST",
+          "tier": "rank",
+          "chg_w": 0.03174321398214541,
+          "mcap": 438303670389.39,
+          "value_delta": 13485106574.755634
+        },
+        {
+          "ticker": "PEP",
+          "tier": "rank",
+          "chg_w": 0.00031173871017209365,
+          "mcap": 179186826187.08002,
+          "value_delta": 55842061.94302799
+        },
+        {
+          "ticker": "MO",
+          "tier": "rank",
+          "chg_w": 0.03388404131880218,
+          "mcap": 125414466281.86,
+          "value_delta": 4110276189.2420993
+        },
+        {
+          "ticker": "PM",
+          "tier": "rank",
+          "chg_w": -0.002992549144716361,
+          "mcap": 319827477682.8,
+          "value_delta": -959972208.8088766
+        }
+      ],
+      "leader_avg": 0.05247,
+      "rank_avg": 0.015737,
+      "breadth_gap": 0.036733,
+      "avg": 0.031479,
+      "value_delta_total": 109017146020.86798,
+      "mcap_coverage": "7/7",
+      "advance_decline": "6/7"
+    },
+    {
+      "id": 8,
+      "name": "Luxury industry",
+      "zh": "精品消費",
+      "positioning": "受可支配所得與景氣週期高度影響",
+      "stocks": [
+        {
+          "ticker": "RACE",
+          "tier": "leader",
+          "chg_w": 0.02565156970843474,
+          "mcap": 69726748483.98,
+          "value_delta": 1743867607.7761579
+        },
+        {
+          "ticker": "EL",
+          "tier": "rank",
+          "chg_w": 0.13645041124070612,
+          "mcap": 37877222898.5,
+          "value_delta": 4547811844.701361
+        },
+        {
+          "ticker": "M",
+          "tier": "rank",
+          "chg_w": 0.06274674595791074,
+          "mcap": 6268239504.0,
+          "value_delta": 370089706.93795496
+        },
+        {
+          "ticker": "SIG",
+          "tier": "rank",
+          "chg_w": 0.11587500560190223,
+          "mcap": 4540210123.07,
+          "value_delta": 471465774.2161481
+        },
+        {
+          "ticker": "RL",
+          "tier": "rank",
+          "chg_w": 0.0644546441972329,
+          "mcap": 22968953134.5,
+          "value_delta": 1390811445.0321298
+        }
+      ],
+      "leader_avg": 0.025652,
+      "rank_avg": 0.094882,
+      "breadth_gap": -0.06923,
+      "avg": 0.081036,
+      "value_delta_total": 8524046378.663752,
+      "mcap_coverage": "5/5",
+      "advance_decline": "5/5"
+    },
+    {
+      "id": 9,
+      "name": "Energy & Natural Resources",
+      "zh": "能源與自然資源",
+      "positioning": "油氣探勘煉化與金屬礦產上游",
+      "stocks": [
+        {
+          "ticker": "XOM",
+          "tier": "leader",
+          "chg_w": 0.03667651439632791,
+          "mcap": 735950002600.7999,
+          "value_delta": 26037129702.97556
+        },
+        {
+          "ticker": "CVX",
+          "tier": "leader",
+          "chg_w": 0.03672892536219874,
+          "mcap": 441341120617.26,
+          "value_delta": 15635702527.309404
+        },
+        {
+          "ticker": "OXY",
+          "tier": "leader",
+          "chg_w": 0.0064697975704401944,
+          "mcap": 62357379202.98,
+          "value_delta": 400846226.52397305
+        },
+        {
+          "ticker": "COP",
+          "tier": "rank",
+          "chg_w": 0.056188934711623784,
+          "mcap": 178492254965.56998,
+          "value_delta": 9495734457.329136
+        },
+        {
+          "ticker": "LIN",
+          "tier": "rank",
+          "chg_w": 0.023915276565782406,
+          "mcap": 229766342644.09,
+          "value_delta": 5366582329.225273
+        },
+        {
+          "ticker": "FCX",
+          "tier": "rank",
+          "chg_w": -0.015181358452637794,
+          "mcap": 99860658549.42001,
+          "value_delta": -1539390491.6068807
+        },
+        {
+          "ticker": "EOG",
+          "tier": "rank",
+          "chg_w": 0.02767490918035409,
+          "mcap": 82880855099.76,
+          "value_delta": 2231951093.858421
+        },
+        {
+          "ticker": "SLB",
+          "tier": "rank",
+          "chg_w": -0.012454075460444747,
+          "mcap": 73465089934.5,
+          "value_delta": -926478203.2078304
+        },
+        {
+          "ticker": "NUE",
+          "tier": "rank",
+          "chg_w": 0.03473634140310056,
+          "mcap": 58145967002.04,
+          "value_delta": 1951973734.9298716
+        }
+      ],
+      "leader_avg": 0.026625,
+      "rank_avg": 0.019147,
+      "breadth_gap": 0.007478,
+      "avg": 0.021639,
+      "value_delta_total": 58654051377.33693,
+      "mcap_coverage": "9/9",
+      "advance_decline": "7/9"
+    },
+    {
+      "id": 10,
+      "name": "Infrastructure, Utilities & Real Estate",
+      "zh": "未來能源",
+      "positioning": "電力、資料中心地產與通訊鐵塔等實體資產",
+      "stocks": [
+        {
+          "ticker": "NEE",
+          "tier": "leader",
+          "chg_w": 0.02055055294619157,
+          "mcap": 166461061078.19998,
+          "value_delta": 3351981770.3211246
+        },
+        {
+          "ticker": "CEG",
+          "tier": "leader",
+          "chg_w": -0.03532468188688065,
+          "mcap": 96148393439.23,
+          "value_delta": -3520781913.254231
+        },
+        {
+          "ticker": "EQIX",
+          "tier": "rank",
+          "chg_w": -0.014735515422520051,
+          "mcap": 97288308962.28,
+          "value_delta": -1455034053.8859003
+        },
+        {
+          "ticker": "BE",
+          "tier": "rank",
+          "chg_w": -0.13386116594103248,
+          "mcap": 65181846943.26,
+          "value_delta": -10073809979.314102
+        },
+        {
+          "ticker": "GEV",
+          "tier": "rank",
+          "chg_w": -0.07295739723391981,
+          "mcap": 245346494817.2,
+          "value_delta": -19308542702.265602
+        },
+        {
+          "ticker": "LNG",
+          "tier": "rank",
+          "chg_w": 0.0045702785063914675,
+          "mcap": 59777181349.94,
+          "value_delta": 271955454.92595166
+        },
+        {
+          "ticker": "CCJ",
+          "tier": "rank",
+          "chg_w": -0.04465104760113259,
+          "mcap": 35504648448.08,
+          "value_delta": -1659414336.4432268
+        },
+        {
+          "ticker": "SPGI",
+          "tier": "rank",
+          "chg_w": 0.054825778983268236,
+          "mcap": 126657872000.0,
+          "value_delta": 6583188081.9754095
+        },
+        {
+          "ticker": "PWR",
+          "tier": "rank",
+          "chg_w": -0.0629185852682922,
+          "mcap": 94995976300.98,
+          "value_delta": -6378327796.362421
+        },
+        {
+          "ticker": "LPX",
+          "tier": "rank",
+          "chg_w": 0.06655398084137709,
+          "mcap": 4898134870.5,
+          "value_delta": 305648265.52198756
+        }
+      ],
+      "leader_avg": -0.007387,
+      "rank_avg": -0.025397,
+      "breadth_gap": 0.01801,
+      "avg": -0.021795,
+      "value_delta_total": -31883137208.781006,
+      "mcap_coverage": "10/10",
+      "advance_decline": "4/10"
+    },
+    {
+      "id": 11,
+      "name": "水資源及糧食",
+      "zh": null,
+      "positioning": null,
+      "stocks": [
+        {
+          "ticker": "ADM",
+          "tier": "leader",
+          "chg_w": 0.005821751057612623,
+          "mcap": 39814681151.63,
+          "value_delta": 230449542.23676807
+        },
+        {
+          "ticker": "CNI",
+          "tier": "leader",
+          "chg_w": 0.03337899390719312,
+          "mcap": 73573339000.0,
+          "value_delta": 2376479538.187136
+        },
+        {
+          "ticker": "AWK",
+          "tier": "rank",
+          "chg_w": 0.03791543835272693,
+          "mcap": 26816489775.66,
+          "value_delta": 979616380.4435402
+        },
+        {
+          "ticker": "XYL",
+          "tier": "rank",
+          "chg_w": 0.01353078646649064,
+          "mcap": 24294302788.6,
+          "value_delta": 324332548.9212289
+        }
+      ],
+      "leader_avg": 0.0196,
+      "rank_avg": 0.025723,
+      "breadth_gap": -0.006123,
+      "avg": 0.022662,
+      "value_delta_total": 3910878009.7886734,
+      "mcap_coverage": "4/4",
+      "advance_decline": "4/4"
+    }
+  ],
+  "frontier": [
+    {
+      "id": 101,
+      "name": "太空經濟",
+      "zh": null,
+      "positioning": null,
+      "stocks": [
+        {
+          "ticker": "RKLB",
+          "tier": "leader",
+          "chg_w": -0.19225148000769632,
+          "mcap": 32502100054.88,
+          "value_delta": -7735794847.347346
+        },
+        {
+          "ticker": "SPCX",
+          "tier": "leader",
+          "chg_w": -0.07442244293420319,
+          "mcap": 1924935325368.35,
+          "value_delta": -154777293713.13403
+        },
+        {
+          "ticker": "PL",
+          "tier": "rank",
+          "chg_w": -0.15415942349473966,
+          "mcap": 4933778730.84,
+          "value_delta": -899210212.803231
+        },
+        {
+          "ticker": "LUNR",
+          "tier": "rank",
+          "chg_w": -0.155474463072651,
+          "mcap": 1740031687.24,
+          "value_delta": -320334294.7891351
+        },
+        {
+          "ticker": "BKSY",
+          "tier": "rank",
+          "chg_w": -0.1280717913050501,
+          "mcap": 708818332.72,
+          "value_delta": -104113656.00521508
+        },
+        {
+          "ticker": "IRDM",
+          "tier": "rank",
+          "chg_w": -0.05403699791033845,
+          "mcap": 4637752715.5199995,
+          "value_delta": -264926041.7623257
+        },
+        {
+          "ticker": "ASTS",
+          "tier": "rank",
+          "chg_w": -0.21904094772276717,
+          "mcap": 12189433141.3,
+          "value_delta": -3418854009.9357734
+        }
+      ],
+      "leader_avg": -0.133337,
+      "rank_avg": -0.142157,
+      "breadth_gap": 0.00882,
+      "avg": -0.139637,
+      "value_delta_total": -167520526775.77704,
+      "mcap_coverage": "7/7",
+      "advance_decline": "0/7"
+    },
+    {
+      "id": 102,
+      "name": "量子電腦",
+      "zh": null,
+      "positioning": null,
+      "stocks": [
+        {
+          "ticker": "IONQ",
+          "tier": "leader",
+          "chg_w": -0.12927762205798132,
+          "mcap": 12672643319.68,
+          "value_delta": -1881528757.110095
+        },
+        {
+          "ticker": "QNT",
+          "tier": "leader",
+          "chg_w": -0.11657032994282823,
+          "mcap": 1435076721.75,
+          "value_delta": -189361273.02226976
+        },
+        {
+          "ticker": "RGTI",
+          "tier": "rank",
+          "chg_w": -0.10678926394757082,
+          "mcap": 3938471214.6000004,
+          "value_delta": -470870339.0026673
+        },
+        {
+          "ticker": "QBTS",
+          "tier": "rank",
+          "chg_w": -0.12226032564711042,
+          "mcap": 4472001677.84,
+          "value_delta": -622904942.5505699
+        },
+        {
+          "ticker": "QUBT",
+          "tier": "rank",
+          "chg_w": -0.081879150643551,
+          "mcap": 1439566035.96,
+          "value_delta": -128382276.03950934
+        }
+      ],
+      "leader_avg": -0.122924,
+      "rank_avg": -0.103643,
+      "breadth_gap": -0.019281,
+      "avg": -0.111355,
+      "value_delta_total": -3293047587.7251115,
+      "mcap_coverage": "5/5",
+      "advance_decline": "0/5"
+    },
+    {
+      "id": 103,
+      "name": "長壽科學與基因編輯",
+      "zh": null,
+      "positioning": null,
+      "stocks": [
+        {
+          "ticker": "CRSP",
+          "tier": "leader",
+          "chg_w": 0.021411614997205897,
+          "mcap": 4762113160.25,
+          "value_delta": 99827074.6712425
+        },
+        {
+          "ticker": "VRTX",
+          "tier": "leader",
+          "chg_w": 0.010928961748633892,
+          "mcap": 126664562159.76001,
+          "value_delta": 1369346617.943353
+        },
+        {
+          "ticker": "UNH",
+          "tier": "leader",
+          "chg_w": 0.09629330110593814,
+          "mcap": 360321499431.21,
+          "value_delta": 31648963470.51545
+        },
+        {
+          "ticker": "NTLA",
+          "tier": "rank",
+          "chg_w": -0.10000001513768708,
+          "mcap": 1600246834.06,
+          "value_delta": -177805233.690662
+        },
+        {
+          "ticker": "RXRX",
+          "tier": "rank",
+          "chg_w": 0.05316450561856012,
+          "mcap": 1858179316.455,
+          "value_delta": 93802235.24713428
+        },
+        {
+          "ticker": "BIOA",
+          "tier": "rank",
+          "chg_w": -0.13848633304856195,
+          "mcap": 222141039.56,
+          "value_delta": -35708659.2684246
+        },
+        {
+          "ticker": "TEM",
+          "tier": "rank",
+          "chg_w": 0.02670321170204648,
+          "mcap": 11677737408.32,
+          "value_delta": 303722722.0691424
+        }
+      ],
+      "leader_avg": 0.042878,
+      "rank_avg": -0.039655,
+      "breadth_gap": 0.082533,
+      "avg": -0.004284,
+      "value_delta_total": 33302148227.487232,
+      "mcap_coverage": "7/7",
+      "advance_decline": "5/7"
+    },
+    {
+      "id": 104,
+      "name": "新世代能源與 SMR",
+      "zh": null,
+      "positioning": null,
+      "stocks": [
+        {
+          "ticker": "CEG",
+          "tier": "leader",
+          "chg_w": -0.03532468188688065,
+          "mcap": 96148393439.23,
+          "value_delta": -3520781913.254231
+        },
+        {
+          "ticker": "GEV",
+          "tier": "leader",
+          "chg_w": -0.07295739723391981,
+          "mcap": 245346494817.2,
+          "value_delta": -19308542702.265602
+        },
+        {
+          "ticker": "VST",
+          "tier": "rank",
+          "chg_w": -0.012616890152452043,
+          "mcap": 51023262343.9,
+          "value_delta": -651980867.1956369
+        },
+        {
+          "ticker": "OKLO",
+          "tier": "rank",
+          "chg_w": -0.1319062628347405,
+          "mcap": 5202913670.5,
+          "value_delta": -790579252.8448879
+        },
+        {
+          "ticker": "SMR",
+          "tier": "rank",
+          "chg_w": -0.15983607224812368,
+          "mcap": 2392570913.26,
+          "value_delta": -455172050.0234612
+        },
+        {
+          "ticker": "CCJ",
+          "tier": "rank",
+          "chg_w": -0.04465104760113259,
+          "mcap": 35504648448.08,
+          "value_delta": -1659414336.4432268
+        }
+      ],
+      "leader_avg": -0.054141,
+      "rank_avg": -0.087253,
+      "breadth_gap": 0.033112,
+      "avg": -0.076215,
+      "value_delta_total": -26386471122.027042,
+      "mcap_coverage": "6/6",
+      "advance_decline": "0/6"
+    },
+    {
+      "id": 105,
+      "name": "AI 數據整合及應用",
+      "zh": null,
+      "positioning": null,
+      "stocks": [
+        {
+          "ticker": "PLTR",
+          "tier": "leader",
+          "chg_w": 0.008652788164129177,
+          "mcap": 447040969034.4,
+          "value_delta": 3834967643.1095777
+        },
+        {
+          "ticker": "SNOW",
+          "tier": "rank",
+          "chg_w": -0.024257387071406455,
+          "mcap": 108253151999.99998,
+          "value_delta": -2691220589.2928114
+        },
+        {
+          "ticker": "PANW",
+          "tier": "rank",
+          "chg_w": -0.07084068001587984,
+          "mcap": 279756000000.0,
+          "value_delta": -21329071185.40358
+        }
+      ],
+      "leader_avg": 0.008653,
+      "rank_avg": -0.047549,
+      "breadth_gap": 0.056202,
+      "avg": -0.028815,
+      "value_delta_total": -20185324131.586815,
+      "mcap_coverage": "3/3",
+      "advance_decline": "1/3"
+    },
+    {
+      "id": 106,
+      "name": "代幣化與 RWA",
+      "zh": null,
+      "positioning": null,
+      "stocks": [
+        {
+          "ticker": "BLK",
+          "tier": "leader",
+          "chg_w": 0.05202990095386384,
+          "mcap": 175680590024.42,
+          "value_delta": 8688577853.347336
+        },
+        {
+          "ticker": "JPM",
+          "tier": "leader",
+          "chg_w": 0.01240113808775356,
+          "mcap": 902160432000.0001,
+          "value_delta": 11050773921.166477
+        },
+        {
+          "ticker": "ICE",
+          "tier": "rank",
+          "chg_w": 0.019697440864950844,
+          "mcap": 90698893319.72,
+          "value_delta": 1752025665.7369404
+        },
+        {
+          "ticker": "BNY",
+          "tier": "rank",
+          "chg_w": -0.01058425085997372,
+          "mcap": 97229643548.6,
+          "value_delta": -1040111741.9433404
+        },
+        {
+          "ticker": "CME",
+          "tier": "rank",
+          "chg_w": 0.04709878779729637,
+          "mcap": 105669558017.81,
+          "value_delta": 4753045412.443348
+        },
+        {
+          "ticker": "GS",
+          "tier": "rank",
+          "chg_w": 0.009846023835514472,
+          "mcap": 256597715014.08,
+          "value_delta": 2501834099.986214
+        },
+        {
+          "ticker": "BAC",
+          "tier": "rank",
+          "chg_w": -0.03562767815084311,
+          "mcap": 358238498738.94995,
+          "value_delta": -13234728584.74353
+        },
+        {
+          "ticker": "NDAQ",
+          "tier": "rank",
+          "chg_w": 0.01223337901719157,
+          "mcap": 52527103646.84,
+          "value_delta": 634817998.4056678
+        }
+      ],
+      "leader_avg": 0.032216,
+      "rank_avg": 0.007111,
+      "breadth_gap": 0.025105,
+      "avg": 0.013387,
+      "value_delta_total": 15106234624.399115,
+      "mcap_coverage": "8/8",
+      "advance_decline": "6/8"
+    },
+    {
+      "id": 107,
+      "name": "下一代支付網絡",
+      "zh": null,
+      "positioning": null,
+      "stocks": [
+        {
+          "ticker": "V",
+          "tier": "leader",
+          "chg_w": 0.06571579177655829,
+          "mcap": 755842000825.99,
+          "value_delta": 46607881693.72656
+        },
+        {
+          "ticker": "MA",
+          "tier": "leader",
+          "chg_w": 0.07230843630812278,
+          "mcap": 540866057154.8,
+          "value_delta": 36471949227.270195
+        },
+        {
+          "ticker": "AXP",
+          "tier": "rank",
+          "chg_w": 0.018727649786976164,
+          "mcap": 211770410530.46997,
+          "value_delta": 3893054325.6464314
+        },
+        {
+          "ticker": "XYZ",
+          "tier": "rank",
+          "chg_w": 0.06114579647559104,
+          "mcap": 46795922550.0,
+          "value_delta": 2696494643.4631047
+        }
+      ],
+      "leader_avg": 0.069012,
+      "rank_avg": 0.039937,
+      "breadth_gap": 0.029075,
+      "avg": 0.054474,
+      "value_delta_total": 89669379890.10631,
+      "mcap_coverage": "4/4",
+      "advance_decline": "4/4"
+    },
+    {
+      "id": 108,
+      "name": "加密基礎設施與託管",
+      "zh": null,
+      "positioning": null,
+      "stocks": [
+        {
+          "ticker": "COIN",
+          "tier": "leader",
+          "chg_w": 0.06866277650345198,
+          "mcap": 45686001586.68,
+          "value_delta": 2935376608.2751074
+        },
+        {
+          "ticker": "CRCL",
+          "tier": "leader",
+          "chg_w": 0.07582886146098566,
+          "mcap": 20873674935.82,
+          "value_delta": 1471262820.3155377
+        },
+        {
+          "ticker": "SECZ",
+          "tier": "rank",
+          "chg_w": -0.10426537999477514,
+          "mcap": 1609799654.1,
+          "value_delta": -187384040.87721318
+        }
+      ],
+      "leader_avg": 0.072246,
+      "rank_avg": -0.104265,
+      "breadth_gap": 0.176511,
+      "avg": 0.013409,
+      "value_delta_total": 4219255387.713432,
+      "mcap_coverage": "3/3",
+      "advance_decline": "2/3"
+    },
+    {
+      "id": 109,
+      "name": "合成生物學",
+      "zh": null,
+      "positioning": null,
+      "stocks": [
+        {
+          "ticker": "TWST",
+          "tier": "leader",
+          "chg_w": -0.04972046962748389,
+          "mcap": 8801480848.5,
+          "value_delta": -460510562.64800084
+        },
+        {
+          "ticker": "DNA",
+          "tier": "rank",
+          "chg_w": 0.03703704326653812,
+          "mcap": 691584644.79,
+          "value_delta": 24699455.60563479
+        }
+      ],
+      "leader_avg": -0.04972,
+      "rank_avg": 0.037037,
+      "breadth_gap": -0.086758,
+      "avg": -0.006342,
+      "value_delta_total": -435811107.042366,
+      "mcap_coverage": "2/2",
+      "advance_decline": "1/2"
+    }
+  ],
+  "windows": {
+    "sectors": {
+      "curr": "2026-10-16",
+      "prev": "2026-10-11"
+    },
+    "themes": {
+      "curr": "2026-10-15",
+      "prev": "2026-10-08"
+    }
+  },
+  "divergence": [
+    {
+      "code": "A",
+      "title": "美債殖利率飆升 + 黃金/防禦股暴漲",
+      "truth": "Smart Money 不計代價逃離信用體系，定價地緣危機或通膨爆發",
+      "hit": false,
+      "evidence": {
+        "2Y Δbp": -3.0,
+        "Gold %": -0.00702
+      }
+    },
+    {
+      "code": "B",
+      "title": "龍頭大漲 + 廣度血洗",
+      "truth": "用少數權值股拉指數，護盤掩護出貨，暗中抽離流動性",
+      "hit": false,
+      "evidence": {
+        "龍頭−其餘 平均差": 0.0054
+      }
+    },
+    {
+      "code": "C",
+      "title": "DXY 強勢大漲 + 風險資產同步暴漲",
+      "truth": "全球法幣信任危機，資金進行逃命式搶購",
+      "hit": false,
+      "evidence": {
+        "DXY %": -0.004217,
+        "BTC %": -0.009296,
+        "NDX %": -0.054904
+      }
+    },
+    {
+      "code": "D",
+      "title": "信用利差飆升 + 風險資產仍收紅",
+      "truth": "媒體造神誘多，私下準備關門",
+      "hit": false,
+      "evidence": {
+        "HY OAS Δ": 0.1200000000000001,
+        "S&P %": -0.019471
+      }
+    },
+    {
+      "code": "E",
+      "title": "前沿科技重挫 + 基礎設施默漲（風險偏好背離）",
+      "truth": "資金從博弈型市場撤退，轉向實體過路費資產",
+      "hit": false,
+      "evidence": {
+        "Frontier 平均 %": -0.0317,
+        "Infra 龍頭 %": -0.007387
+      }
+    },
+    {
+      "code": "F",
+      "title": "淨流動性與實際準備金背離",
+      "truth": "有第四條水管在動 —— 通貨、其他負債或資本項，不在 WALCL−TGA−RRP 的視野內",
+      "hit": false,
+      "evidence": {
+        "Δ淨流動性": 14979,
+        "Δ準備金": 8788,
+        "缺口": 6191
+      }
+    }
+  ],
+  "pending_manual": [],
+  "manual_slots": [
+    {
+      "id": 10,
+      "name": "美國主權 CDS (5Y)",
+      "key": "sovereign_cds",
+      "mode": "required",
+      "unit": "bp",
+      "freq": "weekly",
+      "url": "https://www.worldgovernmentbonds.com/sovereign-cds/"
+    },
+    {
+      "id": 11,
+      "name": "CNN Fear & Greed",
+      "key": "fear_greed",
+      "mode": "fallback",
+      "unit": "index",
+      "freq": "daily",
+      "url": null
+    },
+    {
+      "id": 13,
+      "name": "MOVE 指數",
+      "key": "move_index",
+      "mode": "fallback",
+      "unit": "index",
+      "freq": "daily",
+      "url": "https://www.investing.com/indices/ice-bofaml-move"
+    },
+    {
+      "id": 14,
+      "name": "Manufacturing PMI",
+      "key": "manufacturing_pmi",
+      "mode": "required",
+      "unit": "index",
+      "freq": "monthly",
+      "url": "https://hk.investing.com/economic-calendar/manufacturing-pmi-829"
+    }
+  ],
+  "manual_current": {
+    "_說明": "無穩定免費來源的指標放這裡。每筆都是 append，不要覆蓋舊值 —— 保留歷史才能算 Delta。",
+    "_更新頻率": {
+      "sovereign_cds": "每週一次，30 秒",
+      "manufacturing_pmi": "每月一次（月初）",
+      "move_index": "只有 Yahoo ^MOVE 抓不到時才需要填",
+      "fear_greed": "只有 CNN endpoint 掛掉時才需要填"
+    },
+    "sovereign_cds": [
+      {
+        "date": "2026-07-30",
+        "value": 35.96,
+        "src": "手動輸入"
+      },
+      {
+        "date": "2026-08-06",
+        "value": 35.97,
+        "src": "worldgovernmentbonds.com US 5Y CDS"
+      },
+      {
+        "date": "2026-08-07",
+        "value": 35.97,
+        "src": "手動輸入"
+      },
+      {
+        "date": "2026-08-14",
+        "value": 34.18,
+        "src": "手動輸入"
+      },
+      {
+        "date": "2026-09-04",
+        "value": 32.85,
+        "src": "手動輸入"
+      }
+    ],
+    "manufacturing_pmi": [
+      {
+        "date": "2026-06-01",
+        "value": 53.3,
+        "src": "手動輸入"
+      },
+      {
+        "date": "2026-07-01",
+        "value": 53.9,
+        "src": "S&P Global US Mfg PMI"
+      },
+      {
+        "date": "2026-07-24",
+        "value": 53.8,
+        "src": "手動輸入"
+      },
+      {
+        "date": "2026-08-03",
+        "value": 53.9,
+        "src": "手動輸入"
+      },
+      {
+        "date": "2026-09-04",
+        "value": 53.9,
+        "src": "手動輸入"
+      }
+    ],
+    "move_index": [
+      {
+        "date": "2026-07-30",
+        "value": 77.09,
+        "src": "手動輸入"
+      },
+      {
+        "date": "2026-08-02",
+        "value": 72.03,
+        "src": "手動輸入"
+      },
+      {
+        "date": "2026-08-07",
+        "value": 72.03,
+        "src": "手動輸入"
+      },
+      {
+        "date": "2026-08-14",
+        "value": 69.23,
+        "src": "手動輸入"
+      },
+      {
+        "date": "2026-09-04",
+        "value": 74.68,
+        "src": "手動輸入"
+      }
+    ],
+    "fear_greed": [
+      {
+        "date": "2026-07-31",
+        "value": 45,
+        "src": "手動輸入"
+      },
+      {
+        "date": "2026-08-07",
+        "value": 64,
+        "src": "手動輸入"
+      },
+      {
+        "date": "2026-08-14",
+        "value": 66,
+        "src": "手動輸入"
+      },
+      {
+        "date": "2026-09-04",
+        "value": 35,
+        "src": "手動輸入"
+      }
+    ]
+  },
+  "universe": {
+    "themes": [
+      {
+        "id": 1,
+        "name": "Big Tech & Hyperscalers",
+        "zh": "科技巨頭與超大規模業者",
+        "positioning": "美股最重要的核心資金池與 AI 基礎設施巨頭",
+        "leader": [
+          "MSFT",
+          "AAPL"
+        ],
+        "rank": [
+          "NVDA",
+          "GOOGL",
+          "AMZN",
+          "META",
+          "TSLA"
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Semiconductor & Hardware Engine",
+        "zh": "半導體與 AI 算力硬體",
+        "positioning": "AI 供應鏈心臟",
+        "leader": [
+          "AVGO",
+          "AMD"
+        ],
+        "rank": [
+          "QCOM",
+          "TXN",
+          "AMAT",
+          "LRCX",
+          "MU",
+          "ADI",
+          "ARM",
+          "CDNS",
+          "SNPS"
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Software & Cloud Ecosystem",
+        "zh": "軟體、數據與雲端生態",
+        "positioning": "企業級 SaaS、資料庫與資安",
+        "leader": [
+          "MSFT",
+          "AMZN"
+        ],
+        "rank": [
+          "GOOG",
+          "ORCL",
+          "CRM",
+          "NOW",
+          "SAP",
+          "PLTR",
+          "SNOW",
+          "PANW"
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Financials & Fintech Network",
+        "zh": "金融、支付與清算網絡",
+        "positioning": "商銀、投銀與全球數位支付通道",
+        "leader": [
+          "JPM",
+          "BLK"
+        ],
+        "rank": [
+          "V",
+          "MA",
+          "BAC",
+          "BNY",
+          "CME",
+          "ICE",
+          "GS",
+          "NDAQ",
+          "BRK-B"
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Healthcare & Bio-Pharma",
+        "zh": "醫療保健與生技醫療",
+        "positioning": "大型製藥、醫材與醫療保險",
+        "leader": [
+          "LLY",
+          "UNH"
+        ],
+        "rank": [
+          "JNJ",
+          "ABBV",
+          "MRK",
+          "TMO",
+          "ABT",
+          "ISRG"
+        ]
+      },
+      {
+        "id": 6,
+        "name": "ETF",
+        "zh": "指數型ETF",
+        "positioning": "實體經濟支柱",
+        "leader": [
+          "SPY",
+          "IVV",
+          "QQQ"
+        ],
+        "rank": [
+          "SCHD",
+          "VYM",
+          "GRID",
+          "BIL",
+          "EDV",
+          "IEF",
+          "TLT"
+        ]
+      },
+      {
+        "id": 7,
+        "name": "民生必需品",
+        "zh": "必需消費與大型通路",
+        "positioning": "景氣防禦屬性極強",
+        "leader": [
+          "WMT",
+          "PG",
+          "KO"
+        ],
+        "rank": [
+          "COST",
+          "PEP",
+          "MO",
+          "PM"
+        ]
+      },
+      {
+        "id": 8,
+        "name": "Luxury industry",
+        "zh": "精品消費",
+        "positioning": "受可支配所得與景氣週期高度影響",
+        "leader": [
+          "RACE"
+        ],
+        "rank": [
+          "EL",
+          "M",
+          "SIG",
+          "RL"
+        ]
+      },
+      {
+        "id": 9,
+        "name": "Energy & Natural Resources",
+        "zh": "能源與自然資源",
+        "positioning": "油氣探勘煉化與金屬礦產上游",
+        "leader": [
+          "XOM",
+          "CVX",
+          "OXY"
+        ],
+        "rank": [
+          "COP",
+          "LIN",
+          "FCX",
+          "EOG",
+          "SLB",
+          "NUE"
+        ]
+      },
+      {
+        "id": 10,
+        "name": "Infrastructure, Utilities & Real Estate",
+        "zh": "未來能源",
+        "positioning": "電力、資料中心地產與通訊鐵塔等實體資產",
+        "leader": [
+          "NEE",
+          "CEG"
+        ],
+        "rank": [
+          "EQIX",
+          "BE",
+          "GEV",
+          "LNG",
+          "CCJ",
+          "SPGI",
+          "PWR",
+          "LPX"
+        ]
+      },
+      {
+        "id": 11,
+        "name": "水資源及糧食",
+        "leader": [
+          "ADM",
+          "CNI"
+        ],
+        "rank": [
+          "AWK",
+          "XYL"
+        ]
+      }
+    ],
+    "frontier": [
+      {
+        "id": 101,
+        "name": "太空經濟",
+        "leader": [
+          "RKLB",
+          "SPCX"
+        ],
+        "rank": [
+          "PL",
+          "LUNR",
+          "BKSY",
+          "IRDM",
+          "ASTS"
+        ]
+      },
+      {
+        "id": 102,
+        "name": "量子電腦",
+        "leader": [
+          "IONQ",
+          "QNT"
+        ],
+        "rank": [
+          "RGTI",
+          "QBTS",
+          "QUBT"
+        ]
+      },
+      {
+        "id": 103,
+        "name": "長壽科學與基因編輯",
+        "leader": [
+          "CRSP",
+          "VRTX",
+          "UNH"
+        ],
+        "rank": [
+          "NTLA",
+          "RXRX",
+          "BIOA",
+          "TEM"
+        ]
+      },
+      {
+        "id": 104,
+        "name": "新世代能源與 SMR",
+        "leader": [
+          "CEG",
+          "GEV"
+        ],
+        "rank": [
+          "VST",
+          "OKLO",
+          "SMR",
+          "CCJ"
+        ]
+      },
+      {
+        "id": 105,
+        "name": "AI 數據整合及應用",
+        "leader": [
+          "PLTR"
+        ],
+        "rank": [
+          "SNOW",
+          "PANW"
+        ]
+      },
+      {
+        "id": 106,
+        "name": "代幣化與 RWA",
+        "leader": [
+          "BLK",
+          "JPM"
+        ],
+        "rank": [
+          "ICE",
+          "BNY",
+          "CME",
+          "GS",
+          "BAC",
+          "NDAQ"
+        ]
+      },
+      {
+        "id": 107,
+        "name": "下一代支付網絡",
+        "leader": [
+          "V",
+          "MA"
+        ],
+        "rank": [
+          "AXP",
+          "XYZ"
+        ]
+      },
+      {
+        "id": 108,
+        "name": "加密基礎設施與託管",
+        "leader": [
+          "COIN",
+          "CRCL"
+        ],
+        "rank": [
+          "SECZ"
+        ]
+      },
+      {
+        "id": 109,
+        "name": "合成生物學",
+        "leader": [
+          "TWST"
+        ],
+        "rank": [
+          "DNA"
+        ]
+      }
+    ]
+  },
+  "predictions": {
+    "slots": [
+      {
+        "id": "direction",
+        "label": "整體方向",
+        "hint": "週一大盤收在哪一邊",
+        "options": [
+          "多",
+          "震盪",
+          "空"
+        ],
+        "resolver": {
+          "type": "band3",
+          "metric": "spx_d",
+          "hi": 0.003,
+          "lo": -0.003,
+          "above": "多",
+          "mid": "震盪",
+          "below": "空"
+        }
+      },
+      {
+        "id": "open_style",
+        "label": "早盤手法",
+        "hint": "霸權開盤的操作方式",
+        "options": [
+          "開高走低",
+          "開高走高",
+          "開低走高",
+          "開低走低"
+        ],
+        "resolver": {
+          "type": "quadrant",
+          "gap": "spx_gap",
+          "intraday": "spx_intraday"
+        }
+      },
+      {
+        "id": "flow",
+        "label": "資金流向",
+        "hint": "風險偏好往哪邊移動",
+        "options": [
+          "Risk-on",
+          "中性",
+          "Risk-off"
+        ],
+        "resolver": {
+          "type": "band3",
+          "metric": "risk_app",
+          "hi": 0.005,
+          "lo": -0.005,
+          "above": "Risk-on",
+          "mid": "中性",
+          "below": "Risk-off"
+        }
+      },
+      {
+        "id": "leader",
+        "label": "龍頭股表現",
+        "hint": "七大權值股相對大盤",
+        "options": [
+          "領先大盤",
+          "同步",
+          "落後大盤"
+        ],
+        "resolver": {
+          "type": "band3",
+          "metric": "mega_rel",
+          "hi": 0.003,
+          "lo": -0.003,
+          "above": "領先大盤",
+          "mid": "同步",
+          "below": "落後大盤"
+        }
+      },
+      {
+        "id": "breadth",
+        "label": "市場廣度",
+        "hint": "中小型股相對大盤 —— 檢驗「護盤掩護出貨」是否成立",
+        "options": [
+          "廣度轉強",
+          "持平",
+          "廣度惡化"
+        ],
+        "resolver": {
+          "type": "band3",
+          "metric": "breadth",
+          "hi": 0.004,
+          "lo": -0.004,
+          "above": "廣度轉強",
+          "mid": "持平",
+          "below": "廣度惡化"
+        }
+      },
+      {
+        "id": "vol",
+        "label": "波動度",
+        "hint": "VIX 方向",
+        "options": [
+          "上升",
+          "下降"
+        ],
+        "resolver": {
+          "type": "sign2",
+          "metric": "vix_chg",
+          "pos": "上升",
+          "neg": "下降"
+        }
+      },
+      {
+        "id": "divergence",
+        "label": "背離是否兌現",
+        "hint": "本週雷達標記的背離，週一有沒有開始收斂",
+        "options": [
+          "開始兌現",
+          "尚未兌現",
+          "反向發展"
+        ],
+        "resolver": {
+          "type": "manual"
+        }
+      },
+      {
+        "id": "intent",
+        "label": "大魔王意圖判讀",
+        "hint": "你的角色扮演推論，週一自己評",
+        "options": [
+          "判讀正確",
+          "部分正確",
+          "判讀錯誤"
+        ],
+        "resolver": {
+          "type": "manual"
+        }
+      }
+    ],
+    "error_types": [
+      {
+        "id": "misread_liquidity",
+        "label": "漏看某條水管",
+        "note": "流動性訊號本身就在，但沒被納入判斷"
+      },
+      {
+        "id": "fooled_by_news",
+        "label": "被新聞敘事帶偏",
+        "note": "讓標題決定了方向而不是數據"
+      },
+      {
+        "id": "wrong_timing",
+        "label": "方向對但時間錯",
+        "note": "邏輯成立，只是還沒輪到它發生"
+      },
+      {
+        "id": "single_signal",
+        "label": "過度倚賴單一訊號",
+        "note": "一個指標壓過了其他所有證據"
+      },
+      {
+        "id": "ignored_positioning",
+        "label": "忽略部位與微結構",
+        "note": "用宏觀解釋了其實是籌碼/槓桿的事"
+      },
+      {
+        "id": "anchoring",
+        "label": "錨定上週結論",
+        "note": "延續了上週的看法而沒重新推導"
+      },
+      {
+        "id": "overfit_narrative",
+        "label": "敘事過度自洽",
+        "note": "故事太完整，反而忽略了反證"
+      },
+      {
+        "id": "wrong_reason_right_call",
+        "label": "對但理由錯（運氣）",
+        "note": "結果對，過程錯。這比錯更危險，因為會被誤記成能力"
+      },
+      {
+        "id": "right_reason_wrong_call",
+        "label": "理由對但結果錯",
+        "note": "推論健全，被外生事件打斷。這一類通常不需要修正方法"
+      },
+      {
+        "id": "other",
+        "label": "其他",
+        "note": ""
+      }
+    ],
+    "records": [
+      {
+        "week": "2026-W32",
+        "created_at": "2026-08-12T08:32:55Z",
+        "items": [
+          {
+            "id": "direction",
+            "call": "多",
+            "confidence": 4,
+            "rationale": "根據這周水管的水變多(691億)，市場預期升息機率下降, 加上新聞對於勞動市場放緩的敘事選擇軟著陸說法，以及Hormoz海峽達成協議油價下跌，整個市場是Risk On模式，資金會湧向風險資產，整體還會上揚",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": "wrong_timing",
+            "note": ""
+          },
+          {
+            "id": "open_style",
+            "call": "開高走低",
+            "confidence": 3,
+            "rationale": "龍頭股、前言科技會續漲，可能早盤開高誘多後遭遇強烈賣壓拉回修正，大魔王喜歡散戶被狂熱情緒沖昏頭時把高位籌碼出貨給韭菜們。",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": "fooled_by_news",
+            "note": ""
+          },
+          {
+            "id": "flow",
+            "call": "Risk-on",
+            "confidence": 4,
+            "rationale": "避險(金融股, 民生必需)流入風險資產, 市場情緒升溫",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": "single_signal",
+            "note": ""
+          },
+          {
+            "id": "leader",
+            "call": "領先大盤",
+            "confidence": 4,
+            "rationale": "因為水變多，市場情緒升溫",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": "ignored_positioning",
+            "note": ""
+          },
+          {
+            "id": "breadth",
+            "call": "廣度惡化",
+            "confidence": 4,
+            "rationale": "私募信貸危機的隱憂",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "vol",
+            "call": "下降",
+            "confidence": 4,
+            "rationale": "CNN G&F指數大升(從frea變成greedy)",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": "overfit_narrative",
+            "note": ""
+          },
+          {
+            "id": "divergence",
+            "call": "尚未兌現",
+            "confidence": 2,
+            "rationale": "這周沒出現背離",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "intent",
+            "call": null,
+            "confidence": null,
+            "rationale": "對於經濟指數負面隱藏不提，刻意製造市場正面情緒",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": null,
+            "note": ""
+          }
+        ],
+        "hypothesis": "基本面維持、戰爭減緩緊張、市場穩定, 把風險價格抬升後偷偷出貨",
+        "scored_at": "2026-08-10T23:37:39+00:00"
+      },
+      {
+        "week": "2026-W33",
+        "created_at": "2026-08-19T14:19:49Z",
+        "items": [
+          {
+            "id": "direction",
+            "call": "震盪",
+            "confidence": 4,
+            "rationale": "流動性減少574億, VIX  future拉高, 長天期殖利率飆高, 市場下周預計是震盪-->空的狀態",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": "ignored_positioning",
+            "note": "雖然盤面有板塊輪動，但從 Big Tech 單日失血超過 2,900 億美元、整體指數與期貨實質翻黑來看，流動性抽水 574 億的重力直接將盤面壓成了偏空格局"
+          },
+          {
+            "id": "open_style",
+            "call": "開高走低",
+            "confidence": 3,
+            "rationale": "掩護出貨, 拉高誘多再血洗",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "flow",
+            "call": "Risk-off",
+            "confidence": 4,
+            "rationale": "Tbills,防禦性布局,能源",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": "single_signal",
+            "note": "大資金還在原油期貨、中小型 AI 概念或週期股裡翻江倒海，市場本質上就依然處於 Risk-on 的投機搬家狀態"
+          },
+          {
+            "id": "leader",
+            "call": "落後大盤",
+            "confidence": 3,
+            "rationale": "長天期殖利率創新高, TGA抽水",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "breadth",
+            "call": "廣度惡化",
+            "confidence": 4,
+            "rationale": "已出現掩護性出貨",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": null,
+            "note": "市場廣度看的是「所有板塊上漲家數與下跌家數的比例（Advance-Decline Line）」。在金融（7/8 上漲）、公用事業（6/8 上漲）、必需消費（6/8 上漲）與部分太空/量子題材（漲多跌少）支撐下，全市場體質並未全面失血，因此批改判定為持平"
+          },
+          {
+            "id": "vol",
+            "call": "上升",
+            "confidence": null,
+            "rationale": "VIX沒變, 但VIX future拉高, 大資金已為未來買保險了",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "divergence",
+            "call": null,
+            "confidence": null,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "intent",
+            "call": null,
+            "confidence": null,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": null,
+            "error_type": "ignored_positioning",
+            "note": "容易在「看到巨頭下跌 + 防守板塊上漲」的表象時，過早給出「全面防禦與廣度破裂」的過度推論"
+          }
+        ],
+        "hypothesis": "通膨放緩至 3.4%、不升息」的新聞餘溫, 營造股市熱絡狀況",
+        "scored_at": "2026-08-17T23:25:29+00:00"
+      },
+      {
+        "week": "2026-W34",
+        "created_at": "2026-08-22T08:12:55Z",
+        "items": [
+          {
+            "id": "direction",
+            "call": "震盪",
+            "confidence": 4,
+            "rationale": "流動變差，但情緒升溫",
+            "actual": "震盪",
+            "verdict": "correct",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "open_style",
+            "call": "開低走高",
+            "confidence": 4,
+            "rationale": "市場一片利多",
+            "actual": "開低走低",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "flow",
+            "call": "Risk-on",
+            "confidence": 4,
+            "rationale": "資金不會這麼快撤退",
+            "actual": "Risk-off",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "leader",
+            "call": "同步",
+            "confidence": 4,
+            "rationale": "大盤維持假象，吸引更多投資人",
+            "actual": "同步",
+            "verdict": "correct",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "breadth",
+            "call": "廣度惡化",
+            "confidence": 4,
+            "rationale": "維持大盤但是偷偷撤去安全資產",
+            "actual": "廣度惡化",
+            "verdict": "correct",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "vol",
+            "call": "上升",
+            "confidence": 4,
+            "rationale": "流動度不好，但月底有央行年會",
+            "actual": "上升",
+            "verdict": "correct",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "divergence",
+            "call": null,
+            "confidence": null,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "intent",
+            "call": null,
+            "confidence": null,
+            "rationale": "維持利多，以及風險資產上升(BTC會持續上上下下)，幫助央行年會的topic關於金融系統革新升級。但通膨問題沒有解決，且流動性變差是真實的問題",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": "anchoring",
+            "note": ""
+          }
+        ],
+        "hypothesis": "BTC的持續上揚、市場利多消息、TGA持續推出牛肉幫助市場升溫",
+        "scored_at": "2026-08-24T23:24:40+00:00",
+        "metrics": {
+          "spx_d": -0.0028028689752760405,
+          "spx_gap": -0.0014320698907114293,
+          "spx_intraday": -0.0013727649799593067,
+          "breadth": -0.004748827478691653,
+          "mega_rel": 0.0004470153471018345,
+          "risk_app": -0.01105506376880222,
+          "vix_chg": 0.04758759164460291,
+          "gold": 0.02257734481065099,
+          "dxy": 0.0018623289699066792,
+          "hyg": 0.0011304652330190734,
+          "tlt": 0.006215654940490811,
+          "as_of": "2026-08-24"
+        }
+      },
+      {
+        "week": "2026-W35",
+        "created_at": "2026-08-30T14:57:38Z",
+        "items": [
+          {
+            "id": "direction",
+            "call": "震盪",
+            "confidence": 4,
+            "rationale": "流動性持續抽水, 持續維持指數, 掩護資金輪轉",
+            "actual": "空",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "open_style",
+            "call": "開高走高",
+            "confidence": 3,
+            "rationale": "高位震盪",
+            "actual": "開低走低",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "flow",
+            "call": "Risk-off",
+            "confidence": 3,
+            "rationale": "流動性比上周更差, 且預期升息",
+            "actual": "Risk-on",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "leader",
+            "call": "同步",
+            "confidence": 3,
+            "rationale": "維持指數就必須讓龍頭股維持",
+            "actual": "領先大盤",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "breadth",
+            "call": "廣度惡化",
+            "confidence": 4,
+            "rationale": "應該是惡化, 因為流動性惡化",
+            "actual": "廣度惡化",
+            "verdict": "correct",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "vol",
+            "call": "上升",
+            "confidence": 3,
+            "rationale": "CNN F&G",
+            "actual": "上升",
+            "verdict": "correct",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "divergence",
+            "call": null,
+            "confidence": null,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": "other",
+            "note": ""
+          },
+          {
+            "id": "intent",
+            "call": null,
+            "confidence": null,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": "wrong_timing",
+            "note": ""
+          }
+        ],
+        "hypothesis": "",
+        "scored_at": "2026-09-01T07:58:37+00:00",
+        "metrics": {
+          "spx_d": -0.005801339323496912,
+          "spx_gap": -0.004329356761431202,
+          "spx_intraday": -0.0014783830095440598,
+          "breadth": -0.013403572873142533,
+          "mega_rel": 0.0048187739283048914,
+          "risk_app": 0.014146455497836552,
+          "vix_chg": 0.028256363952084085,
+          "gold": -0.010495522425815973,
+          "dxy": 0.0027228381715920236,
+          "hyg": -0.0007512856632629905,
+          "tlt": -0.007337912071523345,
+          "as_of": "2026-08-31",
+          "probe_date": "2026-08-31"
+        }
+      },
+      {
+        "week": "2026-W36",
+        "created_at": "2026-09-06T13:35:31Z",
+        "items": [
+          {
+            "id": "direction",
+            "call": "震盪",
+            "confidence": 4,
+            "rationale": "持續磨耗盤面",
+            "actual": "空",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "open_style",
+            "call": "開低走高",
+            "confidence": 2,
+            "rationale": "",
+            "actual": "開低走低",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "flow",
+            "call": "Risk-off",
+            "confidence": 3,
+            "rationale": "往防禦股流動布局",
+            "actual": "Risk-off",
+            "verdict": "correct",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "leader",
+            "call": "同步",
+            "confidence": 3,
+            "rationale": "同步大盤",
+            "actual": "領先大盤",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "breadth",
+            "call": "廣度惡化",
+            "confidence": 4,
+            "rationale": "變差",
+            "actual": "持平",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "vol",
+            "call": "上升",
+            "confidence": 4,
+            "rationale": "大",
+            "actual": "上升",
+            "verdict": "correct",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "divergence",
+            "call": "尚未兌現",
+            "confidence": null,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "intent",
+            "call": null,
+            "confidence": null,
+            "rationale": "繼續營造迷霧，持續布局\n開低走高, 週四小漲, 週五跌",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": null,
+            "note": ""
+          }
+        ],
+        "hypothesis": "",
+        "scored_at": "2026-09-09T10:23:27+00:00",
+        "metrics": {
+          "spx_d": -0.005840447432778451,
+          "spx_gap": -0.00010235522666079966,
+          "spx_intraday": -0.005738679589967766,
+          "breadth": 0.000648320778461331,
+          "mega_rel": 0.003676489982233403,
+          "risk_app": -0.005880974709676856,
+          "vix_chg": 0.02745098503647614,
+          "gold": -0.00810418166206106,
+          "dxy": -0.0032271814481692473,
+          "hyg": -0.0005053172521073401,
+          "tlt": -0.00012166568959803836,
+          "monday": "2026-09-07",
+          "probe_date": "2026-09-08"
+        }
+      },
+      {
+        "week": "2026-W37",
+        "created_at": "2026-09-12T16:05:58Z",
+        "items": [
+          {
+            "id": "direction",
+            "call": "震盪",
+            "confidence": 4,
+            "rationale": "水管注了1112億，但接下來是企業繳稅及四巫日，可能發生流動性枯竭",
+            "actual": "空",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "open_style",
+            "call": "開高走低",
+            "confidence": 2,
+            "rationale": "一周開始會誘多，但實際可能是資金掩護出貨轉倉",
+            "actual": "開低走高",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "flow",
+            "call": "Risk-off",
+            "confidence": 4,
+            "rationale": "能源 金融",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "leader",
+            "call": "同步",
+            "confidence": 3,
+            "rationale": "維持指數, 掩護出貨",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "breadth",
+            "call": "廣度惡化",
+            "confidence": 3,
+            "rationale": "惡化",
+            "actual": "持平",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "vol",
+            "call": "上升",
+            "confidence": 4,
+            "rationale": "大, 畢竟快要接近四巫日",
+            "actual": "上升",
+            "verdict": "correct",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "divergence",
+            "call": null,
+            "confidence": null,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "intent",
+            "call": null,
+            "confidence": null,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": null,
+            "note": ""
+          }
+        ],
+        "hypothesis": "",
+        "scored_at": "2026-09-15T01:15:50+00:00",
+        "metrics": {
+          "spx_d": -0.004832192338804386,
+          "spx_gap": -0.005947519672072077,
+          "spx_intraday": 0.001122000453034122,
+          "breadth": 0.0008020231973042691,
+          "mega_rel": null,
+          "risk_app": null,
+          "vix_chg": 0.07954546822879793,
+          "gold": -0.016444011342026443,
+          "dxy": 0.00425743602319506,
+          "hyg": null,
+          "tlt": null,
+          "monday": "2026-09-14",
+          "probe_date": "2026-09-14"
+        }
+      },
+      {
+        "week": "2026-W38",
+        "created_at": "2026-09-19T14:29:00Z",
+        "items": [
+          {
+            "id": "direction",
+            "call": "空",
+            "confidence": 3,
+            "rationale": "物理性抽水加升息",
+            "actual": "多",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "open_style",
+            "call": "開低走低",
+            "confidence": 4,
+            "rationale": "空加空, 因為沒有期貨支撐了",
+            "actual": "開高走高",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "flow",
+            "call": "Risk-off",
+            "confidence": 4,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "leader",
+            "call": "落後大盤",
+            "confidence": 3,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "breadth",
+            "call": "持平",
+            "confidence": 3,
+            "rationale": "",
+            "actual": "廣度惡化",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "vol",
+            "call": "上升",
+            "confidence": 2,
+            "rationale": "",
+            "actual": "上升",
+            "verdict": "correct",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "divergence",
+            "call": null,
+            "confidence": null,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "intent",
+            "call": null,
+            "confidence": null,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": null,
+            "note": ""
+          }
+        ],
+        "hypothesis": "",
+        "scored_at": "2026-09-22T01:29:39+00:00",
+        "metrics": {
+          "spx_d": 0.014927154475197657,
+          "spx_gap": 0.005532981912946822,
+          "spx_intraday": 0.00934248078504507,
+          "breadth": -0.009697044844069858,
+          "mega_rel": null,
+          "risk_app": null,
+          "vix_chg": 0.004051280502525234,
+          "gold": -0.0077289221871742475,
+          "dxy": 0.0019556889155907253,
+          "hyg": null,
+          "tlt": null,
+          "monday": "2026-09-21",
+          "probe_date": "2026-09-21"
+        }
+      },
+      {
+        "week": "2026-W39",
+        "created_at": "2026-09-26T15:43:54Z",
+        "items": [
+          {
+            "id": "direction",
+            "call": "震盪",
+            "confidence": 3,
+            "rationale": "",
+            "actual": "空",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "open_style",
+            "call": "開高走高",
+            "confidence": 3,
+            "rationale": "",
+            "actual": "開低走低",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "flow",
+            "call": "Risk-off",
+            "confidence": 3,
+            "rationale": "",
+            "actual": "Risk-off",
+            "verdict": "correct",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "leader",
+            "call": "領先大盤",
+            "confidence": 4,
+            "rationale": "",
+            "actual": "落後大盤",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "breadth",
+            "call": "廣度惡化",
+            "confidence": 3,
+            "rationale": "",
+            "actual": "持平",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "vol",
+            "call": "上升",
+            "confidence": 4,
+            "rationale": "",
+            "actual": "上升",
+            "verdict": "correct",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "divergence",
+            "call": null,
+            "confidence": null,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "intent",
+            "call": null,
+            "confidence": null,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": null,
+            "note": ""
+          }
+        ],
+        "hypothesis": "",
+        "scored_at": "2026-09-29T02:31:31+00:00",
+        "metrics": {
+          "spx_d": -0.007712392038996874,
+          "spx_gap": -0.0028036692490035486,
+          "spx_intraday": -0.004922523918932331,
+          "breadth": 0.0007916543902511952,
+          "mega_rel": -0.007901661539003544,
+          "risk_app": -0.008874789846319175,
+          "vix_chg": 0.08069938254878606,
+          "gold": -0.036587080095884406,
+          "dxy": 0.0022283695295723938,
+          "hyg": -0.004109936967836014,
+          "tlt": -0.008824974167112365,
+          "monday": "2026-09-28",
+          "probe_date": "2026-09-28"
+        }
+      },
+      {
+        "week": "2026-W40",
+        "created_at": "2026-10-03T17:04:43Z",
+        "items": [
+          {
+            "id": "direction",
+            "call": "空",
+            "confidence": 3,
+            "rationale": "",
+            "actual": "多",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "open_style",
+            "call": "開高走低",
+            "confidence": 3,
+            "rationale": "",
+            "actual": "開高走高",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "flow",
+            "call": "Risk-off",
+            "confidence": 3,
+            "rationale": "",
+            "actual": "中性",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "leader",
+            "call": "同步",
+            "confidence": 3,
+            "rationale": "",
+            "actual": "領先大盤",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "breadth",
+            "call": "持平",
+            "confidence": 4,
+            "rationale": "",
+            "actual": "持平",
+            "verdict": "correct",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "vol",
+            "call": "上升",
+            "confidence": 3,
+            "rationale": "",
+            "actual": "上升",
+            "verdict": "correct",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "divergence",
+            "call": null,
+            "confidence": null,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "intent",
+            "call": null,
+            "confidence": null,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": null,
+            "note": ""
+          }
+        ],
+        "hypothesis": "",
+        "scored_at": "2026-10-06T02:45:13+00:00",
+        "metrics": {
+          "spx_d": 0.006633670396382074,
+          "spx_gap": 0.0010539872235504344,
+          "spx_intraday": 0.005573808449938822,
+          "breadth": -0.001608487603311115,
+          "mega_rel": 0.005174649955798099,
+          "risk_app": 0.0037916724268328705,
+          "vix_chg": 0.013716527262657596,
+          "gold": -0.004828967234019044,
+          "dxy": 0.002482079380882185,
+          "hyg": 0.0009101507150064414,
+          "tlt": -0.004775461158378014,
+          "monday": "2026-10-05",
+          "probe_date": "2026-10-05"
+        }
+      },
+      {
+        "week": "2026-W41",
+        "created_at": "2026-10-11T06:45:51Z",
+        "items": [
+          {
+            "id": "direction",
+            "call": "震盪",
+            "confidence": 3,
+            "rationale": "",
+            "actual": "震盪",
+            "verdict": "correct",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "open_style",
+            "call": "開低走高",
+            "confidence": 3,
+            "rationale": "",
+            "actual": "開高走低",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "flow",
+            "call": "Risk-off",
+            "confidence": 4,
+            "rationale": "",
+            "actual": "Risk-off",
+            "verdict": "correct",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "leader",
+            "call": "同步",
+            "confidence": 3,
+            "rationale": "",
+            "actual": "領先大盤",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "breadth",
+            "call": "持平",
+            "confidence": null,
+            "rationale": "",
+            "actual": "持平",
+            "verdict": "correct",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "vol",
+            "call": "上升",
+            "confidence": 3,
+            "rationale": "",
+            "actual": "上升",
+            "verdict": "correct",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "divergence",
+            "call": "開始兌現",
+            "confidence": 3,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "intent",
+            "call": "部分正確",
+            "confidence": 3,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": null,
+            "note": ""
+          }
+        ],
+        "hypothesis": "",
+        "scored_at": "2026-10-13T03:24:40+00:00",
+        "metrics": {
+          "spx_d": -0.0005504426356388592,
+          "spx_gap": 0.00019202359489911558,
+          "spx_intraday": -0.0007423236868751015,
+          "breadth": -0.003902741956690381,
+          "mega_rel": 0.0041040103657360594,
+          "risk_app": -0.01560312273004305,
+          "vix_chg": 0.024932606587241724,
+          "gold": -0.003272965710872322,
+          "dxy": 0.0019665789073550766,
+          "hyg": 0.0007768685224116556,
+          "tlt": 0.0008976621160659004,
+          "monday": "2026-10-12",
+          "probe_date": "2026-10-12"
+        }
+      }
+    ],
+    "current": null,
+    "last_scored": {
+      "week": "2026-W41",
+      "created_at": "2026-10-11T06:45:51Z",
+      "items": [
+        {
+          "id": "direction",
+          "call": "震盪",
+          "confidence": 3,
+          "rationale": "",
+          "actual": "震盪",
+          "verdict": "correct",
+          "auto": true,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "open_style",
+          "call": "開低走高",
+          "confidence": 3,
+          "rationale": "",
+          "actual": "開高走低",
+          "verdict": "wrong",
+          "auto": true,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "flow",
+          "call": "Risk-off",
+          "confidence": 4,
+          "rationale": "",
+          "actual": "Risk-off",
+          "verdict": "correct",
+          "auto": true,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "leader",
+          "call": "同步",
+          "confidence": 3,
+          "rationale": "",
+          "actual": "領先大盤",
+          "verdict": "wrong",
+          "auto": true,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "breadth",
+          "call": "持平",
+          "confidence": null,
+          "rationale": "",
+          "actual": "持平",
+          "verdict": "correct",
+          "auto": true,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "vol",
+          "call": "上升",
+          "confidence": 3,
+          "rationale": "",
+          "actual": "上升",
+          "verdict": "correct",
+          "auto": true,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "divergence",
+          "call": "開始兌現",
+          "confidence": 3,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": false,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "intent",
+          "call": "部分正確",
+          "confidence": 3,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": false,
+          "error_type": null,
+          "note": ""
+        }
+      ],
+      "hypothesis": "",
+      "scored_at": "2026-10-13T03:24:40+00:00",
+      "metrics": {
+        "spx_d": -0.0005504426356388592,
+        "spx_gap": 0.00019202359489911558,
+        "spx_intraday": -0.0007423236868751015,
+        "breadth": -0.003902741956690381,
+        "mega_rel": 0.0041040103657360594,
+        "risk_app": -0.01560312273004305,
+        "vix_chg": 0.024932606587241724,
+        "gold": -0.003272965710872322,
+        "dxy": 0.0019665789073550766,
+        "hyg": 0.0007768685224116556,
+        "tlt": 0.0008976621160659004,
+        "monday": "2026-10-12",
+        "probe_date": "2026-10-12"
+      }
+    },
+    "history": [
+      {
+        "week": "2026-W32",
+        "scored_at": "2026-08-10T23:37:39+00:00",
+        "hit": 0,
+        "n": 0
+      },
+      {
+        "week": "2026-W33",
+        "scored_at": "2026-08-17T23:25:29+00:00",
+        "hit": 0,
+        "n": 0
+      },
+      {
+        "week": "2026-W34",
+        "scored_at": "2026-08-24T23:24:40+00:00",
+        "hit": 4,
+        "n": 6
+      },
+      {
+        "week": "2026-W35",
+        "scored_at": "2026-09-01T07:58:37+00:00",
+        "hit": 2,
+        "n": 6
+      },
+      {
+        "week": "2026-W36",
+        "scored_at": "2026-09-09T10:23:27+00:00",
+        "hit": 2,
+        "n": 6
+      },
+      {
+        "week": "2026-W37",
+        "scored_at": "2026-09-15T01:15:50+00:00",
+        "hit": 1,
+        "n": 4
+      },
+      {
+        "week": "2026-W38",
+        "scored_at": "2026-09-22T01:29:39+00:00",
+        "hit": 1,
+        "n": 4
+      },
+      {
+        "week": "2026-W39",
+        "scored_at": "2026-09-29T02:31:31+00:00",
+        "hit": 2,
+        "n": 6
+      },
+      {
+        "week": "2026-W40",
+        "scored_at": "2026-10-06T02:45:13+00:00",
+        "hit": 2,
+        "n": 6
+      },
+      {
+        "week": "2026-W41",
+        "scored_at": "2026-10-13T03:24:40+00:00",
+        "hit": 4,
+        "n": 6
+      }
+    ],
+    "stats": {
+      "weeks_scored": 10,
+      "n": 44,
+      "hit": 18,
+      "rate": 0.4091,
+      "per_slot": {
+        "direction": {
+          "label": "整體方向",
+          "n": 8,
+          "hit": 2,
+          "rate": 0.25
+        },
+        "open_style": {
+          "label": "早盤手法",
+          "n": 8,
+          "hit": 0,
+          "rate": 0.0
+        },
+        "breadth": {
+          "label": "市場廣度",
+          "n": 8,
+          "hit": 4,
+          "rate": 0.5
+        },
+        "vol": {
+          "label": "波動度",
+          "n": 8,
+          "hit": 8,
+          "rate": 1.0
+        },
+        "flow": {
+          "label": "資金流向",
+          "n": 6,
+          "hit": 3,
+          "rate": 0.5
+        },
+        "leader": {
+          "label": "龍頭股表現",
+          "n": 6,
+          "hit": 1,
+          "rate": 0.1667
+        }
+      },
+      "per_confidence": {
+        "2": {
+          "n": 3,
+          "hit": 1,
+          "rate": 0.3333,
+          "stated": 0.4,
+          "gap": -0.0667
+        },
+        "3": {
+          "n": 22,
+          "hit": 6,
+          "rate": 0.2727,
+          "stated": 0.6,
+          "gap": -0.3273
+        },
+        "4": {
+          "n": 18,
+          "hit": 10,
+          "rate": 0.5556,
+          "stated": 0.8,
+          "gap": -0.2444
+        }
+      },
+      "per_error": {},
+      "lucky_calls": 0,
+      "unlucky_calls": 0
+    }
+  },
+  "th": {
+    "yield_spike_bp": 15,
+    "gold_surge": 0.02,
+    "breadth_gap": 0.02,
+    "dxy_surge": 0.01,
+    "risk_surge": 0.03,
+    "oas_widen": 0.15,
+    "equity_up": 0.005,
+    "stale_days": 10,
+    "reserve_gap": 25000
+  }
+}
