@@ -75,11 +75,21 @@ tr.sec:hover td{background:var(--panel-2)}
 tr.sec td:first-child::before{content:"▸ ";color:var(--dim)}
 tr.sec.open td:first-child::before{content:"▾ "}
 tr.tk td{font-size:11.5px;color:var(--muted);background:var(--panel-2)}
-tr.tk td:first-child{padding-left:26px}
 .dbar{display:inline-block;width:70px;height:7px;background:var(--panel-2);border-radius:3px;position:relative;vertical-align:middle;margin-left:8px}
 .dbar i{position:absolute;top:0;bottom:0;border-radius:3px}
 .dbar::after{content:"";position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--hair)}
 .rk{color:var(--dim);font-size:11px}
+tr.grp td{background:var(--ground);font-family:var(--sans);border-top:1px solid var(--hair);padding-top:12px;color:var(--ink)}
+tr.grp td:first-child{font-weight:600;font-size:13px}
+tr.grp .gnote{font-weight:400;color:var(--dim);font-size:11.5px;margin-left:8px}
+tr.grp .gtag{font-size:11px;border-radius:3px;padding:1px 6px;margin-left:8px;border:1px solid var(--warn);color:var(--warn);font-weight:400}
+tr.sec td:first-child{padding-left:20px}
+tr.tk td:first-child{padding-left:42px}
+.heat tr.hg td{background:var(--ground);color:var(--dim);font-size:11px;text-align:left;padding-top:10px}
+.rg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.rg table{font-size:12px}
+.rg td,.rg th{padding:5px 8px}
+.rg .stress{border-color:var(--warn)}
 .rk.move{color:var(--warn)}
 
 /* 熱圖 */
@@ -100,7 +110,7 @@ tr.tk td:first-child{padding-left:26px}
 footer{margin-top:40px;color:var(--dim);font-size:11.5px;line-height:1.7}
 
 @media (max-width:820px){
-  .measures,.test{grid-template-columns:1fr}
+  .measures,.test,.rg{grid-template-columns:1fr}
   .days{grid-template-columns:repeat(5,minmax(96px,1fr));overflow-x:auto}
   .eyebrow a{margin-left:0}
 }
@@ -128,6 +138,9 @@ footer{margin-top:40px;color:var(--dim);font-size:11.5px;line-height:1.7}
     <span class="seg" id="segM" role="group" aria-label="口徑">
       <button aria-pressed="false" data-m="raw">原算法</button><button aria-pressed="true" data-m="dollar">金額</button><button aria-pressed="false" data-m="rel">相對量</button>
     </span>
+    <span class="seg" id="segS" role="group" aria-label="排列">
+      <button aria-pressed="true" data-s="group">依分組</button><button aria-pressed="false" data-s="value">依數值</button>
+    </span>
     <span>點板塊展開個股；排名欄會標出三種口徑排名差 3 名以上的板塊</span>
   </h2>
   <div class="tbl"><table id="sectors"></table></div>
@@ -138,6 +151,7 @@ footer{margin-top:40px;color:var(--dim);font-size:11.5px;line-height:1.7}
   <h2>週四 vs 週五檢驗 <span>每加入一天，累計方向被翻轉的比例（金額口徑）</span></h2>
   <div class="test" id="test"></div>
   <p class="verdict" id="verdict"></p>
+  <div id="regime"></div>
   <p class="caveat">累計的天數越多，下一天越不容易翻轉，所以週二的翻轉率天生最高、週五天生最低。要支持「週四是假象」，週五的翻轉率至少要接近或高於週四，而不是只是「有發生翻轉」。月底、選擇權到期、財報週的週五會特別多翻轉，樣本週數越多越可靠。</p>
 
   <footer>
@@ -148,7 +162,7 @@ footer{margin-top:40px;color:var(--dim);font-size:11.5px;line-height:1.7}
 
 <script>
 const $=s=>document.querySelector(s);
-let D=null, W=0, M="dollar";
+let D=null, W=0, M="dollar", S="group";
 const open=new Set();
 const MLABEL={raw:"原算法",dollar:"金額",rel:"相對量"};
 
@@ -201,30 +215,60 @@ function renderDays(w){
     <div class="ud">漲 <b>${d.up}</b>／跌 <b>${d.down}</b> · 相對量 <b class="${cls(d.rel)}">${fmtRel(d.rel)}</b></div></div>`).join("");
 }
 
-function renderSectors(w){
+function secRow(w,s,max){
   const k4=M+"4", k5=M+"5", f=FMT[M];
-  const rows=[...w.sectors].sort((a,b)=>(b[k5]??-1e18)-(a[k5]??-1e18));
-  const max=Math.max(...rows.map(r=>Math.abs(r[k5]||0)),1);
-  const dh=w.dows.map(d=>`<th>${d}</th>`).join("");
-  let h=`<thead><tr><th>板塊</th><th>週一～週四</th><th>週一～週五</th>${dh}<th>週漲跌（平均）</th><th>漲／跌</th><th>排名：原算法・金額・相對量</th></tr></thead><tbody>`;
-  for(const s of rows){
-    const flip=w.complete&&sgn(s[k4])!==sgn(s[k5])&&sgn(s[k4])!==0;
-    const rks=[s.rank_raw5,s.rank_dollar5,s.rank_rel5], spread=Math.max(...rks)-Math.min(...rks);
-    const daily=s.daily.map(d=>{const v=M==="rel"?d.rel:M==="dollar"?d.dollar:null; return `<td class="${cls(v)}">${M==="raw"?"":f(v)}</td>`;}).join("");
-    h+=`<tr class="sec ${open.has(s.name)?"open":""}" data-s="${s.name}" tabindex="0" aria-expanded="${open.has(s.name)}">
-      <td>${s.name} <span class="rk">${s.n} 檔</span></td>
-      <td class="${cls(s[k4])}">${f(s[k4])}</td>
-      <td class="${cls(s[k5])}">${f(s[k5])}${bar(s[k5],max)}${flip?'<span class="flipflag">翻轉</span>':""}</td>
-      ${daily}
-      <td class="${cls(s.ret5)}">${fmtPct(s.ret5)}</td><td>${s.up5}／${s.down5}</td>
-      <td><span class="rk ${spread>=3?"move":""}">${rks.join("・")}</span></td></tr>`;
-    if(open.has(s.name)){
-      for(const t of w.tickers.filter(t=>t.sec===s.name).sort((a,b)=>(b[k5]??0)-(a[k5]??0))){
-        const tf=w.complete&&t.flip;
-        const td=t.days.map(d=>`<td class="${cls(d.r)}" title="成交量 ${d.v?.toLocaleString()}，相對量 ${d.rv}">${fmtPct(d.r)}<span class="rk"> ${d.rv!=null?d.rv.toFixed(1)+"x":""}</span></td>`).join("");
-        h+=`<tr class="tk"><td>${t.t}</td><td class="${cls(t[k4])}">${f(t[k4])}</td><td class="${cls(t[k5])}">${f(t[k5])}${tf?'<span class="flipflag">翻轉</span>':""}</td>${td}<td class="${cls(t.ret5)}">${fmtPct(t.ret5)}</td><td></td><td></td></tr>`;
-      }
+  const flip=w.complete&&sgn(s[k4])!==sgn(s[k5])&&sgn(s[k4])!==0;
+  const rks=[s.rank_raw5,s.rank_dollar5,s.rank_rel5], spread=Math.max(...rks)-Math.min(...rks);
+  const daily=s.daily.map(d=>{const v=M==="rel"?d.rel:M==="dollar"?d.dollar:null; return `<td class="${cls(v)}">${M==="raw"?"":f(v)}</td>`;}).join("");
+  let h=`<tr class="sec ${open.has(s.name)?"open":""}" data-s="${s.name}" tabindex="0" aria-expanded="${open.has(s.name)}">
+    <td>${s.name} <span class="rk">${s.n} 檔</span></td>
+    <td class="${cls(s[k4])}">${f(s[k4])}</td>
+    <td class="${cls(s[k5])}">${f(s[k5])}${bar(s[k5],max)}${flip?'<span class="flipflag">翻轉</span>':""}</td>
+    ${daily}
+    <td class="${cls(s.ret5)}">${fmtPct(s.ret5)}</td><td>${s.up5}／${s.down5}</td>
+    <td><span class="rk ${spread>=3?"move":""}">${rks.join("・")}</span></td></tr>`;
+  if(open.has(s.name)){
+    for(const t of w.tickers.filter(t=>t.sec===s.name).sort((a,b)=>(b[k5]??0)-(a[k5]??0))){
+      const tf=w.complete&&t.flip;
+      const td=t.days.map(d=>`<td class="${cls(d.r)}" title="成交量 ${d.v?.toLocaleString()}，相對量 ${d.rv}">${fmtPct(d.r)}<span class="rk"> ${d.rv!=null?d.rv.toFixed(1)+"x":""}</span></td>`).join("");
+      h+=`<tr class="tk"><td>${t.t}</td><td class="${cls(t[k4])}">${f(t[k4])}</td><td class="${cls(t[k5])}">${f(t[k5])}${tf?'<span class="flipflag">翻轉</span>':""}</td>${td}<td class="${cls(t.ret5)}">${fmtPct(t.ret5)}</td><td></td><td></td></tr>`;
     }
+  }
+  return h;
+}
+
+// 群組合計：金額／原算法用加總，相對量用個股平均
+function grpTotal(w,names,key){
+  if(M==="rel"){ const ts=w.tickers.filter(t=>names.includes(t.sec)&&t[key]!=null); return ts.length?ts.reduce((a,t)=>a+t[key],0)/ts.length:null; }
+  const ss=w.sectors.filter(s=>names.includes(s.name)&&s[key]!=null); return ss.length?ss.reduce((a,s)=>a+s[key],0):null;
+}
+
+// 科技 vs 半導體：用相對量口徑比較，標出老大撐、弟妹撤
+function bigVsSmall(w){
+  const a=w.sectors.find(s=>s.name==="科技"), b=w.sectors.find(s=>s.name==="半導體");
+  if(!a||!b||a.rel5==null||b.rel5==null) return "";
+  if(a.rel5>0&&b.rel5<0) return `<span class="gtag">老大撐、弟妹撤</span>`;
+  if(a.rel5<0&&b.rel5>0) return `<span class="gtag">弟妹強、老大弱</span>`;
+  return "";
+}
+
+function renderSectors(w){
+  const k5=M+"5", f=FMT[M];
+  const max=Math.max(...w.sectors.map(r=>Math.abs(r[k5]||0)),1);
+  const dh=w.dows.map(d=>`<th>${d}</th>`).join("");
+  const ncol=5+w.dows.length+1;
+  let h=`<thead><tr><th>板塊</th><th>週一～週四</th><th>週一～週五</th>${dh}<th>週漲跌（平均）</th><th>漲／跌</th><th>排名：原算法・金額・相對量</th></tr></thead><tbody>`;
+  const byName=Object.fromEntries(w.sectors.map(s=>[s.name,s]));
+  if(S==="group"&&D.groups&&D.groups.length){
+    for(const g of D.groups){
+      const mem=g.sectors.filter(n=>byName[n]); if(!mem.length) continue;
+      const t4=grpTotal(w,mem,M+"4"), t5=grpTotal(w,mem,k5);
+      const tag=mem.includes("科技")&&mem.includes("半導體")?bigVsSmall(w):"";
+      h+=`<tr class="grp"><td>${g.name}<span class="gnote">${g.note||""}</span>${tag}</td><td class="mono ${cls(t4)}">${f(t4)}</td><td class="mono ${cls(t5)}">${f(t5)}</td><td colspan="${ncol-3}"></td></tr>`;
+      for(const n of mem) h+=secRow(w,byName[n],max);
+    }
+  } else {
+    for(const s of [...w.sectors].sort((a,b)=>(b[k5]??-1e18)-(a[k5]??-1e18))) h+=secRow(w,s,max);
   }
   $("#sectors").innerHTML=h+"</tbody>";
   $("#sectors").querySelectorAll("tr.sec").forEach(tr=>{
@@ -237,7 +281,9 @@ function renderHeat(){
   const H=D.history, secs=D.sector_order;
   const vals=H.flatMap(h=>secs.map(s=>Math.abs(h.sectors[s]?.rel||0))); const max=Math.max(...vals,1);
   let h=`<thead><tr><th style="text-align:left">板塊</th>${H.map(x=>`<th>${x.start}</th>`).join("")}</tr></thead><tbody>`;
-  for(const s of secs){
+  const gs=(D.groups&&D.groups.length)?D.groups:[{name:"",sectors:secs}];
+  for(const g of gs) for(const [i,s] of g.sectors.entries()){
+    if(i===0&&g.name) h+=`<tr class="hg"><td colspan="${H.length+1}">${g.name}</td></tr>`;
     h+=`<tr><td>${s}</td>`+H.map(x=>{const v=x.sectors[s]?.rel; if(v==null) return "<td>—</td>";
       const a=Math.min(Math.abs(v)/max,1)*0.75+0.08; const c=v>=0?`rgba(47,191,160,${a})`:`rgba(228,88,107,${a})`;
       return `<td style="background:${c};color:${a>0.5?"#0A1018":"var(--ink)"}" class="mono">${fmtRel(v)}</td>`;}).join("")+"</tr>";
@@ -259,18 +305,45 @@ function renderTest(){
   $("#verdict").textContent=v;
 }
 
+function renderRegime(){
+  const R=D.thursday_test.regime; if(!R){ $("#regime").innerHTML=""; return; }
+  const col=(g,title,extra)=>{ if(!g) return `<div class="mcard ${extra}"><div class="k">${title}</div><div class="note">這段期間沒有這類週。</div></div>`;
+    const rows=["週二","週三","週四","週五"].map(d=>`<tr><td>${d}</td><td>${g.ticker[d].rate??"—"}%</td><td>${g.market[d].rate??"—"}%</td></tr>`).join("");
+    return `<div class="mcard ${extra}"><div class="k">${title}</div><div class="t">${g.weeks} 週</div>
+      <table><thead><tr><th style="text-align:left">加入</th><th>個股翻轉率</th><th>市場合計翻轉率</th></tr></thead><tbody>${rows}</tbody></table>
+      <div class="breadth" style="margin-top:10px">
+        <span>週五市場合計為負 <b>${g.fri_down_share}%</b></span>
+        <span>週五平均漲跌 <b class="${cls(g.fri_ret)}">${fmtPct(g.fri_ret)}</b>（週一～週四日均 <b class="${cls(g.monthu_ret)}">${fmtPct(g.monthu_ret)}</b>）</span>
+        <span>週五相對量 <b>${g.fri_rv??"—"}x</b>（週一～週四 <b>${g.monthu_rv??"—"}x</b>）</span>
+      </div></div>`; };
+  const s=R.stress, c=R.calm;
+  let v="";
+  if(!s||s.weeks<8) v=`壓力週只有 ${s?s.weeks:0} 週，樣本太少，先不下結論。`;
+  else {
+    const fs=s.ticker["週五"].rate, fc=c?c.ticker["週五"].rate:null;
+    const weaker=s.fri_ret<s.monthu_ret && s.fri_down_share>(c?c.fri_down_share:50);
+    v=`壓力週的週五：個股翻轉率 ${fs}%（平靜週 ${fc??"—"}%），週五平均 ${fmtPct(s.fri_ret)}、週一～週四日均 ${fmtPct(s.monthu_ret)}。`+
+      (weaker?"壓力週的週五確實比平常弱，「流動性緊時週五偏向降風險」有數據支持。":"壓力週的週五沒有明顯比平常弱，這個說法目前沒有數據支持。");
+  }
+  $("#regime").innerHTML=`<h2>依 VIX 分組 <span>週四收盤 VIX &gt; ${R.threshold} 為壓力週；目前 VIX ${R.vix_now}</span></h2>
+    <div class="rg">${col(s,"壓力週","stress")}${col(c,"平靜週","")}</div><p class="verdict">${v}</p>`;
+}
+
 function render(){
   const w=D.weeks[W];
   renderWeeks(); renderMeasures(w); renderDays(w); renderSectors(w);
 }
 
+document.querySelectorAll("#segS button").forEach(b=>b.onclick=()=>{
+  S=b.dataset.s; document.querySelectorAll("#segS button").forEach(x=>x.setAttribute("aria-pressed",x===b)); renderSectors(D.weeks[W]);
+});
 document.querySelectorAll("#segM button").forEach(b=>b.onclick=()=>{
   M=b.dataset.m; document.querySelectorAll("#segM button").forEach(x=>x.setAttribute("aria-pressed",x===b)); renderSectors(D.weeks[W]);
 });
 
 fetch("flow.json",{cache:"no-store"}).then(r=>{if(!r.ok) throw 0; return r.json();}).then(d=>{
   D=d; $("#asof").textContent=`截至 ${d.asof} · 更新 ${d.updated}`+(d.missing.length?` · 抓不到：${d.missing.join("、")}`:"");
-  render(); renderHeat(); renderTest();
+  render(); renderHeat(); renderTest(); renderRegime();
 }).catch(()=>{$("#err").style.display="block";});
 </script>
 </body>

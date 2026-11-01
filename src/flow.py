@@ -31,14 +31,21 @@ RV_WINDOW = 20        # 相對量的均量天數
 DAY_NAMES = ["週一", "週二", "週三", "週四", "週五"]
 
 
+VIX_STRESS = 20       # 週四收盤 VIX 高於此值 → 該週算「壓力週」
+
+
 def load_universe():
+    """回傳 (ticker→板塊, 板塊順序, 群組清單)。yaml 可用 groups（有分組）或舊的 sectors（不分組）。"""
     cfg = yaml.safe_load((ROOT / "config" / "flow_universe.yaml").read_text(encoding="utf-8"))
-    sec_of, order = {}, []
-    for s in cfg["sectors"]:
-        order.append(s["name"])
-        for t in s["tickers"]:
-            sec_of[t] = s["name"]
-    return sec_of, order
+    groups = cfg.get("groups") or [{"name": "", "note": "", "sectors": cfg["sectors"]}]
+    sec_of, order, glist = {}, [], []
+    for g in groups:
+        glist.append({"name": g["name"], "note": g.get("note", ""), "sectors": [s["name"] for s in g["sectors"]]})
+        for s in g["sectors"]:
+            order.append(s["name"])
+            for t in s["tickers"]:
+                sec_of[t] = s["name"]
+    return sec_of, order, glist
 
 
 def fetch(tickers, period="1y"):
@@ -64,7 +71,18 @@ def _sign(x):
     return 0 if x is None or x == 0 or (isinstance(x, float) and math.isnan(x)) else (1 if x > 0 else -1)
 
 
-def compute(close: pd.DataFrame, vol: pd.DataFrame, sec_of: dict, order: list) -> dict:
+def fetch_vix(period="1y"):
+    import yfinance as yf
+    df = yf.download("^VIX", period=period, interval="1d", auto_adjust=True, progress=False)
+    c = df["Close"]
+    if isinstance(c, pd.DataFrame):
+        c = c.iloc[:, 0]
+    c.index = pd.to_datetime(c.index).tz_localize(None)
+    return c.dropna()
+
+
+def compute(close: pd.DataFrame, vol: pd.DataFrame, sec_of: dict, order: list,
+            groups: list | None = None, vix: pd.Series | None = None) -> dict:
     tickers = [t for t in sec_of if t in close.columns and close[t].notna().sum() > RV_WINDOW]
     missing = [t for t in sec_of if t not in tickers]
     close, vol = close[tickers], vol[tickers].astype(float)
@@ -191,9 +209,9 @@ def compute(close: pd.DataFrame, vol: pd.DataFrame, sec_of: dict, order: list) -
         if [x.dayofweek for x in ds] == [0, 1, 2, 3, 4]:
             full_weeks.append(ds)
 
-    def flip_stats(series_fn):
+    def flip_stats(series_fn, wks=None):
         flips = {d: [0, 0] for d in (1, 2, 3, 4)}
-        for ds in full_weeks:
+        for ds in (full_weeks if wks is None else wks):
             cum = None
             for i, x in enumerate(ds):
                 v = series_fn(x)
@@ -217,11 +235,39 @@ def compute(close: pd.DataFrame, vol: pd.DataFrame, sec_of: dict, order: list) -
         "market": flip_stats(lambda x: dollar.loc[x].sum()),
     }
 
+    # 依 VIX 分組：週四收盤 VIX > VIX_STRESS 為壓力週，比較兩組的週五行為
+    if vix is not None and len(vix):
+        def regime_stats(wks):
+            if not wks:
+                return None
+            fri_dollar = [dollar.loc[ds[4]].sum() for ds in wks]
+            fri_ret = [ret.loc[ds[4]].mean() * 100 for ds in wks]
+            mt_ret = [ret.loc[ds[:4]].mean(axis=1).mean() * 100 for ds in wks]
+            fri_rv = [rv.loc[ds[4]].median() for ds in wks]
+            mt_rv = [rv.loc[ds[:4]].median(axis=1).mean() for ds in wks]
+            return {
+                "weeks": len(wks),
+                "ticker": flip_stats(lambda x: dollar.loc[x].fillna(0).values, wks),
+                "market": flip_stats(lambda x: dollar.loc[x].sum(), wks),
+                "fri_down_share": _r(np.mean([v < 0 for v in fri_dollar]) * 100, 1),
+                "fri_ret": _r(np.mean(fri_ret), 3), "monthu_ret": _r(np.mean(mt_ret), 3),
+                "fri_rv": _r(np.nanmean(fri_rv), 2), "monthu_rv": _r(np.nanmean(mt_rv), 2),
+            }
+        vthu = {}
+        for ds in full_weeks:
+            v = vix[vix.index <= ds[3]]
+            vthu[ds[0]] = float(v.iloc[-1]) if len(v) else None
+        stress = [ds for ds in full_weeks if vthu.get(ds[0]) is not None and vthu[ds[0]] > VIX_STRESS]
+        calm = [ds for ds in full_weeks if vthu.get(ds[0]) is not None and vthu[ds[0]] <= VIX_STRESS]
+        test["regime"] = {"threshold": VIX_STRESS, "stress": regime_stats(stress), "calm": regime_stats(calm),
+                          "vix_now": _r(vix.iloc[-1], 2)}
+
     return {
         "updated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         "asof": idx[-1].strftime("%Y-%m-%d"),
         "universe": len(tickers), "missing": missing,
         "sector_order": [s for s in order if s in sec_mem],
+        "groups": [{**g, "sectors": [s for s in g["sectors"] if s in sec_mem]} for g in (groups or [])],
         "weeks": detail[::-1],
         "history": hist,
         "thursday_test": test,
@@ -229,10 +275,15 @@ def compute(close: pd.DataFrame, vol: pd.DataFrame, sec_of: dict, order: list) -
 
 
 def main():
-    sec_of, order = load_universe()
+    sec_of, order, groups = load_universe()
     print(f"抓 {len(sec_of)} 檔…")
     close, vol = fetch(list(sec_of))
-    out = compute(close, vol, sec_of, order)
+    try:
+        vix = fetch_vix()
+    except Exception as e:  # noqa: BLE001
+        print(f"  ! VIX 抓取失敗，略過分組檢驗: {e}")
+        vix = None
+    out = compute(close, vol, sec_of, order, groups, vix)
     path = ROOT / "docs" / "flow.json"
     path.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print(f"完成 → {path}  截至 {out['asof']}，{out['universe']} 檔，缺 {out['missing']}")
