@@ -1,0 +1,39 @@
+name: 量價資金流
+
+on:
+  schedule:
+    # 美股收盤後：週一～週五 22:30 UTC = 台灣隔天 06:30
+    - cron: "30 22 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: flow
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: 計算量價資金流
+        run: python src/flow.py
+
+      - name: 提交
+        run: |
+          git config user.name  "weekly-lab-bot"
+          git config user.email "actions@github.com"
+          git add docs/flow.json
+          git diff --staged --quiet && exit 0
+          git commit -m "量價資金流 $(date -u +%F)"
+          # 跟 weekly.yml 錯開時間，但保險起見推送前先同步
+          git pull --rebase origin main
+          git push

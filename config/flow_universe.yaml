@@ -1,0 +1,35 @@
+# 量價資金流觀察名單（docs/flow.html 使用）
+# 從 2026/10 的手動 Excel 搬過來。要增減標的或改板塊，直接改這裡。
+# 一檔只能出現在一個板塊；GEV 單獨放在「未來能源/電網基礎建設」。
+
+sectors:
+  - name: 科技
+    tickers: [AAPL, NVDA, GOOG, MSFT, AMZN, TSLA, META]
+  - name: 半導體
+    tickers: [AMAT, ASML, CDNS, SNPS, ARM, MRVL]
+  - name: 金融
+    tickers: [V, MA, BLK, JPM, GS, BNY, CRCL, COIN]
+  - name: 民生消費
+    tickers: [WMT, COST, KO, PG, SCHD]
+  - name: 糧食/水資源
+    tickers: [ADM, CNI, XYL, AWK, DE]
+  - name: 石油
+    tickers: [OXY, CVX, XOM, LNG]
+  - name: 未來能源
+    tickers: [CEG, NEE, BE, VST]
+  - name: 未來能源/電網基礎建設
+    tickers: [GEV]
+  - name: 太空
+    tickers: [ASTS, BKSY, IRDM, PL, SPCX, RKLB]
+  - name: 量子
+    tickers: [IONQ, QNT, QUBT, QBTS]
+  - name: 長壽
+    tickers: [CRSP, VRTX, TWST, TEM, RXRX, NTLA, UNH]
+  - name: AI軟體
+    tickers: [PLTR, NOW, VEEV, INTU, WDAY, CRM, SNOW, BSY]
+  - name: 資安
+    tickers: [PANW, CRWD, FTNT, NET, ZS]
+  - name: 資料中心
+    tickers: [EQIX, AMT, DLR]
+  - name: 電網基礎建設
+    tickers: [ETN, PWR, HUBB, VRT]
