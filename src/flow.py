@@ -11,6 +11,10 @@
 另外做一個「週四 vs 週五」的檢驗：統計每加入一天，累計方向被翻轉的比例。
 如果週五的翻轉比例明顯高於週二～週四，「週四是假象」才有數據支持。
 
+版本：
+  flow.json      原版：flow_universe.yaml 裡沒有 extended: true 的群組（原本 77 檔）
+  flow_ext.json  新版：全部群組（含奢侈精品、美國債券）
+
 用法：python src/flow.py
 """
 from __future__ import annotations
@@ -34,13 +38,17 @@ DAY_NAMES = ["週一", "週二", "週三", "週四", "週五"]
 VIX_STRESS = 20       # 週四收盤 VIX 高於此值 → 該週算「壓力週」
 
 
-def load_universe():
-    """回傳 (ticker→板塊, 板塊順序, 群組清單)。yaml 可用 groups（有分組）或舊的 sectors（不分組）。"""
+def load_universe(extended: bool = False):
+    """回傳 (ticker→板塊, 板塊順序, 群組清單)。yaml 可用 groups（有分組）或舊的 sectors（不分組）。
+    extended=False 時略過標記 extended: true 的群組（原版）；True 時全部納入（新版）。"""
     cfg = yaml.safe_load((ROOT / "config" / "flow_universe.yaml").read_text(encoding="utf-8"))
     groups = cfg.get("groups") or [{"name": "", "note": "", "sectors": cfg["sectors"]}]
     sec_of, order, glist = {}, [], []
     for g in groups:
-        glist.append({"name": g["name"], "note": g.get("note", ""), "sectors": [s["name"] for s in g["sectors"]]})
+        if g.get("extended") and not extended:
+            continue
+        glist.append({"name": g["name"], "note": g.get("note", ""), "sectors": [s["name"] for s in g["sectors"]],
+                      "extended": bool(g.get("extended"))})
         for s in g["sectors"]:
             order.append(s["name"])
             for t in s["tickers"]:
@@ -274,19 +282,30 @@ def compute(close: pd.DataFrame, vol: pd.DataFrame, sec_of: dict, order: list,
     }
 
 
+VERSIONS = [
+    # (檔名, 是否納入 extended 群組, 頁面標籤)
+    ("flow.json", False, "原版"),
+    ("flow_ext.json", True, "新版（含奢侈品・美債）"),
+]
+
+
 def main():
-    sec_of, order, groups = load_universe()
-    print(f"抓 {len(sec_of)} 檔…")
-    close, vol = fetch(list(sec_of))
+    full_sec, _, _ = load_universe(extended=True)
+    print(f"抓 {len(full_sec)} 檔…")
+    close, vol = fetch(list(full_sec))
     try:
         vix = fetch_vix()
     except Exception as e:  # noqa: BLE001
         print(f"  ! VIX 抓取失敗，略過分組檢驗: {e}")
         vix = None
-    out = compute(close, vol, sec_of, order, groups, vix)
-    path = ROOT / "docs" / "flow.json"
-    path.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    print(f"完成 → {path}  截至 {out['asof']}，{out['universe']} 檔，缺 {out['missing']}")
+    for fname, ext, label in VERSIONS:
+        sec_of, order, groups = load_universe(extended=ext)
+        cols = [t for t in sec_of if t in close.columns]
+        out = compute(close[cols], vol[cols], sec_of, order, groups, vix)
+        out["version"] = {"key": "ext" if ext else "base", "label": label}
+        path = ROOT / "docs" / fname
+        path.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+        print(f"完成 {label} → {path}  截至 {out['asof']}，{out['universe']} 檔，缺 {out['missing']}")
 
 
 if __name__ == "__main__":
