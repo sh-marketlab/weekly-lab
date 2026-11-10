@@ -106,6 +106,8 @@ tr.tk td:first-child{padding-left:42px}
 .trow .n{font-family:var(--mono);text-align:right}
 .verdict{margin-top:12px;font-size:13px}
 .caveat{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.6}
+.vbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:0 0 14px;font-size:12px;color:var(--dim)}
+tr.grp.ext td:first-child{color:var(--accent)}
 #err{display:none;border:1px dashed var(--warn);color:var(--warn);padding:16px;border-radius:6px;margin:16px 0}
 footer{margin-top:40px;color:var(--dim);font-size:11.5px;line-height:1.7}
 
@@ -124,6 +126,13 @@ footer{margin-top:40px;color:var(--dim);font-size:11.5px;line-height:1.7}
   <p class="sub">每日「漲跌幅 × 成交量」自動計算，同時列出三種口徑。原算法用股數，大型股與低價股會被高估；金額口徑可以直接相加；相對量口徑讓每檔權重一樣，最適合比板塊。</p>
 
   <div id="err">還沒有 flow.json。到 Actions 執行一次「量價資金流」。</div>
+
+  <div class="vbar">
+    <span class="seg" id="segV" role="group" aria-label="版本">
+      <button aria-pressed="true" data-v="ext">新版（含奢侈品・美債）</button><button aria-pressed="false" data-v="base">原版</button>
+    </span>
+    <span id="vnote"></span>
+  </div>
 
   <div class="weeks" id="weeks" role="group" aria-label="選擇週"></div>
 
@@ -155,14 +164,16 @@ footer{margin-top:40px;color:var(--dim);font-size:11.5px;line-height:1.7}
   <p class="caveat">累計的天數越多，下一天越不容易翻轉，所以週二的翻轉率天生最高、週五天生最低。要支持「週四是假象」，週五的翻轉率至少要接近或高於週四，而不是只是「有發生翻轉」。月底、選擇權到期、財報週的週五會特別多翻轉，樣本週數越多越可靠。</p>
 
   <footer>
-    資料：Yahoo Finance 日線（還原權值），每個美股交易日收盤後更新（台灣時間早上 6:30 左右）。標的與板塊在 <span class="mono">config/flow_universe.yaml</span> 調整。<br>
+    資料：Yahoo Finance 日線（還原權值），每個美股交易日收盤後更新（台灣時間早上 6:30 左右）。標的與板塊在 <span class="mono">config/flow_universe.yaml</span> 調整；標記 <span class="mono">extended: true</span> 的群組只算進新版。<br>
     這些都是量價動能指標：每筆成交都有買方和賣方，數字反映的是「價格往哪邊走時成交特別多」，不是實際的資金流入流出。真正的資金申贖要看 ETF 份額變化（主頁 02 · 板塊）。
   </footer>
 </div>
 
 <script>
 const $=s=>document.querySelector(s);
-let D=null, W=0, M="dollar", S="group";
+let D=null, W=0, M="dollar", S="group", V="ext";
+const CACHE={};
+const VFILE={ext:"flow_ext.json",base:"flow.json"};
 const open=new Set();
 const MLABEL={raw:"原算法",dollar:"金額",rel:"相對量"};
 
@@ -264,7 +275,7 @@ function renderSectors(w){
       const mem=g.sectors.filter(n=>byName[n]); if(!mem.length) continue;
       const t4=grpTotal(w,mem,M+"4"), t5=grpTotal(w,mem,k5);
       const tag=mem.includes("科技")&&mem.includes("半導體")?bigVsSmall(w):"";
-      h+=`<tr class="grp"><td>${g.name}<span class="gnote">${g.note||""}</span>${tag}</td><td class="mono ${cls(t4)}">${f(t4)}</td><td class="mono ${cls(t5)}">${f(t5)}</td><td colspan="${ncol-3}"></td></tr>`;
+      h+=`<tr class="grp ${g.extended?"ext":""}"><td>${g.name}<span class="gnote">${g.note||""}</span>${tag}</td><td class="mono ${cls(t4)}">${f(t4)}</td><td class="mono ${cls(t5)}">${f(t5)}</td><td colspan="${ncol-3}"></td></tr>`;
       for(const n of mem) h+=secRow(w,byName[n],max);
     }
   } else {
@@ -341,10 +352,29 @@ document.querySelectorAll("#segM button").forEach(b=>b.onclick=()=>{
   M=b.dataset.m; document.querySelectorAll("#segM button").forEach(x=>x.setAttribute("aria-pressed",x===b)); renderSectors(D.weeks[W]);
 });
 
-fetch("flow.json",{cache:"no-store"}).then(r=>{if(!r.ok) throw 0; return r.json();}).then(d=>{
-  D=d; $("#asof").textContent=`截至 ${d.asof} · 更新 ${d.updated}`+(d.missing.length?` · 抓不到：${d.missing.join("、")}`:"");
-  render(); renderHeat(); renderTest(); renderRegime();
-}).catch(()=>{$("#err").style.display="block";});
+function loadVersion(v,fallback){
+  const done=d=>{
+    CACHE[v]=d; D=d; V=v; open.clear();
+    if(W>=D.weeks.length) W=0;
+    document.querySelectorAll("#segV button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.v===v));
+    const extra=D.groups.filter(g=>g.extended).flatMap(g=>g.sectors);
+    $("#vnote").textContent=v==="ext"
+      ? `共 ${D.universe} 檔；比原版多「${extra.join("、")||"—"}」。美債沒有股票的漲跌邏輯，放進合計會稀釋或抵銷股票的方向。`
+      : `共 ${D.universe} 檔，和你原本的 Excel 名單一樣（不含奢侈品與美債）。`;
+    $("#asof").textContent=`截至 ${d.asof} · 更新 ${d.updated}`+(d.missing.length?` · 抓不到：${d.missing.join("、")}`:"");
+    $("#err").style.display="none";
+    try{ history.replaceState(null,"",v==="base"?"#base":"#ext"); }catch(e){}
+    render(); renderHeat(); renderTest(); renderRegime();
+  };
+  if(CACHE[v]) return done(CACHE[v]);
+  fetch(VFILE[v],{cache:"no-store"}).then(r=>{if(!r.ok) throw 0; return r.json();}).then(done).catch(()=>{
+    if(fallback) return loadVersion(fallback);
+    $("#err").textContent=v==="ext"?"還沒有新版資料（flow_ext.json）。到 Actions 執行一次「量價資金流」。":"還沒有 flow.json。到 Actions 執行一次「量價資金流」。";
+    $("#err").style.display="block";
+  });
+}
+document.querySelectorAll("#segV button").forEach(b=>b.onclick=()=>loadVersion(b.dataset.v));
+loadVersion(location.hash==="#base"?"base":"ext", location.hash==="#base"?null:"base");
 </script>
 </body>
 </html>
