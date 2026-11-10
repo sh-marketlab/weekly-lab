@@ -31,7 +31,7 @@ jobs:
         run: |
           git config user.name  "weekly-lab-bot"
           git config user.email "actions@github.com"
-          git add docs/flow.json
+          git add docs/flow.json docs/flow_ext.json
           git diff --staged --quiet && exit 0
           git commit -m "量價資金流 $(date -u +%F)"
           # 跟 weekly.yml 錯開時間，但保險起見推送前先同步
