@@ -56,3 +56,13 @@ groups:
         tickers: [EQIX, AMT, DLR]
       - name: 電網基礎建設
         tickers: [ETN, PWR, HUBB, VRT]
+
+  # ---- 新版才納入（extended: true）：原版 77 檔不含這組，頁面上可切換「新版／原版」
+  - name: 跨資產對照
+    note: 奢侈品看高端消費，美債看避險與利率
+    extended: true
+    sectors:
+      - name: 奢侈精品
+        tickers: [LVMUY, CFRUY, HESAY]
+      - name: 美國債券
+        tickers: [TLT, IEF, EDV]
