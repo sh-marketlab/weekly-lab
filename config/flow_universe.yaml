@@ -9,7 +9,7 @@ groups:
       - name: 科技
         tickers: [AAPL, NVDA, GOOG, MSFT, AMZN, TSLA, META]
       - name: 半導體
-        tickers: [AMAT, ASML, CDNS, SNPS, ARM, MRVL]
+        tickers: [AMAT, ASML, CDNS, SNPS, ARM, MRVL, AMD, AVGO, INTC]
 
   - name: 防禦・抗通膨
     note: 金融、民生必需、糧食與水
