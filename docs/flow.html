@@ -91,6 +91,7 @@ tr.tk td:first-child{padding-left:42px}
 .rg td,.rg th{padding:5px 8px}
 .rg .stress{border-color:var(--warn)}
 .rk.move{color:var(--warn)}
+.exd{font-size:10px;border:1px solid var(--accent);color:var(--accent);border-radius:3px;padding:0 3px;margin-left:4px;cursor:help}
 
 /* 熱圖 */
 .heat td{padding:5px 6px;text-align:center;font-size:11px;min-width:46px}
@@ -150,7 +151,7 @@ footer{margin-top:40px;color:var(--dim);font-size:11.5px;line-height:1.7}
     <span class="seg" id="segS" role="group" aria-label="排列">
       <button aria-pressed="true" data-s="group">依分組</button><button aria-pressed="false" data-s="value">依數值</button>
     </span>
-    <span>點板塊展開個股；排名欄會標出三種口徑排名差 3 名以上的板塊</span>
+    <span>點板塊展開個股；排名欄會標出三種口徑排名差 3 名以上的板塊；個股漲跌旁的「息」= 除息日（游標移上去看實際股價漲跌）</span>
   </h2>
   <div class="tbl"><table id="sectors"></table></div>
 
@@ -164,7 +165,7 @@ footer{margin-top:40px;color:var(--dim);font-size:11.5px;line-height:1.7}
   <p class="caveat">累計的天數越多，下一天越不容易翻轉，所以週二的翻轉率天生最高、週五天生最低。要支持「週四是假象」，週五的翻轉率至少要接近或高於週四，而不是只是「有發生翻轉」。月底、選擇權到期、財報週的週五會特別多翻轉，樣本週數越多越可靠。</p>
 
   <footer>
-    資料：Yahoo Finance 日線（還原權值），每個美股交易日收盤後更新（台灣時間早上 6:30 左右）。標的與板塊在 <span class="mono">config/flow_universe.yaml</span> 調整；標記 <span class="mono">extended: true</span> 的群組只算進新版。<br>
+    資料：Yahoo Finance 日線（還原權值：除息日的配息會補回，避免把除息的機械性下跌算成流出；跟 finviz 等看實際股價的來源對照時，除息日會有差異），每個美股交易日收盤後更新（台灣時間早上 6:30 左右）。標的與板塊在 <span class="mono">config/flow_universe.yaml</span> 調整；標記 <span class="mono">extended: true</span> 的群組只算進新版。<br>
     這些都是量價動能指標：每筆成交都有買方和賣方，數字反映的是「價格往哪邊走時成交特別多」，不是實際的資金流入流出。真正的資金申贖要看 ETF 份額變化（主頁 02 · 板塊）。
   </footer>
 </div>
@@ -241,7 +242,11 @@ function secRow(w,s,max){
   if(open.has(s.name)){
     for(const t of w.tickers.filter(t=>t.sec===s.name).sort((a,b)=>(b[k5]??0)-(a[k5]??0))){
       const tf=w.complete&&t.flip;
-      const td=t.days.map(d=>`<td class="${cls(d.r)}" title="成交量 ${d.v?.toLocaleString()}，相對量 ${d.rv}">${fmtPct(d.r)}<span class="rk"> ${d.rv!=null?d.rv.toFixed(1)+"x":""}</span></td>`).join("");
+      const td=t.days.map(d=>{
+        const ex=d.div!=null;
+        const tip=`成交量 ${d.v?.toLocaleString()}，相對量 ${d.rv}`+(ex?`\n除息日：每股配息 $${d.div}；實際股價漲跌 ${fmtPct(d.rp)}，含息調整後 ${fmtPct(d.r)}（表內採含息調整）`:"");
+        return `<td class="${cls(d.r)}" title="${tip}">${fmtPct(d.r)}${ex?'<span class="exd">息</span>':""}<span class="rk"> ${d.rv!=null?d.rv.toFixed(1)+"x":""}</span></td>`;
+      }).join("");
       h+=`<tr class="tk"><td>${t.t}</td><td class="${cls(t[k4])}">${f(t[k4])}</td><td class="${cls(t[k5])}">${f(t[k5])}${tf?'<span class="flipflag">翻轉</span>':""}</td>${td}<td class="${cls(t.ret5)}">${fmtPct(t.ret5)}</td><td></td><td></td></tr>`;
     }
   }
