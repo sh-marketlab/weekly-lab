@@ -57,16 +57,43 @@ def load_universe(extended: bool = False):
 
 
 def fetch(tickers, period="1y"):
+    """回傳 (還原權值收盤, 成交量, 除息資訊)。
+    計算一律用還原權值收盤（等同 auto_adjust=True 的 Close），除息日的機械性下跌不會被算成資金流出。
+    除息資訊 = {"div": 每股配息, "raw": 未還原收盤}，只拿來在頁面標記除息日；抓不到就是 None，不影響計算。"""
     import yfinance as yf
-    df = yf.download(tickers, period=period, interval="1d", auto_adjust=True,
+    df = yf.download(tickers, period=period, interval="1d", auto_adjust=False, actions=True,
                      progress=False, threads=True, group_by="column")
-    close = df["Close"].copy()
-    vol = df["Volume"].copy()
-    if isinstance(close, pd.Series):
-        close, vol = close.to_frame(tickers[0]), vol.to_frame(tickers[0])
-    close.index = pd.to_datetime(close.index).tz_localize(None)
-    vol.index = close.index
-    return close.dropna(how="all"), vol.reindex(close.dropna(how="all").index)
+    lv0 = set(df.columns.get_level_values(0)) if isinstance(df.columns, pd.MultiIndex) else set(df.columns)
+
+    def col(name):
+        if name not in lv0:
+            return None
+        x = df[name].copy()
+        if isinstance(x, pd.Series):
+            x = x.to_frame(tickers[0])
+        x.index = pd.to_datetime(x.index).tz_localize(None)
+        return x
+
+    raw_close = col("Close")
+    close = col("Adj Close")
+    if close is None:  # 萬一沒有 Adj Close，退回原本的還原權值抓法
+        df2 = yf.download(tickers, period=period, interval="1d", auto_adjust=True,
+                          progress=False, threads=True, group_by="column")
+        close = df2["Close"].copy()
+        if isinstance(close, pd.Series):
+            close = close.to_frame(tickers[0])
+        close.index = pd.to_datetime(close.index).tz_localize(None)
+        raw_close = None
+    vol = col("Volume")
+    if vol is None:
+        vol = pd.DataFrame(np.nan, index=close.index, columns=close.columns)
+    close = close.dropna(how="all")
+    vol = vol.reindex(close.index)
+    div = col("Dividends")
+    exdiv = None
+    if div is not None and raw_close is not None:
+        exdiv = {"div": div.reindex(close.index), "raw": raw_close.reindex(close.index)}
+    return close, vol, exdiv
 
 
 def _r(x, d=4):
@@ -90,7 +117,8 @@ def fetch_vix(period="1y"):
 
 
 def compute(close: pd.DataFrame, vol: pd.DataFrame, sec_of: dict, order: list,
-            groups: list | None = None, vix: pd.Series | None = None) -> dict:
+            groups: list | None = None, vix: pd.Series | None = None,
+            exdiv: dict | None = None) -> dict:
     tickers = [t for t in sec_of if t in close.columns and close[t].notna().sum() > RV_WINDOW]
     missing = [t for t in sec_of if t not in tickers]
     close, vol = close[tickers], vol[tickers].astype(float)
@@ -99,6 +127,20 @@ def compute(close: pd.DataFrame, vol: pd.DataFrame, sec_of: dict, order: list,
     avgv = vol.rolling(RV_WINDOW, min_periods=10).mean().shift(1)
     rv = vol / avgv
     raw = ret * vol
+
+    # 除息日：每股配息 > 0 的那一天。rp = 未還原的實際股價漲跌（%），只供頁面對照用
+    div_f = rret = None
+    if exdiv is not None:
+        div_f = exdiv["div"].reindex(index=close.index, columns=tickers)
+        rret = exdiv["raw"].reindex(index=close.index, columns=tickers).pct_change()
+
+    def day_extra(x, t):
+        if div_f is None:
+            return {}
+        dv = div_f.loc[x, t]
+        if dv is None or not (dv > 0):
+            return {}
+        return {"div": _r(dv, 4), "rp": _r(rret.loc[x, t] * 100, 2)}
     dollar = ret * close * vol
     rel = ret * rv * 100
 
@@ -137,7 +179,7 @@ def compute(close: pd.DataFrame, vol: pd.DataFrame, sec_of: dict, order: list,
                 "t": t, "sec": sec_of[t],
                 "close": _r(close.loc[dates[-1], t], 2),
                 "days": [{"r": _r(ret.loc[x, t] * 100, 2), "v": _r(vol.loc[x, t], 0), "rv": _r(rv.loc[x, t], 2),
-                          "dollar": _r(dollar.loc[x, t], 0)} for x in dates],
+                          "dollar": _r(dollar.loc[x, t], 0), **day_extra(x, t)} for x in dates],
                 **{k: _r(v[t], 4 if k.startswith("rel") or k.startswith("ret") else 0) for k, v in T.items()},
                 "flip": _sign(T["dollar4"][t]) != _sign(T["dollar5"][t]) if complete and thu else False,
             })
@@ -292,7 +334,9 @@ VERSIONS = [
 def main():
     full_sec, _, _ = load_universe(extended=True)
     print(f"抓 {len(full_sec)} 檔…")
-    close, vol = fetch(list(full_sec))
+    close, vol, exdiv = fetch(list(full_sec))
+    if exdiv is None:
+        print("  ! 抓不到配息資料，這次不標除息日")
     try:
         vix = fetch_vix()
     except Exception as e:  # noqa: BLE001
@@ -301,7 +345,8 @@ def main():
     for fname, ext, label in VERSIONS:
         sec_of, order, groups = load_universe(extended=ext)
         cols = [t for t in sec_of if t in close.columns]
-        out = compute(close[cols], vol[cols], sec_of, order, groups, vix)
+        ex = {k: v[[c for c in cols if c in v.columns]] for k, v in exdiv.items()} if exdiv else None
+        out = compute(close[cols], vol[cols], sec_of, order, groups, vix, ex)
         out["version"] = {"key": "ext" if ext else "base", "label": label}
         path = ROOT / "docs" / fname
         path.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
