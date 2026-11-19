@@ -91,6 +91,8 @@ tr.tk td:first-child{padding-left:42px}
 .rg td,.rg th{padding:5px 8px}
 .rg .stress{border-color:var(--warn)}
 .rk.move{color:var(--warn)}
+.cl{font-size:10px;margin-left:3px;font-family:var(--sans)}
+.cl.rev{border:1px solid var(--warn);color:var(--warn);border-radius:3px;padding:0 3px}
 .exd{font-size:10px;border:1px solid var(--accent);color:var(--accent);border-radius:3px;padding:0 3px;margin-left:4px;cursor:help}
 
 /* 熱圖 */
@@ -122,7 +124,7 @@ footer{margin-top:40px;color:var(--dim);font-size:11.5px;line-height:1.7}
 </head>
 <body>
 <div class="wrap">
-  <div class="eyebrow"><span>每週練習台</span><b>量價資金流</b><span id="asof">—</span><a href="index.html">← 回主頁</a></div>
+  <div class="eyebrow"><span>每週練習台</span><b>量價資金流</b><span id="asof">—</span><a href="contrarian.html">逆勢個股 →</a><a href="index.html" style="margin-left:14px">← 回主頁</a></div>
   <h1>週四 checkpoint，週五結算</h1>
   <p class="sub">每日「漲跌幅 × 成交量」自動計算，同時列出三種口徑。原算法用股數，大型股與低價股會被高估；金額口徑可以直接相加；相對量口徑讓每檔權重一樣，最適合比板塊。</p>
 
@@ -151,7 +153,7 @@ footer{margin-top:40px;color:var(--dim);font-size:11.5px;line-height:1.7}
     <span class="seg" id="segS" role="group" aria-label="排列">
       <button aria-pressed="true" data-s="group">依分組</button><button aria-pressed="false" data-s="value">依數值</button>
     </span>
-    <span>點板塊展開個股；排名欄會標出三種口徑排名差 3 名以上的板塊；個股漲跌旁的「息」= 除息日（游標移上去看實際股價漲跌）</span>
+    <span>點板塊展開個股；排名欄會標出三種口徑排名差 3 名以上的板塊；個股漲跌旁：「高／低」= 收在當天高點／低點附近，「翻」= 收盤方向跟收盤位置相反（盤中反轉），「息」= 除息日；游標移上去看說明</span>
   </h2>
   <div class="tbl"><table id="sectors"></table></div>
 
@@ -224,7 +226,19 @@ function renderDays(w){
     <div class="h"><span>${d.dow}</span><span class="mono">${d.date.slice(5).replace("-","/")}</span></div>
     <div class="v ${cls(d.dollar)}">${fmtDollar(d.dollar)}</div>
     <div class="bar"><i style="${d.dollar>=0?"left:50%":"right:50%"};width:${Math.abs(d.dollar)/max*50}%;background:${d.dollar>=0?"var(--pos)":"var(--neg)"}"></i></div>
-    <div class="ud">漲 <b>${d.up}</b>／跌 <b>${d.down}</b> · 相對量 <b class="${cls(d.rel)}">${fmtRel(d.rel)}</b></div></div>`).join("");
+    <div class="ud">漲 <b>${d.up}</b>／跌 <b>${d.down}</b> · 相對量 <b class="${cls(d.rel)}">${fmtRel(d.rel)}</b></div>
+    ${d.hi!=null?`<div class="ud" title="收盤位置：收在當天高點附近（≥0.5）的家數 vs 收在低點附近（≤−0.5）的家數">收高 <b class="pos">${d.hi}</b>／收低 <b class="neg">${d.lo}</b></div>`:""}</div>`).join("");
+}
+
+// 收盤位置（CLV）：+1 收最高、−1 收最低。收盤後用它判斷盤中是誰撐到最後
+function clvJudge(r,c){
+  if(c==null) return null;
+  // 「翻」只在當天漲跌 ≥ 0.5% 時標，太小的漲跌談不上盤中反轉
+  if(r>=0.5&&c<=-0.3) return {t:"翻",k:"rev",s:"收漲但收在低檔：盤中曾拉更高，尾盤被賣回來，買盤沒撐住"};
+  if(r<=-0.5&&c>=0.3) return {t:"翻",k:"rev",s:"收跌但收在高檔：盤中曾殺更低，尾盤被買回來，有人逢低承接"};
+  if(c>=0.5) return {t:"高",k:"pos",s:"收在當天高點附近：買方撐到收盤"};
+  if(c<=-0.5) return {t:"低",k:"neg",s:"收在當天低點附近：賣方壓到收盤"};
+  return {t:"",k:"",s:"收在當天中段：多空拉鋸"};
 }
 
 function secRow(w,s,max){
@@ -243,9 +257,9 @@ function secRow(w,s,max){
     for(const t of w.tickers.filter(t=>t.sec===s.name).sort((a,b)=>(b[k5]??0)-(a[k5]??0))){
       const tf=w.complete&&t.flip;
       const td=t.days.map(d=>{
-        const ex=d.div!=null;
-        const tip=`成交量 ${d.v?.toLocaleString()}，相對量 ${d.rv}`+(ex?`\n除息日：每股配息 $${d.div}；實際股價漲跌 ${fmtPct(d.rp)}，含息調整後 ${fmtPct(d.r)}（表內採含息調整）`:"");
-        return `<td class="${cls(d.r)}" title="${tip}">${fmtPct(d.r)}${ex?'<span class="exd">息</span>':""}<span class="rk"> ${d.rv!=null?d.rv.toFixed(1)+"x":""}</span></td>`;
+        const ex=d.div!=null, j=clvJudge(d.r,d.clv);
+        const tip=`成交量 ${d.v?.toLocaleString()}，相對量 ${d.rv}`+(j?`\n收盤位置 ${d.clv>0?"+":""}${d.clv.toFixed(2)}：${j.s}`:"")+(ex?`\n除息日：每股配息 $${d.div}；實際股價漲跌 ${fmtPct(d.rp)}，含息調整後 ${fmtPct(d.r)}（表內採含息調整）`:"");
+        return `<td class="${cls(d.r)}" title="${tip}">${fmtPct(d.r)}${j&&j.t?`<span class="cl ${j.k}">${j.t}</span>`:""}${ex?'<span class="exd">息</span>':""}<span class="rk"> ${d.rv!=null?d.rv.toFixed(1)+"x":""}</span></td>`;
       }).join("");
       h+=`<tr class="tk"><td>${t.t}</td><td class="${cls(t[k4])}">${f(t[k4])}</td><td class="${cls(t[k5])}">${f(t[k5])}${tf?'<span class="flipflag">翻轉</span>':""}</td>${td}<td class="${cls(t.ret5)}">${fmtPct(t.ret5)}</td><td></td><td></td></tr>`;
     }

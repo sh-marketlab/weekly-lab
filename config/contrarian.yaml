@@ -1,0 +1,35 @@
+# 逆勢個股篩選（src/contrarian.py → docs/contrarian.json → docs/contrarian.html）
+# 數字都可以直接改，下次排程跑完就生效；訊號紀錄會用新門檻整段重算（消息與第二層快照會保留）。
+
+screen:
+  # 1. 第一層：相對量口徑
+  #    個股週數字 > 0、同板塊「其他」個股的週數字平均 < 0、個股週均相對量 ≥ min_rv
+  min_rv: 1.5
+  # 2. 連續週數：連續幾個完整週都符合才算「確認」
+  confirm_weeks: 2
+  # 第二週以後的相對量門檻（預設跟第一週一樣嚴格；想放寬確認條件可以改成 1.0）
+  confirm_min_rv: 1.5
+
+exit:
+  # 4. 自動出場訊號：訊號出現後，個股週數字（相對量口徑）連續幾週 < 0
+  weak_weeks: 2
+
+track:
+  # 追蹤績效的週數（從訊號週的週五收盤起算，與同板塊其他個股平均比）
+  horizons: [1, 2, 4, 8]
+
+news:
+  # 3. 自動搜尋消息：搜尋訊號週（以及確認週）前後的新聞標題
+  enabled: true
+  days_before: 3          # 往前多搜幾天（消息可能在週一之前就出來）
+  max_headlines: 8
+  backfill_weeks: 12      # 第一次跑時，回溯幾週內的舊訊號也去搜消息（更早的標「未查」）
+  # 標題出現這些字就歸類為「有消息」（不分大小寫）
+  catalysts:
+    財報: [earnings, results, quarter, "q1 ", "q2 ", "q3 ", "q4 ", revenue, guidance, eps, outlook]
+    合約／訂單: [contract, award, order, deal, agreement, partnership, partners, selected]
+    併購: [acquire, acquisition, merger, buyout, takeover, stake]
+    分析師評等: [upgrade, downgrade, price target, initiates, initiated, overweight, outperform, buy rating]
+    產品／審批: [fda, approval, approved, launch, launches, unveil, breakthrough, clearance]
+    增資／股權: [offering, dilution, convertible, buyback, repurchase, split]
+    指數調整: [s&p 500, index inclusion, added to, russell]

@@ -35,6 +35,7 @@ RV_WINDOW = 20        # 相對量的均量天數
 DAY_NAMES = ["週一", "週二", "週三", "週四", "週五"]
 
 
+CLV_HI = 0.5          # 收盤位置 ≥ 0.5 算「收高」、≤ −0.5 算「收低」
 VIX_STRESS = 20       # 週四收盤 VIX 高於此值 → 該週算「壓力週」
 
 
@@ -57,9 +58,10 @@ def load_universe(extended: bool = False):
 
 
 def fetch(tickers, period="1y"):
-    """回傳 (還原權值收盤, 成交量, 除息資訊)。
+    """回傳 (還原權值收盤, 成交量, 附加資料)。
     計算一律用還原權值收盤（等同 auto_adjust=True 的 Close），除息日的機械性下跌不會被算成資金流出。
-    除息資訊 = {"div": 每股配息, "raw": 未還原收盤}，只拿來在頁面標記除息日；抓不到就是 None，不影響計算。"""
+    附加資料 = {"div": 每股配息, "raw": 未還原收盤, "high": 當日最高, "low": 當日最低}（皆未還原）。
+    div/raw 用來標除息日，raw/high/low 用來算收盤位置；任一項抓不到就是 None，不影響主計算。"""
     import yfinance as yf
     df = yf.download(tickers, period=period, interval="1d", auto_adjust=False, actions=True,
                      progress=False, threads=True, group_by="column")
@@ -89,11 +91,20 @@ def fetch(tickers, period="1y"):
         vol = pd.DataFrame(np.nan, index=close.index, columns=close.columns)
     close = close.dropna(how="all")
     vol = vol.reindex(close.index)
-    div = col("Dividends")
-    exdiv = None
-    if div is not None and raw_close is not None:
-        exdiv = {"div": div.reindex(close.index), "raw": raw_close.reindex(close.index)}
-    return close, vol, exdiv
+    def ri(x):
+        return None if x is None else x.reindex(close.index)
+
+    extra = {"div": ri(col("Dividends")), "raw": ri(raw_close), "high": ri(col("High")), "low": ri(col("Low"))}
+    return close, vol, extra
+
+
+def close_location(raw, high, low):
+    """收盤位置 CLV = (2×收盤 − 最高 − 最低) ÷ (最高 − 最低)，範圍 −1～+1。
+    +1 = 收在當天最高（買方撐到最後），−1 = 收在最低（賣方壓到最後），0 = 收在正中間（拉鋸）。
+    同一天的高低收用同一個還原係數，所以未還原或還原都算得一樣。"""
+    rng = high - low
+    clv = (2 * raw - high - low) / rng.where(rng > 0)
+    return clv.clip(-1, 1)
 
 
 def _r(x, d=4):
@@ -119,6 +130,7 @@ def fetch_vix(period="1y"):
 def compute(close: pd.DataFrame, vol: pd.DataFrame, sec_of: dict, order: list,
             groups: list | None = None, vix: pd.Series | None = None,
             exdiv: dict | None = None) -> dict:
+    """exdiv：fetch() 回傳的附加資料（div/raw/high/low），可為 None。"""
     tickers = [t for t in sec_of if t in close.columns and close[t].notna().sum() > RV_WINDOW]
     missing = [t for t in sec_of if t not in tickers]
     close, vol = close[tickers], vol[tickers].astype(float)
@@ -129,18 +141,35 @@ def compute(close: pd.DataFrame, vol: pd.DataFrame, sec_of: dict, order: list,
     raw = ret * vol
 
     # 除息日：每股配息 > 0 的那一天。rp = 未還原的實際股價漲跌（%），只供頁面對照用
+    ex = exdiv or {}
+
+    def frame(k):
+        x = ex.get(k)
+        return None if x is None else x.reindex(index=close.index, columns=tickers)
+
     div_f = rret = None
-    if exdiv is not None:
-        div_f = exdiv["div"].reindex(index=close.index, columns=tickers)
-        rret = exdiv["raw"].reindex(index=close.index, columns=tickers).pct_change()
+    if frame("div") is not None and frame("raw") is not None:
+        div_f = frame("div")
+        rret = frame("raw").pct_change()
+
+    # 收盤位置（盤中狀況）：需要未還原的收、高、低
+    clv = None
+    if all(frame(k) is not None for k in ("raw", "high", "low")):
+        clv = close_location(frame("raw"), frame("high"), frame("low"))
 
     def day_extra(x, t):
+        out = {}
+        if clv is not None:
+            c = _r(clv.loc[x, t], 2)
+            if c is not None:
+                out["clv"] = c
         if div_f is None:
-            return {}
+            return out
         dv = div_f.loc[x, t]
         if dv is None or not (dv > 0):
-            return {}
-        return {"div": _r(dv, 4), "rp": _r(rret.loc[x, t] * 100, 2)}
+            return out
+        out.update({"div": _r(dv, 4), "rp": _r(rret.loc[x, t] * 100, 2)})
+        return out
     dollar = ret * close * vol
     rel = ret * rv * 100
 
@@ -173,6 +202,14 @@ def compute(close: pd.DataFrame, vol: pd.DataFrame, sec_of: dict, order: list,
             "rel4": agg(rel, thu), "rel5": agg(rel, dates),
             "ret4": cumret(thu), "ret5": cumret(dates),
         }
+        def wclv(ds, t):
+            """一週的成交量加權收盤位置：量大的那天權重大"""
+            if clv is None or not ds:
+                return None
+            c, v = clv.loc[ds, t], vol.loc[ds, t]
+            m = c.notna() & v.notna() & (v > 0)
+            return float((c[m] * v[m]).sum() / v[m].sum()) if m.any() else None
+
         trows = []
         for t in tickers:
             trows.append({
@@ -182,6 +219,7 @@ def compute(close: pd.DataFrame, vol: pd.DataFrame, sec_of: dict, order: list,
                           "dollar": _r(dollar.loc[x, t], 0), **day_extra(x, t)} for x in dates],
                 **{k: _r(v[t], 4 if k.startswith("rel") or k.startswith("ret") else 0) for k, v in T.items()},
                 "flip": _sign(T["dollar4"][t]) != _sign(T["dollar5"][t]) if complete and thu else False,
+                "clv5": _r(wclv(dates, t), 2),
             })
 
         # 每日市場合計與家數
@@ -192,6 +230,8 @@ def compute(close: pd.DataFrame, vol: pd.DataFrame, sec_of: dict, order: list,
                 "date": x.strftime("%Y-%m-%d"), "dow": DAY_NAMES[x.dayofweek],
                 "raw": _r(raw.loc[x].sum(), 0), "dollar": _r(dollar.loc[x].sum(), 0),
                 "rel": _r(rel.loc[x].mean(), 3), "up": int((r_ > 0).sum()), "down": int((r_ < 0).sum()),
+                **({} if clv is None else {"hi": int((clv.loc[x] >= CLV_HI).sum()),
+                                           "lo": int((clv.loc[x] <= -CLV_HI).sum())}),
             })
 
         def market(ds, suffix):
@@ -335,8 +375,10 @@ def main():
     full_sec, _, _ = load_universe(extended=True)
     print(f"抓 {len(full_sec)} 檔…")
     close, vol, exdiv = fetch(list(full_sec))
-    if exdiv is None:
+    if exdiv.get("div") is None:
         print("  ! 抓不到配息資料，這次不標除息日")
+    if exdiv.get("high") is None or exdiv.get("low") is None:
+        print("  ! 抓不到最高／最低價，這次不算收盤位置")
     try:
         vix = fetch_vix()
     except Exception as e:  # noqa: BLE001
@@ -345,12 +387,21 @@ def main():
     for fname, ext, label in VERSIONS:
         sec_of, order, groups = load_universe(extended=ext)
         cols = [t for t in sec_of if t in close.columns]
-        ex = {k: v[[c for c in cols if c in v.columns]] for k, v in exdiv.items()} if exdiv else None
+        ex = {k: (None if v is None else v[[c for c in cols if c in v.columns]]) for k, v in exdiv.items()}
         out = compute(close[cols], vol[cols], sec_of, order, groups, vix, ex)
         out["version"] = {"key": "ext" if ext else "base", "label": label}
         path = ROOT / "docs" / fname
         path.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
         print(f"完成 {label} → {path}  截至 {out['asof']}，{out['universe']} 檔，缺 {out['missing']}")
+
+    # 逆勢個股篩選＋訊號紀錄（失敗不影響上面的主頁資料）
+    try:
+        import contrarian
+        contrarian.run(close, vol, exdiv)
+    except Exception as e:  # noqa: BLE001
+        import traceback
+        traceback.print_exc()
+        print(f"  ! 逆勢個股篩選失敗：{e}")
 
 
 if __name__ == "__main__":
