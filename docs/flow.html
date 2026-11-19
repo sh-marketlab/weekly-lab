@@ -8,17 +8,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-/* 沿用 index.html 的色票：青綠＝流入、紅＝流出 */
+/* 白底色票：綠＝流入、紅＝流出（顏色加深，白底上才看得清楚） */
 :root{
-  --ground:#0A1018; --panel:#101A26; --panel-2:#0D151F; --hair:#1E2C3E;
-  --ink:#DCE6F2; --muted:#6F8299; --dim:#4A5B71;
-  --pos:#2FBFA0; --neg:#E4586B; --warn:#E0A03C; --accent:#7DD3C0;
+  --ground:#FFFFFF; --panel:#FFFFFF; --panel-2:#F4F6F9; --hair:#DDE3EA;
+  --ink:#1B2733; --muted:#5B6B7D; --dim:#8A97A6;
+  --pos:#0E8F6A; --neg:#D13B4F; --warn:#B7740C; --accent:#0F7F70;
+  --pos-rgb:14,143,106; --neg-rgb:209,59,79;
   --mono:'IBM Plex Mono',ui-monospace,monospace;
   --sans:'IBM Plex Sans','Noto Sans TC',system-ui,sans-serif;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1180px;margin:0 auto;padding:28px max(16px,2vw) 80px}
+.wrap{max-width:1520px;margin:0 auto;padding:28px max(16px,2vw) 80px}
 a{color:var(--accent)}
 .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
 .eyebrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
@@ -67,21 +68,24 @@ h2 span{letter-spacing:.02em;text-transform:none;color:var(--dim);font-family:va
 .seg button[aria-pressed="true"]{background:var(--panel-2);color:var(--accent)}
 .tbl{overflow-x:auto;border:1px solid var(--hair);border-radius:6px;background:var(--panel)}
 table{width:100%;border-collapse:collapse;font-size:12.5px}
-th{font-weight:500;color:var(--muted);text-align:right;padding:8px 10px;border-bottom:1px solid var(--hair);white-space:nowrap;font-size:11.5px}
-td{padding:7px 10px;border-bottom:1px solid var(--panel-2);text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+th{font-weight:500;color:var(--muted);text-align:right;padding:8px 8px;border-bottom:1px solid var(--hair);white-space:nowrap;font-size:11.5px}
+td{padding:7px 8px;border-bottom:1px solid var(--hair);text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
 th:first-child,td:first-child{text-align:left;font-family:var(--sans)}
 tr.sec{cursor:pointer}
 tr.sec:hover td{background:var(--panel-2)}
 tr.sec td:first-child::before{content:"▸ ";color:var(--dim)}
 tr.sec.open td:first-child::before{content:"▾ "}
-tr.tk td{font-size:11.5px;color:var(--muted);background:var(--panel-2)}
-.dbar{display:inline-block;width:70px;height:7px;background:var(--panel-2);border-radius:3px;position:relative;vertical-align:middle;margin-left:8px}
+tr.tk td{font-size:11.5px;color:var(--ink);background:var(--panel-2)}
+tr.tk .sg.pos{color:var(--pos);font-weight:600} tr.tk .sg.neg{color:var(--neg);font-weight:600}
+.dbar{display:inline-block;width:52px;height:7px;background:var(--panel-2);border-radius:3px;position:relative;vertical-align:middle;margin-left:8px}
 .dbar i{position:absolute;top:0;bottom:0;border-radius:3px}
 .dbar::after{content:"";position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--hair)}
 .rk{color:var(--dim);font-size:11px}
 tr.grp td{background:var(--ground);font-family:var(--sans);border-top:1px solid var(--hair);padding-top:12px;color:var(--ink)}
 tr.grp td:first-child{font-weight:600;font-size:13px}
-tr.grp .gnote{font-weight:400;color:var(--dim);font-size:11.5px;margin-left:8px}
+tr.grp td:first-child{white-space:normal;min-width:200px;max-width:260px}
+tr.grp .gnote{display:block;font-weight:400;color:var(--dim);font-size:11px;margin:1px 0 0;line-height:1.4}
+tr.grp .gtag{display:inline-block;margin:3px 0 0 !important}
 tr.grp .gtag{font-size:11px;border-radius:3px;padding:1px 6px;margin-left:8px;border:1px solid var(--warn);color:var(--warn);font-weight:400}
 tr.sec td:first-child{padding-left:20px}
 tr.tk td:first-child{padding-left:42px}
@@ -185,6 +189,8 @@ function fmtDollar(v){ if(v==null) return "—"; const a=Math.abs(v), s=v<0?"−
 function fmtRaw(v){ if(v==null) return "—"; const a=Math.abs(v), s=v<0?"−":"+";
   if(a>=1e6) return s+(a/1e6).toFixed(2)+"M"; if(a>=1e3) return s+(a/1e3).toFixed(0)+"K"; return s+a.toFixed(0); }
 function fmtRel(v){ return v==null?"—":(v>0?"+":v<0?"−":"")+Math.abs(v).toFixed(2); }
+// 個股列：數字維持黑色，只有正負號上色
+function sgnOnly(str){ const c=str.charAt(0); return c==="+"?`<span class="sg pos">+</span>${str.slice(1)}`:c==="−"?`<span class="sg neg">−</span>${str.slice(1)}`:str; }
 function fmtPct(v){ return v==null?"—":(v>0?"+":v<0?"−":"")+Math.abs(v).toFixed(2)+"%"; }
 const FMT={raw:fmtRaw,dollar:fmtDollar,rel:fmtRel};
 const cls=v=>v>0?"pos":v<0?"neg":"";
@@ -259,9 +265,9 @@ function secRow(w,s,max){
       const td=t.days.map(d=>{
         const ex=d.div!=null, j=clvJudge(d.r,d.clv);
         const tip=`成交量 ${d.v?.toLocaleString()}，相對量 ${d.rv}`+(j?`\n收盤位置 ${d.clv>0?"+":""}${d.clv.toFixed(2)}：${j.s}`:"")+(ex?`\n除息日：每股配息 $${d.div}；實際股價漲跌 ${fmtPct(d.rp)}，含息調整後 ${fmtPct(d.r)}（表內採含息調整）`:"");
-        return `<td class="${cls(d.r)}" title="${tip}">${fmtPct(d.r)}${j&&j.t?`<span class="cl ${j.k}">${j.t}</span>`:""}${ex?'<span class="exd">息</span>':""}<span class="rk"> ${d.rv!=null?d.rv.toFixed(1)+"x":""}</span></td>`;
+        return `<td title="${tip}">${sgnOnly(fmtPct(d.r))}${j&&j.t?`<span class="cl ${j.k}">${j.t}</span>`:""}${ex?'<span class="exd">息</span>':""}<span class="rk"> ${d.rv!=null?d.rv.toFixed(1)+"x":""}</span></td>`;
       }).join("");
-      h+=`<tr class="tk"><td>${t.t}</td><td class="${cls(t[k4])}">${f(t[k4])}</td><td class="${cls(t[k5])}">${f(t[k5])}${tf?'<span class="flipflag">翻轉</span>':""}</td>${td}<td class="${cls(t.ret5)}">${fmtPct(t.ret5)}</td><td></td><td></td></tr>`;
+      h+=`<tr class="tk"><td>${t.t}</td><td>${sgnOnly(f(t[k4]))}</td><td>${sgnOnly(f(t[k5]))}${tf?'<span class="flipflag">翻轉</span>':""}</td>${td}<td>${sgnOnly(fmtPct(t.ret5))}</td><td></td><td></td></tr>`;
     }
   }
   return h;
@@ -287,7 +293,7 @@ function renderSectors(w){
   const max=Math.max(...w.sectors.map(r=>Math.abs(r[k5]||0)),1);
   const dh=w.dows.map(d=>`<th>${d}</th>`).join("");
   const ncol=5+w.dows.length+1;
-  let h=`<thead><tr><th>板塊</th><th>週一～週四</th><th>週一～週五</th>${dh}<th>週漲跌（平均）</th><th>漲／跌</th><th>排名：原算法・金額・相對量</th></tr></thead><tbody>`;
+  let h=`<thead><tr><th>板塊</th><th>週一～週四</th><th>週一～週五</th>${dh}<th>週漲跌<br><span class="rk">平均</span></th><th>漲／跌</th><th title="原算法・金額・相對量 三種口徑的排名">排名<br><span class="rk">原・金・相</span></th></tr></thead><tbody>`;
   const byName=Object.fromEntries(w.sectors.map(s=>[s.name,s]));
   if(S==="group"&&D.groups&&D.groups.length){
     for(const g of D.groups){
@@ -315,8 +321,8 @@ function renderHeat(){
   for(const g of gs) for(const [i,s] of g.sectors.entries()){
     if(i===0&&g.name) h+=`<tr class="hg"><td colspan="${H.length+1}">${g.name}</td></tr>`;
     h+=`<tr><td>${s}</td>`+H.map(x=>{const v=x.sectors[s]?.rel; if(v==null) return "<td>—</td>";
-      const a=Math.min(Math.abs(v)/max,1)*0.75+0.08; const c=v>=0?`rgba(47,191,160,${a})`:`rgba(228,88,107,${a})`;
-      return `<td style="background:${c};color:${a>0.5?"#0A1018":"var(--ink)"}" class="mono">${fmtRel(v)}</td>`;}).join("")+"</tr>";
+      const a=Math.min(Math.abs(v)/max,1)*0.75+0.08; const c=v>=0?`rgba(var(--pos-rgb),${a*0.8})`:`rgba(var(--neg-rgb),${a*0.8})`;
+      return `<td style="background:${c};color:${a>0.55?"#FFFFFF":"var(--ink)"}" class="mono">${fmtRel(v)}</td>`;}).join("")+"</tr>";
   }
   $("#heat").innerHTML=h+"</tbody>";
 }
