@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>每週練習台 · 逆勢個股</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* 沿用 flow.html 的色票：青綠＝偏多、紅＝偏空 */
+:root{
+  --ground:#0A1018; --panel:#101A26; --panel-2:#0D151F; --hair:#1E2C3E;
+  --ink:#DCE6F2; --muted:#6F8299; --dim:#4A5B71;
+  --pos:#2FBFA0; --neg:#E4586B; --warn:#E0A03C; --accent:#7DD3C0;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --sans:'IBM Plex Sans','Noto Sans TC',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:28px max(16px,2vw) 80px}
+a{color:var(--accent)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+.eyebrow b{color:var(--accent);font-weight:600}
+.eyebrow .links{margin-left:auto;display:flex;gap:14px;letter-spacing:.06em;text-transform:none}
+h1{font-size:26px;font-weight:600;margin:0 0 4px}
+.sub{color:var(--muted);font-size:13px;margin:0 0 20px;max-width:76ch}
+h2{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:32px 0 10px;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+h2 span{letter-spacing:.02em;text-transform:none;color:var(--dim);font-family:var(--sans);font-size:12px}
+.pos{color:var(--pos)} .neg{color:var(--neg)} .warn{color:var(--warn)} .dim{color:var(--dim)}
+
+/* 規則 */
+.rules{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.rule{background:var(--panel);border:1px solid var(--hair);border-radius:6px;padding:12px 14px;min-width:0}
+.rule .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--dim)}
+.rule .t{font-weight:500;margin:2px 0 6px}
+.rule p{margin:0;font-size:12px;color:var(--muted);line-height:1.5}
+.rule b{font-family:var(--mono);color:var(--accent);font-weight:500}
+
+/* 按鈕列 */
+.seg{display:inline-flex;border:1px solid var(--hair);border-radius:4px;overflow:hidden}
+.seg button{font-family:var(--mono);font-size:11.5px;background:var(--panel-2);color:var(--muted);border:0;padding:4px 10px;cursor:pointer}
+.seg button+button{border-left:1px solid var(--hair)}
+.seg button[aria-pressed="true"]{color:var(--accent);background:var(--panel)}
+.seg button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+
+/* 表格 */
+.tbl{overflow-x:auto;border:1px solid var(--hair);border-radius:6px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{padding:7px 10px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--hair)}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--dim);font-weight:500;background:var(--panel-2);position:sticky;top:0}
+td{font-family:var(--mono);font-variant-numeric:tabular-nums}
+th:first-child,td:first-child,td.l,th.l{text-align:left}
+td.l{font-family:var(--sans)}
+tr:last-child td{border-bottom:0}
+tr.sig{cursor:pointer}
+tr.sig:hover td{background:rgba(125,211,192,.04)}
+tr.detail td{background:var(--panel-2);white-space:normal;text-align:left;font-family:var(--sans)}
+.tk{font-weight:600;font-family:var(--mono)}
+.nm{color:var(--dim);font-size:11px;margin-left:6px;font-family:var(--sans)}
+.empty{padding:16px;color:var(--muted);font-size:13px}
+
+/* 標籤 */
+.tag{display:inline-block;font-size:10.5px;border:1px solid currentColor;border-radius:3px;padding:0 5px;line-height:1.6;font-family:var(--sans)}
+.tag.ok{color:var(--pos)} .tag.bad{color:var(--neg)} .tag.wait{color:var(--warn)} .tag.mute{color:var(--muted)} .tag.acc{color:var(--accent)}
+.clv{font-size:10.5px;margin-left:4px;font-family:var(--sans)}
+
+/* 新聞 */
+.news{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:4px 0}
+.news h4{margin:0 0 6px;font-size:12px;font-weight:500;color:var(--muted)}
+.news ul{margin:0;padding-left:16px;font-size:12.5px}
+.news li{margin:2px 0}
+.news li small{color:var(--dim)}
+.snap{font-size:12px;color:var(--muted)}
+.snap b{font-family:var(--mono);color:var(--ink);font-weight:500}
+
+/* 統計 */
+.stats td:first-child{font-family:var(--sans)}
+.caveat{color:var(--dim);font-size:12px;line-height:1.6;max-width:90ch}
+#err{display:none;background:var(--panel);border:1px solid var(--warn);color:var(--warn);border-radius:6px;padding:14px 16px;margin:12px 0}
+footer{margin-top:40px;color:var(--dim);font-size:12px;line-height:1.7;border-top:1px solid var(--hair);padding-top:16px}
+
+@media (max-width:960px){ .rules{grid-template-columns:repeat(2,minmax(0,1fr))} .news{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow"><span>每週練習台</span><b>逆勢個股</b><span id="asof">—</span>
+    <span class="links"><a href="flow.html">← 量價資金流</a><a href="index.html">主頁</a></span></div>
+  <h1>板塊在跌，它卻放量上漲</h1>
+  <p class="sub">用相對量口徑找出跟同板塊反方向、而且明顯放量的個股，記錄每一筆訊號之後的表現，跟同板塊其他個股比。量價指標是第一層篩選，消息分類與放空、機構持股是第二層確認。</p>
+
+  <div id="err">還沒有 contrarian.json。到 Actions 執行一次「量價資金流」。</div>
+
+  <h2>篩選規則 <span>門檻在 config/contrarian.yaml，改完下次排程生效</span></h2>
+  <div class="rules" id="rules"></div>
+
+  <h2>本週進行中 <span id="provNote">暫定名單，週五收盤後才算數</span></h2>
+  <div class="tbl"><table id="prov"></table></div>
+
+  <h2>最近完整週 <span class="seg" id="segW" role="group" aria-label="選擇週"></span>
+    <span>收盤位置是成交量加權的週平均：+1 收在最高、−1 收在最低</span></h2>
+  <div class="tbl"><table id="week"></table></div>
+
+  <h2>訊號紀錄表
+    <span class="seg" id="segF" role="group" aria-label="篩選">
+      <button aria-pressed="true" data-f="all">全部</button><button aria-pressed="false" data-f="live">追蹤中</button><button aria-pressed="false" data-f="conf">已確認</button><button aria-pressed="false" data-f="unconf">未確認</button><button aria-pressed="false" data-f="exit">已出場</button>
+    </span>
+    <span>點一列看新聞與第二層快照；績效是相對同板塊其他個股的超額報酬（從首次訊號週五收盤起算）</span></h2>
+  <div class="tbl"><table id="log"></table></div>
+
+  <h2>這套方法準不準 <span class="seg" id="segH" role="group" aria-label="持有週數"></span>
+    <span>超額報酬 = 個股報酬 − 同板塊其他個股平均；勝率 = 超額報酬 > 0 的比例</span></h2>
+  <div class="tbl"><table class="stats" id="stats"></table></div>
+  <p class="caveat" id="statNote"></p>
+
+  <footer>
+    資料：Yahoo Finance 日線（還原權值）；新聞：Google News 搜尋訊號週前 3 天到週五的標題，加上 Yahoo 財報日；第二層：Yahoo 的放空比例、放空股數月變化、機構持股比例、前十大機構持股增減（13F，季更新，有延遲）。<br>
+    標「回溯」的訊號是系統上線時用過去一年資料推算出來的，不是當時即時看到的；回溯超過 12 週的不搜新聞，第二層快照只有上線後才開始累積。<br>
+    這些都是量價動能訊號：每筆成交都有買方和賣方，數字反映的是「價格往哪邊走時成交特別多」，不是實際的資金淨流入。樣本少於 20 筆時，勝率參考價值有限。
+  </footer>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+let D=null, WI=0, F="all", H="4";
+const open=new Set();
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const cls=v=>v==null?"dim":v>0?"pos":v<0?"neg":"";
+const sg=v=>v==null?"—":(v>0?"+":v<0?"−":"")+Math.abs(v).toFixed(1);
+const pct=v=>v==null?"—":(v>0?"+":v<0?"−":"")+Math.abs(v).toFixed(1)+"%";
+const p100=v=>v==null?"—":(v*100).toFixed(1)+"%";
+const rvf=v=>v==null?"—":v.toFixed(2)+"x";
+function clvTag(c){
+  if(c==null) return '<span class="dim">—</span>';
+  const lab=c>=0.5?"收高":c<=-0.5?"收低":"收中";
+  const k=c>=0.5?"pos":c<=-0.5?"neg":"warn";
+  const tip=c>=0.5?"收在當天高點附近：買方撐到收盤":c<=-0.5?"收在當天低點附近：賣方壓到收盤":"收在中間：多空拉鋸";
+  return `<span class="${k}" title="${tip}">${(c>0?"+":"")+c.toFixed(2)}<span class="clv">${lab}</span></span>`;
+}
+function newsTag(n){
+  if(!n||!n.status) return '<span class="tag mute">—</span>';
+  const k=n.status==="有消息"?"bad":n.status==="查詢失敗"?"wait":n.status.startsWith("未查")?"mute":"ok";
+  const tags=(n.tags||[]).length?`<span class="dim"> ${n.tags.join("・")}</span>`:"";
+  return `<span class="tag ${k}" title="${n.status==="有消息"?"原因明顯，市場通常很快反應完":n.status==="查詢失敗"?"下次排程會重試":"沒有明顯催化劑：比較像默默布局，更值得研究"}">${esc(n.status)}</span>${tags}`;
+}
+function statusTag(s){
+  const k=s.includes("出場")?"bad":s.includes("追蹤")?"ok":s.includes("等下週")?"wait":"mute";
+  return `<span class="tag ${k}">${esc(s)}</span>`;
+}
+
+function rules(){
+  const r=D.rules, sc=r.screen;
+  const lonely=D.lonely_sectors.length?`（${D.lonely_sectors.join("、")} 只有一檔，無法比較）`:"";
+  const cards=[
+    ["1 · 第一層","相對量逆勢",`個股週數字 <b>&gt; 0</b>，同板塊其他個股平均 <b>&lt; 0</b>，週均相對量 <b>≥ ${sc.min_rv}x</b>${lonely}`],
+    ["2 · 連續","確認",`連續 <b>${sc.confirm_weeks}</b> 個完整週都符合才算確認（第二週相對量門檻 <b>${sc.confirm_min_rv}x</b>）。只出現一週的也記錄，用來檢驗等確認有沒有用`],
+    ["3 · 消息","有沒有催化劑",`自動搜尋訊號週前 ${r.news.days_before} 天到週五的新聞與財報日。<b>有消息</b> = 原因明顯；<b>無明顯消息</b> = 比較像默默布局`],
+    ["4 · 出場","事先訂好",`確認後個股週數字連續 <b>${r.exit.weak_weeks}</b> 週 &lt; 0 → 自動出場訊號。理由被推翻請手填 data/signals_manual.yaml`],
+    ["5 · 第二層","真實資金交叉確認","放空比例與月變化、機構持股比例、前十大機構增減（13F）；ETF 記錄流通份額。追蹤中的訊號每週拍一次快照"],
+  ];
+  $("#rules").innerHTML=cards.map(([k,t,p])=>`<div class="rule"><div class="k">${k}</div><div class="t">${t}</div><p>${p}</p></div>`).join("");
+}
+
+const HEAD=`<tr><th class="l">代號</th><th class="l">板塊</th><th>個股週數字</th><th>同板塊其他平均</th><th>週均相對量</th><th>收盤位置</th><th>週漲跌</th><th>板塊漲跌</th>`;
+function row(it, extra){
+  return `<tr><td><span class="tk">${it.t}</span></td><td class="l">${esc(it.sec)}</td>
+    <td class="${cls(it.rel)}">${sg(it.rel)}</td><td class="${cls(it.peers)}">${sg(it.peers)}</td>
+    <td>${rvf(it.rv)}</td><td>${clvTag(it.clv)}</td>
+    <td class="${cls(it.ret)}">${pct(it.ret)}</td><td class="${cls(it.peers_ret)}">${pct(it.peers_ret)}</td>${extra}</tr>`;
+}
+
+function prov(){
+  const p=D.provisional;
+  if(!p){ $("#prov").innerHTML=`<tr><td class="empty">這週已經完整，看下面的「最近完整週」。</td></tr>`; return; }
+  $("#provNote").textContent=`${p.week}（${p.dates[0]}–${p.dates[p.dates.length-1]}，${p.dates.length} 天）暫定名單，週五收盤後才算數`;
+  if(!p.items.length){ $("#prov").innerHTML=`<tr><td class="empty">目前沒有符合條件的個股。</td></tr>`; return; }
+  $("#prov").innerHTML=HEAD+`<th class="l">上週也符合</th><th class="l">消息</th></tr>`+
+    p.items.map(it=>row(it,`<td class="l">${it.prev_hit?'<span class="tag acc">是，可能本週確認</span>':'<span class="dim">否</span>'}</td><td class="l">${newsTag(it.news)}</td>`)).join("");
+}
+
+function weekSeg(){
+  $("#segW").innerHTML=D.weeks.map((w,i)=>`<button aria-pressed="${i===WI}" data-i="${i}">${w.dates[0]}</button>`).join("");
+  $("#segW").onclick=e=>{const b=e.target.closest("button"); if(!b) return; WI=+b.dataset.i; weekSeg(); week();};
+}
+function week(){
+  const w=D.weeks[WI];
+  if(!w||!w.items.length){ $("#week").innerHTML=`<tr><td class="empty">${w?w.week:""} 沒有符合條件的個股。</td></tr>`; return; }
+  const need=D.rules.screen.confirm_weeks;
+  $("#week").innerHTML=HEAD+`<th>連續週數</th><th class="l">消息</th></tr>`+
+    w.items.map(it=>row(it,`<td>${it.streak>=need?`<span class="tag ok">${it.streak} 週・確認</span>`:`<span class="tag wait">${it.streak} 週</span>`}</td><td class="l">${newsTag(it.news)}</td>`)).join("");
+}
+
+function filt(e){
+  if(F==="live") return e.status.includes("追蹤")||e.status.includes("等下週");
+  if(F==="conf") return !!e.confirmed;
+  if(F==="unconf") return !e.confirmed;
+  if(F==="exit") return e.status.includes("出場");
+  return true;
+}
+function snapLine(s){
+  if(!s) return '<span class="dim">尚無快照（上線後追蹤中的訊號每週拍一次）</span>';
+  if(s.error) return `<span class="warn">${esc(s.date)} 抓取失敗</span>`;
+  if(s.type==="ETF") return `${s.date}　流通份額 <b>${s.shares_out?.toLocaleString()??"—"}</b>　總資產 <b>${s.total_assets?(s.total_assets/1e9).toFixed(2)+"B":"—"}</b>`;
+  const ih=s.inst_top_up!=null?`　前十大機構 增 <b class="pos">${s.inst_top_up}</b>／減 <b class="neg">${s.inst_top_down}</b>`:"";
+  return `${s.date}　放空佔流通 <b>${p100(s.short_pct_float)}</b>　放空月變化 <b class="${cls(s.short_chg==null?null:-s.short_chg)}">${s.short_chg==null?"—":(s.short_chg>0?"+":"")+(s.short_chg*100).toFixed(1)+"%"}</b>　機構持股 <b>${p100(s.inst_pct)}</b>${ih}`;
+}
+function newsBlock(label,n){
+  if(!n) return "";
+  const hs=(n.headlines||[]).map(h=>`<li>${h.tags&&h.tags.length?`<span class="tag bad">${h.tags.join("・")}</span> `:""}<a href="${esc(h.link)}" target="_blank" rel="noopener">${esc(h.title)}</a> <small>${esc(h.source)} ${esc(h.date||"")}</small></li>`).join("");
+  const earn=n.earnings?`<li><span class="tag bad">財報</span> 財報日 ${esc(n.earnings)}</li>`:"";
+  const body=hs||earn?`<ul>${earn}${hs}</ul>`:`<p class="dim" style="margin:0">${n.status==="查詢失敗"?"查詢失敗："+esc(n.error||""):n.status.startsWith("未查")?"回溯太久，未搜尋":"搜尋期間沒有找到新聞"}</p>`;
+  return `<div><h4>${label}　${newsTag(n)}${n.window?` <span class="dim">${n.window[0]}～${n.window[1]}</span>`:""}</h4>${body}</div>`;
+}
+function log(){
+  const rows=D.signals.filter(filt);
+  if(!rows.length){ $("#log").innerHTML=`<tr><td class="empty">沒有符合的訊號。</td></tr>`; return; }
+  const hz=D.rules.track.horizons;
+  let h=`<tr><th class="l">代號</th><th class="l">板塊</th><th class="l">首次週</th><th class="l">確認週</th><th class="l">狀態</th><th>訊號週相對量</th><th>收盤位置</th><th class="l">消息</th>${hz.map(x=>`<th>${x} 週超額</th>`).join("")}<th>出場</th><th class="l">手填</th></tr>`;
+  for(const e of rows){
+    const a=e.at_start, n=(e.news||{})[e.start];
+    const m=e.manual||{};
+    const man=[m.held==="True"||m.held==="true"?'<span class="tag acc">已建倉</span>':"",m.thesis?esc(m.thesis):"",m.note?`<span class="dim">${esc(m.note)}</span>`:""].filter(Boolean).join(" ");
+    const pf=hz.map(x=>{const p=(e.perf||{})[x]; const pc=(e.perf_confirm||{})[x];
+      const tip=p?`個股 ${pct(p.ret)}，同板塊其他 ${pct(p.peers)}`+(pc?`；從確認週起算超額 ${pct(pc.excess)}`:""):"還沒到";
+      return `<td class="${cls(p?.excess)}" title="${tip}">${p?pct(p.excess):"—"}</td>`;}).join("");
+    h+=`<tr class="sig" data-k="${esc(e.key)}"><td><span class="tk">${e.t}</span>${e.backfill?' <span class="tag mute" title="上線時用過去資料推算，不是當時即時看到">回溯</span>':""}</td>
+      <td class="l">${esc(e.sec)}</td><td class="l mono">${e.start}</td><td class="l mono">${e.confirmed||'<span class="dim">—</span>'}</td>
+      <td class="l">${statusTag(e.status)}</td><td>${rvf(a.rv)}</td><td>${clvTag(a.clv)}</td><td class="l">${newsTag(n)}</td>${pf}
+      <td class="${cls(e.exit?.excess)}" title="${e.exit?`出場週 ${e.exit.week}（${e.exit.date}），個股 ${pct(e.exit.ret)}`:""}">${e.exit?pct(e.exit.excess):"—"}</td>
+      <td class="l">${man||'<span class="dim">—</span>'}</td></tr>`;
+    if(open.has(e.key)){
+      const snaps=(e.snapshots||[]).slice().reverse();
+      h+=`<tr class="detail"><td colspan="${10+hz.length}">
+        <div class="news">${newsBlock(`訊號週 ${e.start}`,n)}${e.confirmed&&e.confirmed!==e.start?newsBlock(`確認週 ${e.confirmed}`,(e.news||{})[e.confirmed]):""}</div>
+        <h4 style="margin:12px 0 4px;font-size:12px;font-weight:500;color:var(--muted)">第二層快照 ${e.name?`<span class="dim">${esc(e.name)}</span>`:""}</h4>
+        <div class="snap">${snaps.length?snaps.map(snapLine).join("<br>"):snapLine(null)}</div>
+        ${m.thesis_broken?`<p class="neg" style="margin:8px 0 0">理由被推翻：${esc(m.thesis_broken)}</p>`:""}
+      </td></tr>`;
+    }
+  }
+  $("#log").innerHTML=h;
+  $("#log").querySelectorAll("tr.sig").forEach(tr=>tr.onclick=()=>{const k=tr.dataset.k; open.has(k)?open.delete(k):open.add(k); log();});
+}
+
+function stats(){
+  const hz=D.rules.track.horizons.map(String);
+  $("#segH").innerHTML=hz.map(x=>`<button aria-pressed="${x===H}" data-h="${x}">${x} 週</button>`).join("");
+  $("#segH").onclick=e=>{const b=e.target.closest("button"); if(!b) return; H=b.dataset.h; stats();};
+  const rows=D.stats[H]||[];
+  $("#stats").innerHTML=`<tr><th class="l">分組</th><th>筆數</th><th>勝率</th><th>平均超額</th><th>中位數超額</th></tr>`+
+    rows.map(r=>`<tr><td class="l">${esc(r.label)}</td><td>${r.n}</td><td>${r.n?r.win.toFixed(0)+"%":"—"}</td><td class="${cls(r.avg)}">${r.n?pct(r.avg):"—"}</td><td class="${cls(r.median)}">${r.n?pct(r.median):"—"}</td></tr>`).join("");
+  const n=rows.length?rows[0].n:0;
+  $("#statNote").textContent=n<20?`目前 ${H} 週樣本 ${n} 筆，少於 20 筆，先當參考就好。比較重點：「已確認」是否明顯勝過「未確認」（等確認有沒有用）、「無明顯消息」是否勝過「有消息」、收盤位置偏高是否勝過不高。`:
+    "比較重點：「已確認」是否明顯勝過「未確認」（等確認有沒有用）、「無明顯消息」是否勝過「有消息」、收盤位置偏高是否勝過不高。";
+}
+
+document.querySelectorAll("#segF button").forEach(b=>b.onclick=()=>{F=b.dataset.f; document.querySelectorAll("#segF button").forEach(x=>x.setAttribute("aria-pressed",x===b)); log();});
+
+fetch("contrarian.json",{cache:"no-store"}).then(r=>{if(!r.ok) throw 0; return r.json();}).then(d=>{
+  D=d;
+  $("#asof").textContent=`資料截至 ${d.asof} · 更新 ${d.updated}`;
+  rules(); prov(); weekSeg(); week(); log(); stats();
+}).catch(()=>{$("#err").style.display="block";});
+</script>
+</body>
+</html>
