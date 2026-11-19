@@ -1,0 +1,3915 @@
+{
+ "names": {
+  "AAPL": "Apple Inc.",
+  "MSFT": "Microsoft Corporation",
+  "SNPS": "Synopsys, Inc.",
+  "BKSY": "BlackSky Technology Inc.",
+  "IONQ": "IonQ, Inc.",
+  "RXRX": "Recursion Pharmaceuticals, Inc.",
+  "NTLA": "Intellia Therapeutics, Inc.",
+  "UNH": "UnitedHealth Group Incorporated",
+  "SNOW": "Snowflake Inc.",
+  "BSY": "Bentley Systems, Incorporated",
+  "ETN": "Eaton Corporation, PLC"
+ },
+ "episodes": {
+  "AAPL@2026-W26": {
+   "key": "AAPL@2026-W26",
+   "t": "AAPL",
+   "sec": "科技",
+   "start": "2026-W26",
+   "start_date": "2026-06-26",
+   "weeks": [
+    "2026-W26"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "AAPL",
+    "sec": "科技",
+    "rel": 0.74,
+    "peers": -2.8,
+    "rv": 1.9,
+    "clv": -0.124,
+    "ret": -4.78,
+    "peers_ret": -5.65
+   },
+   "perf": {
+    "1": {
+     "ret": 8.76,
+     "peers": 4.36,
+     "excess": 4.4
+    },
+    "2": {
+     "ret": 11.11,
+     "peers": 8.89,
+     "excess": 2.22
+    },
+    "4": {
+     "ret": 17.35,
+     "peers": -0.76,
+     "excess": 18.11
+    },
+    "8": {
+     "ret": 9.1,
+     "peers": 8.35,
+     "excess": 0.76
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W31",
+    "date": "2026-07-31",
+    "ret": 8.86,
+    "excess": 2.98
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W26": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "AAPL@2026-W45": {
+   "key": "AAPL@2026-W45",
+   "t": "AAPL",
+   "sec": "科技",
+   "start": "2026-W45",
+   "start_date": "2026-11-06",
+   "weeks": [
+    "2026-W45"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "AAPL",
+    "sec": "科技",
+    "rel": 2.15,
+    "peers": -5.11,
+    "rv": 1.54,
+    "clv": -0.063,
+    "ret": -0.66,
+    "peers_ret": -1.4
+   },
+   "perf": {
+    "1": {
+     "ret": 4.14,
+     "peers": 0.99,
+     "excess": 3.15
+    },
+    "2": null,
+    "4": null,
+    "8": null
+   },
+   "perf_confirm": null,
+   "exit": null,
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W45": {
+     "window": [
+      "2026-10-30",
+      "2026-11-07"
+     ],
+     "query": "(\"AAPL\" OR \"Apple\") stock",
+     "checked": "2026-11-19",
+     "status": "有消息",
+     "tags": [
+      "財報"
+     ],
+     "earnings": "2026-11-02",
+     "headlines": [
+      {
+       "title": "Why the Democrat blue wave could be a good thing for Apple stock",
+       "source": "Yahoo Finance",
+       "date": "2026-11-04",
+       "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNbzZxNU01Z0RMd3lqLXNsQ2o3cEVfZ18xcWhydHlsZHVMY3UtNFliYzBnNEMtdXBnMzhLdENvcGctdXJMV1hYTmtVMlZIM0NVc0l2VWV5M3BLdUtoXy1NVEphRnowV05yQWgwYTZfYTgyZGRBaGlESUF1c3RVMUw1OTBkNG9GdHZFTFBqSEFmQVhTN2kwWFc4X01iZHhRWGY5MWhqMlk1dVhnTkFmWG0wY1hJbVJHMGNpaUNrMl9uMHZoZHZ1b21B?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Apple Shares Are Up 27% This Year. Is the Stock Still a Buy Ahead of Earnings?",
+       "source": "Morningstar",
+       "date": "2026-10-30",
+       "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOcnZSc0ZVYVpaall6Z0xrQjFaeVB5S0xtb2hvLTdYU2drTzQwSTBpcTRlRWxhRFplekZuNXFpWXF0YXBKU3FPbWhHem0yOHQtUVpXaTI1R2pra0NQV1VacEhVbGVNak5ydXdXVnpWZDJSYklMS1ZGQ1dMOEtRc05BQjVzdXN6cjJua2VvOGpXOEloOTRfYnRoNS1SQWhaUlVIeDd3?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Apple Posts Fiscal Q4 Beat On Strong iPhone, Services Sales",
+       "source": "Investor's Business Daily",
+       "date": "2026-11-02",
+       "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxORVFkV01YZnRtcVJERHpnS1piZVFreC1kRmNmQV85UWxTekN6UVRtT1hMT3hDRmJiTC0yajF6VUJRaFVibmhTamowNlBqa1R6a0hSTm8wRjdFb3FZdUZvMlhrenF0YmcyUnJIOGc1YTNVNzdMNkVSQkw2LVAtWmp3Y2h0dzVRMmlSX1pB?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Apple Stock: ‘Let the Slowdown Begin’",
+       "source": "Barron's",
+       "date": "2026-11-03",
+       "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9hRURFb3Q1RGxJZ2dNQWhodERZd3haRG5SdW00NlpMLXVKcUpmRFQ0U1FWY3BENDdmY2JONFFKZjZwczA1a3pjNFFaQ3JmLU9qQlZRU3lNSEItcG5rWExzbzF2Qi1NZmczM0JIOEpNcjZETmVOTHZJYmR2dw?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Nov. 2 Could Be a Big Day for Apple Stock",
+       "source": "The Motley Fool",
+       "date": "2026-10-30",
+       "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNVDRxN2F0dVA1OXdhZFZCY21IYkYyRS1SQnYyT2taYXRlMDZ2SXl0NEZxY0h5aHNPenl5ZmlDbTZUZVNzU2ZhRHIwemt2TmpNMXhwcUY2RzBTWktXaU9Ga0NXNDl3cnlRNm55UWdDbjJGWjk0b2VWNnFGNW1GVHdFTlhJLWFtUVpsQmlV?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Apple stock sinks as global memory crisis hurts profits, giving Ternus his first big test",
+       "source": "CNBC",
+       "date": "2026-11-03",
+       "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQOG8ybzVvQms0Y3hFQ1Jxb3hfZXRWQ2NITFJEM0d3Y2lRbm9GQmZmYmRkUGRqOGVISUNPQnZGZWduY3ZURzUzXzZUTnZaQXdMc0EwNkxNY2V2OEhDR2pwdU80RUVNRFY2VnBJbl9aYUlOUFRoU0VHV0t3b0JvSUwzRnNhcTlLQWlqWm9zNnNybEhUT2hvRWpRUlY1QUlqSExWa1NIVmZB0gGrAUFVX3lxTE9JbUJGbkowOTRYQm4xcWFJcHdGMnF2dGpjOF9IZ1NrcEdsTmRCbGlDcDRORDRQUGFJZE9sZGMxVzFxYXU4clhrUDd1YzEzdDJKcVlZX3E0c01UVUVTMng2N2Nvc0kxWnFYbFVjcXBPcGRrVjFlbUoxV082YWg3WjFNbmlxaVVRdlU1WW5jVF8wemJQQ1J0UU9zeXBrcUhqYXNhZzBHN1hvUUlVVQ?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Apple Is an AI Safe Haven—but Safety Isn’t Cheap",
+       "source": "WSJ",
+       "date": "2026-11-03",
+       "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPTXB2Vm1NLVhnZGpidHJQanlpdzBaZjRWSmxBc1dMOWdWdXRIWlpPOWpLeHhTdGJPU1VFQnBzV05sUU1tcmdNSTZHZ1k1RDA0OXRiR0V4VDVGTHJNY2JuRHlhZGNBa08yaE5SSkhyWXJJYVVibUlReVdZQWJaRVVoMExkblVETW81bTc2QU43ZkFZTGZl?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Apple (AAPL) Stock Could Be 30% Overvalued Despite Record iPhone Sales",
+       "source": "Yahoo Finance",
+       "date": "2026-11-05",
+       "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxObHl6UFg0RmRmWXdsZHllLVp6VWs5WHcxWTlraVhPR3hfdGtPMnJnTEkwZUxZakktLUNWU19hMS1aZnRhQjk4eERNN3RIbGZxM3pCVHotUjhwbmwyVUViTVctbFU3X1Nxb3JReE9aTm5JbTBXZWhyeU5zci1PTXV1REJJYjYtOFN4TEoweUc5Qi1GWU9W?oc=5",
+       "tags": []
+      }
+     ]
+    }
+   },
+   "snapshots": [],
+   "name": "Apple Inc."
+  },
+  "GOOG@2026-W18": {
+   "key": "GOOG@2026-W18",
+   "t": "GOOG",
+   "sec": "科技",
+   "start": "2026-W18",
+   "start_date": "2026-05-01",
+   "weeks": [
+    "2026-W18"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "GOOG",
+    "sec": "科技",
+    "rel": 29.54,
+    "peers": -5.47,
+    "rv": 1.57,
+    "clv": 0.595,
+    "ret": 11.95,
+    "peers_ret": -1.35
+   },
+   "perf": {
+    "1": {
+     "ret": 3.61,
+     "peers": 4.12,
+     "excess": -0.51
+    },
+    "2": {
+     "ret": 2.64,
+     "peers": 5.0,
+     "excess": -2.37
+    },
+    "4": {
+     "ret": -1.77,
+     "peers": 7.18,
+     "excess": -8.95
+    },
+    "8": {
+     "ret": -12.61,
+     "peers": -6.15,
+     "excess": -6.46
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W21",
+    "date": "2026-05-22",
+    "ret": -1.0,
+    "excess": -5.77
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W18": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "MSFT@2026-W26": {
+   "key": "MSFT@2026-W26",
+   "t": "MSFT",
+   "sec": "科技",
+   "start": "2026-W26",
+   "start_date": "2026-06-26",
+   "weeks": [
+    "2026-W26"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "MSFT",
+    "sec": "科技",
+    "rel": 14.77,
+    "peers": -5.14,
+    "rv": 1.84,
+    "clv": 0.011,
+    "ret": -1.69,
+    "peers_ret": -6.16
+   },
+   "perf": {
+    "1": {
+     "ret": 4.7,
+     "peers": 5.04,
+     "excess": -0.34
+    },
+    "2": {
+     "ret": 3.25,
+     "peers": 10.2,
+     "excess": -6.95
+    },
+    "4": {
+     "ret": 2.34,
+     "peers": 1.75,
+     "excess": 0.59
+    },
+    "8": {
+     "ret": 29.81,
+     "peers": 4.9,
+     "excess": 24.91
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W34",
+    "date": "2026-08-21",
+    "ret": 29.81,
+    "excess": 24.91
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W26": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "MSFT@2026-W45": {
+   "key": "MSFT@2026-W45",
+   "t": "MSFT",
+   "sec": "科技",
+   "start": "2026-W45",
+   "start_date": "2026-11-06",
+   "weeks": [
+    "2026-W45"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "MSFT",
+    "sec": "科技",
+    "rel": 5.77,
+    "peers": -5.72,
+    "rv": 1.52,
+    "clv": -0.108,
+    "ret": 1.67,
+    "peers_ret": -1.78
+   },
+   "perf": {
+    "1": {
+     "ret": -1.27,
+     "peers": 1.89,
+     "excess": -3.16
+    },
+    "2": null,
+    "4": null,
+    "8": null
+   },
+   "perf_confirm": null,
+   "exit": null,
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W45": {
+     "window": [
+      "2026-10-30",
+      "2026-11-07"
+     ],
+     "query": "(\"MSFT\" OR \"Microsoft\") stock",
+     "checked": "2026-11-19",
+     "status": "有消息",
+     "tags": [
+      "財報"
+     ],
+     "earnings": null,
+     "headlines": [
+      {
+       "title": "Microsoft Just Revealed a $677 Billion Reason to Buy Its Stock",
+       "source": "Yahoo Finance",
+       "date": "2026-11-02",
+       "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPRUJBeDZkZHk3ZlR5WXA2U2JGdS1nYnBfc0UwazNMaTlvWnRhLVY1dG9sVl9tZVBCZjFxbk1maTdaWk1GOG5OdnJBWWxDS3hMdVRzdTdJYUxyeXlWMmYyeGRjQlBVS25XZERVMC1MT3ZQVURXTkpzSmUtc3V1MVdnbWd4MGdDTnN0YXVZY0JoM0F2S2VIS3E1QmFyN1VBaXU5Tmc?oc=5",
+       "tags": []
+      },
+      {
+       "title": "What's Going on With Microsoft Stock on Wednesday?",
+       "source": "Benzinga",
+       "date": "2026-11-04",
+       "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQRVhBNThEMG02b1Fmc2xKZnktTDJUbGU5SkdxNFlDR0RLUjFPY1dudnZaZnRKZzdSUllHNTNnMUQwSk0zSXFmNnRBZkVhXzdfQU1tMEFsSXo3RmZZWVVySUpEV0ZKZlk1LVZrcjFoeURsWUVRd0pGQUdiNV9vWlhYYk81QWVUY0VrdEJFcGFyYU1SUldPVTJHeDYzN0VuaEl1WS1R?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Microsoft: The Selloff Proved Why It's Different",
+       "source": "Seeking Alpha",
+       "date": "2026-11-06",
+       "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQY2RXQmpheW5IZ2NETUxCVGxIbUk4ZnZpNnpSLU40d3QxdXNIX1lsMkdka0pSaUdLU3BJLWlvMkNxNkZKUGlhVnBaT3BlNkcyclRic0hleFRuVXFnb2tZSzNtRFQxQS1GbHc4ZHBURVl0MF9qNVlVZWU5Q0NqeXpYS2RfYkVzZUJxYldMTXAyc1A?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Earnings beat and cloud commitment lift Microsoft stock as upward price move continues",
+       "source": "Traders Union",
+       "date": "2026-11-04",
+       "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQbzFMM19KQk5faVN4MWd1RWV5RV9ST280ejhhTl9VV1ZwR0xYZWZhRF93QTREWVRsZ2xIbkVhX25WdldQS0NsNnNMeGVyQS1CWlR0eXVlUFFpUGM5bm41QTl2RV9WVFZYUDBTZXhXVjl0MWVWRUFuTXNHdGNwVks4dlZkaklTczRMZ0hCTjM1MUpHTUl2?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Satellite images expose potential trouble behind Microsoft's $5 billion AI spending shortfall",
+       "source": "Business Insider",
+       "date": "2026-11-04",
+       "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPSzRQNlBSSGpYS1RHM0w3V0VpZjh6c1hJVXE0SFVGdXpEeUI5SWxQQmZLMjZLQXFuMnI2QzA3RW5ReVhxdkd1YjI2N245RDlnRjZxdy03LVlRSDMwTDFnMk12MEtJVWtxTXlMcXcwNUVnc0JQU0VrVWFwOWhGZHlsYWh3N1hFeVlGMWo5ck13?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Microsoft Shares Are Down 2% Since Earnings. Is the Stock a Buy?",
+       "source": "Morningstar",
+       "date": "2026-11-04",
+       "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPWFBMb3NlLVBVVU5zTE1NTk9jRFZvMURNbDBqWS1mQUhDY2pLN21GMzJoQmtabmFScVBHb2xINGJkeEFsQmdMSHQyM0NsRk5MdlJ0bktOYWRGcnhwbkw1VFc1dmVpck53SUluZWNVM3lCT2pHWTZ0dmVPYl90WFRPMVFUN2xBWDFNOVlJa1VRRUNOYTdy?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Why is Microsoft stock surging today?",
+       "source": "Investing.com",
+       "date": "2026-11-04",
+       "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPUFVCTXBvOHp5SDY5R1AwUGlfcEtSeVR5MVZsRG1GckxNRjJZelBKcDFRWjJORDMyRE1GTjAtZTh4WEQtbDFSWVItSXhPc0F4U1lPRDRqNl9KeWV6QlRXTGdDNm40UFg3VGlLal9fZVlzRWluSlJaeC02LTZWWlRkVWVWLTJrSHlhX1dDcEhkMjJtaHI4N1h4OG5rZUdubGc?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Should You Buy And Hold Microsoft Stock?",
+       "source": "Trefis",
+       "date": "2026-10-30",
+       "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQcHRINTdUZlVPQnFtbHd5b3lONVpTemJCdnNndXh4NS13d3FYTGVldGdNVTZsS0NkVHNlTW0zWUlhM1JjZHRxbmdyT3phdXgyckczbjlBSzF3dUpNTGZxZm1TOGVOSVJiM0FRR2h2R1k1d21NZi1jdzJRMEs3YlkwLXpYMkh3VDFjUU9IOVBYWTNDSm94UC1ESVEzMWk1QzNlbWc?oc=5",
+       "tags": []
+      }
+     ]
+    }
+   },
+   "snapshots": [],
+   "name": "Microsoft Corporation"
+  },
+  "AMZN@2026-W26": {
+   "key": "AMZN@2026-W26",
+   "t": "AMZN",
+   "sec": "科技",
+   "start": "2026-W26",
+   "start_date": "2026-06-26",
+   "weeks": [
+    "2026-W26"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "AMZN",
+    "sec": "科技",
+    "rel": 0.8,
+    "peers": -2.81,
+    "rv": 2.17,
+    "clv": 0.014,
+    "ret": -4.79,
+    "peers_ret": -5.64
+   },
+   "perf": {
+    "1": {
+     "ret": 4.29,
+     "peers": 5.1,
+     "excess": -0.81
+    },
+    "2": {
+     "ret": 5.44,
+     "peers": 9.84,
+     "excess": -4.4
+    },
+    "4": {
+     "ret": -0.25,
+     "peers": 2.18,
+     "excess": -2.43
+    },
+    "8": {
+     "ret": 11.15,
+     "peers": 8.01,
+     "excess": 3.14
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W34",
+    "date": "2026-08-21",
+    "ret": 11.15,
+    "excess": 3.14
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W26": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "META@2026-W05": {
+   "key": "META@2026-W05",
+   "t": "META",
+   "sec": "科技",
+   "start": "2026-W05",
+   "start_date": "2026-01-30",
+   "weeks": [
+    "2026-W05"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "META",
+    "sec": "科技",
+    "rel": 39.24,
+    "peers": -6.33,
+    "rv": 1.88,
+    "clv": 0.16,
+    "ret": 8.76,
+    "peers_ret": -0.37
+   },
+   "perf": {
+    "1": {
+     "ret": -7.68,
+     "peers": -3.96,
+     "excess": -3.73
+    },
+    "2": {
+     "ret": -10.71,
+     "peers": -6.99,
+     "excess": -3.71
+    },
+    "4": {
+     "ret": -9.54,
+     "peers": -6.77,
+     "excess": -2.76
+    },
+    "8": {
+     "ret": -26.56,
+     "peers": -14.16,
+     "excess": -12.4
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W07",
+    "date": "2026-02-13",
+    "ret": -10.71,
+    "excess": -3.71
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W05": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "AMAT@2025-W51": {
+   "key": "AMAT@2025-W51",
+   "t": "AMAT",
+   "sec": "半導體",
+   "start": "2025-W51",
+   "start_date": "2025-12-19",
+   "weeks": [
+    "2025-W51"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "AMAT",
+    "sec": "半導體",
+    "rel": 2.18,
+    "peers": -4.07,
+    "rv": 1.55,
+    "clv": -0.399,
+    "ret": -1.08,
+    "peers_ret": -2.82
+   },
+   "perf": {
+    "1": {
+     "ret": 2.14,
+     "peers": 0.98,
+     "excess": 1.16
+    },
+    "2": {
+     "ret": 4.86,
+     "peers": 4.16,
+     "excess": 0.7
+    },
+    "4": {
+     "ret": 27.53,
+     "peers": 8.63,
+     "excess": 18.91
+    },
+    "8": {
+     "ret": 38.42,
+     "peers": 5.76,
+     "excess": 32.66
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W05",
+    "date": "2026-01-30",
+    "ret": 25.7,
+    "excess": 19.44
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2025-W51": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "AMAT@2026-W20": {
+   "key": "AMAT@2026-W20",
+   "t": "AMAT",
+   "sec": "半導體",
+   "start": "2026-W20",
+   "start_date": "2026-05-15",
+   "weeks": [
+    "2026-W20"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "AMAT",
+    "sec": "半導體",
+    "rel": 0.36,
+    "peers": -2.82,
+    "rv": 1.66,
+    "clv": 0.113,
+    "ret": 0.27,
+    "peers_ret": -3.94
+   },
+   "perf": {
+    "1": {
+     "ret": -0.9,
+     "peers": 12.01,
+     "excess": -12.91
+    },
+    "2": {
+     "ret": 3.21,
+     "peers": 15.88,
+     "excess": -12.67
+    },
+    "4": {
+     "ret": 30.08,
+     "peers": 23.81,
+     "excess": 6.27
+    },
+    "8": {
+     "ret": 38.16,
+     "peers": 16.71,
+     "excess": 21.45
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W27",
+    "date": "2026-07-02",
+    "ret": 38.29,
+    "excess": 23.37
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W20": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "ASML@2026-W05": {
+   "key": "ASML@2026-W05",
+   "t": "ASML",
+   "sec": "半導體",
+   "start": "2026-W05",
+   "start_date": "2026-01-30",
+   "weeks": [
+    "2026-W05"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "ASML",
+    "sec": "半導體",
+    "rel": 2.72,
+    "peers": -4.22,
+    "rv": 1.6,
+    "clv": -0.051,
+    "ret": 2.44,
+    "peers_ret": -3.4
+   },
+   "perf": {
+    "1": {
+     "ret": -0.7,
+     "peers": 0.5,
+     "excess": -1.21
+    },
+    "2": {
+     "ret": -1.02,
+     "peers": 1.26,
+     "excess": -2.28
+    },
+    "4": {
+     "ret": 2.07,
+     "peers": 1.25,
+     "excess": 0.82
+    },
+    "8": {
+     "ret": -8.35,
+     "peers": 0.54,
+     "excess": -8.89
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W07",
+    "date": "2026-02-13",
+    "ret": -1.02,
+    "excess": -2.28
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W05": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "SNPS@2026-W35": {
+   "key": "SNPS@2026-W35",
+   "t": "SNPS",
+   "sec": "半導體",
+   "start": "2026-W35",
+   "start_date": "2026-08-28",
+   "weeks": [
+    "2026-W35"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "SNPS",
+    "sec": "半導體",
+    "rel": 35.84,
+    "peers": -2.62,
+    "rv": 1.69,
+    "clv": 0.38,
+    "ret": 11.24,
+    "peers_ret": -1.99
+   },
+   "perf": {
+    "1": {
+     "ret": -11.02,
+     "peers": 0.12,
+     "excess": -11.14
+    },
+    "2": {
+     "ret": -10.22,
+     "peers": 3.48,
+     "excess": -13.7
+    },
+    "4": {
+     "ret": -3.81,
+     "peers": 15.4,
+     "excess": -19.2
+    },
+    "8": {
+     "ret": -2.82,
+     "peers": -5.45,
+     "excess": 2.63
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W43",
+    "date": "2026-10-23",
+    "ret": -2.82,
+    "excess": 2.63
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W35": {
+     "window": [
+      "2026-08-21",
+      "2026-08-29"
+     ],
+     "query": "(\"SNPS\" OR \"Synopsys\") stock",
+     "checked": "2026-11-19",
+     "status": "有消息",
+     "tags": [
+      "財報"
+     ],
+     "earnings": "2026-08-26",
+     "headlines": [
+      {
+       "title": "Why Synopsys Stock Popped Today",
+       "source": "The Motley Fool",
+       "date": "2026-08-27",
+       "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE01aFM5V2hfTlNZdU1FYmd4VEtzSUJ1M3ktSWtDbXhnMzZ1Y3FJaTBzbWM2d21uVHNfZ2RzaVNvVm5RbGRqX2UwaGlvck9neEFIRFctVWpyQk5STTNUSDNZbjRqUGRITk1oTmdJdV82bVVuNHY4VmhCZmNDWnhEek0?oc=5",
+       "tags": []
+      },
+      {
+       "title": "What Are Wall Street Analysts' Target Price for Synopsys Stock?",
+       "source": "Yahoo Finance",
+       "date": "2026-08-24",
+       "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPQk0yX2Rsci1URnJLdU56NWVMQ3RuajZCbE1TS0lnXzdORUROY25fYVBjTDFvSHNtN0NieVNpb0l1NzBGUTltR2tHbXMtRVZhRUhTRkZMejlIYm9FblZuWDZyd0ZBNWczdm9iS0FJeUVIV3puQ0p1bVV4aDJJS3VVU3JHVlJKVWVuenNESkZjdDB1SU15cFNQbW9QMkM1bUk?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Synopsys Stock's Upside Now Rests On How It Gets Paid",
+       "source": "Trefis",
+       "date": "2026-08-29",
+       "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPcEdlTEhUemlHSnUzZ2p2N1g2MVg4X0Y4NDJQU1h2UE9hbTV2Y3lCTi1vSDFZTlE3UG5rZnZiX3dPMERnTFpNMTF6SVJmVk9KdWxMU3ZmeWEyVGZoQ0VVVzFnX3ZXQmw2SkFVUUZiTUdFLTQwbFFySEdMMmRUcjNOeUFoOW8yY2RfUEZYQ1ljSUJxakxlQ19CVXpZRFVKU2xSVWNZb0t4WGVzbFFsa1BZU2pVbU1uZ1kzc3RDY0REckU?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Synopsys Posts Financial Results for Third Quarter Fiscal Year 2026 - Aug 26, 2026",
+       "source": "Synopsys",
+       "date": "2026-08-26",
+       "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQMW94eGhwZHVTZnhUR0pxTGVCTGF6aWo5ZVRoTFgwaWloaXAtWnNvVk41TkZHcmc5MFRDbmdmVlJNSVlqMDZoZ085UE8yY1ZWZEZXbUN0cFU1eEdNVEZ0VkhuUTlJaTY5T2NFUGVzR3U3OXduR3BYS2I0WmNOdG5UUHNuZ0dwaXFKZzdtalE5c2VrMHBRZ0JXcjloS0dhMFlDYUVfSzE5UQ?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Rosenblatt reiterates Buy on Synopsys stock ahead of earnings",
+       "source": "Investing.com",
+       "date": "2026-08-25",
+       "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPOTRBZzVfTWpBMWQxb0RPLVVGSEtZZURINTAwbmxNXzVrVGRRM2lWVFRxM2lSR3UwUFQ4aVk2YzRzWFlabDhldUFqQTlRbW5uUV9TV2s3c3ZoYktiaDBRTjQtaG8yRmJSTm1uWnU5WTFuVkhfQlJZUDN2Nk50R0FtYUZTYVdxUG1tNnBRNEp1emZ4b2FWdlNtbm00Zy0xYUtRUk9tQW1wZDlHQmhDdi10NnVMZWZCM0N3OGVfOWV3?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Synopsys to Report Q3 Earnings: What's in Store for the Stock?",
+       "source": "Yahoo Finance",
+       "date": "2026-08-24",
+       "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNNDRfbW1aTkUySXZLN0w2SnF0Zm1hYmlnOXkzVTYtcm1UUDhaVVp1TWtQd2tpZ3pESnA3d3B1UFVBTTlKZ0JKRHBibTdueGpJcEhxREpFWl9udkdpZEFTdjd5V09qUUQzN0RYdnZLSnQ5TW1JLURkUGdJUldqNFlSVXh4SnpSd09VYm5oeTdZZjMzcmNhSTFucm8yaVdweGc?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Synopsys (SNPS) Stock Jumps As AI Growth Fuels A Richer Debate",
+       "source": "Simply Wall St",
+       "date": "2026-08-28",
+       "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQUkoxZUYxYVN3TW9BTTlsY1NvWlVXRXVMYkFGV2l3R08wdVZMb0dMUkVsaFM3ZHFHYlVubnQtY3NpMlREMm04SFIxV3FQS1g5YmxOemp1NTMxLUc0Rmc5X2VvYXp5SGwwRUktcEpfMzFmdzJtcUZXTER3Z0dqd1dhUkIySnFnRDBFM2xFRWpLN0hia20xSmhvZklXYVdsTEtlTVJiXzJRNG11OW5mQlEyZWU1SFNPTUNtQVZsUl9vamphcWJJcXfSAcsBQVVfeXFMTl9RejVXVDNfSzYyTW1EbkR5QXhFR2pUU0phdkFGcll4NXhBQTI0V0dXLTlydXNQWDFQYmR2UkdyaU9RT0NwU1BLeDAyVG1SWW1sbGhpcDdUN2p1SDViS2pBVENhWWhnRktNZU5iaDRabVg2dHFSWUFzd29nYWxaaEJtT1lOYVotSjFBakt1b2RpSEJoREdrd1RfenlackVmaTZQX2VZUHZjTHdqTHNhdjNTUlpCRnJqZzd5ZlMyZmdWak5kNUVWRlduclU?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Synopsys stock rally above resistance: Upside targets to watch",
+       "source": "Traders Union",
+       "date": "2026-08-25",
+       "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxORHd5czVPMkRaRUw4WUhUNjMzSlRhVXJ1Z2FRUkVSMC1SeUVTX2h3SGpaSWFFNXRZNlFBdXhwMUtCa1cwRXNxQlZMQWg4N01rdWs0UTQ2MDFSQThqY2tOelRSTUh6ZzhNRWxFa1ZVcFZPVi01Vl9OQVhOWkFEX1dHWG8tN19LNFl3TDdGc0RiRVI3OEU?oc=5",
+       "tags": []
+      }
+     ]
+    }
+   },
+   "snapshots": [],
+   "name": "Synopsys, Inc."
+  },
+  "ARM@2026-W04": {
+   "key": "ARM@2026-W04",
+   "t": "ARM",
+   "sec": "半導體",
+   "start": "2026-W04",
+   "start_date": "2026-01-23",
+   "weeks": [
+    "2026-W04"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "ARM",
+    "sec": "半導體",
+    "rel": 26.22,
+    "peers": -0.86,
+    "rv": 1.88,
+    "clv": -0.406,
+    "ret": 9.73,
+    "peers_ret": -0.39
+   },
+   "perf": {
+    "1": {
+     "ret": -9.23,
+     "peers": -1.94,
+     "excess": -7.28
+    },
+    "2": {
+     "ret": 6.57,
+     "peers": -3.43,
+     "excess": 10.0
+    },
+    "4": {
+     "ret": 8.19,
+     "peers": -2.34,
+     "excess": 10.53
+    },
+    "8": {
+     "ret": 14.03,
+     "peers": -4.96,
+     "excess": 18.98
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W27",
+    "date": "2026-07-02",
+    "ret": 171.63,
+    "excess": 95.99
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W04": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "ARM@2026-W06": {
+   "key": "ARM@2026-W06",
+   "t": "ARM",
+   "sec": "半導體",
+   "start": "2026-W06",
+   "start_date": "2026-02-06",
+   "weeks": [
+    "2026-W06"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "ARM",
+    "sec": "半導體",
+    "rel": 42.45,
+    "peers": -9.8,
+    "rv": 1.85,
+    "clv": 0.343,
+    "ret": 17.41,
+    "peers_ret": -1.76
+   },
+   "perf": {
+    "1": {
+     "ret": 1.28,
+     "peers": 0.66,
+     "excess": 0.62
+    },
+    "2": {
+     "ret": 1.52,
+     "peers": 1.3,
+     "excess": 0.22
+    },
+    "4": {
+     "ret": -7.53,
+     "peers": -1.42,
+     "excess": -6.11
+    },
+    "8": {
+     "ret": 20.54,
+     "peers": 3.08,
+     "excess": 17.46
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W27",
+    "date": "2026-07-02",
+    "ret": 154.87,
+    "excess": 73.9
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W06": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "ARM@2026-W12": {
+   "key": "ARM@2026-W12",
+   "t": "ARM",
+   "sec": "半導體",
+   "start": "2026-W12",
+   "start_date": "2026-03-20",
+   "weeks": [
+    "2026-W12",
+    "2026-W13"
+   ],
+   "confirmed": "2026-W13",
+   "confirm_date": "2026-03-27",
+   "at_start": {
+    "t": "ARM",
+    "sec": "半導體",
+    "rel": 21.46,
+    "peers": -2.17,
+    "rv": 1.59,
+    "clv": -0.195,
+    "ret": 14.34,
+    "peers_ret": -0.05
+   },
+   "perf": {
+    "1": {
+     "ret": 8.9,
+     "peers": -2.1,
+     "excess": 11.01
+    },
+    "2": {
+     "ret": 12.66,
+     "peers": 4.52,
+     "excess": 8.14
+    },
+    "4": {
+     "ret": 25.98,
+     "peers": 27.89,
+     "excess": -1.91
+    },
+    "8": {
+     "ret": 58.04,
+     "peers": 59.44,
+     "excess": -1.4
+    }
+   },
+   "perf_confirm": {
+    "1": {
+     "ret": 3.46,
+     "peers": 6.64,
+     "excess": -3.18
+    },
+    "2": {
+     "ret": 3.33,
+     "peers": 19.73,
+     "excess": -16.4
+    },
+    "4": {
+     "ret": 62.92,
+     "peers": 45.89,
+     "excess": 17.02
+    },
+    "8": {
+     "ret": 112.66,
+     "peers": 72.93,
+     "excess": 39.73
+    }
+   },
+   "exit": {
+    "week": "2026-W27",
+    "date": "2026-07-02",
+    "ret": 118.75,
+    "excess": 33.55
+   },
+   "status": "已確認・出場訊號",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W12": {
+     "status": "未查（回溯）"
+    },
+    "2026-W13": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "MRVL@2026-W10": {
+   "key": "MRVL@2026-W10",
+   "t": "MRVL",
+   "sec": "半導體",
+   "start": "2026-W10",
+   "start_date": "2026-03-06",
+   "weeks": [
+    "2026-W10"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "MRVL",
+    "sec": "半導體",
+    "rel": 100.69,
+    "peers": -3.19,
+    "rv": 2.61,
+    "clv": -0.139,
+    "ret": 9.65,
+    "peers_ret": -4.37
+   },
+   "perf": {
+    "1": {
+     "ret": -1.91,
+     "peers": 0.61,
+     "excess": -2.52
+    },
+    "2": {
+     "ret": -1.85,
+     "peers": 2.36,
+     "excess": -4.21
+    },
+    "4": {
+     "ret": 19.58,
+     "peers": 6.05,
+     "excess": 13.53
+    },
+    "8": {
+     "ret": 84.25,
+     "peers": 48.28,
+     "excess": 35.97
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W27",
+    "date": "2026-07-02",
+    "ret": 173.99,
+    "excess": 88.98
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W10": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "MRVL@2026-W23": {
+   "key": "MRVL@2026-W23",
+   "t": "MRVL",
+   "sec": "半導體",
+   "start": "2026-W23",
+   "start_date": "2026-06-05",
+   "weeks": [
+    "2026-W23"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "MRVL",
+    "sec": "半導體",
+    "rel": 121.85,
+    "peers": -7.65,
+    "rv": 2.61,
+    "clv": 0.126,
+    "ret": 28.52,
+    "peers_ret": -4.9
+   },
+   "perf": {
+    "1": {
+     "ret": 6.16,
+     "peers": 10.51,
+     "excess": -4.35
+    },
+    "2": {
+     "ret": 17.88,
+     "peers": 17.48,
+     "excess": 0.4
+    },
+    "4": {
+     "ret": -6.9,
+     "peers": 6.51,
+     "excess": -13.41
+    },
+    "8": {
+     "ret": -28.79,
+     "peers": -6.32,
+     "excess": -22.48
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W27",
+    "date": "2026-07-02",
+    "ret": -6.9,
+    "excess": -13.41
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W23": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "AMD@2026-W04": {
+   "key": "AMD@2026-W04",
+   "t": "AMD",
+   "sec": "半導體",
+   "start": "2026-W04",
+   "start_date": "2026-01-23",
+   "weeks": [
+    "2026-W04"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "AMD",
+    "sec": "半導體",
+    "rel": 20.38,
+    "peers": -0.13,
+    "rv": 1.5,
+    "clv": 0.2,
+    "ret": 12.01,
+    "peers_ret": -0.67
+   },
+   "perf": {
+    "1": {
+     "ret": -8.84,
+     "peers": -1.99,
+     "excess": -6.84
+    },
+    "2": {
+     "ret": -19.73,
+     "peers": -0.14,
+     "excess": -19.59
+    },
+    "4": {
+     "ret": -22.92,
+     "peers": 1.55,
+     "excess": -24.48
+    },
+    "8": {
+     "ret": -22.47,
+     "peers": -0.4,
+     "excess": -22.07
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W06",
+    "date": "2026-02-06",
+    "ret": -19.73,
+    "excess": -19.59
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W04": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "V@2026-W18": {
+   "key": "V@2026-W18",
+   "t": "V",
+   "sec": "金融",
+   "start": "2026-W18",
+   "start_date": "2026-05-01",
+   "weeks": [
+    "2026-W18"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "V",
+    "sec": "金融",
+    "rel": 18.67,
+    "peers": -0.37,
+    "rv": 1.54,
+    "clv": -0.501,
+    "ret": 6.01,
+    "peers_ret": -0.45
+   },
+   "perf": {
+    "1": {
+     "ret": -2.82,
+     "peers": 2.43,
+     "excess": -5.24
+    },
+    "2": {
+     "ret": -0.49,
+     "peers": 2.44,
+     "excess": -2.93
+    },
+    "4": {
+     "ret": -0.3,
+     "peers": 3.07,
+     "excess": -3.38
+    },
+    "8": {
+     "ret": 2.71,
+     "peers": -4.67,
+     "excess": 7.38
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W22",
+    "date": "2026-05-29",
+    "ret": -0.3,
+    "excess": -3.38
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W18": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "BLK@2026-W03": {
+   "key": "BLK@2026-W03",
+   "t": "BLK",
+   "sec": "金融",
+   "start": "2026-W03",
+   "start_date": "2026-01-16",
+   "weeks": [
+    "2026-W03"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "BLK",
+    "sec": "金融",
+    "rel": 16.11,
+    "peers": -6.9,
+    "rv": 1.7,
+    "clv": 0.413,
+    "ret": 7.19,
+    "peers_ret": -2.59
+   },
+   "perf": {
+    "1": {
+     "ret": -2.86,
+     "peers": -4.92,
+     "excess": 2.07
+    },
+    "2": {
+     "ret": -3.8,
+     "peers": -6.51,
+     "excess": 2.71
+    },
+    "4": {
+     "ret": -7.88,
+     "peers": -10.72,
+     "excess": 2.84
+    },
+    "8": {
+     "ret": -20.11,
+     "peers": -2.48,
+     "excess": -17.63
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W05",
+    "date": "2026-01-30",
+    "ret": -3.8,
+    "excess": 2.71
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W03": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "CRCL@2026-W09": {
+   "key": "CRCL@2026-W09",
+   "t": "CRCL",
+   "sec": "金融",
+   "start": "2026-W09",
+   "start_date": "2026-02-27",
+   "weeks": [
+    "2026-W09",
+    "2026-W10"
+   ],
+   "confirmed": "2026-W10",
+   "confirm_date": "2026-03-06",
+   "at_start": {
+    "t": "CRCL",
+    "sec": "金融",
+    "rel": 198.78,
+    "peers": -2.95,
+    "rv": 2.2,
+    "clv": 0.541,
+    "ret": 32.4,
+    "peers_ret": -1.65
+   },
+   "perf": {
+    "1": {
+     "ret": 22.14,
+     "peers": -1.16,
+     "excess": 23.3
+    },
+    "2": {
+     "ret": 38.28,
+     "peers": -3.68,
+     "excess": 41.96
+    },
+    "4": {
+     "ret": 12.25,
+     "peers": -7.11,
+     "excess": 19.36
+    },
+    "8": {
+     "ret": 19.44,
+     "peers": 4.41,
+     "excess": 15.03
+    }
+   },
+   "perf_confirm": {
+    "1": {
+     "ret": 13.22,
+     "peers": -2.58,
+     "excess": 15.8
+    },
+    "2": {
+     "ret": 23.67,
+     "peers": -1.68,
+     "excess": 25.35
+    },
+    "4": {
+     "ret": -11.43,
+     "peers": -1.4,
+     "excess": -10.03
+    },
+    "8": {
+     "ret": -2.17,
+     "peers": 6.28,
+     "excess": -8.45
+    }
+   },
+   "exit": {
+    "week": "2026-W14",
+    "date": "2026-04-02",
+    "ret": -11.43,
+    "excess": -10.03
+   },
+   "status": "已確認・出場訊號",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W09": {
+     "status": "未查（回溯）"
+    },
+    "2026-W10": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "ADM@2026-W19": {
+   "key": "ADM@2026-W19",
+   "t": "ADM",
+   "sec": "糧食/水資源",
+   "start": "2026-W19",
+   "start_date": "2026-05-08",
+   "weeks": [
+    "2026-W19"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "ADM",
+    "sec": "糧食/水資源",
+    "rel": 10.89,
+    "peers": -1.05,
+    "rv": 1.58,
+    "clv": 0.047,
+    "ret": 3.63,
+    "peers_ret": -0.99
+   },
+   "perf": {
+    "1": {
+     "ret": 3.53,
+     "peers": -1.74,
+     "excess": 5.27
+    },
+    "2": {
+     "ret": 0.48,
+     "peers": -1.95,
+     "excess": 2.43
+    },
+    "4": {
+     "ret": 4.88,
+     "peers": 1.65,
+     "excess": 3.23
+    },
+    "8": {
+     "ret": -0.47,
+     "peers": 8.08,
+     "excess": -8.55
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W25",
+    "date": "2026-06-18",
+    "ret": -2.66,
+    "excess": -3.6
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W19": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "CNI@2026-W24": {
+   "key": "CNI@2026-W24",
+   "t": "CNI",
+   "sec": "糧食/水資源",
+   "start": "2026-W24",
+   "start_date": "2026-06-12",
+   "weeks": [
+    "2026-W24"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "CNI",
+    "sec": "糧食/水資源",
+    "rel": 0.85,
+    "peers": -0.25,
+    "rv": 1.99,
+    "clv": -0.132,
+    "ret": -0.62,
+    "peers_ret": -0.06
+   },
+   "perf": {
+    "1": {
+     "ret": -4.66,
+     "peers": -1.03,
+     "excess": -3.63
+    },
+    "2": {
+     "ret": 1.33,
+     "peers": 3.18,
+     "excess": -1.85
+    },
+    "4": {
+     "ret": 4.56,
+     "peers": 3.92,
+     "excess": 0.63
+    },
+    "8": {
+     "ret": 6.4,
+     "peers": 4.92,
+     "excess": 1.49
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W36",
+    "date": "2026-09-04",
+    "ret": 3.69,
+    "excess": -5.07
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W24": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "AWK@2026-W31": {
+   "key": "AWK@2026-W31",
+   "t": "AWK",
+   "sec": "糧食/水資源",
+   "start": "2026-W31",
+   "start_date": "2026-07-31",
+   "weeks": [
+    "2026-W31"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "AWK",
+    "sec": "糧食/水資源",
+    "rel": 1.54,
+    "peers": -5.35,
+    "rv": 1.61,
+    "clv": -0.404,
+    "ret": -0.36,
+    "peers_ret": -4.37
+   },
+   "perf": {
+    "1": {
+     "ret": 0.85,
+     "peers": 0.94,
+     "excess": -0.09
+    },
+    "2": {
+     "ret": 2.19,
+     "peers": 1.56,
+     "excess": 0.63
+    },
+    "4": {
+     "ret": 3.76,
+     "peers": 1.11,
+     "excess": 2.65
+    },
+    "8": {
+     "ret": -1.78,
+     "peers": 0.78,
+     "excess": -2.56
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W38",
+    "date": "2026-09-18",
+    "ret": 1.96,
+    "excess": -0.5
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W31": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "DE@2026-W08": {
+   "key": "DE@2026-W08",
+   "t": "DE",
+   "sec": "糧食/水資源",
+   "start": "2026-W08",
+   "start_date": "2026-02-20",
+   "weeks": [
+    "2026-W08"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "DE",
+    "sec": "糧食/水資源",
+    "rel": 43.99,
+    "peers": -0.74,
+    "rv": 2.08,
+    "clv": 0.24,
+    "ret": 9.88,
+    "peers_ret": -0.4
+   },
+   "perf": {
+    "1": {
+     "ret": -4.95,
+     "peers": 2.36,
+     "excess": -7.31
+    },
+    "2": {
+     "ret": -10.98,
+     "peers": -0.42,
+     "excess": -10.56
+    },
+    "4": {
+     "ret": -15.51,
+     "peers": -3.5,
+     "excess": -12.01
+    },
+    "8": {
+     "ret": -10.61,
+     "peers": -1.15,
+     "excess": -9.46
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W10",
+    "date": "2026-03-06",
+    "ret": -10.98,
+    "excess": -10.56
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W08": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "DE@2026-W34": {
+   "key": "DE@2026-W34",
+   "t": "DE",
+   "sec": "糧食/水資源",
+   "start": "2026-W34",
+   "start_date": "2026-08-21",
+   "weeks": [
+    "2026-W34"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "DE",
+    "sec": "糧食/水資源",
+    "rel": 23.72,
+    "peers": -0.74,
+    "rv": 1.82,
+    "clv": -0.094,
+    "ret": 6.34,
+    "peers_ret": -0.75
+   },
+   "perf": {
+    "1": {
+     "ret": -2.65,
+     "peers": -0.19,
+     "excess": -2.46
+    },
+    "2": {
+     "ret": 7.11,
+     "peers": -0.54,
+     "excess": 7.65
+    },
+    "4": {
+     "ret": 5.64,
+     "peers": -1.56,
+     "excess": 7.2
+    },
+    "8": {
+     "ret": -0.63,
+     "peers": -2.77,
+     "excess": 2.14
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W41",
+    "date": "2026-10-09",
+    "ret": -3.87,
+    "excess": 1.93
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W34": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "BE@2026-W31": {
+   "key": "BE@2026-W31",
+   "t": "BE",
+   "sec": "未來能源",
+   "start": "2026-W31",
+   "start_date": "2026-07-31",
+   "weeks": [
+    "2026-W31"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "BE",
+    "sec": "未來能源",
+    "rel": 29.82,
+    "peers": -6.61,
+    "rv": 1.93,
+    "clv": -0.202,
+    "ret": 11.31,
+    "peers_ret": -5.57
+   },
+   "perf": {
+    "1": {
+     "ret": 6.57,
+     "peers": -1.67,
+     "excess": 8.25
+    },
+    "2": {
+     "ret": 11.72,
+     "peers": 2.21,
+     "excess": 9.51
+    },
+    "4": {
+     "ret": 2.41,
+     "peers": -2.38,
+     "excess": 4.79
+    },
+    "8": {
+     "ret": 40.28,
+     "peers": -5.96,
+     "excess": 46.23
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W42",
+    "date": "2026-10-16",
+    "ret": 7.53,
+    "excess": 7.97
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W31": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "BKSY@2026-W45": {
+   "key": "BKSY@2026-W45",
+   "t": "BKSY",
+   "sec": "太空",
+   "start": "2026-W45",
+   "start_date": "2026-11-06",
+   "weeks": [
+    "2026-W45"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "BKSY",
+    "sec": "太空",
+    "rel": 48.11,
+    "peers": -11.82,
+    "rv": 1.54,
+    "clv": 0.436,
+    "ret": 19.36,
+    "peers_ret": -6.64
+   },
+   "perf": {
+    "1": {
+     "ret": 11.58,
+     "peers": 6.92,
+     "excess": 4.66
+    },
+    "2": null,
+    "4": null,
+    "8": null
+   },
+   "perf_confirm": null,
+   "exit": null,
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W45": {
+     "window": [
+      "2026-10-30",
+      "2026-11-07"
+     ],
+     "query": "(\"BKSY\" OR \"BlackSky\") stock",
+     "checked": "2026-11-19",
+     "status": "有消息",
+     "tags": [
+      "財報",
+      "分析師評等"
+     ],
+     "earnings": "2026-11-05",
+     "headlines": [
+      {
+       "title": "BlackSky Technology (BKSY) Reports Q3 Earnings: What Key Metrics Have to Say",
+       "source": "Yahoo Finance",
+       "date": "2026-11-05",
+       "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNV1ptTGxxT1BZRHhkUktfTVhJMURTeENiRHRSQUNVY1FiMENlR2lyeVpzbHI5amcybHJNcUEyX2piYnBUTGxHLThMZDZBdWVsUGxvRFBqSEd3SjJlODFWYWhxX3NaSURGOFNJRDNScEhkVXA1LWh1MVU5MFhpYjB2bVlGMDdQejQ5TzlKQ0hWdzRSV1RvcWNMenhrRUlIRnk4UEE?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "BlackSky Stock Surges After Surprising Q3 Results",
+       "source": "Benzinga",
+       "date": "2026-11-05",
+       "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPTEFuVmNiRHV4Q0tBR2tUVjczU2xVWDRBV1VaWWJybXVzeExGMklNQV9RTHhpV1loSGJnUVZDdDV2SVFsdE8wc0QteTg0Q1pDUm52NklOaFhUNmlvM0duNDNYbWwyMGF1X0RIT0pvOGxiSDBxMHhHUmRTSmhpVHdINk9ubGJScnN0LVl5NDVPbDFid1pkWGNhV243S3JsdXA2RUQ3d3VWNkNWaUpwcWpR?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "$Rocket Lab (RKLB.US)$ Blacksky QR, share price rose above 16% premarket. [Onlooker]",
+       "source": "Moomoo",
+       "date": "2026-11-05",
+       "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOZW4xb1VrTk5COUhVdmI1b3NGQzFzbnBXYWtzRmJsSUNvQWp3ZjNGeWxlSHNwQjZ6MWstMEhka3hrc3ZIVV8tc2RTSTZxU1NhckpJSlBGQWpKUVNKYmVKYWpCbXM5LS1xejhjSjZLQjl2NEViaHh6Uk5FRXI4NHNfV1AxcXc4WGpkdFJtSA?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Clear Street raises BlackSky Technology stock price target on fundamentals",
+       "source": "Investing.com",
+       "date": "2026-11-05",
+       "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPMktJUFk3alAzRkFDX291QkxlWGNsU19WRXhkdllzWXV3bEYxSEZ4V3ByT2VDVkFfaUJEQWdLT1hlcjFhLUxKYXpTVDFjNUp3N1RtNmVMVkFLaDg5Mmd1aEtKTmtUam95b2MwNXhkcGJ2V0wwd0g2cjZ3SWxSVVlyVjdRT2N0a0J5R2FtMms2Y0lvNWpoTXJaM0Rsd1FUanFEdHRnVHdGWFlWU3c0WmVOZUhfX21Na2VVbDF1ZXNtemZlamlqWlNJZlJ3Tk00QTA?oc=5",
+       "tags": [
+        "分析師評等"
+       ]
+      },
+      {
+       "title": "BlackSky Technology Inc. (BKSY) Reports Q3 Loss, Tops Revenue Estimates",
+       "source": "Yahoo Finance",
+       "date": "2026-11-05",
+       "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQUm9NazY3VS1yeHBNUk5PdlJ2LUZJT1phWjhCLWRITDV0SGhNSXBJSm50bTNSTzFxNmdYR1JLM3IxVHBHMGxBX2NOV1lFajBUUzhiczFIRDQxdUMtLVVOZFZxdkxGZ1g5eFBEQk10eGFDeTZDenNMank2Ymg0Z3RjWm15NTIxQnlYRUY3b0hIYkVSc3RFVURXTGdsdHg4UXFOd2J3?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "What happens if the internet goes down? BlackSky - the UK's emergency backup plans",
+       "source": "BBC",
+       "date": "2026-11-07",
+       "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5PeXdBblJaMWtDRzFMeXBNcU0wMnRaWVZiZzVSSUdZZW05Y1pLZXFkNEVFOFpLeVd4TkU4VmxZa05OOEs1TFBFYlRBVFNKbnR1ZUp1ZXR5QnBjeC1PRmc?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Understanding Momentum Shifts in (BKSY)",
+       "source": "Stock Traders Daily",
+       "date": "2026-11-06",
+       "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPQl95RmM4WkdnVTEyanVWVmdLRzhKOUF5SDlRRXFvZW5nZW1IWGlaajdxQy1yUUZLTk9feV9raV9xc3Y2Rk1hZ3pXWWFnSGROcEhhTzQ2Y2xzaGdWaV9TU3B0S2txM0VuWFJTVUI5dUtRdmFkX3dzMVdEUHRuRUlmenc4YzB1RlNUUTQtRWJDal9NTFZpdXU2WXB2dTJlUGMtUDBRRnJ6d205dklLd3d6Sk9EWk15QUtX?oc=5",
+       "tags": []
+      },
+      {
+       "title": "BlackSky Reports Third Quarter 2026 Results",
+       "source": "Business Wire",
+       "date": "2026-11-05",
+       "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNNHFuRmJTUHBkaWdzRkdudWdwMXhvM09YZThlWFZNb3dLdkFmUEV1cjFrdEUzeHFmcmlYejF1OHhEVG9zWTJzSUZOTXZReEwyYktyQUxhWEFhMnlKWlFUMzVjYmZRTllhd2I2Tjl5Vy1XMVZYNEFmUlZBV1BMY3ItdmEwa1E4c1hCUHVDMjZKTmU5TFVjVWJKUVZDY2lDVW5vOFE?oc=5",
+       "tags": [
+        "財報"
+       ]
+      }
+     ]
+    }
+   },
+   "snapshots": [],
+   "name": "BlackSky Technology Inc."
+  },
+  "IRDM@2026-W04": {
+   "key": "IRDM@2026-W04",
+   "t": "IRDM",
+   "sec": "太空",
+   "start": "2026-W04",
+   "start_date": "2026-01-23",
+   "weeks": [
+    "2026-W04"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "IRDM",
+    "sec": "太空",
+    "rel": 36.06,
+    "peers": -6.0,
+    "rv": 1.67,
+    "clv": 0.29,
+    "ret": 14.34,
+    "peers_ret": -4.4
+   },
+   "perf": {
+    "1": {
+     "ret": -8.5,
+     "peers": -9.46,
+     "excess": 0.96
+    },
+    "2": {
+     "ret": -8.13,
+     "peers": -15.5,
+     "excess": 7.37
+    },
+    "4": {
+     "ret": 5.28,
+     "peers": -21.89,
+     "excess": 27.17
+    },
+    "8": {
+     "ret": 17.38,
+     "peers": -5.82,
+     "excess": 23.2
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W06",
+    "date": "2026-02-06",
+    "ret": -8.13,
+    "excess": 7.37
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W04": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "IRDM@2026-W07": {
+   "key": "IRDM@2026-W07",
+   "t": "IRDM",
+   "sec": "太空",
+   "start": "2026-W07",
+   "start_date": "2026-02-13",
+   "weeks": [
+    "2026-W07"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "IRDM",
+    "sec": "太空",
+    "rel": 45.37,
+    "peers": -9.61,
+    "rv": 1.52,
+    "clv": 0.122,
+    "ret": 15.85,
+    "peers_ret": -7.74
+   },
+   "perf": {
+    "1": {
+     "ret": -1.08,
+     "peers": 0.36,
+     "excess": -1.43
+    },
+    "2": {
+     "ret": 3.37,
+     "peers": -1.53,
+     "excess": 4.9
+    },
+    "4": {
+     "ret": 7.29,
+     "peers": 6.67,
+     "excess": 0.63
+    },
+    "8": {
+     "ret": 48.5,
+     "peers": 32.37,
+     "excess": 16.13
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W29",
+    "date": "2026-07-17",
+    "ret": 103.33,
+    "excess": 109.87
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W07": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "IONQ@2026-W39": {
+   "key": "IONQ@2026-W39",
+   "t": "IONQ",
+   "sec": "量子",
+   "start": "2026-W39",
+   "start_date": "2026-09-25",
+   "weeks": [
+    "2026-W39"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "IONQ",
+    "sec": "量子",
+    "rel": 32.82,
+    "peers": -0.92,
+    "rv": 1.74,
+    "clv": 0.053,
+    "ret": 16.23,
+    "peers_ret": 0.26
+   },
+   "perf": {
+    "1": {
+     "ret": -3.76,
+     "peers": -8.36,
+     "excess": 4.6
+    },
+    "2": {
+     "ret": -12.29,
+     "peers": -16.63,
+     "excess": 4.34
+    },
+    "4": {
+     "ret": -31.24,
+     "peers": -28.71,
+     "excess": -2.54
+    },
+    "8": null
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W41",
+    "date": "2026-10-09",
+    "ret": -12.29,
+    "excess": 4.34
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W39": {
+     "window": [
+      "2026-09-18",
+      "2026-09-26"
+     ],
+     "query": "(\"IONQ\" OR \"IonQ\") stock",
+     "checked": "2026-11-19",
+     "status": "有消息",
+     "tags": [
+      "產品／審批"
+     ],
+     "earnings": null,
+     "headlines": [
+      {
+       "title": "Why IonQ (IONQ) Stock Is Trading Up Today",
+       "source": "Yahoo Finance",
+       "date": "2026-09-23",
+       "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOTXJNcFlJaTNhVHVFMGdTZ3lCZUY3WDliZng3ZWRkYVR6VTJReEljT2xHTWk3ZWx1R2FUY3lGb0NmZ3dGT29hMThDT3V2allTV0lqRGRDOEEzS3prc2FhU0xEQjBQRWlaeHFqSG42YTcyd0pHUDE3cHA4eTdsN2N2YUN5amxad2JnQ0s1WXB2ZTFaZGxEcktJ?oc=5",
+       "tags": []
+      },
+      {
+       "title": "IonQ Breakthrough: CPU-Powered Quantum Error Correction",
+       "source": "IonQ",
+       "date": "2026-09-22",
+       "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOdk02SF8tODN4MVZsRXpLR2xrc2MzZEVFckRyb1dVUWdBUjlxU0V0NGxsS1p2ZjhEVW53NWVXX2EzMXBCMWFLNjI2ZDJvbWdzTWd5LVQ4OUM4SlZITmpVTWNsZ0JEaElMUWNSUjVPM0dIVk1Sd1VTM1E0SVhKckF3M25vTVBVSTh1YWNkLXU0c2JBTjduSXRndmZkenZEcDhWbVBLaw?oc=5",
+       "tags": [
+        "產品／審批"
+       ]
+      },
+      {
+       "title": "IonQ shares rise after company says it made a major quantum computing breakthrough",
+       "source": "CNBC",
+       "date": "2026-09-23",
+       "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOdVUzSHNCT1dLMXhkUVZrYTZ2d09JeXdJYVhYdDJQdlBvWEJ3d3I5RXhkaUkwa3hOZ3FVZk1wOWl3RjJGbVNjdWd4bmFFeS1XV2xXR1kxempGTXRuaW5ES2Q4TktWSXJTTjVDWFJRUWltcnBiUW9BcTE2R2VwVlRzMlJORDg4QmtOcFR1X2RvZU1SdWRmYWZyeFJyaUhSc0d3MC16ejEtOGlzY0I4OTAtYnF5NnppekFKd0hGUw?oc=5",
+       "tags": [
+        "產品／審批"
+       ]
+      },
+      {
+       "title": "3 Things You Need to Know Before Buying IonQ Stock",
+       "source": "The Motley Fool",
+       "date": "2026-09-20",
+       "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNQlhVbHR3RC1oc3F4akVrUy03dnY4NmI1SlhHZXN0X2RvVnN2T1h6RkdmQjRYRDhsT1NPcklpNTE2MWRINGVTUU5ib3FQNVV2T2VYb0NLYW85cUJvU0g4SW5GWG5kc20zZ3cwV3hyUk1jRWh1c3BfcU5HWkpKbUZlaU0wQWFuaGZHTzNCNENEVTJ0RjlxUDdiSA?oc=5",
+       "tags": []
+      },
+      {
+       "title": "IONQ Stock Surges On Tech Wins, But The Heavy Burn Persists",
+       "source": "Yahoo Finance",
+       "date": "2026-09-18",
+       "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOYy1rS0NYbjEwZThwQnJTeXVTYXFEZ0hFVnZpOXZtSE5qTWM1YnJXd0tqaWhwQTdjaVNWdUREdHFqNk04eUF2YzV6QmdEX0ZsR2VKMEdkazB2NVVPcnhuS09iNG5pNjhlaDM3bkJJYTN0VVAwREItYUtsS2FHRURkN0tBZ2VQV0FMMXlYQ3pHeF9VY2tpOG1v?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Why IonQ Stock Is Up Today",
+       "source": "The Motley Fool",
+       "date": "2026-09-23",
+       "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5fR1JmcExHaGNUUkNBaVppNmxDcmNIRVdaUXlLMTE5ajVWQ1Ywd2JhT2I3RlhRRm1WMDRrd1hlTVh4STF5MVZic0xMWDAzM1IxZG1tZXJBcVdZVlVhc3ZXclhkNXFtRFk3aWxFY0VJXzBKTjV0bFBuZQ?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Where Will IonQ Stock Be in 5 Years?",
+       "source": "Yahoo Finance",
+       "date": "2026-09-22",
+       "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNWkdsU0RTcW1nYWxPMjFxLXp5cUFrQmV5X3h2S1RBazJFRXRodXRqc2FFSUFUYjgzRXB2U0hYZDg5NUltVWZQWUJwdFNyOThlVGZWSVkzSGdZUkZjQkduTXZyTUtJbTJtdGswTGdBMlRtSThha0tfSUMta2ZjVnhoM2N2bEhndEdBVDlnaGdYdzMtREk?oc=5",
+       "tags": []
+      },
+      {
+       "title": "$500 Invested in IonQ Now Could 10x if Quantum AI Hits by 2029",
+       "source": "The Motley Fool",
+       "date": "2026-09-25",
+       "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOYldjVTRDX25RaGRTM3dfNGVKWlVGOGFNRy0wbzVvc3JicWRDYzdoR09idDJaZTQzaFVPdi1XV3RiNUkyc0NUOG5rMVFWcFgxdW9YeU1qUkZOdmNxM0gyTUVKQ3hzd3FIeEdTZG1oTlotOV9zOWJwQXQ5SVlHdGpWY3ZVUmdmNW5nTHI5azRTSFp6TXpaQllhdA?oc=5",
+       "tags": []
+      }
+     ]
+    }
+   },
+   "snapshots": [],
+   "name": "IonQ, Inc."
+  },
+  "TWST@2026-W06": {
+   "key": "TWST@2026-W06",
+   "t": "TWST",
+   "sec": "長壽",
+   "start": "2026-W06",
+   "start_date": "2026-02-06",
+   "weeks": [
+    "2026-W06"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "TWST",
+    "sec": "長壽",
+    "rel": 36.27,
+    "peers": -6.76,
+    "rv": 1.61,
+    "clv": 0.387,
+    "ret": 19.89,
+    "peers_ret": -4.03
+   },
+   "perf": {
+    "1": {
+     "ret": -0.26,
+     "peers": -0.56,
+     "excess": 0.29
+    },
+    "2": {
+     "ret": -1.32,
+     "peers": 1.58,
+     "excess": -2.9
+    },
+    "4": {
+     "ret": -4.67,
+     "peers": 1.1,
+     "excess": -5.77
+    },
+    "8": {
+     "ret": 1.97,
+     "peers": -5.71,
+     "excess": 7.68
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W12",
+    "date": "2026-03-20",
+    "ret": -14.56,
+    "excess": -8.23
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W06": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "RXRX@2026-W41": {
+   "key": "RXRX@2026-W41",
+   "t": "RXRX",
+   "sec": "長壽",
+   "start": "2026-W41",
+   "start_date": "2026-10-09",
+   "weeks": [
+    "2026-W41"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "RXRX",
+    "sec": "長壽",
+    "rel": 33.12,
+    "peers": -13.28,
+    "rv": 2.02,
+    "clv": 0.008,
+    "ret": 5.83,
+    "peers_ret": -2.8
+   },
+   "perf": {
+    "1": {
+     "ret": -20.53,
+     "peers": -7.04,
+     "excess": -13.49
+    },
+    "2": {
+     "ret": -15.14,
+     "peers": -4.31,
+     "excess": -10.82
+    },
+    "4": {
+     "ret": -19.27,
+     "peers": -4.23,
+     "excess": -15.03
+    },
+    "8": null
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W46",
+    "date": "2026-11-13",
+    "ret": -26.95,
+    "excess": -16.47
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W41": {
+     "window": [
+      "2026-10-02",
+      "2026-10-10"
+     ],
+     "query": "(\"RXRX\" OR \"Recursion Pharmaceuticals\") stock",
+     "checked": "2026-11-19",
+     "status": "有消息",
+     "tags": [
+      "合約／訂單"
+     ],
+     "earnings": null,
+     "headlines": [
+      {
+       "title": "Recursion Pharmaceuticals (RXRX) Stock Declines While Market Improves: Some Information for Investors",
+       "source": "Yahoo Finance",
+       "date": "2026-10-06",
+       "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQNTlpWEszYzFLNjdLRzdmd0liSUZ3eWV3WDF3YkhMZV8xbzVFQ041QlE1UXRwT2xWT0FWbWM4d3R3dGJORmU2cDNLaDluRHNGMmVCeEF4WlBsX2tHVjcybEhFSzhRVWsxanYzUVJGYmNlSFNxX3ZvZEJuQzF0UnNfVVZ2SE5BSXBmWmsyN004THR3UUpNTkRwdjV6VXZjSTdvSjY4cWRlX2dsRTVvTDdR?oc=5",
+       "tags": []
+      },
+      {
+       "title": "What Could Go Wrong With Recursion Pharmaceuticals Stock?",
+       "source": "Yahoo Finance",
+       "date": "2026-10-08",
+       "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPU2o0b0thb09NVUp0MDJsOFFRWlhmQVoyckxnNkxHbHNSQ3gzRVR5T0FvQm5RZ3BWX2JuN3RsZlVjc2p4ZU5Bc1N6OFZ6V0RqZlh0Q1hCMjdGblA2UWlib0t0Q0I4RUhTLWVzY3B1UHRQRlVfRENiUVlwZFpGX3ZZel9tYmJWcVUySlo2azMxdGpkZ0lRTDJoS1VxQVJJVURvV2E4b0VoNlBQLUZM?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Director Hershberg sells $125k in Recursion Pharmaceuticals stock",
+       "source": "Investing.com",
+       "date": "2026-10-07",
+       "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOX1VzbWM1QmVsSXEweEJiM051TTRzaFFRSC1KYkZTNk5fc3lxV3hYNmdrcTRQWW1hb204bzUzaXpWaUVlNmtmMzF3Zkl3cDItdWs0cUxCZzBKc2dtTW1jOFB3ZG1MSUxmTEpRTTRVZXFCQm4yMVdmRVJfMTNBV0d3bWJJN1FZaG9ZQkxibHR3SWd2NE91SU1tTUJiWVFSaGllOV9RTU9SenlZekxiUFZhOWtJZ3ZtWVZ6b1ZTZU9TdG0zeVZ2a252cA?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Recursion Pharmaceuticals Shares Jump as AI Partnership Momentum and Short-Covering Appear to Lift Sentiment",
+       "source": "Quiver Quantitative",
+       "date": "2026-10-05",
+       "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQY1RSWWdKYVRhQV9aa1ZsTEN4ZU1mQ2dJMDlrRENwR0xtMEdQaENEZk1sTmRJaXQ1NkI1VndHSzJGU0xQTF9kSzFsY2VFYUZXVncyWGJRVS1FdWVCTVI3dHVaUEhmcUV6LVdtX2NMbTNmRTJBSmdGTVVTN3hJcUItM1BJLUR6MVZQcEhxQzkwSVNTakhnLWtQc0kxVHRzRENmYjZrcWZobnJmUXpnNTRpRUs0T0ZOcVhoMGhETEdwWUFFM1B0ODJXcGR4Zk1iNzk5RS1yMWlNay0?oc=5",
+       "tags": [
+        "合約／訂單"
+       ]
+      },
+      {
+       "title": "Cathie Wood Loads Up On These Biotech Stocks After Strong Rallies – Unloads $18M Worth Of TWST Shares",
+       "source": "TradingView",
+       "date": "2026-10-06",
+       "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxPeVdyWDVscTRLcHJCUElPZUJQUkxWaUZQU25zelpWMk85SmM2YnEzVnJIQUZ3S3ZTdHNsZFBUenVwU3hHRTYxMGJPMjY5dmZnbjNiQXp0V2NCeC0tYWROZHJOeUhUb3NmNmI5LVVLZklUR0tfN2hKenBNSVZsa1pLV1haZ2tDck5JWTBJNjJpSlY4ODZzc2diNktlQlBxMEFfLV9hQXN3dmZucWVnbHhfTHBTRHI1YlBDaXVuR1BxaldUbWJya3pqMUtKaUstUTZSU01DMkhrNmtjN05iWDQ4NmdmMTl5TnhGUGQ4VklVaU0?oc=5",
+       "tags": []
+      },
+      {
+       "title": "RXRX Stock Dips As Traders Weigh Cash Runway And Heavy Losses",
+       "source": "Timothy Sykes",
+       "date": "2026-10-08",
+       "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNWVpkR3IyNXNpdVlvQXlWVzF4RzdpTERUeEVha0d2Q1oxRnpvMFMwNlJuNzlZOExUalVwTFp2eWdMS29NM2dRVU5tNkJjOWNmQ1drbjdHMTFfM2ZfaGhuS1JDOHdWR0ZuZDhHVUZDZGVobnNtYnZ0clRYdnJ2ZThVX0Y4SDN0YndX?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Recursion Pharmaceuticals (Ondo Tokenized Stock) Analytics",
+       "source": "CryptoRank",
+       "date": "2026-10-06",
+       "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNbFpOa0o1ay0wbzZYaTNPM2ljSlN3OFR0LUFUd3I1eWZURE5kSHdiVzNadjVxakltc0gzaURJUlhTRmF3MW11Ul96REpuZ21CTUFsS0dUN0NWbmFWZkQ0ZWdrQUFwNl9JcmlDWWFJOHBObGR5eElEcHZQR0FwdXZJU1FDQy1hYkQ0b09RNQ?oc=5",
+       "tags": []
+      },
+      {
+       "title": "RXRX Stock Rises As Tempus AI Deal Extends To 2029",
+       "source": "StocksToTrade",
+       "date": "2026-10-05",
+       "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQQXRrM0FFcmhZMkNSWWh6Y2RlNWE4UzhLMmVWOGlKUGZ2UUxJZm5WN3otOC02YjZBZzVia3BZUG5uRDBxUXdLUUxGVW51RzY1NUpjUXVId3RiQmR1cklmVG9ZMGFrN1hmTnpycXNUWkZhbnBSazd3Tzh2TjVpZlp3TzJMY2puWm5seXc?oc=5",
+       "tags": [
+        "合約／訂單"
+       ]
+      }
+     ]
+    }
+   },
+   "snapshots": [],
+   "name": "Recursion Pharmaceuticals, Inc."
+  },
+  "NTLA@2026-W10": {
+   "key": "NTLA@2026-W10",
+   "t": "NTLA",
+   "sec": "長壽",
+   "start": "2026-W10",
+   "start_date": "2026-03-06",
+   "weeks": [
+    "2026-W10"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "NTLA",
+    "sec": "長壽",
+    "rel": 24.31,
+    "peers": -3.02,
+    "rv": 1.91,
+    "clv": 0.165,
+    "ret": -2.47,
+    "peers_ret": -4.0
+   },
+   "perf": {
+    "1": {
+     "ret": -5.06,
+     "peers": -4.17,
+     "excess": -0.89
+    },
+    "2": {
+     "ret": -4.46,
+     "peers": -8.06,
+     "excess": 3.6
+    },
+    "4": {
+     "ret": -2.31,
+     "peers": -5.21,
+     "excess": 2.9
+    },
+    "8": {
+     "ret": -1.34,
+     "peers": 7.64,
+     "excess": -8.98
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W18",
+    "date": "2026-05-01",
+    "ret": -1.34,
+    "excess": -8.98
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W10": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "NTLA@2026-W41": {
+   "key": "NTLA@2026-W41",
+   "t": "NTLA",
+   "sec": "長壽",
+   "start": "2026-W41",
+   "start_date": "2026-10-09",
+   "weeks": [
+    "2026-W41"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "NTLA",
+    "sec": "長壽",
+    "rel": 16.97,
+    "peers": -10.59,
+    "rv": 1.77,
+    "clv": 0.244,
+    "ret": 6.61,
+    "peers_ret": -2.93
+   },
+   "perf": {
+    "1": {
+     "ret": -12.62,
+     "peers": -8.36,
+     "excess": -4.27
+    },
+    "2": {
+     "ret": -14.23,
+     "peers": -4.47,
+     "excess": -9.77
+    },
+    "4": {
+     "ret": -13.16,
+     "peers": -5.25,
+     "excess": -7.91
+    },
+    "8": null
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W43",
+    "date": "2026-10-23",
+    "ret": -14.23,
+    "excess": -9.77
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W41": {
+     "window": [
+      "2026-10-02",
+      "2026-10-10"
+     ],
+     "query": "(\"NTLA\" OR \"Intellia Therapeutics\") stock",
+     "checked": "2026-11-19",
+     "status": "有新聞・無明確催化劑",
+     "tags": [],
+     "earnings": null,
+     "headlines": [
+      {
+       "title": "Intellia Therapeutics (NTLA) Soars 7.6%: Is Further Upside Left in the Stock?",
+       "source": "Yahoo Finance",
+       "date": "2026-10-09",
+       "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQSTlIbHI4YTN4cTl2dlgtNzZKT0xoVzBfMkFKR2pNaGRfVWM5TGdrSGF2WVdJMGhzN3pzVGp5NDhDMDEwZ09GQ09WRFdBNGdmdm1LNW0tMEtweDh6MXJjcjVMaHR4YkN3MU02Q1Z3aWNfQW50WEpYREVTV3pFeWRURVhjb2xUYTZlaGZDV3gxYktHOTRfSWlmMUNJTlVXUlRw?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Intellia Therapeutics Reports Inducement Grants Under Nasdaq Listing Rule 5635(c)(4)",
+       "source": "Intellia Therapeutics",
+       "date": "2026-10-02",
+       "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPSFdldG92NUpialZrZ3dpb1RzU2RYcGdsTUZ3X0dZcTBsZnRZU05VamkxcjczMzV4dlk3Sm1nR2pUNjBud0pnei1kcVdqWVFKSXZZYmFNTkxWbHdtam9TX2FlUjFNd1BwbUY1UnprWFpDQ1pleU1PcVNOUjExR1dQTFpfUzhqMVBOb2NPLXZOcFc2Q1FZaTRJSnd5MEdMV0hoY2pQYloxNUVNaWpVR0lCaVU4VS1sODRub3VleGIyRUxidw?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Cathie Wood Loads Up On These Biotech Stocks After Strong Rallies – Unloads $18M Worth Of TWST Shares",
+       "source": "TradingView",
+       "date": "2026-10-06",
+       "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxPeVdyWDVscTRLcHJCUElPZUJQUkxWaUZQU25zelpWMk85SmM2YnEzVnJIQUZ3S3ZTdHNsZFBUenVwU3hHRTYxMGJPMjY5dmZnbjNiQXp0V2NCeC0tYWROZHJOeUhUb3NmNmI5LVVLZklUR0tfN2hKenBNSVZsa1pLV1haZ2tDck5JWTBJNjJpSlY4ODZzc2diNktlQlBxMEFfLV9hQXN3dmZucWVnbHhfTHBTRHI1YlBDaXVuR1BxaldUbWJya3pqMUtKaUstUTZSU01DMkhrNmtjN05iWDQ4NmdmMTl5TnhGUGQ4VklVaU0?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Cathie Wood's ARK Invest Rotates $22 Million in Biotech, Extends Intellia Buying Streak to 50 Sessions",
+       "source": "BigGo Finance",
+       "date": "2026-10-06",
+       "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE03dl8xSEF3NWZxQ0xwRWRKckJIWEFsYjVBZ0lEcXFaNFJWN1czVVNWVExoRDhBbVJHVWx2Snc0V2NtRG1PT3RoQS00M2JjSkJiMnhFYmtSQU11dVVtdXNnWU9ZYkxwTzktXzJWQWZqdzlTb2xwYUE?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Cathie Wood’s ARK sells TWST stock, buys RXRX and NTLA",
+       "source": "Investing.com",
+       "date": "2026-10-05",
+       "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPc1FUUjlzZkZZbFl6WDBnYi1pSHF1MGxkZGJ6aFl1YUtkT0xDOEJvQnZPMGtXWFhtRkxnNld2b2NtdDZScl9SNy1HR3VidXgtWE9HdnE0OGItRWJ6WlRiWUZVb1h3NXl1WlZrcVhjWEItTTNkcGdCYkdLOXV6QlZFZ0dKREZ2MmJsa2prUWg5amRHU2ozU2pJaGtqYUU4b1d4emZaRnFhdmRETUtWbUE?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Cathie Wood-Led Ark Invest Sells AMD, SPCX, GOOG Stocks — But Loads Up On CMPS, NTLA, CRSP And Other Healthcare Firms",
+       "source": "Yahoo Finance",
+       "date": "2026-10-09",
+       "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOY3V5TUZQbTg4a3FqQURSVFRUd0dxX0RQdjlOV2dRb2t5VFhYbmdxZHJTdWFobC1HazIxM1dFX1hsXzlNSmpWTE5RX0Nkd2hmNkdIa0tIV1FYSmNsM3RXal9KakJHaW8wbzVBRm95YWhWT3plWmFvZkNxaTluWEN6UHpyX09lbDNUeDBPcVlqelo?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Cathie Wood Dumps $18M Twist, Bets On CRISPR, AI Drug Discovery - ARK Genomic Revolution ETF (BATS:ARKG)",
+       "source": "Benzinga",
+       "date": "2026-10-06",
+       "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPWXQyMXU5bGwzQ2hIa0p0a1d0alN3eXhiLWZCeXgzMDhNSjNPWnZWa3BoWnpZTGFzdFk1eVpkbF9kZFVpeURUc3R1NWo4Y3ljY2lzTkV1dkZwam5ZWk5vNURlV2VzaENPWjBXWHNra2NJTVJ6M3VYcEViS0RCN2hoVHBpQnI3clR4bHNiQlhkOXhfbzBTYUtjS2ZRS3AySWhkUnY3Q1hMdDdBOS1MYTRBMHNGM3N5SHFlblJBblJUdkUwT2Q0c0F1TE50Zk56Yktsb1RVdzRLN2FOTTRPb1VQeHl4QzZCZVhaWkE?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Cathie Wood's Ark Invest weekly recap: loads up on Nvidia, Intellia; pares AMD",
+       "source": "TradingView",
+       "date": "2026-10-05",
+       "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOSC00S3lOZlFGal9qMGQ4aHlwVkQwNW0wWWtfT1lSYW55UnBuWm1od2xYdG9pWTJYZGVBUmhIVG8xYXZUZGpWbGE4cVNHb1Q2TXdIZ1QtRGstcDlySW4tLVc1ZmpYeVNlVUtlREVKS05hWmNtNWtwNFdMZy03SkpjUEJ5ZzVHeUZUS1lvajVEeEFGdDJyWnFlOFd5MmloNkFJWWo2WUZObVdGNkhFTlBSQjdESlhiTU1ackkydkhlajUwR2dOdDNBSmJMVjZwQjlnNHpBTw?oc=5",
+       "tags": []
+      }
+     ]
+    }
+   },
+   "snapshots": [],
+   "name": "Intellia Therapeutics, Inc."
+  },
+  "UNH@2026-W42": {
+   "key": "UNH@2026-W42",
+   "t": "UNH",
+   "sec": "長壽",
+   "start": "2026-W42",
+   "start_date": "2026-10-16",
+   "weeks": [
+    "2026-W42"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "UNH",
+    "sec": "長壽",
+    "rel": 9.15,
+    "peers": -7.64,
+    "rv": 1.64,
+    "clv": -0.087,
+    "ret": 5.83,
+    "peers_ret": -11.43
+   },
+   "perf": {
+    "1": {
+     "ret": 4.15,
+     "peers": 3.32,
+     "excess": 0.83
+    },
+    "2": {
+     "ret": 1.38,
+     "peers": 11.4,
+     "excess": -10.02
+    },
+    "4": {
+     "ret": 1.5,
+     "peers": -5.82,
+     "excess": 7.32
+    },
+    "8": null
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W45",
+    "date": "2026-11-06",
+    "ret": -1.81,
+    "excess": -5.25
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W42": {
+     "window": [
+      "2026-10-09",
+      "2026-10-17"
+     ],
+     "query": "(\"UNH\" OR \"UnitedHealth\") stock",
+     "checked": "2026-11-19",
+     "status": "有消息",
+     "tags": [
+      "財報"
+     ],
+     "earnings": "2026-10-13",
+     "headlines": [
+      {
+       "title": "JPMorgan’s Lisa Gill on UnitedHealth earnings: The stock slide has nothing to do with the results",
+       "source": "CNBC",
+       "date": "2026-10-13",
+       "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNZE9hR1B1Q3QwT3B6TllLZUgxaHlHbkdIdVY4RGFYX1J5SVZSSWEydHNHYmNDdVI1ZnBucnhxbEtaUDRXZWRhbmdwWENoS3JvcTNrb3BFNHphSEpOODhxaFNfbjVRS1U2azBTM2ViNmFOR0FHdjNvUU9Qc0p1RW85dFQ5M3I4c29rSXNycEJRTnF3T1JlaU5wb0VDNnhrNmlQUjNJVERzdkc0UTdEWmZMRjNkbjdlVnNNX2lhVVp2M2p1REdreDBGOEtIcFJIV3ZjX1poVk9n?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "UnitedHealth Group stock trims gains on profit outlook increase",
+       "source": "Yahoo Finance",
+       "date": "2026-10-13",
+       "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQZW9tYUxqbkF4R3ZXU2RSMkVYYmZrUWNVTHlkTWRZWDFzd2ZlM1BPZ1BSZWNBbXY4Z0ZtTnhycURGZ3AtNUVySnF6ZjRTOWt6RnBxMXBwNDJveDBRVGh3Zkx6U2tyNm52ZzFVRi11cGpQc1pIbnRiVTF3bnNFdkhwRUNCQnVNQnF6N1cwQWdtdFJ2THAxc1JCUmVmNlhiOHBrcnJPT1huZnJvQ2JUbnJJQzBCaThhNHdDNjJ0RVkyY210Y1lWUWc?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "From Verizon to UnitedHealth, Corporate America Is Balking at ‘Tokenized’ Stocks",
+       "source": "WSJ",
+       "date": "2026-10-16",
+       "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPNWNXZkM2UGNrTkpFeEoxaWsxWnEyVFdKbllUR1dfOFB1dGwzMlRtVUJubFdDWE5zd190UEN0bGFQS25wXzN1SHZNQ3dXWUg1U2N4TzVBWG9PYnBGX1RneU1jYWQwa1pJT3g1S3paYnVwQklVbGlndTJsc1NIeGpLT0ZfcmtGblRRMkFkV3ZDNTJyaXZ0bktkZzNhRGIyZnZtdDVOWWl6UnZFVGVyZTFHZm1iVlBDVzBsbEsydGJ3?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Here’s How Much Traders See UnitedHealth Stock Moving After Earnings",
+       "source": "Investopedia",
+       "date": "2026-10-12",
+       "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPYVM0emRtalZfZ3Nab01KbzVVQlZ3ZWVOZVJnV2ZrTFU5SDdvV0NJVGpWVU9CR29CcHdzUlB2akQxVXJ2R2lFNzlzTmVoakNXLUlXUHphWXBvX0pka0pRTW10amVtNTVaa1dWS0p0cUxQNkF2dlRfbTRsMTlGdC1hUkxzVFhnaURkQkNXaGExZllMWFNvd3FDZzdhSGZMS1NrSFV0eTQ0UjdHUWdyYjdJc2g4TTh0ZXZwZ3JPbmpR?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "UnitedHealth Climbs As Earnings, Medical Costs Beat Forecasts",
+       "source": "Investor's Business Daily",
+       "date": "2026-10-13",
+       "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNcU12dkhJVUlkZDdTay1Lc0Jpb3hPLVhxQjRsRVVZOGxiS0p2VldQZFVMdzVvUDh5SHFoZGJGNXZOei1qd0twUFFFaGNlekY5cDhNR1Y2WUp3NWdkc1NWNzFYYTZMdU1tc0FhLXZCdVh1WElZUzFJVGZpV2RqUVgwUUlVMA?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "UnitedHealth Earnings: Margin Improvement Continues in Risk-Taking Operations",
+       "source": "Morningstar",
+       "date": "2026-10-13",
+       "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOUjYzSXk1WWxDdmRGRzJKLVRUa0ZxRXRyTTNyeEFCS3d6emhxX2w0WFBvaEszMWNUS3FJMU43eUcxVVFpN2RfY1J6ZDA0RG4tS3gxdmI0SW1oTExIeFRBMF8xNzFoRkF0RnBLZ3BZcEFwZlJRTDFXOWhxN19zMjVlQ2lSUDBRWkUxNlp0bUJkQTdBWUVsUlNJWjdTdDhwVWVVWXRtUndnR1ZGNlpm?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "UnitedHealth raises profit forecast as turnaround efforts gather pace",
+       "source": "Reuters",
+       "date": "2026-10-13",
+       "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPSVdJVVh5M2RnVi1xMnB5NzZ6eXZWbnRIY2UwVTZQUjZBWlBuQ3R5aEdYcG9oY3hWdzlWS19tT1RSMEkzZkgtMUpjU0lqU1lLXzduUk9IbnJzMDN1WjhLYjdYS195eW96SXM4TnJvUGRlXzJ5WkprSkRVbXdKSi1XRWJoZVVncDdLQlE0WGRUUFFuWWJJYTlsUHpGUW9ZZXg0NDVmRnVqb1FaZU1EOS16VTkycTFqc1psVDVqb0I3aw?oc=5",
+       "tags": []
+      },
+      {
+       "title": "UnitedHealth Stock Forecast: Medicare Ratings Add Risk Before October 13 Earnings",
+       "source": "TradingKey",
+       "date": "2026-10-10",
+       "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPR1JhaUloSkdHdThkMXJEd0twdk5ZY2VoZm40c0NoLVVtbzk4UXhNWEJNaVd3eC11REtVSWhXS2dtYmFlQm5teC1BczQ3dzBuWTRmRzUwS1dfZ3ZzWkMybGh2a1QxaHktcTRfMTJmbVBFR2lQNERDN3RXb3VLaXNYZHMzb3lzMGdLaDBkNUV1bmg3Mm9kS0tidVg3blJIOVJNVVIyQUYzSnJ4c0tlZ0lUNjBiM0xHYzl3SV82eA?oc=5",
+       "tags": [
+        "財報"
+       ]
+      }
+     ]
+    }
+   },
+   "snapshots": [],
+   "name": "UnitedHealth Group Incorporated"
+  },
+  "CRM@2025-W49": {
+   "key": "CRM@2025-W49",
+   "t": "CRM",
+   "sec": "AI軟體",
+   "start": "2025-W49",
+   "start_date": "2025-12-05",
+   "weeks": [
+    "2025-W49"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "CRM",
+    "sec": "AI軟體",
+    "rel": 18.16,
+    "peers": -7.35,
+    "rv": 2.1,
+    "clv": 0.686,
+    "ret": 13.03,
+    "peers_ret": 2.31
+   },
+   "perf": {
+    "1": {
+     "ret": 0.64,
+     "peers": -2.09,
+     "excess": 2.73
+    },
+    "2": {
+     "ret": -0.09,
+     "peers": -3.25,
+     "excess": 3.15
+    },
+    "4": {
+     "ret": -2.51,
+     "peers": -8.66,
+     "excess": 6.15
+    },
+    "8": {
+     "ret": -18.4,
+     "peers": -21.0,
+     "excess": 2.61
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W04",
+    "date": "2026-01-23",
+    "ret": -12.34,
+    "excess": -0.12
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2025-W49": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "SNOW@2026-W36": {
+   "key": "SNOW@2026-W36",
+   "t": "SNOW",
+   "sec": "AI軟體",
+   "start": "2026-W36",
+   "start_date": "2026-09-04",
+   "weeks": [
+    "2026-W36"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "SNOW",
+    "sec": "AI軟體",
+    "rel": 59.5,
+    "peers": -2.26,
+    "rv": 2.33,
+    "clv": -0.729,
+    "ret": 2.8,
+    "peers_ret": -4.17
+   },
+   "perf": {
+    "1": {
+     "ret": -2.43,
+     "peers": -5.13,
+     "excess": 2.7
+    },
+    "2": {
+     "ret": -1.41,
+     "peers": -4.12,
+     "excess": 2.72
+    },
+    "4": {
+     "ret": 1.14,
+     "peers": -4.45,
+     "excess": 5.6
+    },
+    "8": {
+     "ret": -9.22,
+     "peers": 1.14,
+     "excess": -10.36
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W45",
+    "date": "2026-11-06",
+    "ret": -18.18,
+    "excess": -16.97
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W36": {
+     "window": [
+      "2026-08-28",
+      "2026-09-05"
+     ],
+     "query": "(\"SNOW\" OR \"Snowflake\") stock",
+     "checked": "2026-11-19",
+     "status": "有消息",
+     "tags": [
+      "財報"
+     ],
+     "earnings": "2026-09-02",
+     "headlines": [
+      {
+       "title": "Why Is Snowflake (SNOW) Stock Rocketing Higher Today",
+       "source": "Yahoo Finance",
+       "date": "2026-09-03",
+       "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQT0NFMS1ROFppSVZoUDN0WFdsYlNwaG1NQm1QLW1EUjIzejFLeXhkWDFnMER2Y21kaEZiVGh3RHBmU2pwODhJRHh5bWg0NU9IOXJianhWZlUzRWpaeVFfWHVUd19MX2d0anQwLWpGaWFNTjh6TmktUjhUTFRza2UxVl9Janp6MHdqMUQ5ZlBmTk9lYVdFSE8xbW1OZmVpQzBf?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Snowflake (SNOW) Stock Soars 16% After Q2 Earnings: Is It Still a Buy?",
+       "source": "Yahoo Finance",
+       "date": "2026-09-03",
+       "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQcUxHYzRxTjc5cWUwNUQ3QjV4ZzlMYUlSenh3V3oyRF9pN3BaTmlvQVppYVpfNUhrMmZpRjE4cjlDTTZxanlTQ3ZoWHJOUG9BQTBtd1A3UTBxNGh4VjJQbTE0dWxrcXluS3hTUGlUZGRTclN3Mkh3RVhabUJwSHUzd2d6aERMbm5MbHVkSGNYOHFvRllGSzdjZGNB?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Snowflake Gains 17% Post Q2 Earnings: Buy, Sell or Hold the Stock?",
+       "source": "Yahoo Finance",
+       "date": "2026-09-04",
+       "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNbnctbWc0aXdOTUZaRjFkQ1FaQ19ER1U3cmFmSGxhNHJTaF9SMGVuZ3FHWmFIWks4S2MxZXUxaWh2OGhwRnI2d2FINi0zSnBZMXNZSXhTSzNZQ1ZIU0hHeHQ0aDY3MUl4dnRoamx2YVNaNDFEYjF3ZHR0ZHliMmRELWxrUEprUGhaOTJSRi14RmtfX05wUnc?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Should You Buy, Sell, or Hold SNOW Stock Before Q2 Earnings Release?",
+       "source": "Yahoo Finance",
+       "date": "2026-08-31",
+       "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPY2pkNFRnMHZCRkQ2TG9sbVBGamthMUJlNzhOVXVpYy1QVUtkRFNMZmlKSGplMl8wQjJwNkh6MVI0VUY5S2I1MEh3N2xUSnZmVE41cGZkV1RhVEYyQmZTWnpwVjI5eGdMem9NaVB5cEU3Uks0Z1NNUzNEZkUwM3lJWGdnOHdCX1ZtZTFvcTZKTll4M1U?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Snowflake stock skyrockets on AI-driven Q2 revenue jump",
+       "source": "Yahoo Finance",
+       "date": "2026-09-03",
+       "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQdlMtSGhSWnJ2U181bXJIM0pueHpIS1BjRWc5akZVMk5kNHA3SHhyOU5yeVFHOEJpdU15N1ZsNVh3TUtvZU4zQk1TUlhJcHFYM3UyS3RmcnBIVmxkZUNPLUptTHJlSlg5QUpDSGJxbmVzT0l4d3RsM2p2aGxaeW9JQlItbF9Ba21ZVERMOFpiRFpONGFMQ2FORHMwQkI0Mnc5OVNuN183aXlSZlJFSmxidC1veG95aEtGaHNF?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Snowflake stock jumps as accelerating product revenue, AI adoption drive blowout quarter",
+       "source": "Yahoo Finance",
+       "date": "2026-09-03",
+       "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOTGwxa1RrdU1ta0JpZlRKVnFDTDIyaUFjaVVfSXZQa1c5bjBkclZXM1NRVGcwem9fOEM5cUx3Vkl4Nk5QUjFrc09aRWVRNWxFVzg0Y1VUMkgtZ3ctMW1aZkF3VlUyUTRpcVkxSzBWM0tnaEszZmZkOXhFb19ldnpwTkF1UHFneHNDYXZ6c3JfZEhDbEkxTTZqMlZPRnlZNEdGVDAzUnc2SFVCMzA?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Snowflake shares surge after Q2 beat, raised guidance",
+       "source": "Yahoo Finance",
+       "date": "2026-09-02",
+       "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNUlhMdTJ3NXdla18xR29uOTJvazFUZldic3FLWlRaUWpQWDJUYTZYTU5LSzhNZHcyeUU1MjQyX3d5YnlQcV9jU0hMeVlHaUM1ZUY1QUtwc0M1dzhKZjNEYUNYRE9MRmYtVnk2SWN6RDFqaEREUFhKS3RZeW5MLXdFdUVUMnd1dWp0NjhHUVZNZ2xKTUR5UHVLLWNoaw?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Snowflake (NYSE:SNOW) Posts Better-Than-Expected Sales In Q2 CY2026, Stock Jumps 22.3%",
+       "source": "Yahoo Finance",
+       "date": "2026-09-02",
+       "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPbjVxUWROekpxVDh3ZnN4blYyOHA5TGZ3ZUp6eUZIWEV0RHljRDRTRnV6aEM1RjdYODkxczFqMFppR0VKMWg1a0gxM016T0lvY3lyMGkwX1BzSTBsSTdMXzU0a0ZLUndGZllNbjIxdHFrbjgybUhKcUhmVzVhRGU1ak1Hb1REU0hySGwwNWw2WS1lem9LQ09CUVBOVHhudw?oc=5",
+       "tags": [
+        "財報"
+       ]
+      }
+     ]
+    }
+   },
+   "snapshots": [],
+   "name": "Snowflake Inc."
+  },
+  "BSY@2026-W38": {
+   "key": "BSY@2026-W38",
+   "t": "BSY",
+   "sec": "AI軟體",
+   "start": "2026-W38",
+   "start_date": "2026-09-18",
+   "weeks": [
+    "2026-W38"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "BSY",
+    "sec": "AI軟體",
+    "rel": 17.48,
+    "peers": -0.33,
+    "rv": 1.92,
+    "clv": 0.413,
+    "ret": 5.2,
+    "peers_ret": 0.51
+   },
+   "perf": {
+    "1": {
+     "ret": -3.29,
+     "peers": 0.41,
+     "excess": -3.69
+    },
+    "2": {
+     "ret": -0.86,
+     "peers": 0.06,
+     "excess": -0.92
+    },
+    "4": {
+     "ret": 8.8,
+     "peers": 4.06,
+     "excess": 4.74
+    },
+    "8": {
+     "ret": 36.36,
+     "peers": -2.92,
+     "excess": 39.28
+    }
+   },
+   "perf_confirm": null,
+   "exit": null,
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W38": {
+     "window": [
+      "2026-09-11",
+      "2026-09-19"
+     ],
+     "query": "(\"BSY\" OR \"Bentley Systems\") stock",
+     "checked": "2026-11-19",
+     "status": "有消息",
+     "tags": [
+      "財報",
+      "分析師評等"
+     ],
+     "earnings": null,
+     "headlines": [
+      {
+       "title": "New Dividend and Philly Tech Hub Might Change The Case For Investing In Bentley Systems (BSY)",
+       "source": "Yahoo Finance",
+       "date": "2026-09-18",
+       "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPdHFUb3dPdEtQcEMzdWpxN2szSF9EZXllbWlPVHVsczhkdUZGOHJtRHl1bWVvNU9NWEhZZThLVTNOQno1d3hMalp0aDY1VEN3TkdaVHJ2a2UyWjFOendNYWtVelVfUDdRU2V4Ny1rQWZWbE9MWEFhbmpyWDVhcThRS1JWYXRDN3VJUDJ0YjlLVUl6TGFER3IwLVk3Zw?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Procore Technologies, Bentley Systems, PTC, Samsara, and Agilysys Shares Skyrocket, What You Need To Know",
+       "source": "Yahoo Finance",
+       "date": "2026-09-14",
+       "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQMzVjYktkT2xUelpfRlhnLUdDMVA3LUJQQ1l5ZjczckVzR3ZEbjE2MkJNbzlWQ2NGQW14M0I5TDMxMEdUaVFQMTRYMHdBbzd0aTZiaFdicXhLbVlyTVRJdTl4YWNNZmh4Q3hhaU9YSVl1dEJxaUtDOWstanRHUk00WTZuOWxybzVlR2lfdVZjOHdybWF1Sl82b2pBejRsNDZoTmRVNjdjM24?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Bentley Systems declares $0.07 quarterly dividend",
+       "source": "Investing.com",
+       "date": "2026-09-11",
+       "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPMXJJZFFXR1JTbjd1cEJCc0NsbWVoUGxVLUwzMGZaOUkwejlCLWMyYU9KaWdfVDdMUkVMRWtUVDJ6T0FjaVM2LXVSLVZLNkhNYV9jZWtNYnRKQnhfYk5nalZSdUlCdEJubEFNZTkyWXFqM2JHZFJlbXI0WDgxMnVQbVIwSHBvVHdLdzB1QzhQeUo3ZloxQmhvYWstR3BVVHhkUFhYOUJPcw?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Bentley Systems, Incorporated Declares Third Quarter 2026 Dividend",
+       "source": "Yahoo Finance",
+       "date": "2026-09-11",
+       "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQTy14OTVEd3lkQTFkMW1zMHZ2NmI0SmhKVnRjS3FMY2M2ZmpDalhic2RmRkJudWRjWDRYLWxXNEZDRGdfbFU5bjh0Wm9NU0Q5SWtPajlVOXQ4VWJDZW5VajJqT0d3cU9kcXRrUG5naGhCZVRxSFhaWEZCeUg2TGVZcWU2WktzSUxRM2tKN3AxRUhhenBpeF9NQ2hGSlVvd3doNEJWWGxibEk3eW5F?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "BSY Initiated Coverage by Cantor Fitzgerald -- Rating Overweight",
+       "source": "GuruFocus",
+       "date": "2026-09-15",
+       "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPX253LV9hM1cxN1FwbnZkVUVhU0xGVGNfVmVubWFLU0ZGMzFsS2ROeGhYeU5KU1QzVDJfSldJTHlwRFhhbmpTdm0tLTN5NmhBMGo4MEJ2UmV1WWFrT3VBeE5NX3NNWDhfQ2c1S1ZpSTk2VmxvMHQyRnVBb3h6aWpYWHItVFhRZE1rS3pFa2JRREIzaWNBY2l5cGd2SU5aelBrUmc?oc=5",
+       "tags": [
+        "分析師評等"
+       ]
+      }
+     ]
+    }
+   },
+   "snapshots": [],
+   "name": "Bentley Systems, Incorporated"
+  },
+  "BSY@2026-W45": {
+   "key": "BSY@2026-W45",
+   "t": "BSY",
+   "sec": "AI軟體",
+   "start": "2026-W45",
+   "start_date": "2026-11-06",
+   "weeks": [
+    "2026-W45"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "BSY",
+    "sec": "AI軟體",
+    "rel": 22.74,
+    "peers": -8.62,
+    "rv": 2.17,
+    "clv": 0.0,
+    "ret": 9.17,
+    "peers_ret": -5.41
+   },
+   "perf": {
+    "1": {
+     "ret": -0.72,
+     "peers": 1.95,
+     "excess": -2.66
+    },
+    "2": null,
+    "4": null,
+    "8": null
+   },
+   "perf_confirm": null,
+   "exit": null,
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W45": {
+     "window": [
+      "2026-10-30",
+      "2026-11-07"
+     ],
+     "query": "(\"BSY\" OR \"Bentley Systems\") stock",
+     "checked": "2026-11-19",
+     "status": "有消息",
+     "tags": [
+      "財報",
+      "分析師評等"
+     ],
+     "earnings": "2026-11-05",
+     "headlines": [
+      {
+       "title": "Bentley Systems (BSY) Stock Looks Fully Priced As Shares Jump 32%",
+       "source": "Yahoo Finance",
+       "date": "2026-11-02",
+       "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPMVo2YVozQzg2U3RFSlVnZEpabkVaNVpNNHJ1bTdFdHlyalJEWU5vdU4wWDhOc0tvSVVURS1hejVwY3dTNVFvYnJvU0ZmdFNsQWNsVEgtdXhfcldhU2ZnY1ZLSEtha2d6RlF4UlNhRWI5cFhmY2txbWZoZ2ZYY2JDT0p2aWk4VnRzT1RzVnhRNTFxaTVPdkxGNGVFX04?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Bentley Systems (NASDAQ:BSY) Beats Q3 EPS Estimates as Recurring Revenue Momentum Builds",
+       "source": "ChartMill",
+       "date": "2026-11-05",
+       "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNdU43TEJDdkUya0hkSzQ3aHlCbm9fbUEwdEJsRHVrazY5MUZXNERJV0Y5SkVRNU5mQS10UXJ2LVZCNjc2cHN0a1lMVk5OeFVwdEwwbncxaGs3QUhBSWh5T3pGNFNIbVlNcGtackt4d18zc0FndWhhamZ0SnJHQ25BT2lRZGJTZERIb3NSUGdRMWQ4WnBCaWtYUzJMN1VGOXkxeGJSTDI5QnloaUFXUjRwNV9xNUQ1SHVMbzNXOUN4b09oNU95dEp3WEVVRkZqZ3dLSHc?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Why is Bentley Systems stock surging today?",
+       "source": "Investing.com",
+       "date": "2026-11-05",
+       "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQVllGV3JzYXdZV2Z3SElDeGhpV2NldmpVY05BNlRXMlV1UHBsR25aVXJRZGRIYlFDWDZqVzExd3JYeDN2MUJ3eEZJWkhUSmNLZ0tVOWF6YzR0dXJJSTlJbWJ6bTV4WVlRTVctQXVTV0FwWFh2Z2JmRGxkeEdBLU53QlpIWDh3a3NiRWFlTjJIOTRFOEdKTUhzbG1nVENFQWJqN2pGOWpRNA?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Bentley Systems Is Generating Margin Leverage Through Positive Growth Momentum",
+       "source": "Morningstar",
+       "date": "2026-11-06",
+       "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQTFFHR3lHQXVTMkJzYUljbGphcW50Y24xcTRXanhfQ3hiWExKaW16VUFPZzlkT3QyVHlKWWQxNmZ3anpwT2FOYmxJZjNZMzFwZVZhR2JUbHc2VWRfQVVFMm8zVWhOSm40UU9uZVRmMV9jaTlxY3FweDdYcVUwN0J3YTRpbnpBNE1JWlFLcHZKNnpILVZlYlc1YU9kYkVLYlV5LUN1NldMa25BaloxQVV4NW5vZjliOTdwRE1MMjhZbHhDT1JJX1RVS1BR?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Bentley Systems (BSY) Q3 earnings report preview: what to look for",
+       "source": "TradingView",
+       "date": "2026-11-03",
+       "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNNS15VzJ0YUZVU3BhUGFOblhTeXBydTZHSlNIeXAxakZ2TjYyS0kzOGxRNk9jcHlMNTlyVnpvNFVWNkdUUkpoRjdObEtQQzJhc1E5SnBmMmhxS1YwYm42QTFVeWhDYWQ3YVVDSTdKZlg0YzE0ZTFscEtjMkpzOXRpbUs5dVZyTUNFMENXYmlfaGQ0VUJpTzd1YVUtTll3ekRxMks0aVgzZzBXeFZlVGk1OWM3OGNHV3lNNmJVUTYtX0lWZw?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Is Bentley Systems (BSY) Fully Valued On Its Q3 Earnings Beat And Raised ARR Guidance?",
+       "source": "Yahoo Finance",
+       "date": "2026-11-06",
+       "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPUVBVemVfMFBmWXJYZkQ1V3d0SUU5VDJlR0l5UzE4ZlhEdFFFTzR0UXlIdXhBYnBIMVNtdXJfTXlNeTlEQ1VWbXBwN0JrU3VMOXVWZm55VHJEZUNpYlkzcnh3WDlmRW83T3QtbFEtYVhvTlJlTGlSaHN4eGw0UEV5ckpFQ0tlU2xBbm1PMFdmR09yTGg4UEN1MDJxeEhHZw?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Bentley Systems, Incorporated 2026 Q3 - Results - Earnings Call Presentation (NASDAQ:BSY) 2026-11-05",
+       "source": "Seeking Alpha",
+       "date": "2026-11-05",
+       "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOeFMzeVdsX0hJcGlxNTQyeDNLNl96TlJ6NGtMY2gyQzdreEgybGx1OUFkWksyMUxuZXByeTBFZkhWd3ZiTnNmTVQtNEl2ckxfZU9hRUw3eXF2LXh6RDhrTlhtNjVxLTUxSUZmajdVWng5RkpIYlkwMFNnWkFkLWlkcjhXRWoxUG10YUtndnViQkItd3dRSU5CemwtXzlRZFRYejlKT01rU3dtYjA1VERkTDR3?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Cantor Fitzgerald raises Bentley Systems stock price target on strong ARR growth",
+       "source": "Investing.com",
+       "date": "2026-11-06",
+       "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPNUJyVTZnUUh4cmx1QWhjM2Rzd2JwV0ZiYmZpVnNNZVZ4alFObVhOSVVfYTRMRE1TQXJ2YXdLbHk4dGpsazhMRjRxZEduRUtrdGR4cmVLWmxoeWNlN1lOMDI5WGJ0YnROTWtpWnAxWV9sUVE5R2J5dENvOUJvYTlHNkJob2JlVU5ZcEZ3WHIyUkx1c0pzT2hlMzVqZUZiT0pIbThxb09mQmJXX2xPYm5uTnlGMTlwYVBKb1QwdHpqNW54QzU3UXlwbldFdU9IQmRpTjBEQzB1cw?oc=5",
+       "tags": [
+        "分析師評等"
+       ]
+      }
+     ]
+    }
+   },
+   "snapshots": [],
+   "name": "Bentley Systems, Incorporated"
+  },
+  "FTNT@2026-W06": {
+   "key": "FTNT@2026-W06",
+   "t": "FTNT",
+   "sec": "資安",
+   "start": "2026-W06",
+   "start_date": "2026-02-06",
+   "weeks": [
+    "2026-W06"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "FTNT",
+    "sec": "資安",
+    "rel": 5.82,
+    "peers": -18.87,
+    "rv": 1.51,
+    "clv": 0.215,
+    "ret": 1.85,
+    "peers_ret": -9.76
+   },
+   "perf": {
+    "1": {
+     "ret": 3.38,
+     "peers": 8.18,
+     "excess": -4.79
+    },
+    "2": {
+     "ret": -3.33,
+     "peers": -2.67,
+     "excess": -0.67
+    },
+    "4": {
+     "ret": 1.1,
+     "peers": 5.7,
+     "excess": -4.6
+    },
+    "8": {
+     "ret": -0.28,
+     "peers": 2.09,
+     "excess": -2.37
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W09",
+    "date": "2026-02-27",
+    "ret": -4.51,
+    "excess": 1.8
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W06": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "FTNT@2026-W19": {
+   "key": "FTNT@2026-W19",
+   "t": "FTNT",
+   "sec": "資安",
+   "start": "2026-W19",
+   "start_date": "2026-05-08",
+   "weeks": [
+    "2026-W19"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "FTNT",
+    "sec": "資安",
+    "rel": 77.13,
+    "peers": -5.48,
+    "rv": 1.59,
+    "clv": 0.427,
+    "ret": 32.19,
+    "peers_ret": 7.4
+   },
+   "perf": {
+    "1": {
+     "ret": 7.64,
+     "peers": 8.99,
+     "excess": -1.36
+    },
+    "2": {
+     "ret": 17.41,
+     "peers": 20.29,
+     "excess": -2.88
+    },
+    "4": {
+     "ret": 26.83,
+     "peers": 17.87,
+     "excess": 8.96
+    },
+    "8": {
+     "ret": 36.98,
+     "peers": 33.72,
+     "excess": 3.25
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W45",
+    "date": "2026-11-06",
+    "ret": 4.18,
+    "excess": -41.4
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W19": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "NET@2026-W05": {
+   "key": "NET@2026-W05",
+   "t": "NET",
+   "sec": "資安",
+   "start": "2026-W05",
+   "start_date": "2026-01-30",
+   "weeks": [
+    "2026-W05"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "NET",
+    "sec": "資安",
+    "rel": 35.64,
+    "peers": -5.37,
+    "rv": 2.53,
+    "clv": -0.545,
+    "ret": 2.25,
+    "peers_ret": -2.32
+   },
+   "perf": {
+    "1": {
+     "ret": -2.33,
+     "peers": -8.72,
+     "excess": 6.38
+    },
+    "2": {
+     "ret": 10.43,
+     "peers": -3.55,
+     "excess": 13.98
+    },
+    "4": {
+     "ret": -2.91,
+     "peers": -15.21,
+     "excess": 12.3
+    },
+    "8": {
+     "ret": 14.47,
+     "peers": -17.6,
+     "excess": 32.07
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W09",
+    "date": "2026-02-27",
+    "ret": -2.91,
+    "excess": 12.3
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W05": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "DLR@2026-W25": {
+   "key": "DLR@2026-W25",
+   "t": "DLR",
+   "sec": "資料中心",
+   "start": "2026-W25",
+   "start_date": "2026-06-18",
+   "weeks": [
+    "2026-W25"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "DLR",
+    "sec": "資料中心",
+    "rel": 4.68,
+    "peers": -1.52,
+    "rv": 1.63,
+    "clv": -0.272,
+    "ret": 2.83,
+    "peers_ret": -1.25
+   },
+   "perf": {
+    "1": {
+     "ret": 2.58,
+     "peers": -0.17,
+     "excess": 2.75
+    },
+    "2": {
+     "ret": -7.89,
+     "peers": -6.97,
+     "excess": -0.92
+    },
+    "4": {
+     "ret": -7.58,
+     "peers": -5.01,
+     "excess": -2.58
+    },
+    "8": {
+     "ret": 6.38,
+     "peers": 0.32,
+     "excess": 6.06
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W35",
+    "date": "2026-08-28",
+    "ret": -1.42,
+    "excess": 0.48
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W25": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "ETN@2026-W31": {
+   "key": "ETN@2026-W31",
+   "t": "ETN",
+   "sec": "電網基礎建設",
+   "start": "2026-W31",
+   "start_date": "2026-07-31",
+   "weeks": [
+    "2026-W31"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "ETN",
+    "sec": "電網基礎建設",
+    "rel": 7.6,
+    "peers": -14.69,
+    "rv": 1.68,
+    "clv": 0.207,
+    "ret": 2.75,
+    "peers_ret": -4.32
+   },
+   "perf": {
+    "1": {
+     "ret": 8.33,
+     "peers": 7.4,
+     "excess": 0.93
+    },
+    "2": {
+     "ret": 9.01,
+     "peers": 10.87,
+     "excess": -1.86
+    },
+    "4": {
+     "ret": -2.75,
+     "peers": -2.0,
+     "excess": -0.75
+    },
+    "8": {
+     "ret": 6.23,
+     "peers": 0.4,
+     "excess": 5.83
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W35",
+    "date": "2026-08-28",
+    "ret": -2.75,
+    "excess": -0.75
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W31": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "ETN@2026-W38": {
+   "key": "ETN@2026-W38",
+   "t": "ETN",
+   "sec": "電網基礎建設",
+   "start": "2026-W38",
+   "start_date": "2026-09-18",
+   "weeks": [
+    "2026-W38"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "ETN",
+    "sec": "電網基礎建設",
+    "rel": 0.27,
+    "peers": -4.54,
+    "rv": 1.61,
+    "clv": 0.017,
+    "ret": -0.14,
+    "peers_ret": -2.67
+   },
+   "perf": {
+    "1": {
+     "ret": 3.58,
+     "peers": 2.64,
+     "excess": 0.94
+    },
+    "2": {
+     "ret": 2.67,
+     "peers": 4.6,
+     "excess": -1.93
+    },
+    "4": {
+     "ret": -7.89,
+     "peers": -4.93,
+     "excess": -2.96
+    },
+    "8": {
+     "ret": -16.65,
+     "peers": -8.88,
+     "excess": -7.77
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W41",
+    "date": "2026-10-09",
+    "ret": 1.15,
+    "excess": -3.63
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W38": {
+     "window": [
+      "2026-09-11",
+      "2026-09-19"
+     ],
+     "query": "(\"ETN\" OR \"Eaton\") stock",
+     "checked": "2026-11-19",
+     "status": "有新聞・無明確催化劑",
+     "tags": [],
+     "earnings": null,
+     "headlines": [
+      {
+       "title": "Could Eaton Stock Lose A Third Or Gain Half In A Year?",
+       "source": "Trefis",
+       "date": "2026-09-17",
+       "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPYW5URFMyLUVPSFF0V2ctdUxvTUdPaTFCSUNPRE1sUTAzemxvcWNYUHl4czdub2VBZnpXNWUwQmd0dGRwS01hLU1kQVR1eHRnRkt0QWZKYl9taEtmNFFxbHhxN1k3dDJRdG1IQzJmdjN6dERzdFpYZlJJRGMxdGoyZUNSNUVvM0I3cjNXZkZMZUNUZkhfR3REMUl3Y1VtS2NIUGlHY282YzJaWXJmU3ZpbGVmRQ?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Why Eaton (ETN) Stock Is Up Today",
+       "source": "Quiver Quantitative",
+       "date": "2026-09-11",
+       "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE91R1BWNE5zZTdwdjhkakNzdERQZ2tPalJBN0NpZnVGSmNhblRBN21ZV2ZQZGRlcUpvZ0hvV1A1RTctRkJlMDlwZUltV2RJVkhDWUxYdzB2eTkyT21uXzVGOHRRQ29VMDlhZWVFMm5VTWRpMDVVOURGcWtR?oc=5",
+       "tags": []
+      }
+     ]
+    }
+   },
+   "snapshots": [],
+   "name": "Eaton Corporation, PLC"
+  },
+  "PWR@2026-W18": {
+   "key": "PWR@2026-W18",
+   "t": "PWR",
+   "sec": "電網基礎建設",
+   "start": "2026-W18",
+   "start_date": "2026-05-01",
+   "weeks": [
+    "2026-W18"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "PWR",
+    "sec": "電網基礎建設",
+    "rel": 45.5,
+    "peers": -7.18,
+    "rv": 1.61,
+    "clv": 0.58,
+    "ret": 18.78,
+    "peers_ret": -2.06
+   },
+   "perf": {
+    "1": {
+     "ret": 0.38,
+     "peers": -1.65,
+     "excess": 2.03
+    },
+    "2": {
+     "ret": 3.74,
+     "peers": 0.5,
+     "excess": 3.24
+    },
+    "4": {
+     "ret": -4.11,
+     "peers": -5.34,
+     "excess": 1.23
+    },
+    "8": {
+     "ret": -7.32,
+     "peers": -3.51,
+     "excess": -3.82
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W22",
+    "date": "2026-05-29",
+    "ret": -4.11,
+    "excess": 1.23
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W18": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "PWR@2026-W31": {
+   "key": "PWR@2026-W31",
+   "t": "PWR",
+   "sec": "電網基礎建設",
+   "start": "2026-W31",
+   "start_date": "2026-07-31",
+   "weeks": [
+    "2026-W31"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "PWR",
+    "sec": "電網基礎建設",
+    "rel": 34.91,
+    "peers": -23.79,
+    "rv": 1.79,
+    "clv": -0.23,
+    "ret": 6.63,
+    "peers_ret": -5.61
+   },
+   "perf": {
+    "1": {
+     "ret": 0.67,
+     "peers": 9.95,
+     "excess": -9.28
+    },
+    "2": {
+     "ret": 2.76,
+     "peers": 12.96,
+     "excess": -10.2
+    },
+    "4": {
+     "ret": -9.69,
+     "peers": 0.31,
+     "excess": -10.0
+    },
+    "8": {
+     "ret": -2.73,
+     "peers": 3.38,
+     "excess": -6.12
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W35",
+    "date": "2026-08-28",
+    "ret": -9.69,
+    "excess": -10.0
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W31": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "HUBB@2026-W12": {
+   "key": "HUBB@2026-W12",
+   "t": "HUBB",
+   "sec": "電網基礎建設",
+   "start": "2026-W12",
+   "start_date": "2026-03-20",
+   "weeks": [
+    "2026-W12"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "HUBB",
+    "sec": "電網基礎建設",
+    "rel": 2.34,
+    "peers": -19.2,
+    "rv": 1.62,
+    "clv": -0.157,
+    "ret": 1.79,
+    "peers_ret": -0.46
+   },
+   "perf": {
+    "1": {
+     "ret": 1.1,
+     "peers": -0.9,
+     "excess": 2.0
+    },
+    "2": {
+     "ret": 3.89,
+     "peers": 1.43,
+     "excess": 2.46
+    },
+    "4": {
+     "ret": 12.58,
+     "peers": 14.12,
+     "excess": -1.54
+    },
+    "8": {
+     "ret": 0.89,
+     "peers": 31.96,
+     "excess": -31.08
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W19",
+    "date": "2026-05-08",
+    "ret": 3.54,
+    "excess": -23.08
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W12": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "LVMUY@2026-W04": {
+   "key": "LVMUY@2026-W04",
+   "t": "LVMUY",
+   "sec": "奢侈精品",
+   "start": "2026-W04",
+   "start_date": "2026-01-23",
+   "weeks": [
+    "2026-W04"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "LVMUY",
+    "sec": "奢侈精品",
+    "rel": 10.81,
+    "peers": -1.32,
+    "rv": 2.02,
+    "clv": 0.031,
+    "ret": -1.14,
+    "peers_ret": -1.53
+   },
+   "perf": {
+    "1": {
+     "ret": -7.51,
+     "peers": -3.32,
+     "excess": -4.18
+    },
+    "2": {
+     "ret": -9.34,
+     "peers": -0.84,
+     "excess": -8.51
+    },
+    "4": {
+     "ret": -6.29,
+     "peers": 2.7,
+     "excess": -8.99
+    },
+    "8": {
+     "ret": -24.75,
+     "peers": -20.75,
+     "excess": -4.0
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W06",
+    "date": "2026-02-06",
+    "ret": -9.34,
+    "excess": -8.51
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W04": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "LVMUY@2026-W23": {
+   "key": "LVMUY@2026-W23",
+   "t": "LVMUY",
+   "sec": "奢侈精品",
+   "start": "2026-W23",
+   "start_date": "2026-06-05",
+   "weeks": [
+    "2026-W23"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "LVMUY",
+    "sec": "奢侈精品",
+    "rel": 4.49,
+    "peers": -2.34,
+    "rv": 1.7,
+    "clv": 0.055,
+    "ret": -0.59,
+    "peers_ret": -3.26
+   },
+   "perf": {
+    "1": {
+     "ret": 7.86,
+     "peers": 7.89,
+     "excess": -0.03
+    },
+    "2": {
+     "ret": 6.62,
+     "peers": 10.98,
+     "excess": -4.37
+    },
+    "4": {
+     "ret": 3.61,
+     "peers": 6.44,
+     "excess": -2.83
+    },
+    "8": {
+     "ret": -0.33,
+     "peers": 5.42,
+     "excess": -5.75
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W26",
+    "date": "2026-06-26",
+    "ret": 2.18,
+    "excess": -3.67
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W23": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "CFRUY@2026-W26": {
+   "key": "CFRUY@2026-W26",
+   "t": "CFRUY",
+   "sec": "奢侈精品",
+   "start": "2026-W26",
+   "start_date": "2026-06-26",
+   "weeks": [
+    "2026-W26"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "CFRUY",
+    "sec": "奢侈精品",
+    "rel": 2.51,
+    "peers": -11.13,
+    "rv": 2.32,
+    "clv": -0.42,
+    "ret": -0.22,
+    "peers_ret": -6.64
+   },
+   "perf": {
+    "1": {
+     "ret": -0.96,
+     "peers": 1.83,
+     "excess": -2.78
+    },
+    "2": {
+     "ret": -1.74,
+     "peers": 0.69,
+     "excess": -2.43
+    },
+    "4": {
+     "ret": 2.05,
+     "peers": -2.72,
+     "excess": 4.77
+    },
+    "8": {
+     "ret": 0.87,
+     "peers": -3.29,
+     "excess": 4.16
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W31",
+    "date": "2026-07-31",
+    "ret": 2.87,
+    "excess": 6.14
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-19",
+   "backfill": true,
+   "news": {
+    "2026-W26": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  }
+ }
+}
