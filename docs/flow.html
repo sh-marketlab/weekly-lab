@@ -96,6 +96,25 @@ tr.tk td:first-child{padding-left:42px}
 .rg .stress{border-color:var(--warn)}
 .rk.move{color:var(--warn)}
 .px{display:block;font-size:10.5px;color:var(--muted);line-height:1.3;margin-top:1px}
+tr.tk .pc.pos,tr.tk .px.pos{color:var(--pos)} tr.tk .pc.neg,tr.tk .px.neg{color:var(--neg)}
+/* 背離 */
+.dvt{display:inline-block;font-size:10px;border-radius:3px;padding:0 4px;margin-left:3px;font-family:var(--sans);border:1px solid currentColor;line-height:1.5}
+.dvt.bull{color:var(--pos);background:rgba(var(--pos-rgb),.08)} .dvt.bear{color:var(--neg);background:rgba(var(--neg-rgb),.08)}
+td.dvc.bull{box-shadow:inset 3px 0 0 var(--pos)} td.dvc.bear{box-shadow:inset 3px 0 0 var(--neg)}
+.dvn{font-size:10.5px;color:var(--warn);margin-left:6px;font-family:var(--sans)}
+.dvpanel{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:12px;margin:0 0 14px}
+.dvpanel .panel{padding:12px 14px}
+.dvpanel h3,.dvlog h3{margin:0 0 8px;font-size:13px;font-weight:600;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.dvpanel h3 span,.dvlog h3 span{font-weight:400;color:var(--dim);font-size:11.5px}
+.mini{width:100%;font-size:12px} .mini td,.mini th{padding:5px 6px} .mini td:first-child{font-family:var(--mono);font-weight:600}
+.mini td.l,.mini th.l{text-align:left;font-family:var(--sans)}
+.dvlog{margin-top:16px} .dvlog .tbl{max-height:520px;overflow:auto}
+.help{margin:0 0 14px;border:1px solid var(--hair);border-radius:6px;background:var(--panel-2)}
+.help summary{cursor:pointer;padding:9px 14px;font-size:12.5px;color:var(--accent);font-weight:500}
+.help .body{padding:4px 18px 14px;font-size:12.5px;line-height:1.7;color:var(--ink);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 28px}
+.help h4{margin:10px 0 2px;font-size:12.5px} .help p{margin:0;color:var(--muted)} .help b{color:var(--ink);font-weight:600}
+.help table{font-size:12px;margin-top:4px} .help td,.help th{padding:3px 8px;text-align:left;white-space:normal;font-family:var(--sans)}
+@media (max-width:960px){ .dvpanel,.help .body{grid-template-columns:1fr} }
 .cl{font-size:10px;margin-left:3px;font-family:var(--sans)}
 .cl.rev{border:1px solid var(--warn);color:var(--warn);border-radius:3px;padding:0 3px}
 .exd{font-size:10px;border:1px solid var(--accent);color:var(--accent);border-radius:3px;padding:0 3px;margin-left:4px;cursor:help}
@@ -156,11 +175,14 @@ footer{margin-top:40px;color:var(--dim);font-size:11.5px;line-height:1.7}
       <button aria-pressed="false" data-m="raw">原算法</button><button aria-pressed="true" data-m="dollar">金額</button><button aria-pressed="false" data-m="rel">相對量</button>
     </span>
     <span class="seg" id="segS" role="group" aria-label="排列">
-      <button aria-pressed="true" data-s="group">依分組</button><button aria-pressed="false" data-s="value">依數值</button>
+      <button aria-pressed="true" data-s="group">依分組</button><button aria-pressed="false" data-s="value">依數值</button><button aria-pressed="false" data-s="div">背離</button>
     </span>
-    <span>點板塊展開個股；排名欄會標出三種口徑排名差 3 名以上的板塊；個股每日格子第二行是當天收盤價（實際股價）；漲跌旁：「高／低」= 收在當天高點／低點附近，「翻」= 收盤方向跟收盤位置相反（盤中反轉），「息」= 除息日；游標移上去看說明</span>
+    <span>點板塊展開個股；游標移到格子上看說明</span>
   </h2>
+  <details class="help" id="help"><summary>怎麼讀這張表（點開看解讀規則）</summary><div class="body" id="helpBody"></div></details>
+  <div id="divPanel"></div>
   <div class="tbl"><table id="sectors"></table></div>
+  <div id="divLog"></div>
 
   <h2>板塊 × 週 <span>相對量口徑，近 12 週；顏色越深代表越偏向流入或流出</span></h2>
   <div class="tbl"><table class="heat" id="heat"></table></div>
@@ -179,7 +201,7 @@ footer{margin-top:40px;color:var(--dim);font-size:11.5px;line-height:1.7}
 
 <script>
 const $=s=>document.querySelector(s);
-let D=null, W=0, M="dollar", S="group", V="ext";
+let D=null, W=0, M="dollar", S="group", V="ext", DD=null, DVJ=null, DVF="all";
 const CACHE={};
 const VFILE={ext:"flow_ext.json",base:"flow.json"};
 const open=new Set();
@@ -194,6 +216,12 @@ function fmtRel(v){ return v==null?"—":(v>0?"+":v<0?"−":"")+Math.abs(v).toFi
 function sgnOnly(str){ const c=str.charAt(0); return c==="+"?`<span class="sg pos">+</span>${str.slice(1)}`:c==="−"?`<span class="sg neg">−</span>${str.slice(1)}`:str; }
 function fmtPct(v){ return v==null?"—":(v>0?"+":v<0?"−":"")+Math.abs(v).toFixed(2)+"%"; }
 const FMT={raw:fmtRaw,dollar:fmtDollar,rel:fmtRel};
+// 個股漲跌幅：數字跟正負號一起上色
+const pcSpan=v=>`<span class="pc ${cls(v)}">${fmtPct(v)}</span>`;
+const pxf=v=>v==null?"—":"$"+v.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
+// 背離標籤：顏色代表「預期方向」，綠＝預期偏多、紅＝預期偏空
+function dvInfo(code){ const t=(D&&D.div_types||{})[code]; return t?{name:t.name,k:t.dir>0?"bull":"bear",note:t.note,dir:t.dir}:null; }
+const dvTag=code=>{const i=dvInfo(code); return i?`<span class="dvt ${i.k}" title="${i.note}（預期${i.dir>0?"偏多":"偏空"}）">${i.name}</span>`:"";};
 const cls=v=>v>0?"pos":v<0?"neg":"";
 const sgn=v=>v>0?1:v<0?-1:0;
 
@@ -254,7 +282,7 @@ function secRow(w,s,max){
   const rks=[s.rank_raw5,s.rank_dollar5,s.rank_rel5], spread=Math.max(...rks)-Math.min(...rks);
   const daily=s.daily.map(d=>{const v=M==="rel"?d.rel:M==="dollar"?d.dollar:null; return `<td class="${cls(v)}">${M==="raw"?"":f(v)}</td>`;}).join("");
   let h=`<tr class="sec ${open.has(s.name)?"open":""}" data-s="${s.name}" tabindex="0" aria-expanded="${open.has(s.name)}">
-    <td>${s.name} <span class="rk">${s.n} 檔</span></td>
+    <td>${s.name} <span class="rk">${s.n} 檔</span>${S==="div"?dvCount(w,s.name):""}</td>
     <td class="${cls(s[k4])}">${f(s[k4])}</td>
     <td class="${cls(s[k5])}">${f(s[k5])}${bar(s[k5],max)}${flip?'<span class="flipflag">翻轉</span>':""}</td>
     ${daily}
@@ -264,12 +292,13 @@ function secRow(w,s,max){
     for(const t of w.tickers.filter(t=>t.sec===s.name).sort((a,b)=>(b[k5]??0)-(a[k5]??0))){
       const tf=w.complete&&t.flip;
       const td=t.days.map(d=>{
-        const ex=d.div!=null, j=clvJudge(d.r,d.clv);
-        const pxf=v=>v==null?"—":"$"+v.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
-        const tip=(d.c!=null?`收盤 ${pxf(d.c)}　最高 ${pxf(d.h)}　最低 ${pxf(d.l)}\n`:"")+`成交量 ${d.v?.toLocaleString()}，相對量 ${d.rv}`+(j?`\n收盤位置 ${d.clv>0?"+":""}${d.clv.toFixed(2)}：${j.s}`:"")+(ex?`\n除息日：每股配息 $${d.div}；實際股價漲跌 ${fmtPct(d.rp)}，含息調整後 ${fmtPct(d.r)}（表內採含息調整）`:"");
-        return `<td title="${tip}">${sgnOnly(fmtPct(d.r))}${j&&j.t?`<span class="cl ${j.k}">${j.t}</span>`:""}${ex?'<span class="exd">息</span>':""}<span class="rk"> ${d.rv!=null?d.rv.toFixed(1)+"x":""}</span>${d.c!=null?`<span class="px">${pxf(d.c)}</span>`:""}</td>`;
+        const ex=d.div!=null, j=clvJudge(d.r,d.clv), dv=d.dv?dvInfo(d.dv):null;
+        const pchg=d.rp??d.r;   // 收盤價顏色：跟前一天比的實際股價漲跌（除息日用未還原的漲跌）
+        const tip=(dv?`【${dv.name}】${dv.note}（預期${dv.dir>0?"偏多":"偏空"}）\n`:"")+(d.c!=null?`收盤 ${pxf(d.c)}　最高 ${pxf(d.h)}　最低 ${pxf(d.l)}\n`:"")+`成交量 ${d.v?.toLocaleString()}，相對量 ${d.rv}`+(j?`\n收盤位置 ${d.clv>0?"+":""}${d.clv.toFixed(2)}：${j.s}`:"")+(ex?`\n除息日：每股配息 $${d.div}；實際股價漲跌 ${fmtPct(d.rp)}，含息調整後 ${fmtPct(d.r)}（表內採含息調整）`:"");
+        const mark=S==="div"?(dv?dvTag(d.dv):""):(j&&j.t?`<span class="cl ${j.k}">${j.t}</span>`:"");
+        return `<td class="${S==="div"&&dv?"dvc "+dv.k:""}" title="${tip}">${pcSpan(d.r)}${mark}${ex?'<span class="exd">息</span>':""}<span class="rk"> ${d.rv!=null?d.rv.toFixed(1)+"x":""}</span>${d.c!=null?`<span class="px ${cls(pchg)}">${pxf(d.c)}</span>`:""}</td>`;
       }).join("");
-      h+=`<tr class="tk"><td>${t.t}</td><td>${sgnOnly(f(t[k4]))}</td><td>${sgnOnly(f(t[k5]))}${tf?'<span class="flipflag">翻轉</span>':""}</td>${td}<td>${sgnOnly(fmtPct(t.ret5))}</td><td></td><td></td></tr>`;
+      h+=`<tr class="tk"><td>${t.t}</td><td>${sgnOnly(f(t[k4]))}</td><td>${sgnOnly(f(t[k5]))}${tf?'<span class="flipflag">翻轉</span>':""}</td>${td}<td>${pcSpan(t.ret5)}${t.fade&&S==="div"?dvTag(t.fade):""}</td><td></td><td></td></tr>`;
     }
   }
   return h;
@@ -290,6 +319,98 @@ function bigVsSmall(w){
   return "";
 }
 
+// ── 背離模式 ─────────────────────────────────────────────
+const DV_ORDER=["absorb","distrib","fake_up","quiet_down"];
+function lastDay(w){ let k=-1; w.tickers.forEach(t=>t.days.forEach((d,i)=>{ if(d.r!=null&&i>k) k=i; })); return Math.max(k,0); }
+function dvCount(w,sec){
+  const i=DD??lastDay(w);
+  const n=w.tickers.filter(t=>t.sec===sec&&t.days[i]&&t.days[i].dv).length;
+  const f=w.tickers.filter(t=>t.sec===sec&&t.fade).length;
+  return (n?`<span class="dvn">${w.dows[i]}背離 ${n}</span>`:"")+(f?`<span class="dvn">量能衰退 ${f}</span>`:"");
+}
+function renderDiv(w){
+  const show=S==="div";
+  $("#divPanel").innerHTML=""; $("#divLog").innerHTML="";
+  if(!show) return;
+  if(!D.div_types){ $("#divPanel").innerHTML=`<p class="caveat">這份資料還沒有背離欄位，等下一次排程更新。</p>`; return; }
+  const i=DD??lastDay(w);
+  const dayBtns=w.dows.map((d,k)=>`<button aria-pressed="${k===i}" data-d="${k}">${d} ${w.dates[k].slice(5).replace("-","/")}</button>`).join("");
+  const rows=w.tickers.filter(t=>t.days[i]&&t.days[i].dv).map(t=>({t,d:t.days[i]}))
+    .sort((a,b)=>DV_ORDER.indexOf(a.d.dv)-DV_ORDER.indexOf(b.d.dv)||Math.abs(b.d.r)-Math.abs(a.d.r));
+  const list=rows.length?`<table class="mini"><thead><tr><th class="l">代號</th><th class="l">板塊</th><th class="l">類型</th><th>漲跌</th><th>相對量</th><th>收盤位置</th><th>收盤價</th></tr></thead><tbody>`+
+    rows.map(({t,d})=>`<tr><td>${t.t}</td><td class="l">${t.sec}</td><td class="l">${dvTag(d.dv)}</td><td class="${cls(d.r)}">${fmtPct(d.r)}</td><td>${d.rv!=null?d.rv.toFixed(2)+"x":"—"}</td><td>${d.clv!=null?(d.clv>0?"+":"")+d.clv.toFixed(2):"—"}</td><td class="${cls(d.rp??d.r)}">${pxf(d.c)}</td></tr>`).join("")+`</tbody></table>`
+    :`<p class="caveat">這天沒有個股出現背離。</p>`;
+  const fades=w.tickers.filter(t=>t.fade).map(t=>{
+    const rv=t.days.map(d=>d.rv).filter(v=>v!=null);
+    const a=rv.slice(0,2), b=rv.slice(-2), avg=x=>x.reduce((p,q)=>p+q,0)/x.length;
+    return {t,first:a.length?avg(a):null,last:b.length?avg(b):null};
+  });
+  const fl=fades.length?`<table class="mini"><thead><tr><th class="l">代號</th><th class="l">板塊</th><th class="l">類型</th><th>週漲跌</th><th>前兩天量</th><th>後兩天量</th></tr></thead><tbody>`+
+    fades.map(({t,first,last})=>`<tr><td>${t.t}</td><td class="l">${t.sec}</td><td class="l">${dvTag(t.fade)}</td><td class="${cls(t.ret5)}">${fmtPct(t.ret5)}</td><td>${first!=null?first.toFixed(2)+"x":"—"}</td><td>${last!=null?last.toFixed(2)+"x":"—"}</td></tr>`).join("")+`</tbody></table>`
+    :`<p class="caveat">${w.dows.length<D.div_rules.week.min_days?`這週只有 ${w.dows.length} 天，至少 ${D.div_rules.week.min_days} 天才判斷。`:"這週沒有個股出現量能衰退。"}</p>`;
+  $("#divPanel").innerHTML=`<div class="dvpanel">
+    <div class="panel"><h3>當日背離清單 <span class="seg" id="segD">${dayBtns}</span><span>${rows.length} 檔</span></h3>${list}</div>
+    <div class="panel"><h3>本週量能衰退 <span>${w.complete?"完整週":"週間進行中，暫定"}</span></h3>${fl}</div></div>`;
+  $("#segD").onclick=e=>{const b=e.target.closest("button"); if(!b) return; DD=+b.dataset.d; renderSectors(w); renderDiv(w);};
+  renderDivLog();
+}
+function renderDivLog(){
+  if(S!=="div") return;
+  if(!DVJ){ fetch("divergence.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(j=>{DVJ=j||{missing:true}; renderDivLog();}).catch(()=>{DVJ={missing:true}; renderDivLog();}); return; }
+  if(DVJ.missing){ $("#divLog").innerHTML=`<div class="dvlog"><p class="caveat">背離紀錄還沒產生，等下一次排程。</p></div>`; return; }
+  const hz=DVJ.rules.track.days, wk={5:"1 週",10:"2 週",20:"4 週",40:"8 週"};
+  const st=`<table class="mini"><thead><tr><th class="l">類型</th><th class="l">預期</th><th>筆數</th>${hz.map(n=>`<th>${wk[n]||n+" 天"}<br><span class="rk">符合預期・平均超額</span></th>`).join("")}</tr></thead><tbody>`+
+    Object.entries(DVJ.stats).map(([k,r])=>`<tr><td class="l">${dvTag(k)}</td><td class="l">${r.dir>0?"偏多":"偏空"}</td><td>${r.count}</td>${hz.map(n=>{const x=r[n]; return `<td>${x&&x.n?`<b class="${x.hit>=55?"pos":x.hit<=45?"neg":""}">${x.hit.toFixed(0)}%</b> <span class="${cls(x.avg)}">${fmtPct(x.avg)}</span>`:"—"}</td>`;}).join("")}</tr>`).join("")+`</tbody></table>`;
+  const types=["all",...Object.keys(DVJ.types)];
+  const fb=types.map(k=>`<button aria-pressed="${k===DVF}" data-k="${k}">${k==="all"?"全部":DVJ.types[k].name}</button>`).join("");
+  const ev=DVJ.recent.filter(e=>DVF==="all"||e.type===DVF);
+  const evt=`<table class="mini"><thead><tr><th class="l">日期</th><th class="l">代號</th><th class="l">板塊</th><th class="l">類型</th><th>漲跌</th><th>相對量</th><th>收盤位置</th>${hz.map(n=>`<th>${wk[n]||n+" 天"}超額</th>`).join("")}</tr></thead><tbody>`+
+    ev.slice(0,300).map(e=>`<tr><td class="l mono">${e.date.slice(5)}</td><td class="l"><b class="mono">${e.t}</b></td><td class="l">${e.sec}</td><td class="l">${dvTag(e.type)}</td><td class="${cls(e.r)}">${fmtPct(e.r)}</td><td>${e.rv!=null?e.rv.toFixed(2)+"x":e.rv_first!=null?e.rv_first.toFixed(2)+"→"+e.rv_last.toFixed(2):"—"}</td><td>${e.clv!=null?(e.clv>0?"+":"")+e.clv.toFixed(2):"—"}</td>${hz.map(n=>{const x=e.f[n]; return `<td class="${cls(x?.excess)}">${x?fmtPct(x.excess):"—"}</td>`;}).join("")}</tr>`).join("")+`</tbody></table>`;
+  $("#divLog").innerHTML=`<div class="dvlog">
+    <h3>背離紀錄：這套規則準不準 <span>${DVJ.since} 起共 ${DVJ.total} 筆；超額 = 個股報酬 − 同板塊其他個股平均；「符合預期」= 預期偏多的超額 &gt; 0、預期偏空的超額 &lt; 0；55% 以上綠、45% 以下紅</span></h3>
+    <div class="tbl">${st}</div>
+    <h3 style="margin-top:14px">最近 ${DVJ.rules.track.recent_weeks} 週的背離事件 <span class="seg" id="segDV">${fb}</span><span>${ev.length} 筆${ev.length>300?"（顯示前 300 筆）":""}</span></h3>
+    <div class="tbl">${evt}</div></div>`;
+  $("#segDV").onclick=e=>{const b=e.target.closest("button"); if(!b) return; DVF=b.dataset.k; renderDivLog();};
+}
+
+// ── 解讀規則（寫在頁面上，以免忘記）────────────────────────
+function renderHelp(){
+  const r=D.div_rules, dy=r?r.day:null;
+  $("#helpBody").innerHTML=`
+  <div>
+    <h4>三種口徑（左上切換）</h4>
+    <p>每天的原料都是<b>漲跌幅</b>（今天收盤 vs 昨天收盤），差別在乘上什麼：</p>
+    <table><tr><th>原算法</th><td>漲跌幅 × 成交股數。股價低、股數多的股票權重大</td></tr>
+    <tr><th>金額</th><td>漲跌幅 × 收盤價 × 成交股數。最接近「多少錢在動」，大型股權重大</td></tr>
+    <tr><th>相對量</th><td>漲跌幅(%) × 相對量倍數。每檔權重一樣，看「跟自己平常比有沒有放量」</td></tr></table>
+    <p>板塊與每日合計：原算法、金額用加總；相對量用平均。<b>切換口徑只會改變週合計和板塊數字，個股格子不變。</b></p>
+    <h4>排名「原・金・相」</h4>
+    <p>這個板塊在三種口徑下的名次，1 = 最多流入、最後一名 = 最多流出。三個名次<b>差不多</b> → 結論可靠；<b>差 3 名以上</b>（橘色）→ 結果看算法：「金額」特別差、「相對量」還好，通常是一兩檔超大型股拖累；「相對量」特別好、「金額」普通，通常是小型股放量但金額不大。</p>
+    <h4>個股格子：例 <span class="mono">−1.12% 低 1.1x / $517.99</span></h4>
+    <table><tr><th>−1.12%</th><td>股價比前一個交易日收盤的漲跌幅（含息調整），綠漲紅跌</td></tr>
+    <tr><th>低</th><td>收盤位置標記（見右欄）</td></tr>
+    <tr><th>1.1x</th><td>相對量：當天成交<b>股數</b> ÷ 前 20 日平均股數</td></tr>
+    <tr><th>$517.99</th><td>當天收盤價（實際股價），顏色是跟前一天比的漲跌</td></tr></table>
+  </div>
+  <div>
+    <h4>收盤位置：高／低／翻</h4>
+    <p>收盤價落在當天最高與最低之間的位置，−1 收最低、+1 收最高。<b>高</b>（≥ 0.5）= 買方撐到收盤；<b>低</b>（≤ −0.5）= 賣方壓到收盤；<b>翻</b> = 漲跌 ≥ 0.5% 但收盤位置跟方向相反：收漲卻收低檔 = 盤中拉高後被賣回來；收跌卻收高檔 = 盤中殺低後被買回來。一天的「翻」常只是開盤跳空，<b>要看是否重複出現、是否放量</b>。</p>
+    <h4>量價背離（切到「背離」模式）</h4>
+    <p>標籤顏色代表<b>預期方向</b>：綠 = 預期偏多、紅 = 預期偏空（不是當天漲跌）。</p>
+    ${dy?`<table>
+    <tr><th>${dvTag("fake_up")}</th><td>漲 ≥ ${dy.lowvol_min_move??dy.min_move}%、相對量 &lt; ${dy.low_rv}：漲得沒人跟</td></tr>
+    <tr><th>${dvTag("quiet_down")}</th><td>跌 ≥ ${dy.lowvol_min_move??dy.min_move}%、相對量 &lt; ${dy.low_rv}：賣壓減輕</td></tr>
+    <tr><th>${dvTag("absorb")}</th><td>跌 ≥ ${dy.min_move}%、相對量 ≥ ${dy.high_rv}、收盤位置 ≥ ${dy.clv}：大量下跌卻收高檔，有人在下面接</td></tr>
+    <tr><th>${dvTag("distrib")}</th><td>漲 ≥ ${dy.min_move}%、相對量 ≥ ${dy.high_rv}、收盤位置 ≤ −${dy.clv}：大量上漲卻收低檔，有人趁高賣</td></tr>
+    <tr><th>${dvTag("fade_up")}</th><td>週漲 ≥ ${r.week.min_move}%，最後兩天平均相對量 ≤ 前兩天 × ${r.week.fade_ratio}：漲勢後繼無力</td></tr>
+    <tr><th>${dvTag("fade_down")}</th><td>週跌 ≥ ${r.week.min_move}%，同樣量能遞減：賣壓逐漸用完</td></tr></table>`:""}
+    <p>「價漲量增」「價跌量增」是正常的確認，不算背離；<b>價跌量增要同時收高檔才算「承接」</b>。量是跟 20 日均量比，不是跟前一天比（前一天可能剛好是財報或選擇權到期日）。門檻在 <span class="mono">config/divergence.yaml</span>。</p>
+    <h4>最後提醒</h4>
+    <p>每筆成交都有買方和賣方，這些數字反映「價格往哪邊走時成交特別多」，是量價動能，不是實際的資金淨流入。規則準不準，看「背離」模式最下面的一年紀錄，樣本不夠多之前先當參考。</p>
+  </div>`;
+}
+
 function renderSectors(w){
   const k5=M+"5", f=FMT[M];
   const max=Math.max(...w.sectors.map(r=>Math.abs(r[k5]||0)),1);
@@ -297,7 +418,7 @@ function renderSectors(w){
   const ncol=5+w.dows.length+1;
   let h=`<thead><tr><th>板塊</th><th>週一～週四</th><th>週一～週五</th>${dh}<th>週漲跌<br><span class="rk">平均</span></th><th>漲／跌</th><th title="原算法・金額・相對量 三種口徑的排名">排名<br><span class="rk">原・金・相</span></th></tr></thead><tbody>`;
   const byName=Object.fromEntries(w.sectors.map(s=>[s.name,s]));
-  if(S==="group"&&D.groups&&D.groups.length){
+  if((S==="group"||S==="div")&&D.groups&&D.groups.length){
     for(const g of D.groups){
       const mem=g.sectors.filter(n=>byName[n]); if(!mem.length) continue;
       const t4=grpTotal(w,mem,M+"4"), t5=grpTotal(w,mem,k5);
@@ -369,11 +490,11 @@ function renderRegime(){
 
 function render(){
   const w=D.weeks[W];
-  renderWeeks(); renderMeasures(w); renderDays(w); renderSectors(w);
+  DD=null; renderWeeks(); renderMeasures(w); renderDays(w); renderSectors(w); renderDiv(w); renderHelp();
 }
 
 document.querySelectorAll("#segS button").forEach(b=>b.onclick=()=>{
-  S=b.dataset.s; document.querySelectorAll("#segS button").forEach(x=>x.setAttribute("aria-pressed",x===b)); renderSectors(D.weeks[W]);
+  S=b.dataset.s; document.querySelectorAll("#segS button").forEach(x=>x.setAttribute("aria-pressed",x===b)); renderSectors(D.weeks[W]); renderDiv(D.weeks[W]);
 });
 document.querySelectorAll("#segM button").forEach(b=>b.onclick=()=>{
   M=b.dataset.m; document.querySelectorAll("#segM button").forEach(x=>x.setAttribute("aria-pressed",x===b)); renderSectors(D.weeks[W]);

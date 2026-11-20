@@ -159,10 +159,16 @@ def compute(close: pd.DataFrame, vol: pd.DataFrame, sec_of: dict, order: list,
 
     # 每日收盤／最高／最低：用實際股價（未還原），跟 finviz 等看盤畫面一致；抓不到未還原價時退回還原收盤
     px_c = frame("raw") if frame("raw") is not None else close
+    # 量價背離（規則在 config/divergence.yaml，與 divergence.py 的紀錄共用同一套判斷）
+    import divergence as dvg
+    dcfg = dvg.load_cfg()
     px_h, px_l = frame("high"), frame("low")
 
     def day_extra(x, t):
         out = {}
+        code = dvg.day_code(ret.loc[x, t] * 100, rv.loc[x, t], None if clv is None else clv.loc[x, t], dcfg)
+        if code:
+            out["dv"] = code
         for k, f_ in (("c", px_c), ("h", px_h), ("l", px_l)):
             if f_ is not None:
                 v = _r(f_.loc[x, t], 2)
@@ -229,6 +235,7 @@ def compute(close: pd.DataFrame, vol: pd.DataFrame, sec_of: dict, order: list,
                 **{k: _r(v[t], 4 if k.startswith("rel") or k.startswith("ret") else 0) for k, v in T.items()},
                 "flip": _sign(T["dollar4"][t]) != _sign(T["dollar5"][t]) if complete and thu else False,
                 "clv5": _r(wclv(dates, t), 2),
+                "fade": dvg.week_code(list(ret.loc[dates, t] * 100), list(rv.loc[dates, t]), dcfg),
             })
 
         # 每日市場合計與家數
@@ -364,6 +371,7 @@ def compute(close: pd.DataFrame, vol: pd.DataFrame, sec_of: dict, order: list,
     return {
         "updated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         "asof": idx[-1].strftime("%Y-%m-%d"),
+        "div_rules": dcfg, "div_types": {k: {"name": v[0], "dir": v[1], "note": v[2]} for k, v in dvg.TYPES.items()},
         "universe": len(tickers), "missing": missing,
         "sector_order": [s for s in order if s in sec_mem],
         "groups": [{**g, "sectors": [s for s in g["sectors"] if s in sec_mem]} for g in (groups or [])],
@@ -411,6 +419,15 @@ def main():
         import traceback
         traceback.print_exc()
         print(f"  ! 逆勢個股篩選失敗：{e}")
+
+    # 量價背離紀錄（失敗不影響主頁資料）
+    try:
+        import divergence
+        divergence.run(close, vol, exdiv)
+    except Exception as e:  # noqa: BLE001
+        import traceback
+        traceback.print_exc()
+        print(f"  ! 量價背離紀錄失敗：{e}")
 
 
 if __name__ == "__main__":
