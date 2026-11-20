@@ -157,8 +157,17 @@ def compute(close: pd.DataFrame, vol: pd.DataFrame, sec_of: dict, order: list,
     if all(frame(k) is not None for k in ("raw", "high", "low")):
         clv = close_location(frame("raw"), frame("high"), frame("low"))
 
+    # 每日收盤／最高／最低：用實際股價（未還原），跟 finviz 等看盤畫面一致；抓不到未還原價時退回還原收盤
+    px_c = frame("raw") if frame("raw") is not None else close
+    px_h, px_l = frame("high"), frame("low")
+
     def day_extra(x, t):
         out = {}
+        for k, f_ in (("c", px_c), ("h", px_h), ("l", px_l)):
+            if f_ is not None:
+                v = _r(f_.loc[x, t], 2)
+                if v is not None:
+                    out[k] = v
         if clv is not None:
             c = _r(clv.loc[x, t], 2)
             if c is not None:
