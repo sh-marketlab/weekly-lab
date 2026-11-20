@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-14T02:52:09+00:00",
-  "iso_week": "2026-W46",
-  "stage": "fri",
-  "as_of": "2026-11-13",
-  "as_of_label": "2026-W46 週五收盤",
+  "generated_at": "2026-11-20T03:54:44+00:00",
+  "iso_week": "2026-W47",
+  "stage": "thu",
+  "as_of": "2026-11-19",
+  "as_of_label": "2026-W47 週四收盤",
   "macro": [
     {
       "id": 1,
@@ -11,14 +11,14 @@
       "axis": "liquidity",
       "unit": "百萬美元",
       "freq": "weekly",
-      "curr": 6758867.0,
-      "prev": 6748145.0,
-      "curr_date": "2026-11-11",
-      "prev_date": "2026-11-04",
-      "delta": 10722.0,
-      "delta_pct": 0.0015888810925076447,
+      "curr": 6741452.0,
+      "prev": 6758867.0,
+      "curr_date": "2026-11-18",
+      "prev_date": "2026-11-11",
+      "delta": -17415.0,
+      "delta_pct": -0.0025766152818216424,
       "up_bias": "loosen",
-      "verdict": "增加（擴表/放水）",
+      "verdict": "減少（縮表/抽水）",
       "note": "是否在秘密縮表/擴表",
       "source": "FRED:WALCL",
       "stale": false,
@@ -30,12 +30,12 @@
       "axis": "liquidity",
       "unit": "百萬美元",
       "freq": "weekly",
-      "curr": 912134.0,
-      "prev": 936248.0,
-      "curr_date": "2026-11-11",
-      "prev_date": "2026-11-04",
-      "delta": -24114.0,
-      "delta_pct": -0.025755996274491374,
+      "curr": 892310.0,
+      "prev": 912134.0,
+      "curr_date": "2026-11-18",
+      "prev_date": "2026-11-11",
+      "delta": -19824.0,
+      "delta_pct": -0.021733648784060238,
       "up_bias": "tighten",
       "verdict": "減少（放水）",
       "note": "政府在回收/放出市場資金",
@@ -49,12 +49,12 @@
       "axis": "liquidity",
       "unit": "十億美元",
       "freq": "daily",
-      "curr": 0.325,
-      "prev": 0.15,
-      "curr_date": "2026-11-13",
-      "prev_date": "2026-11-06",
-      "delta": 0.17500000000000002,
-      "delta_pct": 1.1666666666666667,
+      "curr": 0.405,
+      "prev": 0.25,
+      "curr_date": "2026-11-19",
+      "prev_date": "2026-11-12",
+      "delta": 0.15500000000000003,
+      "delta_pct": 0.6200000000000001,
       "up_bias": "tighten",
       "verdict": "增加（抽水）",
       "note": "貨幣市場資金是否在釋放（注意：單位是十億，且不參與",
@@ -68,12 +68,12 @@
       "axis": "liquidity",
       "unit": "百萬美元",
       "freq": "weekly",
-      "curr": 5510480.0,
-      "prev": 5477394.0,
-      "curr_date": "2026-11-11",
-      "prev_date": "2026-11-04",
-      "delta": 33086.0,
-      "delta_pct": 0.0060404637679889375,
+      "curr": 5532099.0,
+      "prev": 5510480.0,
+      "curr_date": "2026-11-18",
+      "prev_date": "2026-11-11",
+      "delta": 21619.0,
+      "delta_pct": 0.0039232516949521635,
       "up_bias": "loosen",
       "verdict": "上升",
       "note": "真正的市場總血量 = WALCL − WDTGAL − WLRRAL（三條都是週三、都是百萬）",
@@ -87,14 +87,14 @@
       "axis": "credit",
       "unit": "%",
       "freq": "daily",
-      "curr": 3.2,
-      "prev": 3.42,
-      "curr_date": "2026-11-12",
-      "prev_date": "2026-11-06",
-      "delta": -0.21999999999999975,
-      "delta_pct": -0.06432748538011689,
+      "curr": 3.47,
+      "prev": 3.2,
+      "curr_date": "2026-11-18",
+      "prev_date": "2026-11-12",
+      "delta": 0.27,
+      "delta_pct": 0.084375,
       "up_bias": "risk_off",
-      "verdict": "收窄（安全）",
+      "verdict": "擴大（風險升）",
       "note": "Smart Money 看到的真實企業違約率",
       "source": "FRED:BAMLH0A0HYM2",
       "stale": false,
@@ -107,13 +107,13 @@
       "unit": "%",
       "freq": "daily",
       "curr": 3.9,
-      "prev": 3.89,
-      "curr_date": "2026-11-12",
-      "prev_date": "2026-11-06",
-      "delta": 0.009999999999999787,
-      "delta_pct": 0.002570694087403544,
+      "prev": 3.9,
+      "curr_date": "2026-11-18",
+      "prev_date": "2026-11-12",
+      "delta": 0.0,
+      "delta_pct": 0.0,
       "up_bias": "tighten",
-      "verdict": "上升（緊縮）",
+      "verdict": null,
       "note": "隔夜融資市場的實際資金成本",
       "source": "FRED:SOFR",
       "stale": false,
@@ -125,14 +125,14 @@
       "axis": "rates",
       "unit": "%",
       "freq": "daily",
-      "curr": 4.86,
-      "prev": 4.51,
-      "curr_date": "2026-11-12",
-      "prev_date": "2026-11-06",
-      "delta": 0.35000000000000053,
-      "delta_pct": 0.07760532150776066,
+      "curr": 4.8,
+      "prev": 4.86,
+      "curr_date": "2026-11-18",
+      "prev_date": "2026-11-12",
+      "delta": -0.0600000000000005,
+      "delta_pct": -0.01234567901234578,
       "up_bias": "tighten",
-      "verdict": "上升（緊縮）",
+      "verdict": "下降（寬鬆）",
       "note": "市場對 Fed 近期利率路徑的真實定價",
       "source": "FRED:DGS2",
       "stale": false,
@@ -144,12 +144,12 @@
       "axis": "fx",
       "unit": "index",
       "freq": "daily",
-      "curr": 103.41100311279297,
-      "prev": 102.30000305175781,
-      "curr_date": "2026-11-13",
-      "prev_date": "2026-11-06",
-      "delta": 1.1110000610351562,
-      "delta_pct": 0.010860215326416513,
+      "curr": 103.84300231933594,
+      "prev": 103.16999816894531,
+      "curr_date": "2026-11-19",
+      "prev_date": "2026-11-12",
+      "delta": 0.673004150390625,
+      "delta_pct": 0.006523254457061749,
       "up_bias": "tighten",
       "verdict": "上升（全球抽水/資金回流）",
       "note": "全球美元流動性總閥門",
@@ -163,14 +163,14 @@
       "axis": "rates",
       "unit": "%",
       "freq": "daily",
-      "curr": 0.27,
-      "prev": 0.35,
-      "curr_date": "2026-11-13",
-      "prev_date": "2026-11-06",
-      "delta": -0.07999999999999996,
-      "delta_pct": -0.22857142857142848,
+      "curr": 0.28,
+      "prev": 0.24,
+      "curr_date": "2026-11-19",
+      "prev_date": "2026-11-12",
+      "delta": 0.040000000000000036,
+      "delta_pct": 0.16666666666666682,
       "up_bias": "expand",
-      "verdict": "縮小/平坦化",
+      "verdict": "擴大/陡峭化",
       "note": "衰退預警與長短期資金成本結構",
       "source": "FRED:T10Y2Y",
       "stale": false,
@@ -201,14 +201,14 @@
       "axis": "sentiment",
       "unit": "index",
       "freq": "daily",
-      "curr": 38.6,
-      "prev": 24.3531746031746,
-      "curr_date": "2026-11-13",
-      "prev_date": "2026-11-06",
-      "delta": 14.2468253968254,
-      "delta_pct": 0.5850089620335671,
+      "curr": 18.6761904761905,
+      "prev": 40.3428571428571,
+      "curr_date": "2026-11-19",
+      "prev_date": "2026-11-12",
+      "delta": -21.6666666666666,
+      "delta_pct": -0.5370632672332378,
       "up_bias": "risk_on",
-      "verdict": "上升（貪婪/過熱）",
+      "verdict": "下降（恐慌/超賣）",
       "note": "市場情緒擺盪",
       "source": "CNN Fear & Greed",
       "stale": false,
@@ -220,14 +220,14 @@
       "axis": "sentiment",
       "unit": "index",
       "freq": "daily",
-      "curr": 18.7,
-      "prev": 25.64,
-      "curr_date": "2026-11-12",
-      "prev_date": "2026-11-06",
-      "delta": -6.940000000000001,
-      "delta_pct": -0.27067082683307336,
+      "curr": 24.56,
+      "prev": 18.7,
+      "curr_date": "2026-11-18",
+      "prev_date": "2026-11-12",
+      "delta": 5.859999999999999,
+      "delta_pct": 0.31336898395721924,
       "up_bias": "risk_off",
-      "verdict": "下降（情緒穩定）",
+      "verdict": "上升（股市恐慌）",
       "note": "股市選擇權隱含波動度",
       "source": "FRED:VIXCLS",
       "stale": false,
@@ -239,14 +239,14 @@
       "axis": "sentiment",
       "unit": "index",
       "freq": "daily",
-      "curr": 98.79000091552734,
-      "prev": 92.7699966430664,
-      "curr_date": "2026-11-13",
-      "prev_date": "2026-11-06",
-      "delta": 6.0200042724609375,
-      "delta_pct": 0.0648917159674261,
+      "curr": 96.03630065917969,
+      "prev": 98.43000030517578,
+      "curr_date": "2026-11-19",
+      "prev_date": "2026-11-12",
+      "delta": -2.3936996459960938,
+      "delta_pct": -0.024318801570401144,
       "up_bias": "risk_off",
-      "verdict": "上升（債市動盪）",
+      "verdict": "下降（債市穩定）",
       "note": "美債波動度，金融體系底層資產穩定度",
       "source": "Yahoo:^MOVE",
       "stale": false,
@@ -277,12 +277,12 @@
       "axis": "macro",
       "unit": "人",
       "freq": "weekly",
-      "curr": 200000.0,
-      "prev": 191000.0,
-      "curr_date": "2026-11-07",
-      "prev_date": "2026-10-31",
-      "delta": 9000.0,
-      "delta_pct": 0.04712041884816754,
+      "curr": 203000.0,
+      "prev": 202000.0,
+      "curr_date": "2026-11-14",
+      "prev_date": "2026-11-07",
+      "delta": 1000.0,
+      "delta_pct": 0.0049504950495049506,
       "up_bias": "contract",
       "verdict": "上升（勞動市場降溫）",
       "note": "就業彈性與消費端衰退指標",
@@ -334,12 +334,12 @@
       "axis": "liquidity",
       "unit": "百萬美元",
       "freq": "weekly",
-      "curr": 2969977.0,
-      "prev": 2962804.0,
-      "curr_date": "2026-11-11",
-      "prev_date": "2026-11-04",
-      "delta": 7173.0,
-      "delta_pct": 0.002421017387582844,
+      "curr": 3001790.0,
+      "prev": 2969977.0,
+      "curr_date": "2026-11-18",
+      "prev_date": "2026-11-11",
+      "delta": 31813.0,
+      "delta_pct": 0.010711530762696143,
       "up_bias": "loosen",
       "verdict": "增加（血量真的變多）",
       "note": "直接觀測值，用來交叉檢核第 4 項的近似公式",
@@ -349,15 +349,15 @@
     }
   ],
   "blood": {
-    "net": 33086.0,
+    "net": 21619.0,
     "components": {
-      "fed_assets": 10722.0,
-      "tga": -24114.0,
-      "on_rrp": 1750.0
+      "fed_assets": -17415.0,
+      "tga": -19824.0,
+      "on_rrp": -19210.0
     },
     "dates": {
-      "curr": "2026-11-11",
-      "prev": "2026-11-04"
+      "curr": "2026-11-18",
+      "prev": "2026-11-11"
     },
     "reading": "放血（注入）"
   },
@@ -369,7 +369,7 @@
         "GC=F"
       ],
       "is_basket": false,
-      "chg_w": -0.045964,
+      "chg_w": -0.084858,
       "members_ok": 1,
       "members_total": 1,
       "base": 131009642496.0,
@@ -378,7 +378,7 @@
       "base_parts": {
         "GLD": 131009642496.0
       },
-      "value_delta": -6311844844.100373,
+      "value_delta": -12148077831.555723,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -390,7 +390,7 @@
         "SI=F"
       ],
       "is_basket": false,
-      "chg_w": -0.060865,
+      "chg_w": -0.164132,
       "members_ok": 1,
       "members_total": 1,
       "base": 25189588992.0,
@@ -399,7 +399,7 @@
       "base_parts": {
         "SLV": 25189588992.0
       },
-      "value_delta": -1632528160.4860642,
+      "value_delta": -4946256610.415692,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -411,7 +411,7 @@
         "HG=F"
       ],
       "is_basket": false,
-      "chg_w": -0.024847,
+      "chg_w": -0.107076,
       "members_ok": 1,
       "members_total": 1,
       "base": 663276992.0,
@@ -420,7 +420,7 @@
       "base_parts": {
         "CPER": 663276992.0
       },
-      "value_delta": -16900366.83497256,
+      "value_delta": -79537617.08207193,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": "銅博士，工業活力領先指標"
@@ -432,7 +432,7 @@
         "PA=F"
       ],
       "is_basket": false,
-      "chg_w": -0.013904,
+      "chg_w": -0.109326,
       "members_ok": 1,
       "members_total": 1,
       "base": 504621184.0,
@@ -441,7 +441,7 @@
       "base_parts": {
         "PALL": 504621184.0
       },
-      "value_delta": -7115182.438967402,
+      "value_delta": -61939851.79985495,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -453,7 +453,7 @@
         "PL=F"
       ],
       "is_basket": false,
-      "chg_w": -0.029905,
+      "chg_w": -0.143271,
       "members_ok": 1,
       "members_total": 1,
       "base": 1678477312.0,
@@ -462,7 +462,7 @@
       "base_parts": {
         "PPLT": 1678477312.0
       },
-      "value_delta": -51742214.95354579,
+      "value_delta": -280692170.9987079,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -474,7 +474,7 @@
         "^GSPC"
       ],
       "is_basket": false,
-      "chg_w": 0.025053,
+      "chg_w": -0.054867,
       "members_ok": 1,
       "members_total": 1,
       "base": 796865200128.0,
@@ -483,7 +483,7 @@
       "base_parts": {
         "SPY": 796865200128.0
       },
-      "value_delta": 19475933301.796864,
+      "value_delta": -46259735863.01925,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -495,7 +495,7 @@
         "^NDX"
       ],
       "is_basket": false,
-      "chg_w": 0.035337,
+      "chg_w": -0.062644,
       "members_ok": 1,
       "members_total": 1,
       "base": 463833595904.0,
@@ -504,7 +504,7 @@
       "base_parts": {
         "QQQ": 463833595904.0
       },
-      "value_delta": 15831065419.7229,
+      "value_delta": -30998245897.8341,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -516,7 +516,7 @@
         "^RUT"
       ],
       "is_basket": false,
-      "chg_w": 0.013209,
+      "chg_w": -0.05143,
       "members_ok": 1,
       "members_total": 1,
       "base": 75491909632.0,
@@ -525,7 +525,7 @@
       "base_parts": {
         "IWM": 75491909632.0
       },
-      "value_delta": 984172697.1721411,
+      "value_delta": -4093054716.4402833,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -537,7 +537,7 @@
         "^DJI"
       ],
       "is_basket": false,
-      "chg_w": 0.020704,
+      "chg_w": -0.061189,
       "members_ok": 1,
       "members_total": 1,
       "base": 45135511552.0,
@@ -546,7 +546,7 @@
       "base_parts": {
         "DIA": 45135511552.0
       },
-      "value_delta": 915530487.9500893,
+      "value_delta": -2941802787.094877,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -558,7 +558,7 @@
         "^STOXX50E"
       ],
       "is_basket": false,
-      "chg_w": 0.035065,
+      "chg_w": -0.044557,
       "members_ok": 1,
       "members_total": 1,
       "base": 4110558208.0,
@@ -567,7 +567,7 @@
       "base_parts": {
         "FEZ": 4110558208.0
       },
-      "value_delta": 139253789.4369146,
+      "value_delta": -191695519.32857952,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -579,7 +579,7 @@
         "^GDAXI"
       ],
       "is_basket": false,
-      "chg_w": 0.036002,
+      "chg_w": -0.04886,
       "members_ok": 1,
       "members_total": 1,
       "base": 1570313472.0,
@@ -588,7 +588,7 @@
       "base_parts": {
         "EWG": 1570313472.0
       },
-      "value_delta": 54569803.55148348,
+      "value_delta": -80666901.02605294,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -600,7 +600,7 @@
         "^N225"
       ],
       "is_basket": false,
-      "chg_w": 0.064553,
+      "chg_w": -0.02261,
       "members_ok": 1,
       "members_total": 1,
       "base": 23398279168.0,
@@ -609,7 +609,7 @@
       "base_parts": {
         "EWJ": 23398279168.0
       },
-      "value_delta": 1418838813.2219849,
+      "value_delta": -541273280.8689265,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -621,7 +621,7 @@
         "ZB=F"
       ],
       "is_basket": false,
-      "chg_w": -0.028234,
+      "chg_w": 0.00649,
       "members_ok": 1,
       "members_total": 1,
       "base": 47518568448.0,
@@ -630,7 +630,7 @@
       "base_parts": {
         "TLT": 47518568448.0
       },
-      "value_delta": -1380619677.5363946,
+      "value_delta": 306406928.26309246,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -642,7 +642,7 @@
         "ZN=F"
       ],
       "is_basket": false,
-      "chg_w": -0.017068,
+      "chg_w": 0.006223,
       "members_ok": 1,
       "members_total": 1,
       "base": 43529359360.0,
@@ -651,7 +651,7 @@
       "base_parts": {
         "IEF": 43529359360.0
       },
-      "value_delta": -755860126.190296,
+      "value_delta": 269207922.3962084,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -663,7 +663,7 @@
         "ZF=F"
       ],
       "is_basket": false,
-      "chg_w": -0.012253,
+      "chg_w": 0.005035,
       "members_ok": 1,
       "members_total": 1,
       "base": 17084169216.0,
@@ -672,7 +672,7 @@
       "base_parts": {
         "IEI": 17084169216.0
       },
-      "value_delta": -211929092.57496908,
+      "value_delta": 85587857.1418508,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -684,7 +684,7 @@
         "ZT=F"
       ],
       "is_basket": false,
-      "chg_w": -0.005684,
+      "chg_w": 0.00238,
       "members_ok": 1,
       "members_total": 1,
       "base": 27439355904.0,
@@ -693,7 +693,7 @@
       "base_parts": {
         "SHY": 27439355904.0
       },
-      "value_delta": -156856873.42689446,
+      "value_delta": 65150608.603044756,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -709,21 +709,21 @@
         "SBAC"
       ],
       "is_basket": true,
-      "chg_w": 0.02274,
+      "chg_w": -0.065061,
       "members_ok": 5,
       "members_total": 5,
-      "base": 319703326358.93567,
+      "base": 303194764259.2384,
       "base_kind": "成分股市值和",
       "base_of": "5/5 檔",
       "base_parts": {
-        "AMT": 88875647397.14119,
-        "CCI": 38646457175.949326,
-        "EQIX": 104312903491.95117,
-        "DLR": 68094877939.36615,
-        "SBAC": 19773440354.527863
+        "AMT": 84010765157.6619,
+        "CCI": 34855418223.800674,
+        "EQIX": 100775055931.54651,
+        "DLR": 65836271950.06256,
+        "SBAC": 17717252996.166718
       },
-      "value_delta": 7108408433.621641,
-      "net_flow": 187267.15605163574,
+      "value_delta": -21098868009.004124,
+      "net_flow": 0.0,
       "flow_note": null,
       "note": null
     },
@@ -737,19 +737,19 @@
         "FR"
       ],
       "is_basket": true,
-      "chg_w": 0.005279,
+      "chg_w": -0.024726,
       "members_ok": 4,
       "members_total": 4,
-      "base": 224842502149.3471,
+      "base": 217980842701.25116,
       "base_kind": "成分股市值和",
       "base_of": "4/4 檔",
       "base_parts": {
-        "PLD": 122302505969.55872,
-        "PSA": 62142262018.66885,
-        "EXR": 33082093213.5,
-        "FR": 7315640947.619522
+        "PLD": 117255284260.1471,
+        "PSA": 61032411475.44809,
+        "EXR": 32549857007.487625,
+        "FR": 7143289958.168327
       },
-      "value_delta": 1180710597.601664,
+      "value_delta": -5526441099.251223,
       "net_flow": 0.0,
       "flow_note": null,
       "note": null
@@ -764,19 +764,19 @@
         "DOC"
       ],
       "is_basket": true,
-      "chg_w": -0.009452,
+      "chg_w": -0.026622,
       "members_ok": 4,
       "members_total": 4,
-      "base": 254456614433.16968,
+      "base": 251620964625.90643,
       "base_kind": "成分股市值和",
       "base_of": "4/4 檔",
       "base_parts": {
-        "WELL": 179338272034.33917,
-        "VTR": 47022673431.70166,
-        "OHI": 14318585117.816925,
-        "DOC": 13777083849.31192
+        "WELL": 178406584374.0097,
+        "VTR": 46007340000.0,
+        "OHI": 13974695282.76062,
+        "DOC": 13232344969.136093
       },
-      "value_delta": -2428074075.7866554,
+      "value_delta": -6881862257.284304,
       "net_flow": 0.0,
       "flow_note": null,
       "note": null
@@ -791,20 +791,20 @@
         "INVH"
       ],
       "is_basket": true,
-      "chg_w": -0.008985,
+      "chg_w": -0.021698,
       "members_ok": 2,
       "members_total": 4,
-      "base": 79296543711.8869,
+      "base": 78336347190.36324,
       "base_kind": "成分股市值和",
       "base_of": "4/4 檔",
       "base_parts": {
         "AVB": 26283393069.78,
-        "EQR": 23868961019.728024,
-        "MAA": 13674439573.993362,
-        "INVH": 15469750048.38552
+        "EQR": 23867451450.15164,
+        "MAA": 13153630304.391594,
+        "INVH": 15031872366.039999
       },
-      "value_delta": -718939113.1832553,
-      "net_flow": 217.7579803466797,
+      "value_delta": -1737441057.3999658,
+      "net_flow": -71308260.45621109,
       "flow_note": null,
       "note": null
     },
@@ -818,20 +818,20 @@
         "REG"
       ],
       "is_basket": true,
-      "chg_w": 0.008585,
+      "chg_w": -0.022518,
       "members_ok": 4,
       "members_total": 4,
-      "base": 161978865183.5852,
+      "base": 157857953759.2987,
       "base_kind": "成分股市值和",
       "base_of": "4/4 檔",
       "base_parts": {
-        "SPG": 75125885450.3104,
-        "O": 55937646073.13873,
-        "KIM": 16977683861.785412,
-        "REG": 13937649798.350677
+        "SPG": 72626741315.0604,
+        "O": 54834489642.56937,
+        "KIM": 16838141858.892918,
+        "REG": 13558580942.776016
       },
-      "value_delta": 1378751971.9221275,
-      "net_flow": -253462083.9960003,
+      "value_delta": -3636532849.4559374,
+      "net_flow": 0.0,
       "flow_note": null,
       "note": null
     },
@@ -845,20 +845,20 @@
         "APLE"
       ],
       "is_basket": true,
-      "chg_w": 0.029277,
+      "chg_w": -0.022949,
       "members_ok": 4,
       "members_total": 4,
-      "base": 34656297492.623535,
+      "base": 33670742453.402374,
       "base_kind": "成分股市值和",
       "base_of": "4/4 檔",
       "base_parts": {
-        "HST": 17471479606.5,
-        "PK": 3267668025.177643,
-        "RHP": 9322593091.904297,
-        "APLE": 4594556769.041595
+        "HST": 16779471826.050222,
+        "PK": 3182793516.0,
+        "RHP": 9206000147.952148,
+        "APLE": 4502476963.4
       },
-      "value_delta": 985771975.5629818,
-      "net_flow": 1191482.840127468,
+      "value_delta": -790859298.6068599,
+      "net_flow": -86120280.30864859,
       "flow_note": null,
       "note": null
     },
@@ -872,20 +872,20 @@
         "KRC"
       ],
       "is_basket": true,
-      "chg_w": -0.019705,
+      "chg_w": -0.030168,
       "members_ok": 4,
       "members_total": 4,
-      "base": 24345358028.541786,
+      "base": 23536570650.15185,
       "base_kind": "成分股市值和",
       "base_of": "4/4 檔",
       "base_parts": {
-        "BXP": 10186511782.95752,
-        "VNO": 6491004086.580208,
-        "SLG": 3476066125.0,
-        "KRC": 4191776034.004059
+        "BXP": 9945345022.39093,
+        "VNO": 6204883988.889931,
+        "SLG": 3259698797.87302,
+        "KRC": 4126642840.9979706
       },
-      "value_delta": -489368281.94820523,
-      "net_flow": 2373459.610015869,
+      "value_delta": -732138415.0799118,
+      "net_flow": 0.0,
       "flow_note": null,
       "note": null
     },
@@ -896,7 +896,7 @@
         "BTC-USD"
       ],
       "is_basket": false,
-      "chg_w": -0.058149,
+      "chg_w": -0.0771,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
@@ -917,7 +917,7 @@
         "ETH-USD"
       ],
       "is_basket": false,
-      "chg_w": -0.098146,
+      "chg_w": -0.079291,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
@@ -938,7 +938,7 @@
         "DX-Y.NYB"
       ],
       "is_basket": false,
-      "chg_w": 0.01086,
+      "chg_w": 0.006533,
       "members_ok": 1,
       "members_total": 1,
       "base": 481364192.0,
@@ -947,7 +947,7 @@
       "base_parts": {
         "UUP": 481364192.0
       },
-      "value_delta": 5171453.1439764155,
+      "value_delta": 3124340.9469297086,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": "方向相反，正值代表美元升"
@@ -959,7 +959,7 @@
         "6E=F"
       ],
       "is_basket": false,
-      "chg_w": -0.009647,
+      "chg_w": -0.006512,
       "members_ok": 1,
       "members_total": 1,
       "base": 329880704.0,
@@ -968,7 +968,7 @@
       "base_parts": {
         "FXE": 329880704.0
       },
-      "value_delta": -3213358.420167354,
+      "value_delta": -2162263.8063549837,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -980,7 +980,7 @@
         "6J=F"
       ],
       "is_basket": false,
-      "chg_w": -0.005623,
+      "chg_w": 0.005273,
       "members_ok": 1,
       "members_total": 1,
       "base": 442482368.0,
@@ -989,7 +989,7 @@
       "base_parts": {
         "FXY": 442482368.0
       },
-      "value_delta": -2502147.9330917755,
+      "value_delta": 2320971.0461377157,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -1001,7 +1001,7 @@
         "6B=F"
       ],
       "is_basket": false,
-      "chg_w": -0.01056,
+      "chg_w": -0.010275,
       "members_ok": 1,
       "members_total": 1,
       "base": 103126928.0,
@@ -1010,7 +1010,7 @@
       "base_parts": {
         "FXB": 103126928.0
       },
-      "value_delta": -1100643.1513583441,
+      "value_delta": -1070629.907499558,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -1022,7 +1022,7 @@
         "6C=F"
       ],
       "is_basket": false,
-      "chg_w": -0.00883,
+      "chg_w": -0.004277,
       "members_ok": 1,
       "members_total": 1,
       "base": 66522912.0,
@@ -1031,7 +1031,7 @@
       "base_parts": {
         "FXC": 66522912.0
       },
-      "value_delta": -592630.2379611974,
+      "value_delta": -285740.6072009987,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -1043,7 +1043,7 @@
         "6S=F"
       ],
       "is_basket": false,
-      "chg_w": -0.022716,
+      "chg_w": -0.009699,
       "members_ok": 1,
       "members_total": 1,
       "base": 368998528.0,
@@ -1052,7 +1052,7 @@
       "base_parts": {
         "FXF": 368998528.0
       },
-      "value_delta": -8577005.826400515,
+      "value_delta": -3613968.604567702,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -1064,7 +1064,7 @@
         "6N=F"
       ],
       "is_basket": false,
-      "chg_w": -0.003694,
+      "chg_w": -0.010269,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
@@ -1083,7 +1083,7 @@
         "6A=F"
       ],
       "is_basket": false,
-      "chg_w": -0.013696,
+      "chg_w": -0.021607,
       "members_ok": 1,
       "members_total": 1,
       "base": 97626488.0,
@@ -1092,7 +1092,7 @@
       "base_parts": {
         "FXA": 97626488.0
       },
-      "value_delta": -1355659.4920511323,
+      "value_delta": -2156000.2230351204,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -1104,7 +1104,7 @@
         "CL=F"
       ],
       "is_basket": false,
-      "chg_w": -0.021028,
+      "chg_w": -0.066036,
       "members_ok": 1,
       "members_total": 1,
       "base": 1946440704.0,
@@ -1113,7 +1113,7 @@
       "base_parts": {
         "USO": 1946440704.0
       },
-      "value_delta": -41808912.94512203,
+      "value_delta": -137623247.07306063,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": "北美供需與美國本土經濟熱度"
@@ -1125,7 +1125,7 @@
         "BZ=F"
       ],
       "is_basket": false,
-      "chg_w": -0.022783,
+      "chg_w": -0.061574,
       "members_ok": 1,
       "members_total": 1,
       "base": 946393216.0,
@@ -1134,7 +1134,7 @@
       "base_parts": {
         "BNO": 946393216.0
       },
-      "value_delta": -22064369.162763238,
+      "value_delta": -62096761.89916306,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": "全球需求、地緣風險與 OPEC+ 政策"
@@ -1146,7 +1146,7 @@
         "NG=F"
       ],
       "is_basket": false,
-      "chg_w": 0.081388,
+      "chg_w": -0.026347,
       "members_ok": 1,
       "members_total": 1,
       "base": 503256320.0,
@@ -1155,7 +1155,7 @@
       "base_parts": {
         "UNG": 503256320.0
       },
-      "value_delta": 37876345.3747961,
+      "value_delta": -13618090.082442101,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -1167,7 +1167,7 @@
         "HO=F"
       ],
       "is_basket": false,
-      "chg_w": -0.005771,
+      "chg_w": -0.093853,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
@@ -1186,7 +1186,7 @@
         "RB=F"
       ],
       "is_basket": false,
-      "chg_w": -0.063709,
+      "chg_w": -0.072151,
       "members_ok": 1,
       "members_total": 1,
       "base": 160653120.0,
@@ -1195,7 +1195,7 @@
       "base_parts": {
         "UGA": 160653120.0
       },
-      "value_delta": -10931483.504679635,
+      "value_delta": -12492639.708745712,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": "終端出行與零售通膨"
@@ -1207,7 +1207,7 @@
         "ZS=F"
       ],
       "is_basket": false,
-      "chg_w": 0.036796,
+      "chg_w": -0.015485,
       "members_ok": 1,
       "members_total": 1,
       "base": 39214584.0,
@@ -1216,7 +1216,7 @@
       "base_parts": {
         "SOYB": 39214584.0
       },
-      "value_delta": 1391729.7451610537,
+      "value_delta": -616788.8079308086,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -1228,7 +1228,7 @@
         "ZC=F"
       ],
       "is_basket": false,
-      "chg_w": 0.010193,
+      "chg_w": 0.019774,
       "members_ok": 1,
       "members_total": 1,
       "base": 107166760.0,
@@ -1237,7 +1237,7 @@
       "base_parts": {
         "CORN": 107166760.0
       },
-      "value_delta": 1081328.8002193642,
+      "value_delta": 2078024.6527563953,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -1249,7 +1249,7 @@
         "ZW=F"
       ],
       "is_basket": false,
-      "chg_w": 0.003805,
+      "chg_w": 0.014976,
       "members_ok": 1,
       "members_total": 1,
       "base": 234461744.0,
@@ -1258,7 +1258,7 @@
       "base_parts": {
         "WEAT": 234461744.0
       },
-      "value_delta": 888745.2602049202,
+      "value_delta": 3459489.759505643,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -1270,7 +1270,7 @@
         "SB=F"
       ],
       "is_basket": false,
-      "chg_w": 0.008772,
+      "chg_w": -0.058727,
       "members_ok": 1,
       "members_total": 1,
       "base": 58860232.0,
@@ -1279,7 +1279,7 @@
       "base_parts": {
         "CANE": 58860232.0
       },
-      "value_delta": 511832.16336694517,
+      "value_delta": -3672351.0019558617,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": null
@@ -1291,7 +1291,7 @@
         "KC=F"
       ],
       "is_basket": false,
-      "chg_w": -0.021429,
+      "chg_w": -0.016774,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
@@ -1310,7 +1310,7 @@
         "CC=F"
       ],
       "is_basket": false,
-      "chg_w": 0.021726,
+      "chg_w": 0.020332,
       "members_ok": 1,
       "members_total": 1,
       "base": null,
@@ -1333,60 +1333,60 @@
         {
           "ticker": "MSFT",
           "tier": "leader",
-          "chg_w": -0.012683478740587506,
-          "mcap": 3890434838162.4756,
-          "value_delta": -49978144292.09759
+          "chg_w": -0.04722755680120694,
+          "mcap": 3700472654609.811,
+          "value_delta": -183427096086.1888
         },
         {
           "ticker": "AAPL",
           "tier": "leader",
-          "chg_w": 0.040599334330470915,
-          "mcap": 5177380321484.68,
-          "value_delta": 201997241102.60028
+          "chg_w": -0.015977269357868473,
+          "mcap": 5074783152043.641,
+          "value_delta": -82397667074.27979
         },
         {
           "ticker": "NVDA",
           "tier": "rank",
-          "chg_w": -0.12746460224995193,
-          "mcap": 3932339097381.592,
-          "value_delta": -574456967880.2489
+          "chg_w": -0.12160783691541643,
+          "mcap": 3524978956832.8857,
+          "value_delta": -488011032119.75104
         },
         {
           "ticker": "GOOGL",
           "tier": "rank",
-          "chg_w": 0.03859115907536825,
-          "mcap": 3636196244934.082,
-          "value_delta": 135110939941.40652
+          "chg_w": -0.08717779538245662,
+          "mcap": 3352082085021.9727,
+          "value_delta": -320135865051.2694
         },
         {
           "ticker": "AMZN",
           "tier": "rank",
-          "chg_w": 0.028384173604423912,
-          "mcap": 2883431500276.855,
-          "value_delta": 79584869527.37239
+          "chg_w": -0.03765333245696856,
+          "mcap": 2782977353016.6934,
+          "value_delta": -108888381939.21036
         },
         {
           "ticker": "META",
           "tier": "rank",
-          "chg_w": 0.051692168754122525,
-          "mcap": 1640694195829.728,
-          "value_delta": 80642457711.94652
+          "chg_w": -0.019705161288819495,
+          "mcap": 1524082159863.6602,
+          "value_delta": -30635971537.920204
         },
         {
           "ticker": "TSLA",
           "tier": "rank",
-          "chg_w": 0.08933057866940386,
-          "mcap": 1542445210513.264,
-          "value_delta": 126488254271.99986
+          "chg_w": -0.05796957563790528,
+          "mcap": 1479952117037.292,
+          "value_delta": -91071576851.84785
         }
       ],
-      "leader_avg": 0.013958,
-      "rank_avg": 0.016107,
-      "breadth_gap": -0.002149,
-      "avg": 0.015493,
-      "value_delta_total": -611349617.0209656,
+      "leader_avg": -0.031602,
+      "rank_avg": -0.064823,
+      "breadth_gap": 0.03322,
+      "avg": -0.055331,
+      "value_delta_total": -1304567590660.4675,
       "mcap_coverage": "7/7",
-      "advance_decline": "5/7"
+      "advance_decline": "0/7"
     },
     {
       "id": 2,
@@ -1397,88 +1397,88 @@
         {
           "ticker": "AVGO",
           "tier": "leader",
-          "chg_w": 0.18155200000332505,
-          "mcap": 1656497346071.1292,
-          "value_delta": 254529979364.90924
+          "chg_w": -0.04860575301096848,
+          "mcap": 1654778763566.3254,
+          "value_delta": -84540944118.85582
         },
         {
           "ticker": "AMD",
           "tier": "leader",
-          "chg_w": 0.18933722473677195,
-          "mcap": 875904993264.9407,
-          "value_delta": 139440200061.48328
+          "chg_w": -0.1642063682829913,
+          "mcap": 809641531696.5574,
+          "value_delta": -159068327976.90546
         },
         {
           "ticker": "QCOM",
           "tier": "rank",
-          "chg_w": 0.042681805225127434,
-          "mcap": 184542901306.15234,
-          "value_delta": 7554197387.695332
+          "chg_w": -0.0854126958052629,
+          "mcap": 173350694122.31445,
+          "value_delta": -16189105224.609371
         },
         {
           "ticker": "TXN",
           "tier": "rank",
-          "chg_w": 0.09460636767301911,
-          "mcap": 277420673514.8114,
-          "value_delta": 23977352054.358757
+          "chg_w": -0.08554150680536698,
+          "mcap": 261109867797.0,
+          "value_delta": -24425090585.660534
         },
         {
           "ticker": "AMAT",
           "tier": "rank",
-          "chg_w": 0.11354892594580224,
-          "mcap": 294027852631.5,
-          "value_delta": 29982110427.793102
+          "chg_w": -0.11030323713026624,
+          "mcap": 268973975543.50873,
+          "value_delta": -33346980054.810047
         },
         {
           "ticker": "LRCX",
           "tier": "rank",
-          "chg_w": 0.12712031239865662,
-          "mcap": 282212710032.6996,
-          "value_delta": 31828871742.96569
+          "chg_w": -0.12875355573909442,
+          "mcap": 254431140130.79834,
+          "value_delta": -37600054724.33472
         },
         {
           "ticker": "MU",
           "tier": "rank",
-          "chg_w": 0.1279855037081068,
-          "mcap": 880597997369.4563,
-          "value_delta": 99915981089.45624
+          "chg_w": -0.13526376392686512,
+          "mcap": 781179845255.5437,
+          "value_delta": -122193706895.99998
         },
         {
           "ticker": "ADI",
           "tier": "rank",
-          "chg_w": 0.09464738665744887,
-          "mcap": 192842518697.56058,
-          "value_delta": 16673899425.18174
+          "chg_w": -0.07781769757035228,
+          "mcap": 182894390292.62115,
+          "value_delta": -15433413017.80289
         },
         {
           "ticker": "ARM",
           "tier": "rank",
-          "chg_w": 0.09111215271442519,
-          "mcap": 203867098693.84766,
-          "value_delta": 17023703918.457026
+          "chg_w": -0.10129822011058265,
+          "mcap": 189571900000.0,
+          "value_delta": -21367817982.227955
         },
         {
           "ticker": "CDNS",
           "tier": "rank",
-          "chg_w": 0.009658652813818502,
-          "mcap": 88627163469.48242,
-          "value_delta": 847830105.1940957
+          "chg_w": -0.08532341838617208,
+          "mcap": 83652670859.74121,
+          "value_delta": -7803339429.870607
         },
         {
           "ticker": "SNPS",
           "tier": "rank",
-          "chg_w": 0.010522623189335611,
-          "mcap": 87233003598.51453,
-          "value_delta": 908361678.8746951
+          "chg_w": -0.06868529385032784,
+          "mcap": 82578147829.65436,
+          "value_delta": -6090212375.948551
         }
       ],
-      "leader_avg": 0.185445,
-      "rank_avg": 0.079098,
-      "breadth_gap": 0.106346,
-      "avg": 0.098434,
-      "value_delta_total": 622682487256.3693,
+      "leader_avg": -0.106406,
+      "rank_avg": -0.0976,
+      "breadth_gap": -0.008806,
+      "avg": -0.099201,
+      "value_delta_total": -528058992387.026,
       "mcap_coverage": "11/11",
-      "advance_decline": "11/11"
+      "advance_decline": "0/11"
     },
     {
       "id": 3,
@@ -1489,81 +1489,81 @@
         {
           "ticker": "MSFT",
           "tier": "leader",
-          "chg_w": -0.012683478740587506,
-          "mcap": 3890434838162.4756,
-          "value_delta": -49978144292.09759
+          "chg_w": -0.04722755680120694,
+          "mcap": 3700472654609.811,
+          "value_delta": -183427096086.1888
         },
         {
           "ticker": "AMZN",
           "tier": "leader",
-          "chg_w": 0.028384173604423912,
-          "mcap": 2883431500276.855,
-          "value_delta": 79584869527.37239
+          "chg_w": -0.03765333245696856,
+          "mcap": 2782977353016.6934,
+          "value_delta": -108888381939.21036
         },
         {
           "ticker": "GOOG",
           "tier": "rank",
-          "chg_w": 0.030253923711749398,
-          "mcap": 3596240744934.082,
-          "value_delta": 105605414978.02765
+          "chg_w": -0.039328329779267035,
+          "mcap": 3331919880000.0,
+          "value_delta": -136403360170.52228
         },
         {
           "ticker": "ORCL",
           "tier": "rank",
-          "chg_w": 0.0796726969988879,
-          "mcap": 390804698808.85504,
-          "value_delta": 28838799425.499992
+          "chg_w": -0.1301235216435076,
+          "mcap": 344724977694.771,
+          "value_delta": -51566893935.186966
         },
         {
           "ticker": "CRM",
           "tier": "rank",
-          "chg_w": 0.01961152614605899,
-          "mcap": 179282316986.08398,
-          "value_delta": 3448372009.277341
+          "chg_w": -0.15746660206970242,
+          "mcap": 150864127990.72266,
+          "value_delta": -28195988037.10937
         },
         {
           "ticker": "NOW",
           "tier": "rank",
-          "chg_w": 0.002745893654456655,
-          "mcap": 106127013250.0,
-          "value_delta": 290615493.0114654
+          "chg_w": -0.11843135018823647,
+          "mcap": 92239683790.0,
+          "value_delta": -12391627463.746862
         },
         {
           "ticker": "SAP",
           "tier": "rank",
-          "chg_w": 0.006211167132992745,
-          "mcap": 271122567052.09644,
-          "value_delta": 1673592614.0482075
+          "chg_w": -0.131718372009881,
+          "mcap": 234568921138.0675,
+          "value_delta": -35584118585.97108
         },
         {
           "ticker": "PLTR",
           "tier": "rank",
-          "chg_w": 0.047449809070102544,
-          "mcap": 404771493893.0249,
-          "value_delta": 18336277247.780556
+          "chg_w": -0.09124127775192359,
+          "mcap": 370291571804.32,
+          "value_delta": -37178048831.94433
         },
         {
           "ticker": "SNOW",
           "tier": "rank",
-          "chg_w": 0.05480641891249105,
-          "mcap": 102664800000.0,
-          "value_delta": 5334334277.343749
+          "chg_w": -0.07170840586940097,
+          "mcap": 94758551999.99998,
+          "value_delta": -7319881758.464751
         },
         {
           "ticker": "PANW",
           "tier": "rank",
-          "chg_w": 0.026765211555255908,
-          "mcap": 263735100418.27148,
-          "value_delta": 6874917145.419683
+          "chg_w": 0.01629447241050186,
+          "mcap": 296174262081.63,
+          "value_delta": 4748626971.022772
         }
       ],
-      "leader_avg": 0.00785,
-      "rank_avg": 0.03344,
-      "breadth_gap": -0.025589,
-      "avg": 0.028322,
-      "value_delta_total": 200009048425.68347,
+      "leader_avg": -0.04244,
+      "rank_avg": -0.090465,
+      "breadth_gap": 0.048025,
+      "avg": -0.08086,
+      "value_delta_total": -596206769837.322,
       "mcap_coverage": "10/10",
-      "advance_decline": "9/10"
+      "advance_decline": "1/10"
     },
     {
       "id": 4,
@@ -1574,88 +1574,88 @@
         {
           "ticker": "JPM",
           "tier": "leader",
-          "chg_w": 0.034978661689795576,
-          "mcap": 919345462404.1316,
-          "value_delta": 31070663672.408207
+          "chg_w": -0.06592382480798997,
+          "mcap": 850379280213.6908,
+          "value_delta": -60016791111.954155
         },
         {
           "ticker": "BLK",
           "tier": "leader",
-          "chg_w": 0.037357842039335454,
-          "mcap": 188845951053.25427,
-          "value_delta": 6800813493.0048895
+          "chg_w": -0.06641399275912063,
+          "mcap": 175395674854.25732,
+          "value_delta": -12477401106.490849
         },
         {
           "ticker": "V",
           "tier": "rank",
-          "chg_w": 0.007358371972205235,
-          "mcap": 794383048360.2236,
-          "value_delta": 5802667770.363365
+          "chg_w": -0.04296827975422135,
+          "mcap": 750518070917.0,
+          "value_delta": -33696344383.944088
         },
         {
           "ticker": "MA",
           "tier": "rank",
-          "chg_w": 0.013007492072302895,
-          "mcap": 576012936942.5548,
-          "value_delta": 7396276700.280729
+          "chg_w": -0.039993834756894664,
+          "mcap": 545791835421.0,
+          "value_delta": -22737675306.451885
         },
         {
           "ticker": "BAC",
           "tier": "rank",
-          "chg_w": 0.0323756039680263,
-          "mcap": 352048666644.78503,
-          "value_delta": 11040350202.92505
+          "chg_w": -0.03840821008069473,
+          "mcap": 335143149315.6433,
+          "value_delta": -13386395995.644974
         },
         {
           "ticker": "BNY",
           "tier": "rank",
-          "chg_w": 0.038518835596982104,
-          "mcap": 103229359815.12787,
-          "value_delta": 3828794050.9185853
+          "chg_w": -0.05209759673312697,
+          "mcap": 97455889538.81393,
+          "value_delta": -5356266230.534973
         },
         {
           "ticker": "CME",
           "tier": "rank",
-          "chg_w": 0.039491274620877315,
-          "mcap": 113812237532.41101,
-          "value_delta": 4323836512.478884
+          "chg_w": -0.0291283754085776,
+          "mcap": 109638727134.17798,
+          "value_delta": -3289413267.8220153
         },
         {
           "ticker": "ICE",
           "tier": "rank",
-          "chg_w": 0.03622215173632837,
-          "mcap": 99761812056.21906,
-          "value_delta": 3487271033.2783294
+          "chg_w": -0.03924432533220634,
+          "mcap": 95497728171.36084,
+          "value_delta": -3900829328.059261
         },
         {
           "ticker": "GS",
           "tier": "rank",
-          "chg_w": 0.0586033930899621,
-          "mcap": 264367600690.294,
-          "value_delta": 14635167924.67604
+          "chg_w": -0.07231824436804357,
+          "mcap": 244456970580.22192,
+          "value_delta": -19056857406.718132
         },
         {
           "ticker": "NDAQ",
           "tier": "rank",
-          "chg_w": 0.012602674005851577,
-          "mcap": 60196810278.414764,
-          "value_delta": 749198867.0440474
+          "chg_w": -0.043258209955176485,
+          "mcap": 57688376272.83809,
+          "value_delta": -2608327470.117864
         },
         {
           "ticker": "BRK-B",
           "tier": "rank",
-          "chg_w": 0.0386238806550987,
-          "mcap": 1259712439201.8345,
-          "value_delta": 46845623153.57743
+          "chg_w": -0.030161298250424906,
+          "mcap": 1215309935363.9893,
+          "value_delta": -37795280144.10253
         }
       ],
-      "leader_avg": 0.036168,
-      "rank_avg": 0.030756,
-      "breadth_gap": 0.005412,
-      "avg": 0.03174,
-      "value_delta_total": 135980663380.95557,
+      "leader_avg": -0.066169,
+      "rank_avg": -0.043064,
+      "breadth_gap": -0.023105,
+      "avg": -0.047265,
+      "value_delta_total": -214321581751.84076,
       "mcap_coverage": "11/11",
-      "advance_decline": "11/11"
+      "advance_decline": "0/11"
     },
     {
       "id": 5,
@@ -1666,67 +1666,67 @@
         {
           "ticker": "LLY",
           "tier": "leader",
-          "chg_w": 0.06610044313146224,
-          "mcap": 1285790452248.5,
-          "value_delta": 79721680274.4999
+          "chg_w": -0.053360260506977286,
+          "mcap": 1203503421935.379,
+          "value_delta": -67839172006.346725
         },
         {
           "ticker": "UNH",
           "tier": "leader",
-          "chg_w": 0.03376886404846524,
-          "mcap": 365093365421.6168,
-          "value_delta": 11926058764.85483
+          "chg_w": -0.18426182459153462,
+          "mcap": 296117562327.27844,
+          "value_delta": -66888082442.26198
         },
         {
           "ticker": "JNJ",
           "tier": "rank",
-          "chg_w": 0.03450147975230178,
-          "mcap": 687888908509.5,
-          "value_delta": 22941663896.3688
+          "chg_w": -0.0577736138542404,
+          "mcap": 643088899722.574,
+          "value_delta": -39431680446.24551
         },
         {
           "ticker": "ABBV",
           "tier": "rank",
-          "chg_w": 0.012769905776937485,
-          "mcap": 521499836601.44525,
-          "value_delta": 6575534816.054759
+          "chg_w": -0.030408844283075442,
+          "mcap": 501189927403.24005,
+          "value_delta": -15718590633.576859
         },
         {
           "ticker": "MRK",
           "tier": "rank",
-          "chg_w": 0.007019687925361007,
-          "mcap": 364264689316.881,
-          "value_delta": 2539200049.3068924
+          "chg_w": -0.0962232030166611,
+          "mcap": 327409273804.6138,
+          "value_delta": -34858572523.65344
         },
         {
           "ticker": "TMO",
           "tier": "rank",
-          "chg_w": 0.007858772613210663,
-          "mcap": 259442610236.00293,
-          "value_delta": 2023002166.0039308
+          "chg_w": -0.015283658932992994,
+          "mcap": 255192804085.0,
+          "value_delta": -3960815533.499752
         },
         {
           "ticker": "ABT",
           "tier": "rank",
-          "chg_w": -0.012826377314610005,
-          "mcap": 187950296726.50705,
-          "value_delta": -2442043999.9695783
+          "chg_w": -0.031515125905995034,
+          "mcap": 179896778852.78967,
+          "value_delta": -5853957854.460317
         },
         {
           "ticker": "ISRG",
           "tier": "rank",
-          "chg_w": -0.020340087684121544,
-          "mcap": 153767685598.1728,
-          "value_delta": -3192585680.73652
+          "chg_w": -0.07422315425858572,
+          "mcap": 141167184333.12744,
+          "value_delta": -11317925855.6814
         }
       ],
-      "leader_avg": 0.049935,
-      "rank_avg": 0.004831,
-      "breadth_gap": 0.045104,
-      "avg": 0.016107,
-      "value_delta_total": 120092510286.38301,
+      "leader_avg": -0.118811,
+      "rank_avg": -0.050905,
+      "breadth_gap": -0.067906,
+      "avg": -0.067881,
+      "value_delta_total": -245868797295.726,
       "mcap_coverage": "8/8",
-      "advance_decline": "6/8"
+      "advance_decline": "0/8"
     },
     {
       "id": 6,
@@ -1737,81 +1737,81 @@
         {
           "ticker": "SPY",
           "tier": "leader",
-          "chg_w": 0.025948969331843985,
+          "chg_w": -0.05448277718991601,
           "mcap": 796865200128.0,
-          "value_delta": 20154833483.77626
+          "value_delta": -45917121445.91157
         },
         {
           "ticker": "IVV",
           "tier": "leader",
-          "chg_w": 0.0256809876081312,
+          "chg_w": -0.05485165211614951,
           "mcap": 870018121728.0,
-          "value_delta": 21783502739.04329
+          "value_delta": -50491472005.021835
         },
         {
           "ticker": "QQQ",
           "tier": "leader",
-          "chg_w": 0.03625977739330666,
+          "chg_w": -0.06267347596363171,
           "mcap": 463833595904.0,
-          "value_delta": 16230006511.805992
+          "value_delta": -31013806798.97018
         },
         {
           "ticker": "SCHD",
           "tier": "rank",
-          "chg_w": 0.027011680761993784,
+          "chg_w": -0.04814916580969575,
           "mcap": 121091694592.0,
-          "value_delta": 3184861728.9543467
+          "value_delta": -6125396828.639599
         },
         {
           "ticker": "VYM",
           "tier": "rank",
-          "chg_w": 0.03671106531726598,
+          "chg_w": -0.04851307902141544,
           "mcap": 100987871232.0,
-          "value_delta": 3576090254.149092
+          "value_delta": -5149027768.28901
         },
         {
           "ticker": "GRID",
           "tier": "rank",
-          "chg_w": 0.03942666693184771,
+          "chg_w": -0.055579659549081506,
           "mcap": 11146576896.0,
-          "value_delta": 422802674.4840441
+          "value_delta": -655982217.3266019
         },
         {
           "ticker": "BIL",
           "tier": "rank",
-          "chg_w": 0.0007653585777926963,
+          "chg_w": 0.0007650239871499487,
           "mcap": 48510820352.0,
-          "value_delta": 37099777.838960454
+          "value_delta": 37083571.383963995
         },
         {
           "ticker": "EDV",
           "tier": "rank",
-          "chg_w": -0.045393618925294366,
+          "chg_w": 0.00975442213515798,
           "mcap": 4339247616.0,
-          "value_delta": -206340703.98884255
+          "value_delta": 41917967.445926525
         },
         {
           "ticker": "IEF",
           "tier": "rank",
-          "chg_w": -0.01981275509178615,
+          "chg_w": 0.006762006612818672,
           "mcap": 43529359360.0,
-          "value_delta": -879869168.6533719
+          "value_delta": 292368815.97706145
         },
         {
           "ticker": "TLT",
           "tier": "rank",
-          "chg_w": -0.03100587124390608,
+          "chg_w": 0.007902624733708175,
           "mcap": 47518568448.0,
-          "value_delta": -1520499011.5727367
+          "value_delta": 372577077.49970776
         }
       ],
-      "leader_avg": 0.029297,
-      "rank_avg": 0.0011,
-      "breadth_gap": 0.028196,
-      "avg": 0.009559,
-      "value_delta_total": 62782488285.83703,
+      "leader_avg": -0.057336,
+      "rank_avg": -0.018151,
+      "breadth_gap": -0.039185,
+      "avg": -0.029907,
+      "value_delta_total": -138608859631.85217,
       "mcap_coverage": "10/10",
-      "advance_decline": "7/10"
+      "advance_decline": "4/10"
     },
     {
       "id": 7,
@@ -1822,60 +1822,60 @@
         {
           "ticker": "WMT",
           "tier": "leader",
-          "chg_w": 0.020474822845417684,
-          "mcap": 1016233526955.4435,
-          "value_delta": 20389725418.1827
+          "chg_w": -0.00118869579980041,
+          "mcap": 999969383479.2017,
+          "value_delta": -1190074042.0860114
         },
         {
           "ticker": "PG",
           "tier": "leader",
-          "chg_w": 0.02660223287569874,
-          "mcap": 393559584754.7128,
-          "value_delta": 10198267049.13842
+          "chg_w": -0.0010711936980828396,
+          "mcap": 389039914699.17566,
+          "value_delta": -417183989.7892457
         },
         {
           "ticker": "KO",
           "tier": "leader",
-          "chg_w": 0.03742031879976304,
-          "mcap": 426963806748.75,
-          "value_delta": 15400818236.318405
+          "chg_w": -0.01385474209452553,
+          "mcap": 413369779616.11316,
+          "value_delta": -5807594408.978104
         },
         {
           "ticker": "COST",
           "tier": "rank",
-          "chg_w": 0.04997332796957488,
-          "mcap": 490194099847.5498,
-          "value_delta": 23330716950.499508
+          "chg_w": 0.0014832268292050976,
+          "mcap": 484708156343.2123,
+          "value_delta": 717867381.6624985
         },
         {
           "ticker": "PEP",
           "tier": "rank",
-          "chg_w": 0.029008109592093545,
-          "mcap": 198197067747.48462,
-          "value_delta": 5587246794.711556
+          "chg_w": -0.022915750265119605,
+          "mcap": 189421011788.0,
+          "value_delta": -4442528474.15961
         },
         {
           "ticker": "MO",
           "tier": "rank",
-          "chg_w": 0.03310557740592768,
-          "mcap": 130812677980.31868,
-          "value_delta": 4191855441.7527275
+          "chg_w": -0.04158108239100056,
+          "mcap": 124225469319.84067,
+          "value_delta": -5389532051.115374
         },
         {
           "ticker": "PM",
           "tier": "rank",
-          "chg_w": 0.00545786236307344,
-          "mcap": 310110134410.4469,
-          "value_delta": 1683350933.3037012
+          "chg_w": -0.052018767394639065,
+          "mcap": 290580157498.5352,
+          "value_delta": -15945064208.572187
         }
       ],
-      "leader_avg": 0.028166,
-      "rank_avg": 0.029386,
-      "breadth_gap": -0.00122,
-      "avg": 0.028863,
-      "value_delta_total": 80781980823.90703,
+      "leader_avg": -0.005372,
+      "rank_avg": -0.028758,
+      "breadth_gap": 0.023387,
+      "avg": -0.018735,
+      "value_delta_total": -32474109793.038033,
       "mcap_coverage": "7/7",
-      "advance_decline": "7/7"
+      "advance_decline": "1/7"
     },
     {
       "id": 8,
@@ -1886,46 +1886,46 @@
         {
           "ticker": "RACE",
           "tier": "leader",
-          "chg_w": -0.012015475792013786,
-          "mcap": 72039193567.91821,
-          "value_delta": -876112090.000002
+          "chg_w": -0.011665398281690664,
+          "mcap": 71027747138.88,
+          "value_delta": -838346606.4890484
         },
         {
           "ticker": "EL",
           "tier": "rank",
-          "chg_w": 0.015355283289975707,
-          "mcap": 40490428905.0,
-          "value_delta": 612339361.9958466
+          "chg_w": -0.07908791353012445,
+          "mcap": 36874369697.88071,
+          "value_delta": -3166770210.740662
         },
         {
           "ticker": "M",
           "tier": "rank",
-          "chg_w": 0.07019067784179045,
-          "mcap": 6451063355.461967,
-          "value_delta": 423106385.7081646
+          "chg_w": -0.02383887897759218,
+          "mcap": 6202945342.5,
+          "value_delta": -151482434.75380352
         },
         {
           "ticker": "SIG",
           "tier": "rank",
-          "chg_w": -0.02797201705221042,
-          "mcap": 4367399485.76844,
-          "value_delta": -125680510.26602149
+          "chg_w": -0.13238031944071926,
+          "mcap": 3930199602.8165054,
+          "value_delta": -599664911.4174726
         },
         {
           "ticker": "RL",
           "tier": "rank",
-          "chg_w": 0.025865706122593313,
-          "mcap": 22830989465.24359,
-          "value_delta": 575650068.4948754
+          "chg_w": -0.035388912498104386,
+          "mcap": 22279571313.87564,
+          "value_delta": -817375841.8679509
         }
       ],
-      "leader_avg": -0.012015,
-      "rank_avg": 0.02086,
-      "breadth_gap": -0.032875,
-      "avg": 0.014285,
-      "value_delta_total": 609303215.9328631,
+      "leader_avg": -0.011665,
+      "rank_avg": -0.067674,
+      "breadth_gap": 0.056009,
+      "avg": -0.056472,
+      "value_delta_total": -5573640005.268938,
       "mcap_coverage": "5/5",
-      "advance_decline": "3/5"
+      "advance_decline": "0/5"
     },
     {
       "id": 9,
@@ -1936,74 +1936,74 @@
         {
           "ticker": "XOM",
           "tier": "leader",
-          "chg_w": 0.028456027971595743,
-          "mcap": 695874541783.4012,
-          "value_delta": 19253934915.19963
+          "chg_w": -0.0639062680028637,
+          "mcap": 648310793147.8025,
+          "value_delta": -44259588414.997894
         },
         {
           "ticker": "CVX",
           "tier": "leader",
-          "chg_w": 0.03424109288555455,
-          "mcap": 429061171823.58923,
-          "value_delta": 14205124452.178493
+          "chg_w": -0.04552810642770566,
+          "mcap": 402933886159.0,
+          "value_delta": -19219860716.60737
         },
         {
           "ticker": "OXY",
           "tier": "leader",
-          "chg_w": 0.04203616330232873,
-          "mcap": 58743816268.75,
-          "value_delta": 2369749477.6471853
+          "chg_w": -0.0785958909702068,
+          "mcap": 53804337601.596466,
+          "value_delta": -4589517032.121829
         },
         {
           "ticker": "COP",
           "tier": "rank",
-          "chg_w": 0.04410357612390947,
-          "mcap": 168222630466.6799,
-          "value_delta": 7105827197.809569
+          "chg_w": -0.036198715934638415,
+          "mcap": 159603415839.19043,
+          "value_delta": -5994429357.6693535
         },
         {
           "ticker": "LIN",
           "tier": "rank",
-          "chg_w": 0.02098010200600431,
-          "mcap": 241505611659.93,
-          "value_delta": 4962694530.179979
+          "chg_w": -0.02350284026262095,
+          "mcap": 234229130960.75497,
+          "value_delta": -5637548245.715006
         },
         {
           "ticker": "FCX",
           "tier": "rank",
-          "chg_w": -0.0030292241000536846,
-          "mcap": 85005613062.6525,
-          "value_delta": -258283450.18115902
+          "chg_w": -0.1874276540621792,
+          "mcap": 70484056457.40295,
+          "value_delta": -16257827892.666344
         },
         {
           "ticker": "EOG",
           "tier": "rank",
-          "chg_w": 0.07605520335786697,
-          "mcap": 82086426141.17188,
-          "value_delta": 5801839732.390633
+          "chg_w": -0.03939075836242856,
+          "mcap": 77508209493.8789,
+          "value_delta": -3178302913.3398476
         },
         {
           "ticker": "SLB",
           "tier": "rank",
-          "chg_w": 0.03505609102943952,
-          "mcap": 76266447401.01906,
-          "value_delta": 2583051822.7500014
+          "chg_w": -0.05912391142319384,
+          "mcap": 70701820714.94244,
+          "value_delta": -4442846657.663307
         },
         {
           "ticker": "NUE",
           "tier": "rank",
-          "chg_w": 0.027595193179370536,
-          "mcap": 56625196715.14479,
-          "value_delta": 1520621400.8647313
+          "chg_w": -0.05108344132011022,
+          "mcap": 55657936067.56964,
+          "value_delta": -2996258085.1803565
         }
       ],
-      "leader_avg": 0.034911,
-      "rank_avg": 0.03346,
-      "breadth_gap": 0.001451,
-      "avg": 0.033944,
-      "value_delta_total": 57544560078.83906,
+      "leader_avg": -0.062677,
+      "rank_avg": -0.066121,
+      "breadth_gap": 0.003444,
+      "avg": -0.064973,
+      "value_delta_total": -106576179315.9613,
       "mcap_coverage": "9/9",
-      "advance_decline": "8/9"
+      "advance_decline": "0/9"
     },
     {
       "id": 10,
@@ -2014,81 +2014,81 @@
         {
           "ticker": "NEE",
           "tier": "leader",
-          "chg_w": -0.02104651254616463,
-          "mcap": 178522696651.3031,
-          "value_delta": -3838057908.7767696
+          "chg_w": -0.017587055738053303,
+          "mcap": 175733275765.85104,
+          "value_delta": -3145959073.499993
         },
         {
           "ticker": "CEG",
           "tier": "leader",
-          "chg_w": 0.12102426736597649,
-          "mcap": 98520707112.896,
-          "value_delta": 10636162611.119997
+          "chg_w": -0.04364292313354079,
+          "mcap": 88615891263.12,
+          "value_delta": -4043946162.3250856
         },
         {
           "ticker": "EQIX",
           "tier": "rank",
-          "chg_w": 0.04056444213894905,
-          "mcap": 104312903491.95117,
-          "value_delta": 4066441795.134877
+          "chg_w": -0.051008166468141325,
+          "mcap": 100775055931.54651,
+          "value_delta": -5416643902.679073
         },
         {
           "ticker": "BE",
           "tier": "rank",
-          "chg_w": 0.10823135191334243,
-          "mcap": 56763129345.2007,
-          "value_delta": 5543562918.750004
+          "chg_w": -0.18374948808354652,
+          "mcap": 49702845987.79,
+          "value_delta": -11188810755.057209
         },
         {
           "ticker": "GEV",
           "tier": "rank",
-          "chg_w": 0.03748823820954916,
-          "mcap": 212570093308.9485,
-          "value_delta": 7680933624.793942
+          "chg_w": -0.04456599520744431,
+          "mcap": 200169971474.47998,
+          "value_delta": -9336881401.183561
         },
         {
           "ticker": "LNG",
           "tier": "rank",
-          "chg_w": 0.11081124821116162,
-          "mcap": 63047958447.5,
-          "value_delta": 6289478058.4764385
+          "chg_w": -0.04559265661188039,
+          "mcap": 60315709081.090576,
+          "value_delta": -2881320467.0806284
         },
         {
           "ticker": "CCJ",
           "tier": "rank",
-          "chg_w": -0.00799438527948515,
-          "mcap": 30805249066.72529,
-          "value_delta": -248253665.11588293
+          "chg_w": -0.1443299078648026,
+          "mcap": 26750434772.695297,
+          "value_delta": -4512121928.268233
         },
         {
           "ticker": "SPGI",
           "tier": "rank",
-          "chg_w": 0.01237710281318849,
-          "mcap": 137293739938.35449,
-          "value_delta": 1678523477.1728573
+          "chg_w": -0.05517492810121016,
+          "mcap": 128327135061.64551,
+          "value_delta": -7493916769.409182
         },
         {
           "ticker": "PWR",
           "tier": "rank",
-          "chg_w": 0.11297833720336903,
-          "mcap": 90709149532.9065,
-          "value_delta": 9207878123.765257
+          "chg_w": -0.030899401640767987,
+          "mcap": 88512274183.75763,
+          "value_delta": -2822179982.937013
         },
         {
           "ticker": "LPX",
           "tier": "rank",
-          "chg_w": 0.006502094742581788,
-          "mcap": 5303976572.14959,
-          "value_delta": 34264169.30942507
+          "chg_w": -0.018716597175940985,
+          "mcap": 5132655192.10041,
+          "value_delta": -97898160.10041054
         }
       ],
-      "leader_avg": 0.049989,
-      "rank_avg": 0.05262,
-      "breadth_gap": -0.002631,
-      "avg": 0.052094,
-      "value_delta_total": 41050933204.63015,
+      "leader_avg": -0.030615,
+      "rank_avg": -0.071755,
+      "breadth_gap": 0.04114,
+      "avg": -0.063527,
+      "value_delta_total": -50939678602.54039,
       "mcap_coverage": "10/10",
-      "advance_decline": "8/10"
+      "advance_decline": "0/10"
     },
     {
       "id": 11,
@@ -2099,37 +2099,37 @@
         {
           "ticker": "ADM",
           "tier": "leader",
-          "chg_w": 0.0418750929549625,
-          "mcap": 34694509822.995056,
-          "value_delta": 1394443377.799012
+          "chg_w": -0.054107424281189975,
+          "mcap": 31948454051.8089,
+          "value_delta": -1827531585.3871453
         },
         {
           "ticker": "CNI",
           "tier": "leader",
-          "chg_w": 0.025149144026932913,
-          "mcap": 76269846183.01392,
-          "value_delta": 1871065647.1252375
+          "chg_w": -0.02504301908602502,
+          "mcap": 74710627098.0835,
+          "value_delta": -1919038169.8608387
         },
         {
           "ticker": "AWK",
           "tier": "rank",
-          "chg_w": -0.004591038748025911,
-          "mcap": 29786058500.83841,
-          "value_delta": -137379664.08934066
+          "chg_w": 0.004743169396647096,
+          "mcap": 29523238890.03232,
+          "value_delta": 139372655.08079398
         },
         {
           "ticker": "XYL",
           "tier": "rank",
-          "chg_w": -0.037309633625298266,
-          "mcap": 21598731944.547363,
-          "value_delta": -837071610.736817
+          "chg_w": 0.012868223972997361,
+          "mcap": 21841826052.168457,
+          "value_delta": 277494646.35791117
         }
       ],
-      "leader_avg": 0.033512,
-      "rank_avg": -0.02095,
-      "breadth_gap": 0.054462,
-      "avg": 0.006281,
-      "value_delta_total": 2291057750.098092,
+      "leader_avg": -0.039575,
+      "rank_avg": 0.008806,
+      "breadth_gap": -0.048381,
+      "avg": -0.015385,
+      "value_delta_total": -3329702453.809279,
       "mcap_coverage": "4/4",
       "advance_decline": "2/4"
     }
@@ -2144,60 +2144,60 @@
         {
           "ticker": "RKLB",
           "tier": "leader",
-          "chg_w": 0.1594120808954469,
-          "mcap": 41407976490.950775,
-          "value_delta": 5693343899.775583
+          "chg_w": -0.19773244942311285,
+          "mcap": 34314850693.350002,
+          "value_delta": -8457477152.485463
         },
         {
           "ticker": "SPCX",
           "tier": "leader",
-          "chg_w": 0.03604674300947597,
-          "mcap": 1889261780848.2134,
-          "value_delta": 65732298616.21945
+          "chg_w": 0.02683363148479434,
+          "mcap": 1880026649236.87,
+          "value_delta": 49129616269.2563
         },
         {
           "ticker": "PL",
           "tier": "rank",
-          "chg_w": 0.10039842308624358,
-          "mcap": 5024740880.766692,
-          "value_delta": 458448549.4181959
+          "chg_w": -0.15969316160988734,
+          "mcap": 4231552112.07,
+          "value_delta": -804170458.2436559
         },
         {
           "ticker": "LUNR",
           "tier": "rank",
-          "chg_w": 0.24164275725364037,
-          "mcap": 2098368454.0,
-          "value_delta": 408374740.63809025
+          "chg_w": -0.16912975106752015,
+          "mcap": 1734919256.4599998,
+          "value_delta": -353155576.75139725
         },
         {
           "ticker": "BKSY",
           "tier": "rank",
-          "chg_w": 0.11579931187010217,
-          "mcap": 978220619.0418854,
-          "value_delta": 101521190.53769687
+          "chg_w": -0.1431535563622699,
+          "mcap": 772301093.3199999,
+          "value_delta": -129028542.87619641
         },
         {
           "ticker": "IRDM",
           "tier": "rank",
-          "chg_w": 0.04155308760931953,
-          "mcap": 4861373677.03949,
-          "value_delta": 193946029.93048075
+          "chg_w": -0.053122307451868966,
+          "mcap": 4628214181.781982,
+          "value_delta": -259654883.25750706
         },
         {
           "ticker": "ASTS",
           "tier": "rank",
-          "chg_w": 0.008351272124180964,
-          "mcap": 9803845137.120209,
-          "value_delta": 81196484.6644593
+          "chg_w": -0.30393226339162427,
+          "mcap": 7939188803.0,
+          "value_delta": -3466581620.556891
         }
       ],
-      "leader_avg": 0.097729,
-      "rank_avg": 0.101549,
-      "breadth_gap": -0.00382,
-      "avg": 0.100458,
-      "value_delta_total": 72669129511.18398,
+      "leader_avg": -0.085449,
+      "rank_avg": -0.165806,
+      "breadth_gap": 0.080357,
+      "avg": -0.142847,
+      "value_delta_total": 35659548035.08519,
       "mcap_coverage": "7/7",
-      "advance_decline": "7/7"
+      "advance_decline": "1/7"
     },
     {
       "id": 102,
@@ -2208,44 +2208,44 @@
         {
           "ticker": "IONQ",
           "tier": "leader",
-          "chg_w": -0.11465358349421839,
-          "mcap": 13420417924.01166,
-          "value_delta": -1737962653.1395438
+          "chg_w": -0.31062834422993457,
+          "mcap": 10512047858.16,
+          "value_delta": -4736690279.205792
         },
         {
           "ticker": "QNT",
           "tier": "leader",
-          "chg_w": -0.05775880187841098,
-          "mcap": 1612667424.512291,
-          "value_delta": -98855514.33525088
+          "chg_w": -0.2114863196511353,
+          "mcap": 1273733877.0,
+          "value_delta": -341626653.5065319
         },
         {
           "ticker": "RGTI",
           "tier": "rank",
-          "chg_w": -0.18127660548433344,
-          "mcap": 3297572593.9315968,
-          "value_delta": -730127867.5684031
+          "chg_w": -0.25022500619974164,
+          "mcap": 2762831125.0800004,
+          "value_delta": -922049202.9188079
         },
         {
           "ticker": "QBTS",
           "tier": "rank",
-          "chg_w": -0.10486890014565853,
-          "mcap": 3629230722.9776726,
-          "value_delta": -425181779.91518
+          "chg_w": -0.27793424106416087,
+          "mcap": 2778260478.83,
+          "value_delta": -1069395284.44082
         },
         {
           "ticker": "QUBT",
           "tier": "rank",
-          "chg_w": -0.12164296843714628,
-          "mcap": 1261740561.4948606,
-          "value_delta": -174737449.3316203
+          "chg_w": -0.17341979877317604,
+          "mcap": 1107426979.04,
+          "value_delta": -232342564.67316735
         }
       ],
-      "leader_avg": -0.086206,
-      "rank_avg": -0.135929,
-      "breadth_gap": 0.049723,
-      "avg": -0.11604,
-      "value_delta_total": -3166865264.289998,
+      "leader_avg": -0.261057,
+      "rank_avg": -0.23386,
+      "breadth_gap": -0.027198,
+      "avg": -0.244739,
+      "value_delta_total": -7302103984.745119,
       "mcap_coverage": "5/5",
       "advance_decline": "0/5"
     },
@@ -2258,60 +2258,60 @@
         {
           "ticker": "CRSP",
           "tier": "leader",
-          "chg_w": -0.15638102784264274,
-          "mcap": 4097314503.932644,
-          "value_delta": -759516173.375057
+          "chg_w": -0.12153008466209869,
+          "mcap": 3776241650.09,
+          "value_delta": -522416259.71158713
         },
         {
           "ticker": "VRTX",
           "tier": "leader",
-          "chg_w": -0.015518563404143704,
-          "mcap": 136555385026.51538,
-          "value_delta": -2152547851.017706
+          "chg_w": -0.04047035157249157,
+          "mcap": 132006918535.96692,
+          "value_delta": -5567692891.936154
         },
         {
           "ticker": "UNH",
           "tier": "leader",
-          "chg_w": 0.03376886404846524,
-          "mcap": 365093365421.6168,
-          "value_delta": 11926058764.85483
+          "chg_w": -0.18426182459153462,
+          "mcap": 296117562327.27844,
+          "value_delta": -66888082442.26198
         },
         {
           "ticker": "NTLA",
           "tier": "rank",
-          "chg_w": -0.14537449486771992,
-          "mcap": 1361477539.6287384,
-          "value_delta": -231591625.1137848
+          "chg_w": -0.14373351547593616,
+          "mcap": 1336213034.24,
+          "value_delta": -224297692.7245191
         },
         {
           "ticker": "RXRX",
           "tier": "rank",
-          "chg_w": -0.09517046589835376,
-          "mcap": 1985426563.3956056,
-          "value_delta": -208828253.1945963
+          "chg_w": -0.2130918899095876,
+          "mcap": 1695560549.2800002,
+          "value_delta": -459151706.8755343
         },
         {
           "ticker": "BIOA",
           "tier": "rank",
-          "chg_w": 0.03932584871654021,
-          "mcap": 255028491.66447258,
-          "value_delta": 9649728.132894533
+          "chg_w": -0.18739351381227498,
+          "mcap": 216429577.38,
+          "value_delta": -49910380.593214266
         },
         {
           "ticker": "TEM",
           "tier": "rank",
-          "chg_w": -0.05851419328159857,
-          "mcap": 13059956930.87719,
-          "value_delta": -811688119.6184309
+          "chg_w": -0.19904319920115643,
+          "mcap": 10872961581.57,
+          "value_delta": -2702004722.1379223
         }
       ],
-      "leader_avg": -0.046044,
-      "rank_avg": -0.064933,
-      "breadth_gap": 0.01889,
-      "avg": -0.056838,
-      "value_delta_total": 7771536470.668149,
+      "leader_avg": -0.115421,
+      "rank_avg": -0.185816,
+      "breadth_gap": 0.070395,
+      "avg": -0.155646,
+      "value_delta_total": -76413556096.2409,
       "mcap_coverage": "7/7",
-      "advance_decline": "2/7"
+      "advance_decline": "0/7"
     },
     {
       "id": 104,
@@ -2322,53 +2322,53 @@
         {
           "ticker": "CEG",
           "tier": "leader",
-          "chg_w": 0.12102426736597649,
-          "mcap": 98520707112.896,
-          "value_delta": 10636162611.119997
+          "chg_w": -0.04364292313354079,
+          "mcap": 88615891263.12,
+          "value_delta": -4043946162.3250856
         },
         {
           "ticker": "GEV",
           "tier": "leader",
-          "chg_w": 0.03748823820954916,
-          "mcap": 212570093308.9485,
-          "value_delta": 7680933624.793942
+          "chg_w": -0.04456599520744431,
+          "mcap": 200169971474.47998,
+          "value_delta": -9336881401.183561
         },
         {
           "ticker": "VST",
           "tier": "rank",
-          "chg_w": 0.06578518633267372,
-          "mcap": 45142884921.479324,
-          "value_delta": 2786427447.3289523
+          "chg_w": -0.058973363036042836,
+          "mcap": 42135849894.450005,
+          "value_delta": -2640618952.800996
         },
         {
           "ticker": "OKLO",
           "tier": "rank",
-          "chg_w": 0.015711288799157508,
-          "mcap": 4671327079.459414,
-          "value_delta": 72257313.30354857
+          "chg_w": -0.15699927600410912,
+          "mcap": 4069835118.12,
+          "value_delta": -757960401.2345457
         },
         {
           "ticker": "SMR",
           "tier": "rank",
-          "chg_w": -0.08267718161451054,
-          "mcap": 1913122824.076355,
-          "value_delta": -172427415.96182245
+          "chg_w": -0.2523900436766424,
+          "mcap": 1564162703.52,
+          "value_delta": -528054889.7452582
         },
         {
           "ticker": "CCJ",
           "tier": "rank",
-          "chg_w": -0.00799438527948515,
-          "mcap": 30805249066.72529,
-          "value_delta": -248253665.11588293
+          "chg_w": -0.1443299078648026,
+          "mcap": 26750434772.695297,
+          "value_delta": -4512121928.268233
         }
       ],
-      "leader_avg": 0.079256,
-      "rank_avg": -0.002294,
-      "breadth_gap": 0.08155,
-      "avg": 0.02489,
-      "value_delta_total": 20755099915.468735,
+      "leader_avg": -0.044104,
+      "rank_avg": -0.153173,
+      "breadth_gap": 0.109069,
+      "avg": -0.116817,
+      "value_delta_total": -21819583735.557682,
       "mcap_coverage": "6/6",
-      "advance_decline": "4/6"
+      "advance_decline": "0/6"
     },
     {
       "id": 105,
@@ -2379,32 +2379,32 @@
         {
           "ticker": "PLTR",
           "tier": "leader",
-          "chg_w": 0.047449809070102544,
-          "mcap": 404771493893.0249,
-          "value_delta": 18336277247.780556
+          "chg_w": -0.09124127775192359,
+          "mcap": 370291571804.32,
+          "value_delta": -37178048831.94433
         },
         {
           "ticker": "SNOW",
           "tier": "rank",
-          "chg_w": 0.05480641891249105,
-          "mcap": 102664800000.0,
-          "value_delta": 5334334277.343749
+          "chg_w": -0.07170840586940097,
+          "mcap": 94758551999.99998,
+          "value_delta": -7319881758.464751
         },
         {
           "ticker": "PANW",
           "tier": "rank",
-          "chg_w": 0.026765211555255908,
-          "mcap": 263735100418.27148,
-          "value_delta": 6874917145.419683
+          "chg_w": 0.01629447241050186,
+          "mcap": 296174262081.63,
+          "value_delta": 4748626971.022772
         }
       ],
-      "leader_avg": 0.04745,
-      "rank_avg": 0.040786,
-      "breadth_gap": 0.006664,
-      "avg": 0.043007,
-      "value_delta_total": 30545528670.54399,
+      "leader_avg": -0.091241,
+      "rank_avg": -0.027707,
+      "breadth_gap": -0.063534,
+      "avg": -0.048885,
+      "value_delta_total": -39749303619.38631,
       "mcap_coverage": "3/3",
-      "advance_decline": "3/3"
+      "advance_decline": "1/3"
     },
     {
       "id": 106,
@@ -2415,67 +2415,67 @@
         {
           "ticker": "BLK",
           "tier": "leader",
-          "chg_w": 0.037357842039335454,
-          "mcap": 188845951053.25427,
-          "value_delta": 6800813493.0048895
+          "chg_w": -0.06641399275912063,
+          "mcap": 175395674854.25732,
+          "value_delta": -12477401106.490849
         },
         {
           "ticker": "JPM",
           "tier": "leader",
-          "chg_w": 0.034978661689795576,
-          "mcap": 919345462404.1316,
-          "value_delta": 31070663672.408207
+          "chg_w": -0.06592382480798997,
+          "mcap": 850379280213.6908,
+          "value_delta": -60016791111.954155
         },
         {
           "ticker": "ICE",
           "tier": "rank",
-          "chg_w": 0.03622215173632837,
-          "mcap": 99761812056.21906,
-          "value_delta": 3487271033.2783294
+          "chg_w": -0.03924432533220634,
+          "mcap": 95497728171.36084,
+          "value_delta": -3900829328.059261
         },
         {
           "ticker": "BNY",
           "tier": "rank",
-          "chg_w": 0.038518835596982104,
-          "mcap": 103229359815.12787,
-          "value_delta": 3828794050.9185853
+          "chg_w": -0.05209759673312697,
+          "mcap": 97455889538.81393,
+          "value_delta": -5356266230.534973
         },
         {
           "ticker": "CME",
           "tier": "rank",
-          "chg_w": 0.039491274620877315,
-          "mcap": 113812237532.41101,
-          "value_delta": 4323836512.478884
+          "chg_w": -0.0291283754085776,
+          "mcap": 109638727134.17798,
+          "value_delta": -3289413267.8220153
         },
         {
           "ticker": "GS",
           "tier": "rank",
-          "chg_w": 0.0586033930899621,
-          "mcap": 264367600690.294,
-          "value_delta": 14635167924.67604
+          "chg_w": -0.07231824436804357,
+          "mcap": 244456970580.22192,
+          "value_delta": -19056857406.718132
         },
         {
           "ticker": "BAC",
           "tier": "rank",
-          "chg_w": 0.0323756039680263,
-          "mcap": 352048666644.78503,
-          "value_delta": 11040350202.92505
+          "chg_w": -0.03840821008069473,
+          "mcap": 335143149315.6433,
+          "value_delta": -13386395995.644974
         },
         {
           "ticker": "NDAQ",
           "tier": "rank",
-          "chg_w": 0.012602674005851577,
-          "mcap": 60196810278.414764,
-          "value_delta": 749198867.0440474
+          "chg_w": -0.043258209955176485,
+          "mcap": 57688376272.83809,
+          "value_delta": -2608327470.117864
         }
       ],
-      "leader_avg": 0.036168,
-      "rank_avg": 0.036302,
-      "breadth_gap": -0.000134,
-      "avg": 0.036269,
-      "value_delta_total": 75936095756.73404,
+      "leader_avg": -0.066169,
+      "rank_avg": -0.045742,
+      "breadth_gap": -0.020426,
+      "avg": -0.050849,
+      "value_delta_total": -120092281917.34224,
       "mcap_coverage": "8/8",
-      "advance_decline": "8/8"
+      "advance_decline": "0/8"
     },
     {
       "id": 107,
@@ -2486,39 +2486,39 @@
         {
           "ticker": "V",
           "tier": "leader",
-          "chg_w": 0.007358371972205235,
-          "mcap": 794383048360.2236,
-          "value_delta": 5802667770.363365
+          "chg_w": -0.04296827975422135,
+          "mcap": 750518070917.0,
+          "value_delta": -33696344383.944088
         },
         {
           "ticker": "MA",
           "tier": "leader",
-          "chg_w": 0.013007492072302895,
-          "mcap": 576012936942.5548,
-          "value_delta": 7396276700.280729
+          "chg_w": -0.039993834756894664,
+          "mcap": 545791835421.0,
+          "value_delta": -22737675306.451885
         },
         {
           "ticker": "AXP",
           "tier": "rank",
-          "chg_w": -0.0012149417200661983,
-          "mcap": 214978981063.52472,
-          "value_delta": -261504645.93573588
+          "chg_w": -0.02185126158705608,
+          "mcap": 208615428497.44067,
+          "value_delta": -4660344710.549438
         },
         {
           "ticker": "XYZ",
           "tier": "rank",
-          "chg_w": -0.010528796098905446,
-          "mcap": 51130471866.91284,
-          "value_delta": -544070722.4273685
+          "chg_w": -0.07827810299718074,
+          "mcap": 44873668060.0,
+          "value_delta": -3810938659.137915
         }
       ],
-      "leader_avg": 0.010183,
-      "rank_avg": -0.005872,
-      "breadth_gap": 0.016055,
-      "avg": 0.002156,
-      "value_delta_total": 12393369102.28099,
+      "leader_avg": -0.041481,
+      "rank_avg": -0.050065,
+      "breadth_gap": 0.008584,
+      "avg": -0.045773,
+      "value_delta_total": -64905303060.08333,
       "mcap_coverage": "4/4",
-      "advance_decline": "2/4"
+      "advance_decline": "0/4"
     },
     {
       "id": 108,
@@ -2529,32 +2529,32 @@
         {
           "ticker": "COIN",
           "tier": "leader",
-          "chg_w": -0.05276041311055679,
-          "mcap": 33797050711.696915,
-          "value_delta": -1882466043.5941918
+          "chg_w": -0.1890364814601856,
+          "mcap": 28824793317.66,
+          "value_delta": -6719090788.94034
         },
         {
           "ticker": "CRCL",
           "tier": "leader",
-          "chg_w": -0.08367702887896789,
-          "mcap": 15957603264.534485,
-          "value_delta": -1457220730.3413696
+          "chg_w": -0.2057509059621465,
+          "mcap": 13309975035.52,
+          "value_delta": -3447960397.3728623
         },
         {
           "ticker": "SECZ",
           "tier": "rank",
-          "chg_w": 0.1609195229052427,
-          "mcap": 1319186722.3438168,
-          "value_delta": 182857548.5157251
+          "chg_w": -0.25607069989481157,
+          "mcap": 1076068070.98,
+          "value_delta": -370397434.3144528
         }
       ],
-      "leader_avg": -0.068219,
-      "rank_avg": 0.16092,
-      "breadth_gap": -0.229138,
-      "avg": 0.008161,
-      "value_delta_total": -3156829225.419836,
+      "leader_avg": -0.197394,
+      "rank_avg": -0.256071,
+      "breadth_gap": 0.058677,
+      "avg": -0.216953,
+      "value_delta_total": -10537448620.627655,
       "mcap_coverage": "3/3",
-      "advance_decline": "1/3"
+      "advance_decline": "0/3"
     },
     {
       "id": 109,
@@ -2565,35 +2565,35 @@
         {
           "ticker": "TWST",
           "tier": "leader",
-          "chg_w": -0.07608247679237234,
-          "mcap": 7399210917.232437,
-          "value_delta": -609307950.9281001
+          "chg_w": -0.05090136267375711,
+          "mcap": 7610105601.04,
+          "value_delta": -408139607.35987735
         },
         {
           "ticker": "DNA",
           "tier": "rank",
-          "chg_w": -0.14880427908345562,
-          "mcap": 622968352.674098,
-          "value_delta": -108906041.62302397
+          "chg_w": -0.17658540679187307,
+          "mcap": 531565106.59999996,
+          "value_delta": -113996814.43537466
         }
       ],
-      "leader_avg": -0.076082,
-      "rank_avg": -0.148804,
-      "breadth_gap": 0.072722,
-      "avg": -0.112443,
-      "value_delta_total": -718213992.5511241,
+      "leader_avg": -0.050901,
+      "rank_avg": -0.176585,
+      "breadth_gap": 0.125684,
+      "avg": -0.113743,
+      "value_delta_total": -522136421.795252,
       "mcap_coverage": "2/2",
       "advance_decline": "0/2"
     }
   ],
   "windows": {
     "sectors": {
-      "curr": "2026-11-13",
-      "prev": "2026-11-08"
+      "curr": "2026-11-19",
+      "prev": "2026-11-14"
     },
     "themes": {
-      "curr": "2026-11-13",
-      "prev": "2026-11-06"
+      "curr": "2026-11-19",
+      "prev": "2026-11-12"
     }
   },
   "divergence": [
@@ -2603,8 +2603,8 @@
       "truth": "Smart Money 不計代價逃離信用體系，定價地緣危機或通膨爆發",
       "hit": false,
       "evidence": {
-        "2Y Δbp": 35.0,
-        "Gold %": -0.045964
+        "2Y Δbp": -6.0,
+        "Gold %": -0.084858
       }
     },
     {
@@ -2613,18 +2613,18 @@
       "truth": "用少數權值股拉指數，護盤掩護出貨，暗中抽離流動性",
       "hit": false,
       "evidence": {
-        "龍頭−其餘 平均差": 0.016
+        "龍頭−其餘 平均差": 0.0016
       }
     },
     {
       "code": "C",
       "title": "DXY 強勢大漲 + 風險資產同步暴漲",
       "truth": "全球法幣信任危機，資金進行逃命式搶購",
-      "hit": true,
+      "hit": false,
       "evidence": {
-        "DXY %": 0.01086,
-        "BTC %": -0.058149,
-        "NDX %": 0.035337
+        "DXY %": 0.006533,
+        "BTC %": -0.0771,
+        "NDX %": -0.062644
       }
     },
     {
@@ -2633,8 +2633,8 @@
       "truth": "媒體造神誘多，私下準備關門",
       "hit": false,
       "evidence": {
-        "HY OAS Δ": -0.21999999999999975,
-        "S&P %": 0.025053
+        "HY OAS Δ": 0.27,
+        "S&P %": -0.054867
       }
     },
     {
@@ -2643,19 +2643,19 @@
       "truth": "資金從博弈型市場撤退，轉向實體過路費資產",
       "hit": false,
       "evidence": {
-        "Frontier 平均 %": -0.0078,
-        "Infra 龍頭 %": 0.049989
+        "Frontier 平均 %": -0.1263,
+        "Infra 龍頭 %": -0.030615
       }
     },
     {
       "code": "F",
       "title": "淨流動性與實際準備金背離",
       "truth": "有第四條水管在動 —— 通貨、其他負債或資本項，不在 WALCL−TGA−RRP 的視野內",
-      "hit": true,
+      "hit": false,
       "evidence": {
-        "Δ淨流動性": 33086,
-        "Δ準備金": 7173,
-        "缺口": 25913
+        "Δ淨流動性": 21619,
+        "Δ準備金": 31813,
+        "缺口": -10194
       }
     }
   ],
