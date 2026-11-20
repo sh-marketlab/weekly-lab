@@ -564,9 +564,9 @@
    "at_start": {
     "t": "AMAT",
     "sec": "半導體",
-    "rel": 2.18,
-    "peers": -4.07,
-    "rv": 1.55,
+    "rel": 2.14,
+    "peers": -4.05,
+    "rv": 1.56,
     "clv": -0.399,
     "ret": -1.08,
     "peers_ret": -2.82
@@ -1685,7 +1685,7 @@
     "4": {
      "ret": -15.51,
      "peers": -3.5,
-     "excess": -12.02
+     "excess": -12.01
     },
     "8": {
      "ret": -10.61,
@@ -1955,6 +1955,67 @@
    },
    "snapshots": [],
    "name": "BlackSky Technology Inc."
+  },
+  "IRDM@2025-W49": {
+   "key": "IRDM@2025-W49",
+   "t": "IRDM",
+   "sec": "太空",
+   "start": "2025-W49",
+   "start_date": "2025-12-05",
+   "weeks": [
+    "2025-W49"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "IRDM",
+    "sec": "太空",
+    "rel": 2.72,
+    "peers": -0.52,
+    "rv": 2.39,
+    "clv": 0.339,
+    "ret": 8.17,
+    "peers_ret": 14.62
+   },
+   "perf": {
+    "1": {
+     "ret": 5.58,
+     "peers": 17.92,
+     "excess": -12.34
+    },
+    "2": {
+     "ret": -3.17,
+     "peers": 25.45,
+     "excess": -28.62
+    },
+    "4": {
+     "ret": 0.92,
+     "peers": 35.37,
+     "excess": -34.45
+    },
+    "8": {
+     "ret": 13.2,
+     "peers": 57.47,
+     "excess": -44.27
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W06",
+    "date": "2026-02-06",
+    "ret": 13.65,
+    "excess": -32.44
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-20",
+   "backfill": true,
+   "news": {
+    "2025-W49": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
   },
   "IRDM@2026-W04": {
    "key": "IRDM@2026-W04",
@@ -2717,67 +2778,6 @@
    },
    "snapshots": [],
    "name": "UnitedHealth Group Incorporated"
-  },
-  "CRM@2025-W49": {
-   "key": "CRM@2025-W49",
-   "t": "CRM",
-   "sec": "AI軟體",
-   "start": "2025-W49",
-   "start_date": "2025-12-05",
-   "weeks": [
-    "2025-W49"
-   ],
-   "confirmed": null,
-   "confirm_date": null,
-   "at_start": {
-    "t": "CRM",
-    "sec": "AI軟體",
-    "rel": 18.16,
-    "peers": -7.35,
-    "rv": 2.1,
-    "clv": 0.686,
-    "ret": 13.03,
-    "peers_ret": 2.31
-   },
-   "perf": {
-    "1": {
-     "ret": 0.64,
-     "peers": -2.09,
-     "excess": 2.73
-    },
-    "2": {
-     "ret": -0.09,
-     "peers": -3.25,
-     "excess": 3.15
-    },
-    "4": {
-     "ret": -2.51,
-     "peers": -8.66,
-     "excess": 6.15
-    },
-    "8": {
-     "ret": -18.4,
-     "peers": -21.0,
-     "excess": 2.61
-    }
-   },
-   "perf_confirm": null,
-   "exit": {
-    "week": "2026-W04",
-    "date": "2026-01-23",
-    "ret": -12.34,
-    "excess": -0.12
-   },
-   "status": "未確認",
-   "first_seen": "2026-11-19",
-   "backfill": true,
-   "news": {
-    "2025-W49": {
-     "status": "未查（回溯）"
-    }
-   },
-   "snapshots": [],
-   "name": null
   },
   "SNOW@2026-W36": {
    "key": "SNOW@2026-W36",
