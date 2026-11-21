@@ -10,7 +10,8 @@
   "UNH": "UnitedHealth Group Incorporated",
   "SNOW": "Snowflake Inc.",
   "BSY": "Bentley Systems, Incorporated",
-  "ETN": "Eaton Corporation, PLC"
+  "ETN": "Eaton Corporation, PLC",
+  "PANW": "Palo Alto Networks, Inc."
  },
  "episodes": {
   "AAPL@2026-W26": {
@@ -101,7 +102,11 @@
      "peers": 0.99,
      "excess": 3.15
     },
-    "2": null,
+    "2": {
+     "ret": 0.13,
+     "peers": -10.77,
+     "excess": 10.9
+    },
     "4": null,
     "8": null
    },
@@ -339,12 +344,21 @@
      "peers": 1.89,
      "excess": -3.16
     },
-    "2": null,
+    "2": {
+     "ret": -8.51,
+     "peers": -9.33,
+     "excess": 0.82
+    },
     "4": null,
     "8": null
    },
    "perf_confirm": null,
-   "exit": null,
+   "exit": {
+    "week": "2026-W47",
+    "date": "2026-11-20",
+    "ret": -8.51,
+    "excess": 0.82
+   },
    "status": "未確認",
    "first_seen": "2026-11-19",
    "backfill": true,
@@ -564,9 +578,9 @@
    "at_start": {
     "t": "AMAT",
     "sec": "半導體",
-    "rel": 2.14,
-    "peers": -4.05,
-    "rv": 1.56,
+    "rel": 2.17,
+    "peers": -4.13,
+    "rv": 1.59,
     "clv": -0.399,
     "ret": -1.08,
     "peers_ret": -2.82
@@ -1860,7 +1874,11 @@
      "peers": 6.92,
      "excess": 4.66
     },
-    "2": null,
+    "2": {
+     "ret": -23.25,
+     "peers": -13.56,
+     "excess": -9.69
+    },
     "4": null,
     "8": null
    },
@@ -1955,67 +1973,6 @@
    },
    "snapshots": [],
    "name": "BlackSky Technology Inc."
-  },
-  "IRDM@2025-W49": {
-   "key": "IRDM@2025-W49",
-   "t": "IRDM",
-   "sec": "太空",
-   "start": "2025-W49",
-   "start_date": "2025-12-05",
-   "weeks": [
-    "2025-W49"
-   ],
-   "confirmed": null,
-   "confirm_date": null,
-   "at_start": {
-    "t": "IRDM",
-    "sec": "太空",
-    "rel": 2.72,
-    "peers": -0.52,
-    "rv": 2.39,
-    "clv": 0.339,
-    "ret": 8.17,
-    "peers_ret": 14.62
-   },
-   "perf": {
-    "1": {
-     "ret": 5.58,
-     "peers": 17.92,
-     "excess": -12.34
-    },
-    "2": {
-     "ret": -3.17,
-     "peers": 25.45,
-     "excess": -28.62
-    },
-    "4": {
-     "ret": 0.92,
-     "peers": 35.37,
-     "excess": -34.45
-    },
-    "8": {
-     "ret": 13.2,
-     "peers": 57.47,
-     "excess": -44.27
-    }
-   },
-   "perf_confirm": null,
-   "exit": {
-    "week": "2026-W06",
-    "date": "2026-02-06",
-    "ret": 13.65,
-    "excess": -32.44
-   },
-   "status": "未確認",
-   "first_seen": "2026-11-20",
-   "backfill": true,
-   "news": {
-    "2025-W49": {
-     "status": "未查（回溯）"
-    }
-   },
-   "snapshots": [],
-   "name": null
   },
   "IRDM@2026-W04": {
    "key": "IRDM@2026-W04",
@@ -2176,7 +2133,11 @@
      "peers": -28.71,
      "excess": -2.54
     },
-    "8": null
+    "8": {
+     "ret": -54.44,
+     "peers": -52.48,
+     "excess": -1.96
+    }
    },
    "perf_confirm": null,
    "exit": {
@@ -2642,6 +2603,136 @@
    "snapshots": [],
    "name": "Intellia Therapeutics, Inc."
   },
+  "NTLA@2026-W47": {
+   "key": "NTLA@2026-W47",
+   "t": "NTLA",
+   "sec": "長壽",
+   "start": "2026-W47",
+   "start_date": "2026-11-20",
+   "weeks": [
+    "2026-W47"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "NTLA",
+    "sec": "長壽",
+    "rel": 10.56,
+    "peers": -24.33,
+    "rv": 1.97,
+    "clv": -0.228,
+    "ret": 3.09,
+    "peers_ret": -13.9
+   },
+   "perf": {
+    "1": null,
+    "2": null,
+    "4": null,
+    "8": null
+   },
+   "perf_confirm": null,
+   "exit": null,
+   "status": "首次・等下週確認",
+   "first_seen": "2026-11-21",
+   "backfill": false,
+   "news": {
+    "2026-W47": {
+     "window": [
+      "2026-11-13",
+      "2026-11-21"
+     ],
+     "query": "(\"NTLA\" OR \"Intellia Therapeutics\") stock",
+     "checked": "2026-11-21",
+     "status": "有消息",
+     "tags": [
+      "財報",
+      "產品／審批",
+      "分析師評等"
+     ],
+     "earnings": null,
+     "headlines": [
+      {
+       "title": "Intellia Therapeutics Stock Price Forecast. Should You Buy NTLA?",
+       "source": "StockInvest.us",
+       "date": "2026-11-18",
+       "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE9jMnNtbmNDZDNWZEJyVFktNjFfRUZtRC0xVFdCVHhteUF2R3pEMDlxSm5zSXhCT3pFU1I3Z19rcVNKQUZPTUNMQQ?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Intellia Therapeutics (NTLA), Why Is It Back In The Spotlight?",
+       "source": "Yahoo Finance",
+       "date": "2026-11-17",
+       "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQajJRaGR5R1FsVWdDdU1sNEdJX1RBU2pJUUZya3k2ZWFNV0FFWGlEUUVOQmxkN0VDX0g4b3FXUUs0WG9xVWpLV3BOcU01bVhwLUxrTFlkNkx3WHZUcXhXUE5ycUt2NnZQUVhzZGVIMDZ4MjVHcENkbTJaTTNmR3M4Y3FiZTZLWkppVjdkeDdKRXVBYlVjVW4xRy1zVTI?oc=5",
+       "tags": []
+      },
+      {
+       "title": "EDGAR Filing Documents for 0001193125-26-470525",
+       "source": "SEC.gov",
+       "date": "2026-11-20",
+       "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOc25Rc2FqT0xKNjMtR3NmXzJIQ0JnSS1KWURNZWlnU3JxYWllZlpTeElFdTZlc1BiZTI4MXlPMnZ0M2VFMnhSZEMyOUpEMDdaMzBBZUhxT1NRYndIdTVydS16WEgtcEtHRHFfVE5VeV9lQWZ0b0lhV0FfVGF0MlM0dXpIaFB6QVd5d1ViVnNrYjN1ZTNmUVhOenBuRTdDZw?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Intellia Therapeutics Preps Gene-Editing Launch as FDA Review Advances",
+       "source": "TradingView",
+       "date": "2026-11-20",
+       "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPcmtZdnV2NFF3ZHEyVnUydmFWUG1takdKZmhmSXV4LVRHUUV2TnhHRC1wOHB5U0VKWkgyNm84VU9rSnItYk13cGVNUC1KaFhWRHRhM1VBT19FUmFSWEhVUEJhSGJTWXEwQ19TSHV1S044THV2TUdJbGItRTJZYjZtQ3dnbTM4ejFMQ0lkOS1JVFpxY0JZU19vNjJJZkxScDZXeFBlM1p2ek5PR0Jzek1LOVZYSTVCUV9KdmRqcVVxSFpXb0dNR0tFYy00WQ?oc=5",
+       "tags": [
+        "財報",
+        "產品／審批"
+       ]
+      },
+      {
+       "title": "Buckle Posts Strong Q3 Results, Joins Evolent Health, Bending Spoons And Other Big Stocks Moving Higher On Friday",
+       "source": "Benzinga",
+       "date": "2026-11-20",
+       "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxPWTNrX1hjZWttb3dfbGVyc0M3aFhiUkFnRzMtNVdHR2RqSTJEdnN0eHIwOGkyQmVseGhSWkhHTk1uRkJWUHo0Q0g4SWhLWUU2UXMwR2t5Z29OU0FIMVVtZmVwTUpFRW01bVFXUDJZSVJ5SE43VzZibXY5UUZFMTlxMkFQSGlkYjdNVzJIOGZ3QmFweXBYUlhyVXVVN2lsN0pWemJTaTRpMnZUTTMxZmxwSThwdXRiSXdGRmJHMU80d0U1VnlRUjJNQWYzd3JNaWgxUkdrcG5DRnRJcUpCODgyNERQeEEwYTU0dHZONEF6M1lKN1BybFF6b0QzYmpucXQ2b1E?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Why Is Intellia Therapeutics (NASDAQ:NTLA) Up 7% in US Trading Ahead of Its March 10 FDA Decision?",
+       "source": "Kalkine",
+       "date": "2026-11-20",
+       "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNeTFLeThKSTZiemZ4YUFEdlVBQU9jSWpoV3g1OHJZWEcyVWlzSkZ4bkpZa2tSMjZrQ0RUZnVURnl5QzVxa1RFY1EzX3hNenlnMVJhMndfSHIzOHZXWEx3ZFRVdEQ0S0EwSVlBLTQzV21RQWpUaW55U21fendreEVfYTBJclUwLXlKU01MSm9pZENQZGFjNXlYSFA0RGZ4Ulo1N2N1T0dxWXZDVHNhVUlSQ3BwZ1JOQU84UlN2TzdNSGpRZzBuZDNPVzlLWXU?oc=5",
+       "tags": [
+        "產品／審批"
+       ]
+      },
+      {
+       "title": "Intellia Therapeutics Stock In Focus As HAE Gene Editing Wins Priority Review",
+       "source": "Simply Wall St",
+       "date": "2026-11-14",
+       "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQR0U5QjRNanRja3J3MTd6QUdiOUR1TnBxQmdqYVNVNDNfRDJlZTRWc1RhSUlxd2t0UG16cEpRZHgwRmU3TWVuNERKLW1nUWM0SXYxNldzaWZCNFRGc09fZWZCOTFiOG5lVG13dnpXak5ObVU1NU5BRW1PZ3VZZVpuNVozOTZHSjBMUWk2US1sdzA2MEZaUlFHVnBrWWpmZkVtUEFQVEltUmVlc0VkUGdLeHpWNUxqTnR3ejVyc0U2MkVRaVQ1OV9ENFJDQzB4WW1IT3RDbE1VRGE2MVlnQ1h0eTFCNlpOMThYMzlR0gHwAUFVX3lxTE9tbC1BTGk4ZndRUkR2dWFROElLUThyZm4tT25sZk5wZDVkcHBNMWRrX2Q0eFktb2g3Tk00VFU0bDNoV2tjT0dTN1lDVVVSOVVzUlRXeHdSZWpGZnFTdHlvclJPanpPaHZheEg4RjNPOVlpeklzbjhnQUlDaWdhR09oRFBESWtqTUxpR1QtY3dNSjNwa1MwbXZtdzRHWDBwN2Z5VEQ0M3hIQVVBTGt2N3ktc2NMS3dKdVBxV1B1OUpUNlZaYzJFZU8xMllDb3VNM3lGaVFNbDdiREZGYlhmYXZ6TlJtSTBzVmtGOXU1aHBrXw?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Intellia stock price target maintained at $30 by Citizens on HAE data",
+       "source": "Investing.com",
+       "date": "2026-11-13",
+       "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQZXZlQ25JSl91S1laOGtDRmE2Qi1MT3M4WWRtY1BYQUhrM0VHX1JkVEw5S05KT2V3TWN2bzZ6MDRPUkxIYlkwbjk2MUszQkFPTDdnSHRHczRuVFFYWUF0cC1qTERuRGczQUZ6SlgtTVNiMXhNdzQwUnItalhlOXphZC1jZlA1eFE1V05yUTNwNmIyNGZva0UxZHIxcTRvdm9mRGdxMF9QMXNKZUdoblJZZVF3M1pockxsMmVwci1CeE90Z0V3Ny1Z?oc=5",
+       "tags": [
+        "分析師評等"
+       ]
+      }
+     ]
+    }
+   },
+   "snapshots": [
+    {
+     "date": "2026-11-21",
+     "name": "Intellia Therapeutics, Inc.",
+     "type": "EQUITY",
+     "short_pct_float": 0.398,
+     "short_chg": -0.0166,
+     "inst_pct": 0.9318,
+     "inst_top_up": 4,
+     "inst_top_down": 5
+    }
+   ],
+   "name": "Intellia Therapeutics, Inc."
+  },
   "UNH@2026-W42": {
    "key": "UNH@2026-W42",
    "t": "UNH",
@@ -2966,7 +3057,12 @@
     }
    },
    "perf_confirm": null,
-   "exit": null,
+   "exit": {
+    "week": "2026-W47",
+    "date": "2026-11-20",
+    "ret": 26.98,
+    "excess": 44.13
+   },
    "status": "未確認",
    "first_seen": "2026-11-19",
    "backfill": true,
@@ -3059,12 +3155,21 @@
      "peers": 1.95,
      "excess": -2.66
     },
-    "2": null,
+    "2": {
+     "ret": -7.55,
+     "peers": -12.91,
+     "excess": 5.37
+    },
     "4": null,
     "8": null
    },
    "perf_confirm": null,
-   "exit": null,
+   "exit": {
+    "week": "2026-W47",
+    "date": "2026-11-20",
+    "ret": -7.55,
+    "excess": 5.37
+   },
    "status": "未確認",
    "first_seen": "2026-11-19",
    "backfill": true,
@@ -3154,6 +3259,138 @@
    },
    "snapshots": [],
    "name": "Bentley Systems, Incorporated"
+  },
+  "PANW@2026-W47": {
+   "key": "PANW@2026-W47",
+   "t": "PANW",
+   "sec": "資安",
+   "start": "2026-W47",
+   "start_date": "2026-11-20",
+   "weeks": [
+    "2026-W47"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "PANW",
+    "sec": "資安",
+    "rel": 32.33,
+    "peers": -1.67,
+    "rv": 1.86,
+    "clv": 0.127,
+    "ret": 6.54,
+    "peers_ret": -2.43
+   },
+   "perf": {
+    "1": null,
+    "2": null,
+    "4": null,
+    "8": null
+   },
+   "perf_confirm": null,
+   "exit": null,
+   "status": "首次・等下週確認",
+   "first_seen": "2026-11-21",
+   "backfill": false,
+   "news": {
+    "2026-W47": {
+     "window": [
+      "2026-11-13",
+      "2026-11-21"
+     ],
+     "query": "(\"PANW\" OR \"Palo Alto Networks\") stock",
+     "checked": "2026-11-21",
+     "status": "有消息",
+     "tags": [
+      "財報",
+      "併購",
+      "合約／訂單"
+     ],
+     "earnings": "2026-11-18",
+     "headlines": [
+      {
+       "title": "Palo Alto Networks, Inc. (PANW) stock price, news, quote and history",
+       "source": "Yahoo Finance UK",
+       "date": "2026-11-20",
+       "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1NMXk4c2RIWV9DYXZrN01hVlRPalhlbm1hR1F0RDFRaGl2R091QW00dHNNZWFhSHYzX1BkNkxzd2hBcU9VQWVsaGtvcXg0d1FGSXc?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Palo Alto inks $4.5 billion deal for AI startup Applied Compute, shares pop 7% on earnings",
+       "source": "CNBC",
+       "date": "2026-11-18",
+       "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPb29LX2twdWJnUUNJU1RDcGtFektCNmV2NkdIbWVfak5KMDNnTDNCWHQtNWgzWHpVbWRfeHBmd09XWTJJcmdHaGl2V05lZVBlamlPTjRBU2VudXM4Q3Q0bThCVnJXWTFoVDFzYkVacjN5VXFQQjFaQ1pDU3RyWDFKeGF2MF_SAYoBQVVfeXFMTUJWbFM5R3ZJYXFiZWc2Wm9GdER6aldoWFRmdXZOZzRkMHVOSFNKOUtSUjlWaVE2dHhSZ1pqQ05WQTB4ZER4YTFVeGVLQWhvREhmOHRhQ0lqSk45UTBsdDFvV01NNDdRNUJnWXBDNDg3dlkwaUZXNTBOdWZDbXRfdUNySjdBZTZnNThB?oc=5",
+       "tags": [
+        "財報",
+        "合約／訂單"
+       ]
+      },
+      {
+       "title": "Palo Alto Networks to Acquire Applied Compute, Bringing Secure Open-Weight AI to the Enterprise",
+       "source": "Palo Alto Networks",
+       "date": "2026-11-18",
+       "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNLUNhSUl0LTdkVEUwSFAtVjZEZ0ZjYjI2dnBuRGJ0TWR0TXoyMzVPZEJVSFU3NmF3RlU4eHJYN0FQTmxOUHZoWk8tSDlUazRJdzBxS0dHeXduajBIU3piY2JLb1gyVC02YWlUTEhFQXJhb3A2eGFKSWdkZDVzUVpUTkc0TkRWdTFqcWZqVDBmd3BSdnozZEtYdm1rN01GTzVrbmJYekpPTjhkaURkUjFDb2hoS0pVRW9Tc2NWbjhhbnVKN2E4Z2lHWmRsOGNEWFdORDRLU2JCenNJZ3hoRUc2TQ?oc=5",
+       "tags": [
+        "併購"
+       ]
+      },
+      {
+       "title": "Cybersecurity Stocks Rally On Palo Alto Earnings Beat, Raised Guidance",
+       "source": "Investor's Business Daily",
+       "date": "2026-11-19",
+       "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOX19aUDFOZDBzZUhoQWZldUVFMFMyTDdHNjN0V0JmRDNHWEprWXIxdjB0cmV5MlVUTG1mZ3QxVmNkaGU3ZDYzTzJwTXUxVXlFaWcyUkRjY2QxamI2WU5lX2JvbzhVX1RRTTdHQkhrUkZpU2ludHNpU3h1bWU0NnJnejFMLVFDclBGQTJmbzVvaUFORWtXUUpFSA?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Palo Alto Networks Stock Rises After Earnings Beat",
+       "source": "Barron's",
+       "date": "2026-11-19",
+       "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQLXFmbU9PMVIwRnE2T0lYVDZKc0hwRkp0NjFwNjVFZ09YTWNVWGVNdmVBREpVYm50LTJhM0M3ekJPSG5kYWI2czdYRmszTmJlZE83d3BrTFBBVjllby1vU1l1VnNDdWliMHVZQXFuU0Y3VW5QajVxdnVpUUJ6SWRiNVVhUURuMW9f?oc=5",
+       "tags": [
+        "財報"
+       ]
+      },
+      {
+       "title": "Palo Alto Networks Inc Stock Price Today | NASDAQ: PANW Live",
+       "source": "Investing.com",
+       "date": "2026-11-18",
+       "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5CUzEwU09mVnhxUGhJS3V6bDRwLVd5VUxBX3NsaWg0bE1aeEJ0Um1OTEhhZFlrQlUzQng0bDFMdGczT282MnFoTnJqS1VHUDNrM3g3US0ycjdPMmcxa2pHZA?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Palo Alto Networks Acquires Applied Compute for US$4.5bn",
+       "source": "Cyber Magazine",
+       "date": "2026-11-19",
+       "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOcmlTa21vUFZZMlNKeVlDVzBuelNweHViOERPRnRLeTVmck11ZnBoMThKYk9nMzBQWk00UE0wYkdCODZMdnlMQndRWGZSVldiRmU1TW8tSkdXMFd5cjNfMkdKNm10NE5aZWhwQlRDMXUxRW5JZW1GTnJrUm1tdHk0ZkF2Y0JKN2p5RVJHRm9kS2M?oc=5",
+       "tags": [
+        "併購"
+       ]
+      },
+      {
+       "title": "Why Palo Alto Networks Stock Rallied Today",
+       "source": "The Motley Fool",
+       "date": "2026-11-19",
+       "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOcGlmcW5jRzJwanF4eHVlQW9XSGc1WXBwbEFnZWFiTEdoRXI1TWZfbU9KVm5oZDdlNENOVkduNDhOSXdLakVkSFM0cTItN2JNc1hhY3NNWXRqdWZWaWNUbG51eHZXR3ZJcFBVNUlIM2pydmhkRDhBeGVfdFNCZ1pVVlF1UkNndlViWWliVG1B?oc=5",
+       "tags": []
+      }
+     ]
+    }
+   },
+   "snapshots": [
+    {
+     "date": "2026-11-21",
+     "name": "Palo Alto Networks, Inc.",
+     "type": "EQUITY",
+     "short_pct_float": 0.0254,
+     "short_chg": -0.0455,
+     "inst_pct": 0.8419,
+     "inst_top_up": 8,
+     "inst_top_down": 2
+    }
+   ],
+   "name": "Palo Alto Networks, Inc."
   },
   "FTNT@2026-W06": {
    "key": "FTNT@2026-W06",
