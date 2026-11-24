@@ -11,7 +11,8 @@
   "SNOW": "Snowflake Inc.",
   "BSY": "Bentley Systems, Incorporated",
   "ETN": "Eaton Corporation, PLC",
-  "PANW": "Palo Alto Networks, Inc."
+  "PANW": "Palo Alto Networks, Inc.",
+  "ZS": "Zscaler, Inc."
  },
  "episodes": {
   "AAPL@2026-W26": {
@@ -578,9 +579,9 @@
    "at_start": {
     "t": "AMAT",
     "sec": "半導體",
-    "rel": 2.17,
-    "peers": -4.13,
-    "rv": 1.59,
+    "rel": 2.19,
+    "peers": -4.38,
+    "rv": 1.62,
     "clv": -0.399,
     "ret": -1.08,
     "peers_ret": -2.82
@@ -2618,7 +2619,7 @@
     "t": "NTLA",
     "sec": "長壽",
     "rel": 10.56,
-    "peers": -24.33,
+    "peers": -24.34,
     "rv": 1.97,
     "clv": -0.228,
     "ret": 3.09,
@@ -2727,6 +2728,16 @@
      "short_pct_float": 0.398,
      "short_chg": -0.0166,
      "inst_pct": 0.9318,
+     "inst_top_up": 4,
+     "inst_top_down": 5
+    },
+    {
+     "date": "2026-11-24",
+     "name": "Intellia Therapeutics, Inc.",
+     "type": "EQUITY",
+     "short_pct_float": 0.398,
+     "short_chg": -0.0166,
+     "inst_pct": 0.9319,
      "inst_top_up": 4,
      "inst_top_down": 5
     }
@@ -3274,8 +3285,8 @@
    "at_start": {
     "t": "PANW",
     "sec": "資安",
-    "rel": 32.33,
-    "peers": -1.67,
+    "rel": 32.31,
+    "peers": -1.73,
     "rv": 1.86,
     "clv": 0.127,
     "ret": 6.54,
@@ -3386,6 +3397,16 @@
      "short_pct_float": 0.0254,
      "short_chg": -0.0455,
      "inst_pct": 0.8419,
+     "inst_top_up": 8,
+     "inst_top_down": 2
+    },
+    {
+     "date": "2026-11-24",
+     "name": "Palo Alto Networks, Inc.",
+     "type": "EQUITY",
+     "short_pct_float": 0.0254,
+     "short_chg": -0.0455,
+     "inst_pct": 0.8421,
      "inst_top_up": 8,
      "inst_top_down": 2
     }
