@@ -3321,17 +3321,408 @@
         "note": ""
       }
     ],
-    "records": [],
-    "current": null,
-    "last_scored": null,
-    "history": [],
+    "records": [
+      {
+        "week": "2026-W47",
+        "created_at": "2026-11-22T09:31:18Z",
+        "items": [
+          {
+            "id": "direction",
+            "call": "空",
+            "confidence": 3,
+            "rationale": "",
+            "actual": "多",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "open_style",
+            "call": "開低走高",
+            "confidence": 3,
+            "rationale": "",
+            "actual": "開高走高",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "flow",
+            "call": "Risk-off",
+            "confidence": 4,
+            "rationale": "",
+            "actual": "Risk-on",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "leader",
+            "call": "同步",
+            "confidence": 3,
+            "rationale": "",
+            "actual": "領先大盤",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "breadth",
+            "call": "廣度惡化",
+            "confidence": 4,
+            "rationale": "",
+            "actual": "廣度惡化",
+            "verdict": "correct",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "vol",
+            "call": "上升",
+            "confidence": 3,
+            "rationale": "",
+            "actual": "下降",
+            "verdict": "wrong",
+            "auto": true,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "divergence",
+            "call": null,
+            "confidence": null,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": null,
+            "note": ""
+          },
+          {
+            "id": "intent",
+            "call": null,
+            "confidence": null,
+            "rationale": "",
+            "actual": null,
+            "verdict": null,
+            "auto": false,
+            "error_type": null,
+            "note": ""
+          }
+        ],
+        "hypothesis": "",
+        "scored_at": "2026-11-24T06:49:57+00:00",
+        "metrics": {
+          "spx_d": 0.04728818180899608,
+          "spx_gap": 0.04587584973629011,
+          "spx_intraday": 0.0013503821443647812,
+          "breadth": -0.013253705063248633,
+          "mega_rel": 0.04250967226428903,
+          "risk_app": 0.06166864168521069,
+          "vix_chg": -0.25828918105495247,
+          "gold": 0.03868692148205599,
+          "dxy": 0.004912842194631617,
+          "hyg": 0.002489123640167623,
+          "tlt": 0.002946660554408398,
+          "monday": "2026-11-23",
+          "probe_date": "2026-11-23"
+        }
+      }
+    ],
+    "current": {
+      "week": "2026-W47",
+      "created_at": "2026-11-22T09:31:18Z",
+      "items": [
+        {
+          "id": "direction",
+          "call": "空",
+          "confidence": 3,
+          "rationale": "",
+          "actual": "多",
+          "verdict": "wrong",
+          "auto": true,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "open_style",
+          "call": "開低走高",
+          "confidence": 3,
+          "rationale": "",
+          "actual": "開高走高",
+          "verdict": "wrong",
+          "auto": true,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "flow",
+          "call": "Risk-off",
+          "confidence": 4,
+          "rationale": "",
+          "actual": "Risk-on",
+          "verdict": "wrong",
+          "auto": true,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "leader",
+          "call": "同步",
+          "confidence": 3,
+          "rationale": "",
+          "actual": "領先大盤",
+          "verdict": "wrong",
+          "auto": true,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "breadth",
+          "call": "廣度惡化",
+          "confidence": 4,
+          "rationale": "",
+          "actual": "廣度惡化",
+          "verdict": "correct",
+          "auto": true,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "vol",
+          "call": "上升",
+          "confidence": 3,
+          "rationale": "",
+          "actual": "下降",
+          "verdict": "wrong",
+          "auto": true,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "divergence",
+          "call": null,
+          "confidence": null,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": false,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "intent",
+          "call": null,
+          "confidence": null,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": false,
+          "error_type": null,
+          "note": ""
+        }
+      ],
+      "hypothesis": "",
+      "scored_at": "2026-11-24T06:49:57+00:00",
+      "metrics": {
+        "spx_d": 0.04728818180899608,
+        "spx_gap": 0.04587584973629011,
+        "spx_intraday": 0.0013503821443647812,
+        "breadth": -0.013253705063248633,
+        "mega_rel": 0.04250967226428903,
+        "risk_app": 0.06166864168521069,
+        "vix_chg": -0.25828918105495247,
+        "gold": 0.03868692148205599,
+        "dxy": 0.004912842194631617,
+        "hyg": 0.002489123640167623,
+        "tlt": 0.002946660554408398,
+        "monday": "2026-11-23",
+        "probe_date": "2026-11-23"
+      }
+    },
+    "last_scored": {
+      "week": "2026-W47",
+      "created_at": "2026-11-22T09:31:18Z",
+      "items": [
+        {
+          "id": "direction",
+          "call": "空",
+          "confidence": 3,
+          "rationale": "",
+          "actual": "多",
+          "verdict": "wrong",
+          "auto": true,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "open_style",
+          "call": "開低走高",
+          "confidence": 3,
+          "rationale": "",
+          "actual": "開高走高",
+          "verdict": "wrong",
+          "auto": true,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "flow",
+          "call": "Risk-off",
+          "confidence": 4,
+          "rationale": "",
+          "actual": "Risk-on",
+          "verdict": "wrong",
+          "auto": true,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "leader",
+          "call": "同步",
+          "confidence": 3,
+          "rationale": "",
+          "actual": "領先大盤",
+          "verdict": "wrong",
+          "auto": true,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "breadth",
+          "call": "廣度惡化",
+          "confidence": 4,
+          "rationale": "",
+          "actual": "廣度惡化",
+          "verdict": "correct",
+          "auto": true,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "vol",
+          "call": "上升",
+          "confidence": 3,
+          "rationale": "",
+          "actual": "下降",
+          "verdict": "wrong",
+          "auto": true,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "divergence",
+          "call": null,
+          "confidence": null,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": false,
+          "error_type": null,
+          "note": ""
+        },
+        {
+          "id": "intent",
+          "call": null,
+          "confidence": null,
+          "rationale": "",
+          "actual": null,
+          "verdict": null,
+          "auto": false,
+          "error_type": null,
+          "note": ""
+        }
+      ],
+      "hypothesis": "",
+      "scored_at": "2026-11-24T06:49:57+00:00",
+      "metrics": {
+        "spx_d": 0.04728818180899608,
+        "spx_gap": 0.04587584973629011,
+        "spx_intraday": 0.0013503821443647812,
+        "breadth": -0.013253705063248633,
+        "mega_rel": 0.04250967226428903,
+        "risk_app": 0.06166864168521069,
+        "vix_chg": -0.25828918105495247,
+        "gold": 0.03868692148205599,
+        "dxy": 0.004912842194631617,
+        "hyg": 0.002489123640167623,
+        "tlt": 0.002946660554408398,
+        "monday": "2026-11-23",
+        "probe_date": "2026-11-23"
+      }
+    },
+    "history": [
+      {
+        "week": "2026-W47",
+        "scored_at": "2026-11-24T06:49:57+00:00",
+        "hit": 1,
+        "n": 6
+      }
+    ],
     "stats": {
-      "weeks_scored": 0,
-      "n": 0,
-      "hit": 0,
-      "rate": null,
-      "per_slot": {},
-      "per_confidence": {},
+      "weeks_scored": 1,
+      "n": 6,
+      "hit": 1,
+      "rate": 0.1667,
+      "per_slot": {
+        "direction": {
+          "label": "整體方向",
+          "n": 1,
+          "hit": 0,
+          "rate": 0.0
+        },
+        "open_style": {
+          "label": "早盤手法",
+          "n": 1,
+          "hit": 0,
+          "rate": 0.0
+        },
+        "flow": {
+          "label": "資金流向",
+          "n": 1,
+          "hit": 0,
+          "rate": 0.0
+        },
+        "leader": {
+          "label": "龍頭股表現",
+          "n": 1,
+          "hit": 0,
+          "rate": 0.0
+        },
+        "breadth": {
+          "label": "市場廣度",
+          "n": 1,
+          "hit": 1,
+          "rate": 1.0
+        },
+        "vol": {
+          "label": "波動度",
+          "n": 1,
+          "hit": 0,
+          "rate": 0.0
+        }
+      },
+      "per_confidence": {
+        "3": {
+          "n": 4,
+          "hit": 0,
+          "rate": 0.0,
+          "stated": 0.6,
+          "gap": -0.6
+        },
+        "4": {
+          "n": 2,
+          "hit": 1,
+          "rate": 0.5,
+          "stated": 0.8,
+          "gap": -0.3
+        }
+      },
       "per_error": {},
       "lucky_calls": 0,
       "unlucky_calls": 0
@@ -3347,5 +3738,8 @@
     "equity_up": 0.005,
     "stale_days": 10,
     "reserve_gap": 25000
-  }
+  },
+  "graded_at": "2026-11-24T06:49:57+00:00",
+  "monday_as_of": "2026-11-23",
+  "graded_probe_date": "2026-11-23"
 }
