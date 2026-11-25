@@ -579,9 +579,9 @@
    "at_start": {
     "t": "AMAT",
     "sec": "半導體",
-    "rel": 2.19,
-    "peers": -4.38,
-    "rv": 1.62,
+    "rel": 2.21,
+    "peers": -4.47,
+    "rv": 1.65,
     "clv": -0.399,
     "ret": -1.08,
     "peers_ret": -2.82
@@ -1842,6 +1842,67 @@
    "backfill": true,
    "news": {
     "2026-W31": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "VST@2025-W50": {
+   "key": "VST@2025-W50",
+   "t": "VST",
+   "sec": "未來能源",
+   "start": "2025-W50",
+   "start_date": "2025-12-12",
+   "weeks": [
+    "2025-W50"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "VST",
+    "sec": "未來能源",
+    "rel": 6.28,
+    "peers": -7.92,
+    "rv": 1.67,
+    "clv": 0.136,
+    "ret": 1.75,
+    "peers_ret": -8.09
+   },
+   "perf": {
+    "1": {
+     "ret": -4.16,
+     "peers": -2.7,
+     "excess": -1.46
+    },
+    "2": {
+     "ret": -4.82,
+     "peers": -1.39,
+     "excess": -3.44
+    },
+    "4": {
+     "ret": -2.06,
+     "peers": 12.1,
+     "excess": -14.16
+    },
+    "8": {
+     "ret": -11.9,
+     "peers": 11.48,
+     "excess": -23.38
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2025-W52",
+    "date": "2025-12-26",
+    "ret": -4.82,
+    "excess": -3.44
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-25",
+   "backfill": true,
+   "news": {
+    "2025-W50": {
      "status": "未查（回溯）"
     }
    },
