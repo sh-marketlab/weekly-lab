@@ -579,9 +579,9 @@
    "at_start": {
     "t": "AMAT",
     "sec": "半導體",
-    "rel": 2.21,
-    "peers": -4.47,
-    "rv": 1.65,
+    "rel": 2.23,
+    "peers": -4.66,
+    "rv": 1.68,
     "clv": -0.399,
     "ret": -1.08,
     "peers_ret": -2.82
@@ -1700,7 +1700,7 @@
     "4": {
      "ret": -15.51,
      "peers": -3.5,
-     "excess": -12.01
+     "excess": -12.02
     },
     "8": {
      "ret": -10.61,
@@ -1862,9 +1862,9 @@
    "at_start": {
     "t": "VST",
     "sec": "未來能源",
-    "rel": 6.28,
-    "peers": -7.92,
-    "rv": 1.67,
+    "rel": 5.98,
+    "peers": -6.44,
+    "rv": 1.65,
     "clv": 0.136,
     "ret": 1.75,
     "peers_ret": -8.09
@@ -3651,6 +3651,67 @@
    "backfill": true,
    "news": {
     "2026-W05": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "AMT@2025-W50": {
+   "key": "AMT@2025-W50",
+   "t": "AMT",
+   "sec": "資料中心",
+   "start": "2025-W50",
+   "start_date": "2025-12-12",
+   "weeks": [
+    "2025-W50"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "AMT",
+    "sec": "資料中心",
+    "rel": 0.24,
+    "peers": -2.93,
+    "rv": 1.64,
+    "clv": -0.166,
+    "ret": 1.03,
+    "peers_ret": -2.78
+   },
+   "perf": {
+    "1": {
+     "ret": -4.59,
+     "peers": -0.25,
+     "excess": -4.34
+    },
+    "2": {
+     "ret": -2.37,
+     "peers": 1.72,
+     "excess": -4.09
+    },
+    "4": {
+     "ret": -5.84,
+     "peers": 5.35,
+     "excess": -11.19
+    },
+    "8": {
+     "ret": -4.3,
+     "peers": 12.82,
+     "excess": -17.12
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W11",
+    "date": "2026-03-13",
+    "ret": 3.05,
+    "excess": -21.26
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-26",
+   "backfill": true,
+   "news": {
+    "2025-W50": {
      "status": "未查（回溯）"
     }
    },
