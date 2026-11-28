@@ -240,3 +240,23 @@ indicators:
       財政部現金管理帳戶（TT&L）異動、外國央行 FIMA 部位重配、
       Fed 資本重估。用的是 Wednesday Level 版本（WRBWFRBL），
       不是常見的 WRESBAL（Week Average），因為要跟另外三條同時點才可比。
+
+  - id: 19
+    name: MMF 貨幣基金總資產
+    axis: liquidity
+    # 不在這裡手填：直接讀 liquidity-dashboard 的 mmf_manual.json，只要在那邊更新一次
+    source:
+      type: remote_json
+      field: total
+      sub_fields: {retail: 零售, institutional: 機構}
+      urls:
+        - https://raw.githubusercontent.com/sh-marketlab/liquidity-dashboard/main/docs/mmf_manual.json
+        - https://sh-marketlab.github.io/liquidity-dashboard/mmf_manual.json
+    unit: 十億美元
+    freq: weekly
+    up_bias: risk_off
+    up_label: 增加（資金停泊現金／T-bill）
+    down_label: 減少（資金流出，可能回流風險資產）
+    note: 與 RRP、淨流動性一起看；機構型大減＝資金流回風險資產
+    manual_url: https://www.ici.org/research/stats/mmf
+    release: ICI 每週四公布，資料日為當週二／三；同步自 liquidity-dashboard
