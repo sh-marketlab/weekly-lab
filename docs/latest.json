@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T04:19:33+00:00",
+  "generated_at": "2026-11-28T05:00:44+00:00",
   "iso_week": "2026-W48",
   "stage": "fri",
   "as_of": "2026-11-27",
@@ -144,12 +144,12 @@
       "axis": "fx",
       "unit": "index",
       "freq": "daily",
-      "curr": 104.01000213623047,
+      "curr": 104.01399993896484,
       "prev": 103.80999755859375,
       "curr_date": "2026-11-27",
       "prev_date": "2026-11-20",
-      "delta": 0.20000457763671875,
-      "delta_pct": 0.0019266408085967792,
+      "delta": 0.20400238037109375,
+      "delta_pct": 0.0019651515766190837,
       "up_bias": "tighten",
       "verdict": "上升（全球抽水/資金回流）",
       "note": "全球美元流動性總閥門",
@@ -239,12 +239,12 @@
       "axis": "sentiment",
       "unit": "index",
       "freq": "daily",
-      "curr": 95.30000305175781,
+      "curr": 95.29519653320312,
       "prev": 106.30999755859375,
       "curr_date": "2026-11-27",
       "prev_date": "2026-11-20",
-      "delta": -11.009994506835938,
-      "delta_pct": -0.1035649963284749,
+      "delta": -11.014801025390625,
+      "delta_pct": -0.10361020861955823,
       "up_bias": "risk_off",
       "verdict": "下降（債市穩定）",
       "note": "美債波動度，金融體系底層資產穩定度",
@@ -346,6 +346,26 @@
       "source": "FRED:WRBWFRBL",
       "stale": false,
       "manual_url": null
+    },
+    {
+      "id": 19,
+      "name": "MMF 貨幣基金總資產",
+      "axis": "liquidity",
+      "unit": "十億美元",
+      "freq": "weekly",
+      "curr": 7978.93,
+      "prev": 7976.44,
+      "curr_date": "2026-11-24",
+      "prev_date": "2026-11-18",
+      "delta": 2.490000000000691,
+      "delta_pct": 0.00031216933870256545,
+      "up_bias": "risk_off",
+      "verdict": "增加（資金停泊現金／T-bill）",
+      "note": "與 RRP、淨流動性一起看；機構型大減＝資金流回風險資產",
+      "source": "liquidity-dashboard（ICI 手動）",
+      "stale": false,
+      "manual_url": "https://www.ici.org/research/stats/mmf",
+      "sub": "零售 3,111.63（-0.74）｜機構 4,867.31（+3.24）"
     }
   ],
   "blood": {
@@ -794,16 +814,16 @@
       "chg_w": 0.051763,
       "members_ok": 2,
       "members_total": 4,
-      "base": 79826300806.49532,
+      "base": 79824791236.91893,
       "base_kind": "成分股市值和",
       "base_of": "4/4 檔",
       "base_parts": {
         "AVB": 26283393069.78,
-        "EQR": 23868961019.728024,
+        "EQR": 23867451450.15164,
         "MAA": 13628042112.601768,
         "INVH": 16045904604.38552
       },
-      "value_delta": 3928688125.2208123,
+      "value_delta": 3928613831.0595016,
       "net_flow": -27216255.943357468,
       "flow_note": null,
       "note": null
@@ -938,7 +958,7 @@
         "DX-Y.NYB"
       ],
       "is_basket": false,
-      "chg_w": 0.001059,
+      "chg_w": 0.001097,
       "members_ok": 1,
       "members_total": 1,
       "base": 481364192.0,
@@ -947,7 +967,7 @@
       "base_parts": {
         "UUP": 481364192.0
       },
-      "value_delta": 509225.4096192133,
+      "value_delta": 527477.8753946921,
       "net_flow": null,
       "flow_note": "來源規模未更新",
       "note": "方向相反，正值代表美元升"
@@ -2622,7 +2642,7 @@
       "truth": "全球法幣信任危機，資金進行逃命式搶購",
       "hit": false,
       "evidence": {
-        "DXY %": 0.001059,
+        "DXY %": 0.001097,
         "BTC %": 0.006667,
         "NDX %": 0.007894
       }
