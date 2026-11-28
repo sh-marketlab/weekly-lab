@@ -29,13 +29,13 @@ def anchor_date(stage: str, ref: datetime | None = None) -> date:
     """
     決定這次快照的『資料截止日』。
 
-    stage='thu' → 台灣週五 07:00 跑，抓的是美股週四收盤 → anchor = 週四
-    stage='fri' → 台灣週六 07:00 跑，抓的是美股週五收盤 → anchor = 週五
-    stage='mon' → 台灣週二 07:00 跑，抓的是美股週一收盤 → anchor = 週一
+    stage='thu' → 台灣週五 08:23 跑，抓的是美股週四收盤 → anchor = 週四
+    stage='fri' → 台灣週六 08:23 跑，抓的是美股週五收盤 → anchor = 週五
+    stage='mon' → 台灣週二 08:23 跑，抓的是美股週一收盤 → anchor = 週一
     """
     ref = ref or now_tw()
     d = ref.date()
-    # 台灣早上 7 點時，美股「昨天」才剛收，所以往回推一天
+    # 台灣早上跑的時候，美股「昨天」才剛收，所以往回推一天
     d = d - timedelta(days=1)
     want = {"thu": 3, "fri": 4, "mon": 0}[stage]  # Mon=0
     while d.weekday() != want:

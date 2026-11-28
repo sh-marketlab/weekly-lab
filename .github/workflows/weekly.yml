@@ -2,18 +2,19 @@ name: weekly-lab
 
 on:
   schedule:
-    # 台灣週五 07:00 = 週四 23:00 UTC → 抓美股週四收盤（Step 1 + 2）
-    # Fed H.4.1 於週四 16:30 ET 發布，這裡留了約 2.5 小時給 FRED 收錄。
-    - cron: "0 23 * * 4"
-    # 台灣週六 07:00 = 週五 23:00 UTC → 抓美股週五收盤（Step 3 完整週）
-    - cron: "0 23 * * 5"
-    # 台灣週二 07:00 = 週一 23:00 UTC → 抓美股週一收盤，自動批改上週的預測（Step 5）
-    - cron: "0 23 * * 1"
-    # 台灣週三 07:00 = 週二 23:00 UTC → 補跑用。
+    # 分鐘數避開 :00／:30（GitHub 排程最塞的時段），並排在量價資金流（台灣 07:47）之後。
+    # 台灣週五 08:23 = 週五 00:23 UTC → 抓美股週四收盤（Step 1 + 2）
+    # Fed H.4.1 於週四 16:30 ET 發布，這裡留了約 3.5 小時給 FRED 收錄。
+    - cron: "23 0 * * 5"
+    # 台灣週六 08:23 = 週六 00:23 UTC → 抓美股週五收盤（Step 3 完整週）
+    - cron: "23 0 * * 6"
+    # 台灣週二 08:23 = 週二 00:23 UTC → 抓美股週一收盤，自動批改上週的預測（Step 5）
+    - cron: "23 0 * * 2"
+    # 台灣週三 08:23 = 週三 00:23 UTC → 補跑用。
     # 週一遇美股假日（勞動節、馬丁路德金恩日、總統日、陣亡將士紀念日）時，
     # 前一趟會因為「目標交易日尚未收盤」而保留不批改，由這趟接手。
     # 平常週一已批改完，這趟會印「沒有待批改的預測」然後跳過，不影響任何資料。
-    - cron: "0 23 * * 2"
+    - cron: "23 0 * * 3"
   workflow_dispatch:
     inputs:
       stage:
@@ -49,9 +50,9 @@ jobs:
             # 23:00 UTC 那幾趟一旦延過午夜，date -u +%u 就會跳到隔天，
             # 週一那趟會被誤判成 fri，Step 5 的批改整週不會執行且靜默無錯誤。
             case "${{ github.event.schedule }}" in
-              "0 23 * * 1") echo "stage=mon" >> $GITHUB_OUTPUT ;;
-              "0 23 * * 2") echo "stage=mon" >> $GITHUB_OUTPUT ;;
-              "0 23 * * 4") echo "stage=thu" >> $GITHUB_OUTPUT ;;
+              "23 0 * * 2") echo "stage=mon" >> $GITHUB_OUTPUT ;;
+              "23 0 * * 3") echo "stage=mon" >> $GITHUB_OUTPUT ;;
+              "23 0 * * 5") echo "stage=thu" >> $GITHUB_OUTPUT ;;
               *)            echo "stage=fri" >> $GITHUB_OUTPUT ;;
             esac
           fi
@@ -69,5 +70,8 @@ jobs:
           git config user.name  "weekly-lab-bot"
           git config user.email "actions@github.com"
           git add data/weekly data/predictions.json docs/latest.json docs/index_weeks.json
-          git diff --staged --quiet || git commit -m "週快照 ${{ steps.s.outputs.stage }} $(date -u +%F)"
+          git diff --staged --quiet && exit 0
+          git commit -m "週快照 ${{ steps.s.outputs.stage }} $(date -u +%F)"
+          # 量價資金流可能剛推過（排程延遲時兩邊會撞在一起），推送前先同步
+          git pull --rebase origin main
           git push
