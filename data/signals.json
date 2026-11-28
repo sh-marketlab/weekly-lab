@@ -504,6 +504,67 @@
    "snapshots": [],
    "name": null
   },
+  "TSLA@2025-W50": {
+   "key": "TSLA@2025-W50",
+   "t": "TSLA",
+   "sec": "科技",
+   "start": "2025-W50",
+   "start_date": "2025-12-12",
+   "weeks": [
+    "2025-W50"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "TSLA",
+    "sec": "科技",
+    "rel": 4.1,
+    "peers": -1.46,
+    "rv": 1.52,
+    "clv": 0.224,
+    "ret": 0.87,
+    "peers_ret": -2.42
+   },
+   "perf": {
+    "1": {
+     "ret": 4.85,
+     "peers": 0.92,
+     "excess": 3.92
+    },
+    "2": {
+     "ret": 3.54,
+     "peers": 2.72,
+     "excess": 0.82
+    },
+    "4": {
+     "ret": -3.04,
+     "peers": 2.63,
+     "excess": -5.67
+    },
+    "8": {
+     "ret": -10.43,
+     "peers": -1.75,
+     "excess": -8.68
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W01",
+    "date": "2026-01-02",
+    "ret": -4.55,
+    "excess": -5.69
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-28",
+   "backfill": true,
+   "news": {
+    "2025-W50": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
   "META@2026-W05": {
    "key": "META@2026-W05",
    "t": "META",
@@ -579,9 +640,9 @@
    "at_start": {
     "t": "AMAT",
     "sec": "半導體",
-    "rel": 2.23,
+    "rel": 2.25,
     "peers": -4.66,
-    "rv": 1.68,
+    "rv": 1.72,
     "clv": -0.399,
     "ret": -1.08,
     "peers_ret": -2.82
@@ -1289,32 +1350,32 @@
     "t": "V",
     "sec": "金融",
     "rel": 18.67,
-    "peers": -0.37,
+    "peers": -0.76,
     "rv": 1.54,
     "clv": -0.501,
     "ret": 6.01,
-    "peers_ret": -0.45
+    "peers_ret": -0.53
    },
    "perf": {
     "1": {
      "ret": -2.82,
-     "peers": 2.43,
-     "excess": -5.24
+     "peers": 0.5,
+     "excess": -3.31
     },
     "2": {
      "ret": -0.49,
-     "peers": 2.44,
-     "excess": -2.93
+     "peers": 0.46,
+     "excess": -0.95
     },
     "4": {
      "ret": -0.3,
-     "peers": 3.07,
-     "excess": -3.38
+     "peers": 1.36,
+     "excess": -1.67
     },
     "8": {
      "ret": 2.71,
-     "peers": -4.67,
-     "excess": 7.38
+     "peers": -1.08,
+     "excess": 3.79
     }
    },
    "perf_confirm": null,
@@ -1322,7 +1383,7 @@
     "week": "2026-W22",
     "date": "2026-05-29",
     "ret": -0.3,
-    "excess": -3.38
+    "excess": -1.67
    },
    "status": "未確認",
    "first_seen": "2026-11-19",
@@ -1350,32 +1411,32 @@
     "t": "BLK",
     "sec": "金融",
     "rel": 16.11,
-    "peers": -6.9,
+    "peers": -6.0,
     "rv": 1.7,
     "clv": 0.413,
     "ret": 7.19,
-    "peers_ret": -2.59
+    "peers_ret": -2.16
    },
    "perf": {
     "1": {
      "ret": -2.86,
-     "peers": -4.92,
-     "excess": 2.07
+     "peers": -4.2,
+     "excess": 1.34
     },
     "2": {
      "ret": -3.8,
-     "peers": -6.51,
-     "excess": 2.71
+     "peers": -4.48,
+     "excess": 0.68
     },
     "4": {
      "ret": -7.88,
-     "peers": -10.72,
-     "excess": 2.84
+     "peers": -8.57,
+     "excess": 0.69
     },
     "8": {
      "ret": -20.11,
-     "peers": -2.48,
-     "excess": -17.63
+     "peers": -10.69,
+     "excess": -9.42
     }
    },
    "perf_confirm": null,
@@ -1383,7 +1444,7 @@
     "week": "2026-W05",
     "date": "2026-01-30",
     "ret": -3.8,
-    "excess": 2.71
+    "excess": 0.68
    },
    "status": "未確認",
    "first_seen": "2026-11-19",
@@ -1396,86 +1457,61 @@
    "snapshots": [],
    "name": null
   },
-  "CRCL@2026-W09": {
-   "key": "CRCL@2026-W09",
-   "t": "CRCL",
+  "COIN@2026-W34": {
+   "key": "COIN@2026-W34",
+   "t": "COIN",
    "sec": "金融",
-   "start": "2026-W09",
-   "start_date": "2026-02-27",
+   "start": "2026-W34",
+   "start_date": "2026-08-21",
    "weeks": [
-    "2026-W09",
-    "2026-W10"
+    "2026-W34"
    ],
-   "confirmed": "2026-W10",
-   "confirm_date": "2026-03-06",
+   "confirmed": null,
+   "confirm_date": null,
    "at_start": {
-    "t": "CRCL",
+    "t": "COIN",
     "sec": "金融",
-    "rel": 198.78,
-    "peers": -2.95,
-    "rv": 2.2,
-    "clv": 0.541,
-    "ret": 32.4,
-    "peers_ret": -1.65
+    "rel": 58.87,
+    "peers": -0.8,
+    "rv": 1.75,
+    "clv": 0.211,
+    "ret": 25.61,
+    "peers_ret": -0.6
    },
    "perf": {
     "1": {
-     "ret": 22.14,
-     "peers": -1.16,
-     "excess": 23.3
+     "ret": -4.21,
+     "peers": 1.63,
+     "excess": -5.84
     },
     "2": {
-     "ret": 38.28,
-     "peers": -3.68,
-     "excess": 41.96
+     "ret": -0.99,
+     "peers": 0.72,
+     "excess": -1.71
     },
     "4": {
-     "ret": 12.25,
-     "peers": -7.11,
-     "excess": 19.36
+     "ret": 4.16,
+     "peers": -3.81,
+     "excess": 7.97
     },
     "8": {
-     "ret": 19.44,
-     "peers": 4.41,
-     "excess": 15.03
+     "ret": -7.15,
+     "peers": -2.28,
+     "excess": -4.87
     }
    },
-   "perf_confirm": {
-    "1": {
-     "ret": 13.22,
-     "peers": -2.58,
-     "excess": 15.8
-    },
-    "2": {
-     "ret": 23.67,
-     "peers": -1.68,
-     "excess": 25.35
-    },
-    "4": {
-     "ret": -11.43,
-     "peers": -1.4,
-     "excess": -10.03
-    },
-    "8": {
-     "ret": -2.17,
-     "peers": 6.28,
-     "excess": -8.45
-    }
-   },
+   "perf_confirm": null,
    "exit": {
-    "week": "2026-W14",
-    "date": "2026-04-02",
-    "ret": -11.43,
-    "excess": -10.03
+    "week": "2026-W41",
+    "date": "2026-10-09",
+    "ret": -3.81,
+    "excess": 0.96
    },
-   "status": "已確認・出場訊號",
-   "first_seen": "2026-11-19",
+   "status": "未確認",
+   "first_seen": "2026-11-28",
    "backfill": true,
    "news": {
-    "2026-W09": {
-     "status": "未查（回溯）"
-    },
-    "2026-W10": {
+    "2026-W34": {
      "status": "未查（回溯）"
     }
    },
@@ -1700,7 +1736,7 @@
     "4": {
      "ret": -15.51,
      "peers": -3.5,
-     "excess": -12.01
+     "excess": -12.02
     },
     "8": {
      "ret": -10.61,
@@ -1842,67 +1878,6 @@
    "backfill": true,
    "news": {
     "2026-W31": {
-     "status": "未查（回溯）"
-    }
-   },
-   "snapshots": [],
-   "name": null
-  },
-  "VST@2025-W50": {
-   "key": "VST@2025-W50",
-   "t": "VST",
-   "sec": "未來能源",
-   "start": "2025-W50",
-   "start_date": "2025-12-12",
-   "weeks": [
-    "2025-W50"
-   ],
-   "confirmed": null,
-   "confirm_date": null,
-   "at_start": {
-    "t": "VST",
-    "sec": "未來能源",
-    "rel": 5.98,
-    "peers": -6.44,
-    "rv": 1.65,
-    "clv": 0.136,
-    "ret": 1.75,
-    "peers_ret": -8.09
-   },
-   "perf": {
-    "1": {
-     "ret": -4.16,
-     "peers": -2.7,
-     "excess": -1.46
-    },
-    "2": {
-     "ret": -4.82,
-     "peers": -1.39,
-     "excess": -3.44
-    },
-    "4": {
-     "ret": -2.06,
-     "peers": 12.1,
-     "excess": -14.16
-    },
-    "8": {
-     "ret": -11.9,
-     "peers": 11.48,
-     "excess": -23.38
-    }
-   },
-   "perf_confirm": null,
-   "exit": {
-    "week": "2025-W52",
-    "date": "2025-12-26",
-    "ret": -4.82,
-    "excess": -3.44
-   },
-   "status": "未確認",
-   "first_seen": "2026-11-25",
-   "backfill": true,
-   "news": {
-    "2025-W50": {
      "status": "未查（回溯）"
     }
    },
@@ -2152,6 +2127,67 @@
    "backfill": true,
    "news": {
     "2026-W07": {
+     "status": "未查（回溯）"
+    }
+   },
+   "snapshots": [],
+   "name": null
+  },
+  "PL@2025-W50": {
+   "key": "PL@2025-W50",
+   "t": "PL",
+   "sec": "太空",
+   "start": "2025-W50",
+   "start_date": "2025-12-12",
+   "weeks": [
+    "2025-W50"
+   ],
+   "confirmed": null,
+   "confirm_date": null,
+   "at_start": {
+    "t": "PL",
+    "sec": "太空",
+    "rel": 11.22,
+    "peers": -6.98,
+    "rv": 2.55,
+    "clv": 0.355,
+    "ret": 42.83,
+    "peers_ret": 8.6
+   },
+   "perf": {
+    "1": {
+     "ret": 5.15,
+     "peers": 2.7,
+     "excess": 2.45
+    },
+    "2": {
+     "ret": 6.14,
+     "peers": 1.8,
+     "excess": 4.34
+    },
+    "4": {
+     "ret": 24.51,
+     "peers": 27.33,
+     "excess": -2.83
+    },
+    "8": {
+     "ret": 22.04,
+     "peers": 20.81,
+     "excess": 1.23
+    }
+   },
+   "perf_confirm": null,
+   "exit": {
+    "week": "2026-W05",
+    "date": "2026-01-30",
+    "ret": 36.9,
+    "excess": 11.04
+   },
+   "status": "未確認",
+   "first_seen": "2026-11-28",
+   "backfill": true,
+   "news": {
+    "2025-W50": {
      "status": "未查（回溯）"
     }
    },
@@ -2687,14 +2723,18 @@
     "peers_ret": -13.9
    },
    "perf": {
-    "1": null,
+    "1": {
+     "ret": 3.2,
+     "peers": 6.0,
+     "excess": -2.8
+    },
     "2": null,
     "4": null,
     "8": null
    },
    "perf_confirm": null,
    "exit": null,
-   "status": "首次・等下週確認",
+   "status": "未確認",
    "first_seen": "2026-11-21",
    "backfill": false,
    "news": {
@@ -3354,14 +3394,18 @@
     "peers_ret": -2.43
    },
    "perf": {
-    "1": null,
+    "1": {
+     "ret": 6.83,
+     "peers": 9.38,
+     "excess": -2.55
+    },
     "2": null,
     "4": null,
     "8": null
    },
    "perf_confirm": null,
    "exit": null,
-   "status": "首次・等下週確認",
+   "status": "未確認",
    "first_seen": "2026-11-21",
    "backfill": false,
    "news": {
@@ -3657,66 +3701,133 @@
    "snapshots": [],
    "name": null
   },
-  "AMT@2025-W50": {
-   "key": "AMT@2025-W50",
-   "t": "AMT",
-   "sec": "資料中心",
-   "start": "2025-W50",
-   "start_date": "2025-12-12",
+  "ZS@2026-W48": {
+   "key": "ZS@2026-W48",
+   "t": "ZS",
+   "sec": "資安",
+   "start": "2026-W48",
+   "start_date": "2026-11-27",
    "weeks": [
-    "2025-W50"
+    "2026-W48"
    ],
    "confirmed": null,
    "confirm_date": null,
    "at_start": {
-    "t": "AMT",
-    "sec": "資料中心",
-    "rel": 0.24,
-    "peers": -2.93,
-    "rv": 1.64,
-    "clv": -0.166,
-    "ret": 1.03,
-    "peers_ret": -2.78
+    "t": "ZS",
+    "sec": "資安",
+    "rel": 148.98,
+    "peers": -4.85,
+    "rv": 3.09,
+    "clv": -0.036,
+    "ret": 22.93,
+    "peers_ret": 5.35
    },
    "perf": {
-    "1": {
-     "ret": -4.59,
-     "peers": -0.25,
-     "excess": -4.34
-    },
-    "2": {
-     "ret": -2.37,
-     "peers": 1.72,
-     "excess": -4.09
-    },
-    "4": {
-     "ret": -5.84,
-     "peers": 5.35,
-     "excess": -11.19
-    },
-    "8": {
-     "ret": -4.3,
-     "peers": 12.82,
-     "excess": -17.12
-    }
+    "1": null,
+    "2": null,
+    "4": null,
+    "8": null
    },
    "perf_confirm": null,
-   "exit": {
-    "week": "2026-W11",
-    "date": "2026-03-13",
-    "ret": 3.05,
-    "excess": -21.26
-   },
-   "status": "未確認",
-   "first_seen": "2026-11-26",
-   "backfill": true,
+   "exit": null,
+   "status": "首次・等下週確認",
+   "first_seen": "2026-11-28",
+   "backfill": false,
    "news": {
-    "2025-W50": {
-     "status": "未查（回溯）"
+    "2026-W48": {
+     "window": [
+      "2026-11-20",
+      "2026-11-28"
+     ],
+     "query": "\"Zscaler\" stock",
+     "checked": "2026-11-28",
+     "status": "有消息",
+     "tags": [
+      "合約／訂單",
+      "併購",
+      "財報"
+     ],
+     "earnings": "2026-11-23",
+     "headlines": [
+      {
+       "title": "Zscaler stock jumps 18% on report that CrowdStrike in talks to buy security vendor",
+       "source": "CNBC",
+       "date": "2026-11-20",
+       "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5xbG40b2dZUnJ5anJZeTMyRklTamZPSGJERV9WMURmc084Sm1hWkpzSGJlbllnUUN6X0NfZWt3SURiTVA2dzYySUxvS3ZGcXdaRU9ldjhJeWVrWmZKU3dSQU5xMHJ4MEZSbEx0alFn0gFzQVVfeXFMTkE5VXlxajNUVW9MczFVNnBSNGFnbGIxVVctMGlKc3lBei1xbkZ5R1VmME04eXhRU1duZlZYa0hoa1ZiVVV1WFpSUTlRSHM5SHQwUkQyZzZMNnF2TUtfRU5BN0ZaMFNtdVhMQVluZENNeVl0cw?oc=5",
+       "tags": []
+      },
+      {
+       "title": "CrowdStrike to Buy Zscaler in $44 Billion Stock Swap",
+       "source": "WSJ",
+       "date": "2026-11-23",
+       "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQc25MX1dwRE9Lc3haUV91TTdFS3ZhT2VUTXgxTHNPdWpmQXowdE1OVHJWMC16YjFFRTRldy1xWWxvRUpNT3JwenpwZTFvd3ZHSVB3SmtPQU9IT2JjSC1BSTZ6aVdCRHhWZzVHaHNiWEZsYXExR2xiZFRaX1VZMHJscktPVHpzeWZSRGJOZ1JOUXV3bV9tRDVmMUZNR2pvdw?oc=5",
+       "tags": []
+      },
+      {
+       "title": "CrowdStrike to Buy Zscaler in $44 Billion All-Stock Deal. Why They’re Better Off Together.",
+       "source": "Barron's",
+       "date": "2026-11-23",
+       "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOaVppLXM2NHdjbWhoSXE1aHhBemVBc1gxLWxUb2FtaVZXNm52cUpwTDhWN3Exd1F4Z1VLVC03Uk5OOHNsLVZjb0xXLU55U2dfcU01RkNvR29zajNzT2hLQjBrRlRnblJWdnllRkQ1T0d2TzdGcXJjTThPRExRUXp3NHBKdUIxMDBNbXc?oc=5",
+       "tags": [
+        "合約／訂單"
+       ]
+      },
+      {
+       "title": "CrowdStrike Stock Drops On Zscaler Acquisition",
+       "source": "Investor's Business Daily",
+       "date": "2026-11-23",
+       "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQZnl0SEJKbVBsTkxseWpsUTNZRzhkMm1yb2c0MGlBN1BGSW9ZU01GSllBS05ZSlEzX0xwOVFGRDVTTHFrb3RfRXhiRlFwaXhYTjM1S1MwbnhjaXNlaTZGd3V3RXJwTHBrSTNLR2NYNXkxZmIzQ3QwQzdQZWRja2hwTUNlNXc3SjZLR2Q0?oc=5",
+       "tags": [
+        "併購"
+       ]
+      },
+      {
+       "title": "CrowdStrike to acquire Zscaler in $43.9 billion all-stock deal to expand Zero Trust security and AI protection",
+       "source": "Industrial Cyber",
+       "date": "2026-11-24",
+       "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNX3EtcEoyT0ZPOFlTRV8tWlJDRjJGZ3VHQ0RQUlFSVjBIUVJUdUxIaDFWQy12YlpZaG1tcUo5X3djaFNQVjZMQmNhMktsbENlbmJQckJiWlplTTA4TGdVOE5jaHhnelpCaThlbVlFMWY3TXVpVVBRQnRwN1daU1BFTDdJOG1PcHlqNVR0dVJsYkFQaVBuRTVQbDJHY216Tmt0djV4Q0N6MExwWm1INDF3ZlI5cFNaSVgtckRpb3BnRkRMdGdMbC1aQ2ZzOXYwYTBxU0I2c0duS0FCdw?oc=5",
+       "tags": [
+        "合約／訂單",
+        "併購"
+       ]
+      },
+      {
+       "title": "What Sent Zscaler Stock Lower?",
+       "source": "Yahoo Finance",
+       "date": "2026-11-23",
+       "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxObEZyUHJCTlhqM1UwanZfWGpyX0dzTU5KUTVBUVZRS1JmZWFScUk0eVZyRTJKSW1sWFhRaVd4NTN5eDdONENoMExJZ1llbmxEOGdtaDJtNmhqVTdGaldodXMxYjlzZTBYcGJycF9DZ2ZOWnJRSmNpeERoNktNUGxpeGlMbFRiYUduWlhuSHA2UFpZRkU?oc=5",
+       "tags": []
+      },
+      {
+       "title": "Why Zscaler Stock Rocketed Higher Today",
+       "source": "The Motley Fool",
+       "date": "2026-11-23",
+       "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOSzZ2eG1Gcm5ldFlFSklpeGtuNUQ2a3FZd01TcWdRSlF0cWdsUVlGbFBaUW93MVBUeWdCWE1wQ1VLbFMyUU5ZTmVmTVo5eEotWWN0WTRETTJqeXpCWTFqMVR4MUJ5dUZvZG1Iem1FNWIwSEVxaEpkSWFUVUtfeWFUWllndHo0clhGUGc?oc=5",
+       "tags": []
+      },
+      {
+       "title": "How Much Could You Lose In Zscaler Stock?",
+       "source": "Trefis",
+       "date": "2026-11-23",
+       "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNR19VSkJ0VXlsQUE0RG0zUWU0WjhjWGxiRkJXTlQzTWZrY01zN3prUjZXSXZNWkdHdzljY0YyNGxnTk1IcXN5OE5iSTNEMERaV2EtM3YwSUUtQkJvSVBsc3BtdHE0SmVwNC1pMGJuTlRKY0xpMC1sMW5ESXhaZjExbTJNUENiSE51Qndfa2tESXNmcEJ2SGZQS3U3TnZZLUtp?oc=5",
+       "tags": []
+      }
+     ]
     }
    },
-   "snapshots": [],
-   "name": null
+   "snapshots": [
+    {
+     "date": "2026-11-28",
+     "name": "Zscaler, Inc.",
+     "type": "EQUITY",
+     "short_pct_float": 0.0482,
+     "short_chg": -0.1283,
+     "inst_pct": 0.547,
+     "inst_top_up": 7,
+     "inst_top_down": 3
+    }
+   ],
+   "name": "Zscaler, Inc."
   },
   "DLR@2026-W25": {
    "key": "DLR@2026-W25",
