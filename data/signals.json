@@ -1350,32 +1350,32 @@
     "t": "V",
     "sec": "金融",
     "rel": 18.67,
-    "peers": -0.76,
+    "peers": -0.37,
     "rv": 1.54,
     "clv": -0.501,
     "ret": 6.01,
-    "peers_ret": -0.53
+    "peers_ret": -0.45
    },
    "perf": {
     "1": {
      "ret": -2.82,
-     "peers": 0.5,
-     "excess": -3.31
+     "peers": 2.43,
+     "excess": -5.24
     },
     "2": {
      "ret": -0.49,
-     "peers": 0.46,
-     "excess": -0.95
+     "peers": 2.44,
+     "excess": -2.93
     },
     "4": {
      "ret": -0.3,
-     "peers": 1.36,
-     "excess": -1.67
+     "peers": 3.07,
+     "excess": -3.38
     },
     "8": {
      "ret": 2.71,
-     "peers": -1.08,
-     "excess": 3.79
+     "peers": -4.67,
+     "excess": 7.38
     }
    },
    "perf_confirm": null,
@@ -1383,7 +1383,7 @@
     "week": "2026-W22",
     "date": "2026-05-29",
     "ret": -0.3,
-    "excess": -1.67
+    "excess": -3.38
    },
    "status": "未確認",
    "first_seen": "2026-11-19",
@@ -1411,32 +1411,32 @@
     "t": "BLK",
     "sec": "金融",
     "rel": 16.11,
-    "peers": -6.0,
+    "peers": -6.9,
     "rv": 1.7,
     "clv": 0.413,
     "ret": 7.19,
-    "peers_ret": -2.16
+    "peers_ret": -2.59
    },
    "perf": {
     "1": {
      "ret": -2.86,
-     "peers": -4.2,
-     "excess": 1.34
+     "peers": -4.92,
+     "excess": 2.07
     },
     "2": {
      "ret": -3.8,
-     "peers": -4.48,
-     "excess": 0.68
+     "peers": -6.51,
+     "excess": 2.71
     },
     "4": {
      "ret": -7.88,
-     "peers": -8.57,
-     "excess": 0.69
+     "peers": -10.72,
+     "excess": 2.84
     },
     "8": {
      "ret": -20.11,
-     "peers": -10.69,
-     "excess": -9.42
+     "peers": -2.48,
+     "excess": -17.63
     }
    },
    "perf_confirm": null,
@@ -1444,7 +1444,7 @@
     "week": "2026-W05",
     "date": "2026-01-30",
     "ret": -3.8,
-    "excess": 0.68
+    "excess": 2.71
    },
    "status": "未確認",
    "first_seen": "2026-11-19",
@@ -1457,61 +1457,86 @@
    "snapshots": [],
    "name": null
   },
-  "COIN@2026-W34": {
-   "key": "COIN@2026-W34",
-   "t": "COIN",
+  "CRCL@2026-W09": {
+   "key": "CRCL@2026-W09",
+   "t": "CRCL",
    "sec": "金融",
-   "start": "2026-W34",
-   "start_date": "2026-08-21",
+   "start": "2026-W09",
+   "start_date": "2026-02-27",
    "weeks": [
-    "2026-W34"
+    "2026-W09",
+    "2026-W10"
    ],
-   "confirmed": null,
-   "confirm_date": null,
+   "confirmed": "2026-W10",
+   "confirm_date": "2026-03-06",
    "at_start": {
-    "t": "COIN",
+    "t": "CRCL",
     "sec": "金融",
-    "rel": 58.87,
-    "peers": -0.8,
-    "rv": 1.75,
-    "clv": 0.211,
-    "ret": 25.61,
-    "peers_ret": -0.6
+    "rel": 198.78,
+    "peers": -2.95,
+    "rv": 2.2,
+    "clv": 0.541,
+    "ret": 32.4,
+    "peers_ret": -1.65
    },
    "perf": {
     "1": {
-     "ret": -4.21,
-     "peers": 1.63,
-     "excess": -5.84
+     "ret": 22.14,
+     "peers": -1.16,
+     "excess": 23.3
     },
     "2": {
-     "ret": -0.99,
-     "peers": 0.72,
-     "excess": -1.71
+     "ret": 38.28,
+     "peers": -3.68,
+     "excess": 41.96
     },
     "4": {
-     "ret": 4.16,
-     "peers": -3.81,
-     "excess": 7.97
+     "ret": 12.25,
+     "peers": -7.11,
+     "excess": 19.36
     },
     "8": {
-     "ret": -7.15,
-     "peers": -2.28,
-     "excess": -4.87
+     "ret": 19.44,
+     "peers": 4.41,
+     "excess": 15.03
     }
    },
-   "perf_confirm": null,
-   "exit": {
-    "week": "2026-W41",
-    "date": "2026-10-09",
-    "ret": -3.81,
-    "excess": 0.96
+   "perf_confirm": {
+    "1": {
+     "ret": 13.22,
+     "peers": -2.58,
+     "excess": 15.8
+    },
+    "2": {
+     "ret": 23.67,
+     "peers": -1.68,
+     "excess": 25.35
+    },
+    "4": {
+     "ret": -11.43,
+     "peers": -1.4,
+     "excess": -10.03
+    },
+    "8": {
+     "ret": -2.17,
+     "peers": 6.28,
+     "excess": -8.45
+    }
    },
-   "status": "未確認",
+   "exit": {
+    "week": "2026-W14",
+    "date": "2026-04-02",
+    "ret": -11.43,
+    "excess": -10.03
+   },
+   "status": "已確認・出場訊號",
    "first_seen": "2026-11-28",
    "backfill": true,
    "news": {
-    "2026-W34": {
+    "2026-W09": {
+     "status": "未查（回溯）"
+    },
+    "2026-W10": {
      "status": "未查（回溯）"
     }
    },
@@ -1736,7 +1761,7 @@
     "4": {
      "ret": -15.51,
      "peers": -3.5,
-     "excess": -12.02
+     "excess": -12.01
     },
     "8": {
      "ret": -10.61,
