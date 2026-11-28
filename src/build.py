@@ -33,7 +33,7 @@ TH = {
 }
 
 
-# ── 第 1 項：17 項總體指標 ───────────────────────────────────────────
+# ── 第 1 項：總體指標（config/indicators.yaml） ───────────────────────────────────────────
 def manual_slots() -> list[dict]:
     """列出所有『可以/需要』手動填的指標，給儀表板的設定分頁用。"""
     cfg = yaml.safe_load((C.CONFIG / "indicators.yaml").read_text(encoding="utf-8"))
@@ -85,6 +85,9 @@ def build_macro(as_of: date) -> tuple[list[dict], dict, list[str]]:
         elif src["type"] == "manual":
             series = _manual_series(man, src["key"])
             origin = "手動"
+        elif src["type"] == "remote_json":
+            series, raw = S.remote_json(src["urls"], src["field"])
+            origin = "liquidity-dashboard（ICI 手動）"
         elif src["type"] == "derived":
             rows.append({"id": ind["id"], "name": ind["name"], "_defer": True})
             continue
@@ -95,6 +98,8 @@ def build_macro(as_of: date) -> tuple[list[dict], dict, list[str]]:
 
         delta = None if (curr is None or prev is None) else curr - prev
         rows.append(_row(ind, curr, prev, cd, pd_, delta, origin, as_of))
+        if src["type"] == "remote_json" and src.get("sub_fields") and cd in raw:
+            rows[-1]["sub"] = _sub_note(raw, cd, pd_, src["sub_fields"])
         if src["type"] == "fred":
             cache[src["series"]] = series
 
@@ -138,6 +143,22 @@ def _prefer_fresh(auto, auto_origin, manual, as_of):
     if m > a:
         return manual, f"手動（{auto_origin} 停在 {a}）"
     return auto, auto_origin
+
+
+def _sub_note(raw, cd, pd_, fields):
+    """分項（例：MMF 零售／機構）的本期值與週變動，顯示在指標名稱下方。"""
+    parts = []
+    for k, label in fields.items():
+        try:
+            v = float(raw[cd][k])
+        except (KeyError, TypeError, ValueError):
+            continue
+        try:
+            dv = v - float(raw[pd_][k])
+            parts.append(f"{label} {v:,.2f}（{dv:+,.2f}）")
+        except (KeyError, TypeError, ValueError):
+            parts.append(f"{label} {v:,.2f}")
+    return "｜".join(parts) or None
 
 
 def _manual_series(man: dict, key: str):

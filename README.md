@@ -29,6 +29,7 @@ docs/index.html          ← GitHub Pages 儀表板，只讀 docs/latest.json
 | 17 | Inflation Rate | TradingEconomics | FRED `CPIAUCSL` 自算 YoY | 自動 |
 | 11 | CNN Fear & Greed | CNN | CNN dataviz JSON（非官方） | 半自動 |
 | 13 | MOVE | Google 搜尋 | Yahoo `^MOVE`（不穩） | 半自動 |
+| 19 | MMF 貨幣基金總資產 | ICI | 讀 liquidity-dashboard 的 `mmf_manual.json` | 自動同步（只在 liquidity-dashboard 手填） |
 | 10 | 主權 CDS | worldgovernmentbonds | **無免費 API** | 手填 |
 | 14 | Manufacturing PMI | investing.com | **Cloudflare 擋** | 手填 |
 

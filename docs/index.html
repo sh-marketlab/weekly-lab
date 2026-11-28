@@ -560,13 +560,13 @@ function renderMacro(d){
     const mag = Math.min(Math.abs(r.delta_pct||0)/0.08, 1) * 46;
     const pos = (r.delta||0) > 0;
     // 十億美元的 RRP 只有個位數，四捨五入成 0 位會變成「1」看起來像壞掉
-    const dec = (r.unit==="%"||r.unit==="index") ? 2
+    const dec = (r.unit==="%"||r.unit==="index"||r.unit==="十億美元") ? 2
               : (r.curr!=null && Math.abs(r.curr) < 1000) ? 2 : 0;
     return `<div class="ind">
       <span class="n">${String(r.id).padStart(2,"0")}</span>
       <span class="nm">${esc(r.name)}${r.stale?'<span class="stale">舊值</span>':""}
         ${r.curr==null?'<span class="stale">待手填</span>':""}
-        <i>${esc(r.source)}${r.curr_date?" · "+r.curr_date:""}</i></span>
+        <i>${esc(r.source)}${r.curr_date?" · "+r.curr_date:""}</i>${r.sub?`<i>${esc(r.sub)}</i>`:""}</span>
       <span class="num">${num(r.curr,dec)}</span>
       <span class="num pv" style="color:var(--dim)">${num(r.prev,dec)}
         <i style="display:block;font-style:normal;font-size:9.5px">${r.prev_date||""}</i></span>

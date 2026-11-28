@@ -208,6 +208,32 @@ def cnn_fear_greed(days: int = 60):
         return []
 
 
+# ── 其他 repo 的 JSON（例：liquidity-dashboard 的 mmf_manual.json）─────
+def remote_json(urls: list[str], field: str, timeout: int = 20):
+    """
+    讀 [{"date": "YYYY-MM-DD", field: 數值, ...}, ...] 格式的 JSON。
+    依序試每個網址，第一個成功的就用。回傳 (序列, 原始列 dict[date→row])。
+    """
+    for url in urls:
+        try:
+            r = requests.get(url, headers={"User-Agent": UA}, timeout=timeout)
+            r.raise_for_status()
+            rows = {}
+            for x in r.json():
+                try:
+                    d = datetime.strptime(str(x["date"])[:10], "%Y-%m-%d").date()
+                    float(x[field])
+                    rows[d] = x
+                except (KeyError, TypeError, ValueError):
+                    continue
+            if rows:
+                ser = [(d, float(rows[d][field])) for d in sorted(rows)]
+                return ser, rows
+        except Exception as e:  # noqa: BLE001
+            print(f"  ! remote_json 失敗 {url}: {e}")
+    return [], {}
+
+
 # ── 手動輸入 ─────────────────────────────────────────────────────────
 def manual(path) -> dict:
     try:
